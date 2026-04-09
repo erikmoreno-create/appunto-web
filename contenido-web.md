@@ -15,33 +15,41 @@
 ## Hero
 
 **Eyebrow (texto pequeño sobre el headline):**
-Consultoría de negocio + tecnología
+Consultoría de negocio y tecnología · Querétaro, México
 
 **Headline:**
-Convertimos complejidad operativa en claridad de negocio.
+Tu operación tiene solución. Empieza por entenderla bien.
 
 **Subheadline:**
-Ayudamos a empresas con operación compleja, procesos desconectados o información dispersa a integrar negocio, datos y tecnología para operar con más claridad y tomar mejores decisiones.
+Ayudamos a empresas con procesos desconectados, información dispersa o
+fricción operativa a ordenar su operación y tomar mejores decisiones,
+usando tecnología con sentido de negocio.
 
-**`[CTA principal]`** Agenda un diagnóstico
-**`[CTA secundario]`** Conoce nuestras soluciones
+**`[CTA principal]`** Agenda un diagnóstico sin costo
+**`[CTA secundario]`** Ver nuestras soluciones
 
 ---
 
 ## Sección: El problema que resolvemos
 
 **Título de sección:**
-Muchas empresas crecen antes de formalizar su forma de operar.
+Hay un punto en que operar como siempre deja de funcionar.
 
 **Cuerpo:**
-Con esfuerzo, intuición y personas clave que sostienen la operación todos los días. Y durante un tiempo, eso funciona. Pero llega un momento en que eso deja de ser suficiente: la información está dispersa, los procesos no se conectan y decidir se vuelve más difícil de lo que debería.
+El negocio creció. Pero los procesos, las herramientas y la forma de
+decidir no evolucionaron al mismo ritmo. Y ahora hay más volumen,
+más fricción y menos visibilidad.
 
 **Cuatro señales de que es momento de actuar:**
 
-- Cada área reporta diferente y no hay una versión única de la verdad.
-- La operación depende de una o dos personas que saben demasiado.
-- Se pierde tiempo en retrabajo, doble captura y conciliaciones manuales.
-- Se toman decisiones importantes con información incompleta o tardía.
+- Cada área tiene su versión de los números y nunca coinciden.
+- La operación depende de personas que saben demasiado y no está documentada.
+- El retrabajo, la doble captura y las conciliaciones consumen tiempo que
+  debería ir al negocio.
+- Las decisiones importantes se toman con información incompleta o tardía.
+
+**Nota de tono bajo los bullets:**
+No es falta de esfuerzo. Es falta de estructura. Eso sí se puede resolver.
 
 ---
 
@@ -51,94 +59,103 @@ Con esfuerzo, intuición y personas clave que sostienen la operación todos los 
 No partimos de la herramienta. Partimos del negocio.
 
 **Cuerpo:**
-Appunto es una consultoría de negocio habilitada por tecnología. Antes de proponer cualquier solución, entendemos la operación, identificamos fricciones y traducimos necesidades reales en soluciones viables. La tecnología forma parte de la solución, pero nunca es el punto de partida.
+Antes de recomendar cualquier solución, entendemos cómo opera tu empresa,
+dónde están las fricciones y qué tiene sentido resolver primero.
+La tecnología es el medio. La claridad operativa es el objetivo.
 
 **Tres columnas / íconos:**
 
 **Entendemos primero**
-La herramienta es la segunda pregunta. El problema real del negocio siempre es la primera.
+La herramienta correcta depende del problema correcto. Empezamos con
+preguntas, no con demos.
 
 **Implementamos con criterio**
-Traducimos procesos y objetivos en soluciones bien ejecutadas, no solo instaladas.
+Configuramos, migramos, capacitamos y acompañamos. No entregamos sistemas
+instalados y nos vamos.
 
-**Acompañamos de verdad**
-Nos quedamos hasta que funciona. Somos el aliado que da seguimiento, anticipa riesgos y propone mejoras.
+**Acompañamos en serio**
+Tenemos project managers dedicados. Nos quedamos hasta que el equipo
+adopta la solución y genera valor real.
 
 ---
 
 ## Sección: Para quién es Appunto
 
 **Título de sección:**
-Hablamos con quienes dirigen y deciden.
+¿Cuál de estas situaciones describe la tuya?
 
 **Subtítulo:**
-Si te identificas con alguno de estos perfiles, podemos ayudarte.
+(sin subtítulo — eliminar el subtítulo existente)
 
 **Cuatro tarjetas de buyer persona:**
 
-**El Dueño Fundador de PyME**
-"Ya no me da la cabeza para coordinar todo."
-Tu empresa creció, pero los procesos no evolucionaron al mismo ritmo. Necesitas orden, control y una operación menos dependiente de ti.
+**Dueño o director de PyME**
+"La empresa creció pero ya no tengo control de lo que pasa."
+Tienes más volumen, más personas y más fricción, pero menos visibilidad.
+Necesitas una operación que no dependa de ti para funcionar.
 
-**El Director General**
-"Tengo datos por todos lados, pero ninguna lectura integrada del negocio."
-Cada área te reporta diferente. Necesitas certeza directiva, velocidad para decidir y confianza en los números.
+**Director General de empresa mediana**
+"Tengo datos por todos lados y ninguna lectura clara del negocio."
+Cada área reporta diferente. Necesitas una sola versión de la verdad
+para dirigir con más certeza y menos intuición.
 
-**El Director Comercial**
-"Se pierden oportunidades por falta de seguimiento."
-Tienes leads, vendedores y cotizaciones, pero sin trazabilidad real del pipeline. Necesitas disciplina comercial y visibilidad del proceso de ventas.
+**Director Comercial**
+"Se nos van oportunidades porque no hay seguimiento real."
+El equipo vende, pero sin trazabilidad del pipeline el forecast no
+es confiable y los cierres se pierden.
 
-**El Director de Administración y Finanzas**
-"El cierre de mes se convierte en un maratón de correcciones."
-Vives el costo del desorden: doble captura, conciliaciones tardías y errores que pegan en cobranza. Necesitas eficiencia, control y menos fricción operativa.
+**Director de Administración y Finanzas**
+"El cierre de mes es un maratón de correcciones y retrabajo."
+Doble captura, conciliaciones manuales y errores que llegan a cobranza.
+Necesitas procesos conectados y menos dependencia del criterio de cada quien.
 
-**`[CTA]`** Ver cómo aplica a mi caso
+**`[CTA]`** Agenda un diagnóstico para tu caso
 
 ---
 
 ## Sección: Nuestras soluciones
 
 **Título de sección:**
-Soluciones que conectan negocio y tecnología.
+Dos soluciones. Un mismo punto de partida: tu negocio.
 
 **Subtítulo:**
-No vendemos software. Resolvemos problemas operativos usando las herramientas correctas.
+(sin subtítulo — eliminar el subtítulo existente)
 
 **Dos tarjetas principales:**
 
-**Integración de procesos y ERP**
-Ordena tu operación, conecta áreas y reduce el retrabajo con una implementación de Odoo adaptada a la realidad de tu empresa.
-`[CTA]` Ver solución →
+**Odoo · Integración operativa y ERP**
+Para empresas que ya no pueden seguir con Excel y herramientas desconectadas.
+Ordenamos tu operación, conectamos áreas y reducimos el retrabajo con una
+implementación adaptada a tu realidad, no a un modelo genérico.
+`[CTA]` Ver solución Odoo →
 
-**Analítica e inteligencia de negocio**
-Convierte datos dispersos en visibilidad real. Dashboards accionables y una sola versión de la verdad para tomar mejores decisiones con Qlik.
-`[CTA]` Ver solución →
-
-**`[CTA general]`** Ver todas nuestras soluciones
+**Qlik · Analítica e inteligencia de negocio**
+Para empresas con muchos datos y poca visibilidad real.
+Integramos fuentes, construimos dashboards accionables y te damos
+una sola versión de la verdad para tomar decisiones con más velocidad
+y confianza.
+`[CTA]` Ver solución Qlik →
 
 ---
 
 ## Sección: Por qué Appunto
 
 **Título de sección:**
-Lo que nos diferencia no es un catálogo. Es una manera de resolver.
+Lo que nos diferencia no es el catálogo. Es cómo resolvemos.
 
-**Cinco diferenciadores (lista o tarjetas):**
+**Tres bloques:**
 
-**Entramos desde el negocio, no desde el software**
-La conversación empieza con la operación, el objetivo y el problema real, no con un demo de herramienta.
+**Negocio antes que herramienta**
+No llegamos con una propuesta lista antes de entender el problema.
+La conversación siempre empieza con la operación.
 
-**Conectamos negocio y tecnología**
-Hacemos el puente entre ambos mundos. Traducimos con criterio en ambas direcciones.
+**Implementación real, no instalación**
+Configuramos, acompañamos y nos quedamos hasta que el equipo usa la
+solución y genera valor. No desaparecemos después del go-live.
 
-**Integramos en vez de fragmentar**
-Nuestro valor está en cómo conectamos procesos, áreas e información en una lógica coherente de negocio.
-
-**Hablamos con claridad**
-Sin buzzwords innecesarios. Sin tecnicismos que oscurecen. Traducimos complejidad a lenguaje útil.
-
-**Buscamos soluciones viables**
-No prometemos magia. Recomendamos lo que sí hace sentido para la realidad concreta de cada empresa.
+**Alcance claro, sin sorpresas**
+Definimos el alcance antes de empezar y lo respetamos.
+Si algo no va a funcionar para tu empresa, te lo decimos antes, no después.
 
 ---
 
@@ -147,10 +164,12 @@ No prometemos magia. Recomendamos lo que sí hace sentido para la realidad concr
 **Título de sección:**
 Empresas que operan con más claridad.
 
-*(Espacio reservado para logos de clientes, testimoniales o casos de uso breves.)*
+*(Espacio reservado para logos de clientes y testimoniales reales.)*
 
 **Placeholder para testimonial:**
-> "Antes de Appunto teníamos datos en todos lados. Hoy tenemos una sola lectura del negocio y tomamos decisiones con mucha más rapidez y confianza."
+> "Antes de Appunto tomábamos decisiones con información que llegaba tarde
+> y nunca cuadraba entre áreas. Hoy tenemos visibilidad real y el cierre
+> de mes dejó de ser un problema."
 > — Director General, empresa mediana, sector distribución.
 
 ---
@@ -158,13 +177,18 @@ Empresas que operan con más claridad.
 ## Sección: CTA final de página
 
 **Título:**
-¿Listo para operar con más claridad?
+¿Tiene sentido conversar?
 
 **Cuerpo:**
-Agenda una sesión de diagnóstico sin costo. Analizamos tu situación, identificamos las fricciones más costosas y te mostramos cómo podría verse una solución adaptada a tu realidad.
+Una sesión de diagnóstico de 30 minutos, sin costo y sin compromiso.
+Te escuchamos, identificamos las fricciones más costosas de tu operación
+y te decimos con claridad si podemos ayudarte, y cómo.
 
-**`[CTA principal]`** Agenda un diagnóstico
-**`[CTA secundario]`** Hablar con un consultor
+**`[CTA principal]`** Agenda tu diagnóstico
+**`[CTA secundario]`** Escríbenos por WhatsApp
+
+**Microcopy bajo el CTA:**
+Respondemos en menos de 24 horas. Sin venta, sin presión.
 
 ---
 ---
@@ -712,8 +736,10 @@ Querétaro, México.
 ### Meta copy (SEO sugerido)
 
 **Página de inicio:**
-- *Title tag:* Appunto | Consultoría de negocio y tecnología · Claridad operativa
-- *Meta description:* Ayudamos a empresas con operación compleja a integrar procesos, datos y tecnología para operar con más claridad y tomar mejores decisiones. Odoo y Qlik.
+- *Title tag:* Appunto | Consultoría de negocio y tecnología · Querétaro
+- *Meta description:* Ayudamos a empresas con procesos desconectados o
+  información dispersa a ordenar su operación y tomar mejores decisiones.
+  Odoo y Qlik implementados con criterio de negocio.
 
 **Soluciones:**
 - *Title tag:* Soluciones | Appunto — ERP, BI y analítica para empresas mexicanas
