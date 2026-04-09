@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odoo ERP | Appunto — Integración operativa para empresas en crecimiento</title>
+    <meta name="description" content="Implementamos Odoo adaptado a tu operación. Conectamos ventas, compras, inventario y contabilidad para que tu empresa opere con orden, trazabilidad y menos retrabajo.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#991199', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden relative">
+
+    <div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[120px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[100px] pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300 border-b border-outline-variant/20">
+        <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+            <a href="../index.html" class="flex items-center">
+                <img src="../logos/Color logo - no background.svg" alt="Appunto Logo" class="h-14 w-auto">
+            </a>
+            <div class="hidden lg:flex items-center gap-8 font-medium">
+                <a href="../index.html" class="text-on-surface-variant hover:text-primary transition-colors">Inicio</a>
+                <a href="../soluciones.html" class="text-on-surface-variant hover:text-primary transition-colors">Soluciones</a>
+                <a href="index.html" class="text-primary border-b-2 border-primary pb-1">Odoo</a>
+                <a href="../qlik/index.html" class="text-on-surface-variant hover:text-primary transition-colors">Qlik</a>
+                <a href="../industrias.html" class="text-on-surface-variant hover:text-primary transition-colors">Industrias</a>
+                <a href="../nosotros.html" class="text-on-surface-variant hover:text-primary transition-colors">Nosotros</a>
+                <a href="../contacto.html" class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-md font-bold hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Agenda un diagnóstico
+                </a>
+            </div>
+            <div class="lg:hidden flex flex-col gap-1.5 cursor-pointer">
+                <span class="w-6 h-0.5 bg-on-surface"></span>
+                <span class="w-6 h-0.5 bg-on-surface"></span>
+                <span class="w-6 h-0.5 bg-on-surface"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10">
+
+        <!-- Hero -->
+        <section class="pt-28 pb-24">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="flex flex-col gap-6">
+                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase">ERP · Integración Operativa · Odoo</span>
+                        <h1 class="text-5xl md:text-7xl font-headline font-black text-on-surface tracking-tighter leading-[1.05]">
+                            Tu operación, conectada de principio a fin.
+                        </h1>
+                        <p class="text-xl text-on-surface-variant leading-relaxed max-w-xl">
+                            Implementamos Odoo adaptado a la realidad de tu empresa: sin sobredimensionar, sin atajos. Conectamos tus áreas para que operes con orden, trazabilidad y menos retrabajo.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-4">
+                            <a href="../contacto.html" class="bg-primary text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-primary-container transition-all shadow-md">Agenda un diagnóstico</a>
+                            <a href="#metodologia" class="border flex items-center border-outline-variant text-primary px-8 py-4 rounded-md font-bold text-lg hover:bg-surface-container-low transition-all">Ver metodología</a>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-[40px] h-[500px] flex items-center justify-center p-16 shadow-2xl overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent group-hover:from-primary/10 transition-all duration-700"></div>
+                        <img src="../logos/odoo_logo.png" alt="Odoo" class="max-h-[200px] object-contain group-hover:scale-110 transition-transform duration-700 z-10 relative">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qué es Odoo desde Appunto -->
+        <section class="py-20 bg-surface-container-low/50">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-5">
+                        <span class="text-primary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Nuestra perspectiva</span>
+                        <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-6">Odoo es el ERP. Appunto es quien lo hace funcionar para tu empresa.</h2>
+                    </div>
+                    <div class="lg:col-span-7 flex flex-col gap-6 text-on-surface-variant text-lg leading-relaxed">
+                        <p>Odoo es una plataforma de gestión empresarial de código abierto con más de 12 millones de usuarios en el mundo. Cubre ventas, compras, inventario, contabilidad, CRM, manufactura y más — en una sola plataforma.</p>
+                        <p>Pero una herramienta poderosa mal implementada solo crea más caos. En Appunto llegamos primero con preguntas: entendemos tu operación, identificamos fricciones y diseñamos una implementación que tenga sentido para tu tamaño, tu sector y tus objetivos.</p>
+                        <div class="bg-surface-container-lowest border-l-4 border-primary p-6 rounded-r-xl">
+                            <p class="font-bold text-on-surface mb-1">No somos revendedores de licencias.</p>
+                            <p class="text-base">Somos consultores de negocio que usamos Odoo como herramienta para resolver problemas operativos reales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Para quién es -->
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4">¿Para quién es esta solución?</h2>
+                    <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Empresas que ya crecieron pero sus procesos no han evolucionado al mismo ritmo.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl border-t-4 border-primary shadow-sm">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4 block">storefront</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Ya superaste Excel</h3>
+                        <p class="text-on-surface-variant">Manejas ventas, compras e inventario en hojas de cálculo distintas. El control manual ya no escala y los errores se acumulan.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl border-t-4 border-primary-container shadow-sm">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4 block">hub</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Tus áreas no se hablan</h3>
+                        <p class="text-on-surface-variant">Ventas no sabe qué hay en almacén. Compras no ve las órdenes de venta. Contabilidad cierra el mes con información incompleta.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl border-t-4 border-tertiary shadow-sm">
+                        <span class="material-symbols-outlined text-tertiary text-4xl mb-4 block">person_search</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Dependes de personas clave</h3>
+                        <p class="text-on-surface-variant">Hay una o dos personas que "saben cómo se hace todo". Si no están, la operación se detiene. Eso no es escalable.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qué resolvemos -->
+        <section class="py-24 bg-surface-container-low/50">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                    <div>
+                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Casos de uso frecuentes</span>
+                        <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-8">Problemas que resolvemos con Odoo.</h2>
+                        <div class="flex flex-col gap-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-primary font-bold text-lg mt-0.5">✦</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Doble captura y retrabajo constante</p>
+                                    <p class="text-on-surface-variant text-sm mt-1">La misma información se registra en múltiples sistemas. Con Odoo, un dato ingresado en ventas fluye automáticamente a inventario y contabilidad.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="text-primary font-bold text-lg mt-0.5">✦</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Sin trazabilidad de ventas y almacén</p>
+                                    <p class="text-on-surface-variant text-sm mt-1">No sabes en qué etapa está cada pedido, qué hay disponible o qué está comprometido. Odoo te da visibilidad completa del flujo.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="text-primary font-bold text-lg mt-0.5">✦</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Cierres de mes lentos y dolorosos</p>
+                                    <p class="text-on-surface-variant text-sm mt-1">Conciliar manualmente cada transacción consume días. Con Odoo integrado, el cierre contable es una consecuencia del trabajo operativo.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="text-primary font-bold text-lg mt-0.5">✦</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Cotizaciones y contratos fuera de control</p>
+                                    <p class="text-on-surface-variant text-sm mt-1">El pipeline de ventas vive en correos y WhatsApp. Con Odoo CRM, cada oportunidad tiene seguimiento, historial y responsable.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="text-primary font-bold text-lg mt-0.5">✦</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Compras sin proceso definido</p>
+                                    <p class="text-on-surface-variant text-sm mt-1">Órdenes de compra por correo, aprobaciones informales y sin historial de proveedores. Odoo centraliza y formaliza todo el proceso.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-6">
+                        <span class="text-primary font-headline font-bold tracking-[0.2em] text-xs uppercase block">Módulos que implementamos</span>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-primary">point_of_sale</span>
+                                <span class="font-medium text-sm">Ventas y CRM</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-primary">shopping_cart</span>
+                                <span class="font-medium text-sm">Compras</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-primary">inventory_2</span>
+                                <span class="font-medium text-sm">Inventario y Almacén</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-primary">receipt_long</span>
+                                <span class="font-medium text-sm">Contabilidad y Facturación</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-primary">precision_manufacturing</span>
+                                <span class="font-medium text-sm">Manufactura</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-primary">groups</span>
+                                <span class="font-medium text-sm">Recursos Humanos</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-primary">task_alt</span>
+                                <span class="font-medium text-sm">Proyectos</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-primary">support_agent</span>
+                                <span class="font-medium text-sm">Helpdesk y Soporte</span>
+                            </div>
+                        </div>
+                        <div class="bg-primary/5 border-l-4 border-primary p-6 rounded-r-xl mt-2">
+                            <p class="font-bold text-primary mb-1">Lo que obtienes:</p>
+                            <p class="text-sm text-on-surface-variant">Operación integrada en tiempo real. Procesos trazables. Menos retrabajo. Una empresa que puede escalar sin depender de personas clave.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metodología -->
+        <section class="py-24" id="metodologia">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4">Cómo implementamos Odoo.</h2>
+                    <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Una metodología clara, sin sorpresas. Adaptada a tu operación, no a un manual genérico.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border-t-4 border-primary">
+                        <span class="text-tertiary font-bold tracking-widest text-sm mb-3 block">1. DIAGNÓSTICO</span>
+                        <h3 class="font-headline font-bold text-lg mb-2">Entendemos antes de proponer</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Mapeamos tus procesos actuales, identificamos fricciones y definimos el alcance real del proyecto. Sin asumir, sin copiar plantillas.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border-t-4 border-primary">
+                        <span class="text-tertiary font-bold tracking-widest text-sm mb-3 block">2. DISEÑO</span>
+                        <h3 class="font-headline font-bold text-lg mb-2">Arquitectura a tu medida</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Definimos los módulos, flujos y configuraciones. Nada sobredimensionado. Solo lo que tu empresa necesita hoy y pueda crecer mañana.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border-t-4 border-primary">
+                        <span class="text-tertiary font-bold tracking-widest text-sm mb-3 block">3. IMPLEMENTACIÓN</span>
+                        <h3 class="font-headline font-bold text-lg mb-2">Configuración y go-live</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Configuramos, migramos datos históricos, capacitamos a tu equipo y hacemos el go-live acompañado. No te dejamos solo frente a la pantalla.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border-t-4 border-primary">
+                        <span class="text-tertiary font-bold tracking-widest text-sm mb-3 block">4. ACOMPAÑAMIENTO</span>
+                        <h3 class="font-headline font-bold text-lg mb-2">Aliado a largo plazo</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Apoyamos la adopción, resolvemos ajustes post go-live y proponemos mejoras conforme tu empresa crece. Somos el aliado que da seguimiento de verdad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Por qué con Appunto -->
+        <section class="py-20 bg-surface-container-low/50">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-8">Implementar Odoo no es difícil.<br><span class="text-primary">Implementarlo bien, sí.</span></h2>
+                        <div class="flex flex-col gap-6">
+                            <div class="flex gap-4 items-start">
+                                <span class="material-symbols-outlined text-primary text-3xl">rule</span>
+                                <div>
+                                    <h3 class="font-headline font-bold mb-1">Diagnóstico antes que demo</h3>
+                                    <p class="text-on-surface-variant text-sm">No empezamos mostrándote lo que puede hacer Odoo. Empezamos preguntando qué está fallando en tu operación hoy.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <span class="material-symbols-outlined text-tertiary text-3xl">tune</span>
+                                <div>
+                                    <h3 class="font-headline font-bold mb-1">Configurado para tu realidad</h3>
+                                    <p class="text-on-surface-variant text-sm">No usamos el mismo setup para todos. Cada empresa tiene su operación, sus reglas y sus procesos. La implementación lo refleja.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <span class="material-symbols-outlined text-primary text-3xl">school</span>
+                                <div>
+                                    <h3 class="font-headline font-bold mb-1">Adopción real, no solo instalación</h3>
+                                    <p class="text-on-surface-variant text-sm">Un ERP que nadie usa es peor que no tener uno. Capacitamos, acompañamos y medimos que el equipo lo adopte de verdad.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-lowest p-10 rounded-3xl shadow-lg">
+                        <p class="text-on-surface-variant font-serif italic text-xl leading-relaxed mb-6">"Antes teníamos cuatro sistemas distintos que nadie hablaba entre sí. Con Appunto implementamos Odoo en tres meses y hoy todo el equipo trabaja desde una sola plataforma."</p>
+                        <p class="font-bold text-on-surface text-sm">— Director de Operaciones, empresa distribuidora, 60 empleados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-32 bg-primary/5 border-t border-primary/10">
+            <div class="max-w-4xl mx-auto px-8 text-center">
+                <h2 class="text-5xl md:text-6xl font-headline font-black mb-6">¿Listo para conectar tu operación?</h2>
+                <p class="text-xl text-on-surface-variant mb-10">Agenda una sesión de diagnóstico sin costo. Revisamos tu operación actual y te mostramos cómo podría verse con Odoo bien implementado.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="../contacto.html" class="bg-primary text-white px-10 py-5 rounded-md font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all">Agenda un diagnóstico</a>
+                    <a href="../qlik/index.html" class="bg-surface-container-lowest text-primary px-10 py-5 rounded-md font-bold text-lg hover:bg-surface-container-low border border-outline-variant transition-all">Ver también: Qlik BI</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low border-t border-outline-variant/30 text-on-surface py-20">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12 font-body text-sm leading-relaxed">
+            <div class="col-span-1">
+                <img src="../logos/Color logo - no background.svg" alt="Appunto" class="h-12 mb-6">
+                <p class="text-on-surface-variant font-medium">Consultoría de negocio + tecnología.</p>
+                <p class="text-on-surface-variant">Convertimos complejidad operativa en claridad de negocio.</p>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-primary">Sitio</h4>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../index.html">Inicio</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../soluciones.html">Soluciones</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../industrias.html">Industrias</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../nosotros.html">Nosotros</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../contacto.html">Contacto</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-primary">Soluciones</h4>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="index.html">Odoo ERP</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../qlik/index.html">Qlik BI</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-primary">Contacto</h4>
+                <a class="text-on-surface-variant hover:text-tertiary font-bold" href="mailto:correo@appunto.mx">correo@appunto.mx</a>
+                <span class="text-on-surface-variant mt-2">Querétaro, México.</span>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/30 text-center text-on-surface-variant/70 text-xs">
+            © 2025 Appunto. Todos los derechos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>

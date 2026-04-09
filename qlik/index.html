@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qlik BI | Appunto — Analítica e inteligencia de negocio para decisiones más rápidas</title>
+    <meta name="description" content="Conectamos tus fuentes de datos con Qlik para construir dashboards accionables y una sola versión de la verdad. Deja de decidir con información tardía o incompleta.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#991199', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden relative">
+
+    <div class="fixed top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary/5 blur-[120px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[100px] pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300 border-b border-outline-variant/20">
+        <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+            <a href="../index.html" class="flex items-center">
+                <img src="../logos/Color logo - no background.svg" alt="Appunto Logo" class="h-14 w-auto">
+            </a>
+            <div class="hidden lg:flex items-center gap-8 font-medium">
+                <a href="../index.html" class="text-on-surface-variant hover:text-primary transition-colors">Inicio</a>
+                <a href="../soluciones.html" class="text-on-surface-variant hover:text-primary transition-colors">Soluciones</a>
+                <a href="../odoo/index.html" class="text-on-surface-variant hover:text-primary transition-colors">Odoo</a>
+                <a href="index.html" class="text-primary border-b-2 border-primary pb-1">Qlik</a>
+                <a href="../industrias.html" class="text-on-surface-variant hover:text-primary transition-colors">Industrias</a>
+                <a href="../nosotros.html" class="text-on-surface-variant hover:text-primary transition-colors">Nosotros</a>
+                <a href="../contacto.html" class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-md font-bold hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Agenda un diagnóstico
+                </a>
+            </div>
+            <div class="lg:hidden flex flex-col gap-1.5 cursor-pointer">
+                <span class="w-6 h-0.5 bg-on-surface"></span>
+                <span class="w-6 h-0.5 bg-on-surface"></span>
+                <span class="w-6 h-0.5 bg-on-surface"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10">
+
+        <!-- Hero -->
+        <section class="pt-28 pb-24">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="flex flex-col gap-6">
+                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase">BI · Analítica · Decisiones</span>
+                        <h1 class="text-5xl md:text-7xl font-headline font-black text-on-surface tracking-tighter leading-[1.05]">
+                            Una sola versión de la verdad.
+                        </h1>
+                        <p class="text-xl text-on-surface-variant leading-relaxed max-w-xl">
+                            Conectamos tus fuentes de datos con Qlik para construir dashboards que realmente responden preguntas de negocio. Deja de decidir con información tardía, incompleta o contradictoria.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-4">
+                            <a href="../contacto.html" class="bg-primary text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-primary-container transition-all shadow-md">Agenda un diagnóstico</a>
+                            <a href="#como-trabajamos" class="border flex items-center border-outline-variant text-primary px-8 py-4 rounded-md font-bold text-lg hover:bg-surface-container-low transition-all">Ver cómo trabajamos</a>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-[40px] h-[500px] flex items-center justify-center p-16 shadow-2xl overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent group-hover:from-tertiary/10 transition-all duration-700"></div>
+                        <img src="../logos/qlik-logo.png" alt="Qlik" class="max-h-[200px] object-contain group-hover:scale-110 transition-transform duration-700 z-10 relative">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qué es Qlik desde Appunto -->
+        <section class="py-20 bg-surface-container-low/50">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-5">
+                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Nuestra perspectiva</span>
+                        <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-6">Qlik es el motor. Appunto es quien convierte los datos en decisiones.</h2>
+                    </div>
+                    <div class="lg:col-span-7 flex flex-col gap-6 text-on-surface-variant text-lg leading-relaxed">
+                        <p>Qlik es una de las plataformas de Business Intelligence más potentes del mercado, reconocida por su motor de analítica asociativa que permite explorar datos sin rutas predefinidas. Qlik Sense conecta múltiples fuentes — ERP, CRM, Excel, bases de datos — en una sola capa de análisis.</p>
+                        <p>Pero los dashboards bonitos no toman decisiones. En Appunto diseñamos soluciones analíticas que responden preguntas reales de negocio: qué está pasando, por qué está pasando y qué debería hacerse al respecto.</p>
+                        <div class="bg-surface-container-lowest border-l-4 border-tertiary p-6 rounded-r-xl">
+                            <p class="font-bold text-on-surface mb-1">No hacemos reportes. Hacemos visibilidad de negocio.</p>
+                            <p class="text-base">La diferencia está en entender qué preguntas necesita responder cada director antes de diseñar una sola vista.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Para quién es -->
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4">¿Para quién es esta solución?</h2>
+                    <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Directivos que tienen datos, pero no tienen visibilidad real del negocio.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl border-t-4 border-primary shadow-sm">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4 block">leaderboard</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Tienes datos, pero no claridad</h3>
+                        <p class="text-on-surface-variant">Hay información en el ERP, en Excel y en reportes de cada área. Pero cada uno dice algo diferente y nadie sabe cuál creer.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl border-t-4 border-primary-container shadow-sm">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4 block">schedule</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Los reportes siempre llegan tarde</h3>
+                        <p class="text-on-surface-variant">El cierre del mes toma días. Para cuando recibes los números, la oportunidad de actuar ya pasó. Necesitas información en tiempo real.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl border-t-4 border-tertiary shadow-sm">
+                        <span class="material-symbols-outlined text-tertiary text-4xl mb-4 block">device_hub</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Múltiples fuentes sin integrar</h3>
+                        <p class="text-on-surface-variant">Ventas en el CRM, finanzas en el ERP, operación en Excel. Cada área tiene su propia "versión de la verdad" y no se reconcilian.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qué resolvemos -->
+        <section class="py-24 bg-surface-container-low/50">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                    <div>
+                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Casos de uso frecuentes</span>
+                        <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-8">Problemas que resolvemos con Qlik.</h2>
+                        <div class="flex flex-col gap-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-tertiary font-bold text-lg mt-0.5">✦</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Múltiples "verdades" en la organización</p>
+                                    <p class="text-on-surface-variant text-sm mt-1">Ventas dice que vendió X, finanzas registra Y y operación entregó Z. Con Qlik, todas las áreas ven los mismos números desde una sola fuente.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="text-tertiary font-bold text-lg mt-0.5">✦</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Reportes manuales que consumen semanas</p>
+                                    <p class="text-on-surface-variant text-sm mt-1">Un analista dedica días a consolidar datos antes de que el director pueda verlos. Con Qlik, los dashboards se actualizan automáticamente.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="text-tertiary font-bold text-lg mt-0.5">✦</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Decisiones tomadas sin contexto completo</p>
+                                    <p class="text-on-surface-variant text-sm mt-1">Los directores deciden con la información disponible, que rara vez es completa. Qlik permite explorar los datos desde múltiples ángulos antes de decidir.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="text-tertiary font-bold text-lg mt-0.5">✦</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">KPIs desalineados entre áreas</p>
+                                    <p class="text-on-surface-variant text-sm mt-1">Cada área mide su éxito con sus propias métricas, a veces contradictorias. Qlik permite definir KPIs corporativos y alinear a todo el equipo directivo.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="text-tertiary font-bold text-lg mt-0.5">✦</span>
+                                <div>
+                                    <p class="font-bold text-on-surface">Datos atrapados en silos tecnológicos</p>
+                                    <p class="text-on-surface-variant text-sm mt-1">El ERP no habla con el CRM, el CRM no habla con el sistema de inventario. Qlik conecta todas las fuentes en una capa de análisis unificada.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-6">
+                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase block">Capacidades que implementamos</span>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-tertiary">dashboard</span>
+                                <span class="font-medium text-sm">Dashboards ejecutivos</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-tertiary">analytics</span>
+                                <span class="font-medium text-sm">Analítica operacional</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-tertiary">account_tree</span>
+                                <span class="font-medium text-sm">Integración multi-fuente</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-tertiary">trending_up</span>
+                                <span class="font-medium text-sm">KPIs y métricas clave</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-tertiary">search_insights</span>
+                                <span class="font-medium text-sm">Exploración asociativa</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-tertiary">storage</span>
+                                <span class="font-medium text-sm">Data pipelines</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-tertiary">smartphone</span>
+                                <span class="font-medium text-sm">Acceso móvil</span>
+                            </div>
+                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
+                                <span class="material-symbols-outlined text-tertiary">lock</span>
+                                <span class="font-medium text-sm">Control de accesos</span>
+                            </div>
+                        </div>
+                        <div class="bg-tertiary/5 border-l-4 border-tertiary p-6 rounded-r-xl mt-2">
+                            <p class="font-bold text-tertiary mb-1">Lo que obtienes:</p>
+                            <p class="text-sm text-on-surface-variant">Una sola versión de la verdad. Rapidez para decidir. Dashboards que responden preguntas reales. Analítica que mueve el negocio, no solo lo describe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cómo trabajamos -->
+        <section class="py-24" id="como-trabajamos">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4">Cómo construimos tu solución analítica.</h2>
+                    <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Partimos de las preguntas de negocio, no de los datos disponibles.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border-t-4 border-tertiary">
+                        <span class="text-tertiary font-bold tracking-widest text-sm mb-3 block">1. DIAGNÓSTICO</span>
+                        <h3 class="font-headline font-bold text-lg mb-2">¿Qué decisiones necesitas tomar?</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Antes de ver un solo dato, preguntamos qué decisiones se toman con información incompleta hoy y qué visibilidad falta para tomarlas mejor.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border-t-4 border-tertiary">
+                        <span class="text-tertiary font-bold tracking-widest text-sm mb-3 block">2. ARQUITECTURA</span>
+                        <h3 class="font-headline font-bold text-lg mb-2">Mapeamos tus fuentes de datos</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Identificamos dónde vive cada dato relevante, cómo se conectan las fuentes y qué transformaciones se necesitan para tener una capa analítica limpia.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border-t-4 border-tertiary">
+                        <span class="text-tertiary font-bold tracking-widest text-sm mb-3 block">3. DESARROLLO</span>
+                        <h3 class="font-headline font-bold text-lg mb-2">Construimos la solución</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Integramos las fuentes en Qlik, diseñamos los dashboards con los usuarios directos y validamos que cada vista responda las preguntas correctas.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border-t-4 border-tertiary">
+                        <span class="text-tertiary font-bold tracking-widest text-sm mb-3 block">4. ADOPCIÓN</span>
+                        <h3 class="font-headline font-bold text-lg mb-2">Hacemos que lo usen de verdad</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Capacitamos a los usuarios, afinamos las vistas en las primeras semanas de uso y aseguramos que la herramienta se convierta en parte del flujo de trabajo real.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Por qué con Appunto -->
+        <section class="py-20 bg-surface-container-low/50">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-8">Un dashboard que nadie usa no vale nada.<br><span class="text-tertiary">Eso es lo que evitamos.</span></h2>
+                        <div class="flex flex-col gap-6">
+                            <div class="flex gap-4 items-start">
+                                <span class="material-symbols-outlined text-tertiary text-3xl">question_answer</span>
+                                <div>
+                                    <h3 class="font-headline font-bold mb-1">Empezamos con las preguntas correctas</h3>
+                                    <p class="text-on-surface-variant text-sm">No empezamos conectando datos. Empezamos preguntando qué decisiones se toman mal hoy por falta de visibilidad.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <span class="material-symbols-outlined text-primary text-3xl">handshake</span>
+                                <div>
+                                    <h3 class="font-headline font-bold mb-1">Diseñamos con los usuarios directos</h3>
+                                    <p class="text-on-surface-variant text-sm">Cada dashboard se valida con la persona que lo va a usar. Si el director de ventas no puede responder su pregunta en 10 segundos, lo rediseñamos.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <span class="material-symbols-outlined text-tertiary text-3xl">update</span>
+                                <div>
+                                    <h3 class="font-headline font-bold mb-1">Seguimiento real post-implementación</h3>
+                                    <p class="text-on-surface-variant text-sm">Revisamos el uso en las primeras semanas, ajustamos lo que no funciona y proponemos nuevas vistas conforme el negocio evoluciona.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-lowest p-10 rounded-3xl shadow-lg">
+                        <p class="text-on-surface-variant font-serif italic text-xl leading-relaxed mb-6">"Antes el cierre del mes tardaba una semana y lo hacía una sola persona. Con Qlik, los directores ven los números en tiempo real y el analista se dedica a interpretar, no a construir tablas."</p>
+                        <p class="font-bold text-on-surface text-sm">— Director General, empresa de servicios, sector financiero.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-32 bg-tertiary/5 border-t border-tertiary/10">
+            <div class="max-w-4xl mx-auto px-8 text-center">
+                <h2 class="text-5xl md:text-6xl font-headline font-black mb-6">¿Listo para decidir con claridad?</h2>
+                <p class="text-xl text-on-surface-variant mb-10">Agenda una sesión de diagnóstico sin costo. Revisamos tus fuentes de datos actuales y te mostramos cómo podría verse tu solución analítica con Qlik.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="../contacto.html" class="bg-primary text-white px-10 py-5 rounded-md font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all">Agenda un diagnóstico</a>
+                    <a href="../odoo/index.html" class="bg-surface-container-lowest text-primary px-10 py-5 rounded-md font-bold text-lg hover:bg-surface-container-low border border-outline-variant transition-all">Ver también: Odoo ERP</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low border-t border-outline-variant/30 text-on-surface py-20">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12 font-body text-sm leading-relaxed">
+            <div class="col-span-1">
+                <img src="../logos/Color logo - no background.svg" alt="Appunto" class="h-12 mb-6">
+                <p class="text-on-surface-variant font-medium">Consultoría de negocio + tecnología.</p>
+                <p class="text-on-surface-variant">Convertimos complejidad operativa en claridad de negocio.</p>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-primary">Sitio</h4>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../index.html">Inicio</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../soluciones.html">Soluciones</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../industrias.html">Industrias</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../nosotros.html">Nosotros</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../contacto.html">Contacto</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-primary">Soluciones</h4>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../odoo/index.html">Odoo ERP</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="index.html">Qlik BI</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-primary">Contacto</h4>
+                <a class="text-on-surface-variant hover:text-tertiary font-bold" href="mailto:correo@appunto.mx">correo@appunto.mx</a>
+                <span class="text-on-surface-variant mt-2">Querétaro, México.</span>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/30 text-center text-on-surface-variant/70 text-xs">
+            © 2025 Appunto. Todos los derechos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
