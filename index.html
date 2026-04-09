@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appunto | Consultoría de negocio y tecnología · Claridad operativa</title>
+    <meta name="description" content="Ayudamos a empresas con operación compleja a integrar procesos, datos y tecnología para operar con más claridad y tomar mejores decisiones. Odoo y Qlik.">
+    <!-- Spline Viewer Script -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.78/build/spline-viewer.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#991199', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden relative">
+
+    <div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[120px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary/5 blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300 border-b border-outline-variant/20">
+        <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+            <a href="index.html" class="flex items-center">
+                <img src="logos/Color logo - no background.svg" alt="Appunto Logo" class="h-14 w-auto">
+            </a>
+            <div class="hidden lg:flex items-center gap-8 font-medium">
+                <a href="index.html" class="text-primary border-b-2 border-primary pb-1">Inicio</a>
+                <a href="soluciones.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Soluciones</a>
+                <a href="industrias.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Industrias</a>
+                <a href="nosotros.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Nosotros</a>
+                <a href="contacto.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Contacto</a>
+                <a href="contacto.html" class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-md font-bold hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Agenda un diagnóstico
+                </a>
+            </div>
+            <div class="lg:hidden flex flex-col gap-1.5 cursor-pointer">
+                <span class="w-6 h-0.5 bg-on-surface"></span>
+                <span class="w-6 h-0.5 bg-on-surface"></span>
+                <span class="w-6 h-0.5 bg-on-surface"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="relative pt-24 pb-20">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="flex flex-col gap-6 relative z-10">
+                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase">Consultoría de negocio + tecnología</span>
+                        <h1 class="text-5xl md:text-7xl font-headline font-black text-on-surface tracking-tighter leading-[1.05]">
+                            Convertimos complejidad operativa en <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary">claridad de negocio.</span>
+                        </h1>
+                        <p class="text-xl text-on-surface-variant leading-relaxed mt-2 max-w-xl">
+                            Ayudamos a empresas con operación compleja, procesos desconectados o información dispersa a integrar negocio, datos y tecnología para operar con más claridad y tomar mejores decisiones.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-4">
+                            <a href="contacto.html" class="bg-primary text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-primary-container transition-all shadow-md">Agenda un diagnóstico</a>
+                            <a href="soluciones.html" class="border flex items-center border-outline-variant text-primary px-8 py-4 rounded-md font-bold text-lg hover:bg-surface-container-low transition-all">Conoce nuestras soluciones</a>
+                        </div>
+                    </div>
+                    <!-- Transparente Spline sin contenedor forzado -->
+                    <div class="relative h-[650px] w-full flex items-center justify-center transform lg:translate-x-12 z-0">
+                        <spline-viewer class="w-full h-full" url="https://prod.spline.design/pgI6TKpDqoqI2Wqe/scene.splinecode"></spline-viewer>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- El problema que resolvemos -->
+        <section class="py-24 bg-surface-container-low/50">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="mb-16 max-w-3xl">
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-6">Muchas empresas crecen antes de formalizar su forma de operar.</h2>
+                    <p class="text-lg text-on-surface-variant leading-relaxed">Con esfuerzo, intuición y personas clave que sostienen la operación todos los días. Y durante un tiempo, eso funciona. Pero llega un momento en que eso deja de ser suficiente: la información está dispersa, los procesos no se conectan y decidir se vuelve más difícil de lo que debería.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-t-4 border-primary">
+                        <span class="text-tertiary font-bold tracking-widest text-sm mb-4 block">01</span>
+                        <p class="font-medium">Cada área reporta diferente y no hay una versión única de la verdad.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-t-4 border-primary-container">
+                        <span class="text-tertiary font-bold tracking-widest text-sm mb-4 block">02</span>
+                        <p class="font-medium">La operación depende de una o dos personas que saben demasiado.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-t-4 border-tertiary">
+                        <span class="text-tertiary font-bold tracking-widest text-sm mb-4 block">03</span>
+                        <p class="font-medium">Se pierde tiempo en retrabajo, doble captura y conciliaciones manuales.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-t-4 border-primary">
+                        <span class="text-tertiary font-bold tracking-widest text-sm mb-4 block">04</span>
+                        <p class="font-medium">Se toman decisiones importantes con información incompleta o tardía.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qué hace Appunto -->
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-6 flex flex-col gap-10">
+                        <div>
+                            <h2 class="text-4xl md:text-5xl font-headline font-black text-on-surface tracking-tight mb-4">No partimos de la herramienta. Partimos del negocio.</h2>
+                            <p class="text-lg text-on-surface-variant leading-relaxed">Appunto es una consultoría de negocio habilitada por tecnología. Antes de proponer cualquier solución, entendemos la operación, identificamos fricciones y traducimos necesidades reales en soluciones viables. La tecnología forma parte de la solución, pero nunca es el punto de partida.</p>
+                        </div>
+                        
+                        <div class="flex flex-col gap-8">
+                            <div class="flex gap-4 items-start">
+                                <span class="material-symbols-outlined text-primary text-3xl">analytics</span>
+                                <div>
+                                    <h3 class="text-xl font-headline font-bold text-on-surface mb-1">Entendemos primero</h3>
+                                    <p class="text-on-surface-variant">La herramienta es la segunda pregunta. El problema real del negocio siempre es la primera.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <span class="material-symbols-outlined text-tertiary text-3xl">architecture</span>
+                                <div>
+                                    <h3 class="text-xl font-headline font-bold text-on-surface mb-1">Implementamos con criterio</h3>
+                                    <p class="text-on-surface-variant">Traducimos procesos y objetivos en soluciones bien ejecutadas, no solo instaladas.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <span class="material-symbols-outlined text-primary text-3xl">handshake</span>
+                                <div>
+                                    <h3 class="text-xl font-headline font-bold text-on-surface mb-1">Acompañamos de verdad</h3>
+                                    <p class="text-on-surface-variant">Nos quedamos hasta que funciona. Somos el aliado que da seguimiento, anticipa riesgos y propone mejoras.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-6 relative h-[700px] rounded-3xl overflow-hidden shadow-2xl group">
+                        <img src="images/hero_abstract_business_1775672012879.png" alt="Arquitectura Digital" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Para quién es Appunto -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4 text-on-surface">Hablamos con quienes dirigen y deciden.</h2>
+                    <p class="text-lg text-on-surface-variant">Si te identificas con alguno de estos perfiles, podemos ayudarte.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 border-primary">
+                        <h3 class="text-2xl font-headline font-bold mb-2">El Dueño Fundador de PyME</h3>
+                        <p class="text-tertiary font-bold mb-4">"Ya no me da la cabeza para coordinar todo."</p>
+                        <p class="text-on-surface-variant">Tu empresa creció, pero los procesos no evolucionaron al mismo ritmo. Necesitas orden, control y una operación menos dependiente de ti.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 border-primary-container">
+                        <h3 class="text-2xl font-headline font-bold mb-2">El Director General</h3>
+                        <p class="text-tertiary font-bold mb-4">"Tengo datos por lados, pero ninguna lectura integrada."</p>
+                        <p class="text-on-surface-variant">Cada área te reporta diferente. Necesitas certeza directiva, velocidad para decidir y confianza en los números.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 border-tertiary">
+                        <h3 class="text-2xl font-headline font-bold mb-2">El Director Comercial</h3>
+                        <p class="text-tertiary font-bold mb-4">"Se pierden oportunidades por falta de seguimiento."</p>
+                        <p class="text-on-surface-variant">Tienes leads, vendedores y cotizaciones, pero sin trazabilidad real del pipeline. Necesitas disciplina comercial y visibilidad.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 border-primary">
+                        <h3 class="text-2xl font-headline font-bold mb-2">El Director de Adm y Finanzas</h3>
+                        <p class="text-tertiary font-bold mb-4">"El cierre de mes es un maratón de correcciones."</p>
+                        <p class="text-on-surface-variant">Vives el costo del desorden: doble captura, conciliaciones tardías y errores. Necesitas eficiencia y menos fricción operativa.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="industrias.html" class="inline-block bg-primary text-white font-bold px-8 py-3 rounded hover:bg-primary-container transition-colors">Ver cómo aplica a mi caso</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nuestras soluciones -->
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-headline font-black mb-4">Soluciones que conectan negocio y tecnología.</h2>
+                    <p class="text-xl text-on-surface-variant">No vendemos software. Resolvemos problemas operativos usando las herramientas correctas.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-surface-container-lowest p-10 rounded-3xl shadow-lg border border-outline-variant/30 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-8">
+                                <h3 class="text-3xl font-headline font-bold">Integración y ERP</h3>
+                                <img src="logos/odoo_logo.png" class="h-10">
+                            </div>
+                            <p class="text-on-surface-variant text-lg">Ordena tu operación, conecta áreas y reduce el retrabajo con una implementación de Odoo adaptada a la realidad de tu empresa.</p>
+                        </div>
+                        <a href="soluciones.html" class="mt-8 text-primary font-bold hover:text-tertiary flex items-center gap-2">Ver solución <span class="material-symbols-outlined">arrow_forward</span></a>
+                    </div>
+                    <div class="bg-surface-container-lowest p-10 rounded-3xl shadow-lg border border-outline-variant/30 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-8">
+                                <h3 class="text-3xl font-headline font-bold">BI y Analítica</h3>
+                                <img src="logos/qlik-logo.png" class="h-10">
+                            </div>
+                            <p class="text-on-surface-variant text-lg">Convierte datos dispersos en visibilidad real. Dashboards accionables y una sola versión de la verdad para mejores decisiones con Qlik.</p>
+                        </div>
+                        <a href="soluciones.html" class="mt-8 text-primary font-bold hover:text-tertiary flex items-center gap-2">Ver solución <span class="material-symbols-outlined">arrow_forward</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Por qué Appunto -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto px-8">
+                <h2 class="text-4xl md:text-5xl font-headline font-black text-center mb-16">Lo que nos diferencia no es un catálogo. Es una manera de resolver.</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Entramos desde el negocio</h3>
+                        <p class="text-on-surface-variant">La conversación empieza con la operación, el objetivo y el problema real, no con un demo de herramienta.</p>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Conectamos tecnología</h3>
+                        <p class="text-on-surface-variant">Hacemos el puente entre ambos mundos. Traducimos con criterio en ambas direcciones.</p>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Integramos sin fragmentar</h3>
+                        <p class="text-on-surface-variant">Nuestro valor está en cómo conectamos procesos e información en una lógica coherente de negocio.</p>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Hablamos con claridad</h3>
+                        <p class="text-on-surface-variant">Sin buzzwords innecesarios. Sin tecnicismos que oscurecen. Traducimos complejidad a lenguaje útil.</p>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-3">Buscamos soluciones viables</h3>
+                        <p class="text-on-surface-variant">No prometemos magia. Recomendamos lo que sí hace sentido para la realidad concreta de cada empresa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Social Proof -->
+        <section class="py-24 bg-surface">
+            <div class="max-w-5xl mx-auto px-8 text-center text-on-surface">
+                <h2 class="text-4xl font-headline font-black mb-12">Empresas que operan con más claridad.</h2>
+                <div class="bg-surface-container-lowest p-12 rounded-3xl shadow-xl italic font-serif text-2xl relative">
+                    <span class="text-6xl text-primary/20 absolute top-8 left-8">"</span>
+                    <p class="relative z-10">Antes de Appunto teníamos datos en todos lados. Hoy tenemos una sola lectura del negocio y tomamos decisiones con mucha más rapidez y confianza.</p>
+                    <p class="text-base text-on-surface-variant mt-6 not-italic font-sans font-bold">— Director General, empresa mediana, sector distribución.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-32 bg-primary/5 border-t border-primary/10">
+            <div class="max-w-4xl mx-auto px-8 text-center">
+                <h2 class="text-5xl md:text-6xl font-headline font-black mb-6">¿Listo para operar con más claridad?</h2>
+                <p class="text-xl text-on-surface-variant mb-10">Agenda una sesión de diagnóstico sin costo. Analizamos tu situación, identificamos fricciones y te mostramos cómo podría verse una solución.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="contacto.html" class="bg-primary text-white px-10 py-5 rounded-md font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all">Agenda un diagnóstico</a>
+                    <a href="contacto.html" class="bg-white text-primary px-10 py-5 rounded-md font-bold text-lg hover:bg-gray-50 border border-outline-variant transition-all">Hablar con un consultor</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low border-t border-outline-variant/30 text-on-surface py-20">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12 font-body text-sm leading-relaxed">
+            <div class="col-span-1 md:col-span-1">
+                <img src="logos/Color logo - no background.svg" alt="Appunto" class="h-12 mb-6">
+                <p class="text-on-surface-variant font-medium">Consultoría de negocio + tecnología.</p>
+                <p class="text-on-surface-variant">Convertimos complejidad operativa en claridad de negocio.</p>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-primary">Sitio</h4>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="index.html">Inicio</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="soluciones.html">Soluciones</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="industrias.html">Industrias</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="nosotros.html">Nosotros</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="contacto.html">Contacto</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-primary">Soluciones</h4>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="soluciones.html">Integración de procesos (Odoo)</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="soluciones.html">Analítica e inteligencia (Qlik)</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-primary">Contacto</h4>
+                <a class="text-on-surface-variant hover:text-tertiary font-bold" href="mailto:correo@appunto.mx">correo@appunto.mx</a>
+                <span class="text-on-surface-variant mt-2">Querétaro, México.</span>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/30 text-center text-on-surface-variant/70 text-xs">
+            © 2025 Appunto. Todos los derechos reservados.
+        </div>
+    </footer>
+</body>
+</html>

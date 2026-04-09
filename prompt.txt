@@ -1,0 +1,1460 @@
+appunto_website_páginas_escenciales:
+
+
+
+Página: Inicio, Orden: 1, Rol en el recorrido: Captar atención y explicar valor, Objetivo principal: Explicar qué hace Appunto, para quién es y qué problema resuelve, Qué debe incluir: Propuesta de valor clara, problemas que resuelve, beneficios, prueba de confianza, resumen de soluciones, CTA clave: Agenda un diagnóstico, Notas: La página más importante.
+
+Página: Soluciones, Orden 2, Rol en el recorrido: Aterrizar la oferta, Objetivo principal: Mostrar las soluciones desde necesidades de negocio, no desde software, Qué debe incluir: ERP/procesos, CRM/ventas, analítica, automatización, implementación y acompañamiento, CTA clave: Ver cómo aplica a mi empresa, Notas: Hablar en lenguaje negocio.
+
+Página: Industrias / casos de uso, Orden 3, Rol en el recorrido: Generar relevancia, Objetivo principal: Hacer que cada buyer persona se identifique rápido, Qué debe incluir: Tipos de empresa, dolores frecuentes, escenarios de uso, ejemplos por industria o madurez, CTA clave: Quiero una solución para mi caso, Notas: Puede ser una sola página compacta.
+
+Página: Nosotros, Orden 4, Rol en el recorrido: Construir confianza, Objetivo principal: Construir confianza y diferenciar a Appunto como aliado consultivo, Qué debe incluir: Quiénes son, cómo trabajan, metodología, experiencia, por qué son diferentes, CTA clave: Conoce nuestro enfoque, Notas: Muy importante para cerrar confianza.
+
+Página: Contacto / Agenda, Orden 5, Objetivo principal: Convertir visitantes en leads calificados, Qué debe incluir: Formulario corto, WhatsApp, datos de contacto, invitación a sesión de diagnóstico, CTA clave: Agenda una llamada, Notas: Página enfocada 100% a conversión.
+
+Recomendación final: Estructura ideal: 5 páginas. Si se quisiera compactar más, se puede pasar a 4 páginas integrando 'Industrias / Casos de uso' dentro de Inicio.
+
+
+
+
+
+
+
+
+
+Prompt:
+
+Create a premium B2B website hero visual for Appunto, a business and technology consulting firm.
+
+The emotion should communicate professionalism and proactivity, not futuristic hype. The visual should feel structured, capable, clear, and in motion.
+
+Use Appunto’s current brand color logic based on the existing website/logo:
+
+- deep corporate blue as the main foundation color
+
+- purple/magenta accents for movement, connections, and active energy
+
+Do not use cliché “AI magic” imagery, robots, neon sci-fi effects, floating holograms, or generic dashboard stock visuals.
+
+The hero visual should represent:
+
+- complex business problems being organized
+
+- business and technology working together
+
+- multiple tools and systems integrated with clarity
+
+- movement with control
+
+- solutions built by capable people, not by magic
+
+Preferred visual language:
+
+- modular blocks
+
+- connected nodes
+
+- elegant system flows
+
+- subtle layered data structures
+
+- clean geometric composition
+
+- high-end consulting look
+
+- modern, minimal, credible B2B design
+
+The image should feel:
+
+- professional
+
+- proactive
+
+- grounded
+
+- solid
+
+The composition should work on a homepage hero, with text on the left and the visual on the right.
+
+Leave enough negative space for headline, subheadline, and CTA.
+
+Avoid anything that looks cheap, overly abstract, overly futuristic, or like one single tool magically solves everything.
+
+
+
+
+
+
+
+Diagnóstico de Mareting - Appunto Querétaro:
+
+Appunto cuenta con dos productos sólidos 4Odoo (ERP) y Qlik (Business Intelligence)4 y un historial de
+
+crecimiento orgánico basado en networking y recomendaciones. Sin embargo, la empresa reconoce que activando
+
+su marketing será la siguiente fase para duplicar su facturación. Al día de hoy el website funciona pero es básico,
+
+las redes sociales tienen actividad limitada, y lo más preocupante es que Appunto no se posiciona como entidad
+
+independiente, sino que los productos dominan completamente el discurso comercial.
+
+Identidad & Dirección:
+
+No existe una identidad clara de Appunto como
+
+marca. Los productos Odoo y Qlik dominan el
+
+discurso, faltando historia, postura y personalidad
+
+propia.
+
+Riesgo: Competir solo por tecnología, no por valor
+
+diferencial.
+
+Cliente & Problema:
+
+El cliente ideal no está definido con precisión
+
+(existen algunos bocetos). Esto hace que a nivel de
+
+marketing el mensaje no se articula claramente ej a
+
+quién ayudan, qué problema resuelven, ni por qué
+
+elegir Appunto.
+
+Riesgo: Dependencia perpetua de referencias y
+
+relaciones personales.
+
+Propuesta de Valor:
+
+El valor está implícito (experiencia, conocimiento,
+
+acompañamiento y visión de negocio más alla de la
+
+herramienta) pero no se comunica de forma
+
+explícita ni consistente entre canales.
+
+Riesgo: El mercado no identifica rápidamente el
+
+diferenciador competitivo.
+
+Ecosistema de Marketing:
+
+No existe embudo estructurado, ni contenidos
+
+estratégicos, ni sistema escalable de generación de
+
+confianza.
+
+Riesgo: El marketing no amplifica la calidad del
+
+trabajo que ya realizan.
+
+Oportunidad Estratégica Clave:
+
+Mi recomendación profesional es construir a Appunto como marca
+
+experta y socio estratégico de negocio, no únicamente como
+
+integrador técnico de herramientas. Esto significa que Odoo y Qlik
+
+deben vivir dentro del universo de Appunto, aportando valor bajo
+
+su paraguas, y no al revés.
+
+El objetivo es transicionar de "partner tecnológico" a aliado
+
+estratégico en transformación digital que no debe de ser dolorosa
+
+que ayudara a la toma de decisiones basada en datos confiables,
+
+limpios de una manera amigable. Esta evolución permitirá
+
+diferenciarse en un mercado saturado de integradores técnicos y
+
+capturar clientes que buscan acomento estratégico, no solo
+
+implementación de software.
+
+Valor del Cambio:
+
+Posicionar a Appunto como
+
+autoridad estratégica genera:
+
+Respaldo de expertos
+
+técnicos y de negocio.
+
+Acompañamiento real al
+
+tener project managers.
+
+Menor sensibilidad al precio
+
+Relaciones de largo plazo
+
+
+
+
+
+
+
+Buyer personas: Conoce a tu cliente ideal:
+
+Cuatro perfiles clave de decisores en PyMEs y empresas medianas mexicanas. Cada uno siente un dolor distinto,
+
+compra una promesa distinta y necesita un mensaje distinto. Entender a quién le hablas es el primer paso para ayudarle
+
+de verdad.
+
+Dueño Fundador PyME:
+
+Ya rebasó Excel, dirige todo desde la cabeza.
+
+Director General Mediana:
+
+Tiene datos, pero le falta claridad.
+
+Director Comercial:
+
+Ve oportunidades perdidas por falta de método.
+
+Director Admin y Finanzas:
+
+Campeón interno que vive el retrabajo.
+
+Persona 1: El Dueño Fundador de PyME
+
+11–50 EMPLEADOS ODOO COMO PUERTA DE ENTRADA
+
+Hombre o mujer de 40 a 50 años. Dueño o socio director de una PyME mexicana en comercialización, manufactura
+
+ligera, distribución, servicios B2B o integración técnica. Opera en Querétaro, CDMX, Bajío, Monterrey o Guadalajara.
+
+Viene de ventas, operación o área técnica — no de sistemas.
+
+Lo que siente
+
+"Ya no me da la cabeza para coordinar todo."
+
+La empresa creció "a pulso"
+
+Procesos no documentados
+
+Dependencia de personas clave
+
+Seguimiento comercial irregular
+
+Reportes armados a mano
+
+Lo que más le duele
+
+Pierde control al crecer
+
+No sabe en tiempo real qué pasa
+
+Ventas, compras y operación desconectadas
+
+Depende de uno o dos empleados de confianza
+
+Siente fugas pero no las puede medir
+
+Qué compra realmente
+
+No compra software. Compra
+
+orden, control, menos caos y
+
+una empresa menos dependiente
+
+de él.
+
+Gatillos de compra
+
+Crecimiento reciente
+
+Problemas de inventario o
+
+cobranza
+
+Ya tuvieron un error costoso
+
+Un cliente grande exige más
+
+formalidad
+
+Objeciones típicas
+
+"Esto suena caro"
+
+"El equipo no lo va a usar"
+
+"Ya intentamos algo y no
+
+funcionó"
+
+"No quiero un proyecto
+
+eterno"
+
+Persona 2: El Director General de Empresa Mediana
+
+51–250 EMPLEADOS QLIK PRIMER PASO
+
+Director general o gerente general de empresa familiar-profesionalizada o con estructura formal. Manufactura,
+
+logística, distribución, servicios empresariales o agroindustria. Ya tiene áreas, mandos medios y juntas — pero no tiene
+
+una lectura integrada del negocio. Cada área le reporta diferente.
+
+El problema central
+
+Finanzas dice una cosa, ventas otra, operaciones otra. Tiene
+
+datos por todos lados, pero ninguna versión única de la verdad
+
+para tomar decisiones con confianza.
+
+Reportes tardíos o
+
+inconsistentes
+
+KPIs que cambian
+
+según quién los
+
+presenta
+
+Decisiones lentas por
+
+falta de visibilidad
+
+Operación creciendo
+
+más rápido que el
+
+control
+
+Gatillos de compra
+
+Expansión de sucursales o líneas de negocio
+
+Presión por márgenes
+
+Socios pidiendo mejores indicadores
+
+Crecimiento inorgánico o procesos
+
+desconectados
+
+Cierre de mes doloroso
+
+Objeciones típicas
+
+"Ya tengo Power BI"
+
+"El problema es la disciplina, no el dashboard"
+
+"Esto depende de que todos capturen bien"
+
+Qué compra realmente
+
+Certeza directiva, velocidad para decidir y
+
+confianza en los números.
+
+Producto ideal
+
+Qlik o proyecto de BI/visibilidad, a veces combinado
+
+con Odoo si el problema de fondo es transaccional.
+
+"Integramos procesos y datos para que dirección decida con claridad, no con intuición."
+
+Persona 3: El Director Comercial o Líder de
+
+Crecimiento
+
+EQUIPO DE 3–15 VENDEDORES HUBSPOT COMO SOLUCIÓN
+
+Director comercial, gerente de ventas, head of growth o líder comercial en empresa B2B pequeña o mediana. Tiene
+
+leads, contactos, vendedores y cotizaciones — pero no trazabilidad real del pipeline. Cada ejecutivo da seguimiento "a
+
+su manera".
+
+Leads sin seguimiento
+
+Oportunidades calientes
+
+se enfrían porque nadie
+
+tiene visibilidad de quién
+
+da seguimiento a qué.
+
+Forecast comercial
+
+débil
+
+El pronóstico de ventas
+
+cambia cada semana. No
+
+hay método ni disciplina
+
+en el proceso de
+
+cotización.
+
+Marketing y ventas
+
+desconectados
+
+Los leads que genera
+
+marketing no llegan bien
+
+calificados a ventas. El
+
+ciclo comercial completo
+
+no es visible.
+
+Gatillos de compra
+
+Crecimiento del equipo comercial
+
+Más leads de los que pueden seguir bien
+
+Presión por forecast
+
+Rotación de vendedores
+
+Necesidad de ordenar postventa
+
+Objeciones típicas
+
+"Mi equipo no lo va a llenar"
+
+"Ya usamos Excel / Trello"
+
+"El CRM se vuelve trabajo administrativo"
+
+"Marketing todavía no está maduro"
+
+Qué compra realmente
+
+Disciplina comercial, visibilidad del pipeline y más
+
+conversión.
+
+"Te ayudamos a dejar de perder oportunidades por falta de seguimiento."
+
+Persona 4: El Director de Administración y Finanzas
+
+BACK OFFICE CAMPEÓN INTERNO DE LA FORMALIZACIÓN
+
+Director de administración y finanzas, gerente de operaciones, controller o responsable de back office. No siempre
+
+firma el cheque final, pero casi siempre arma el caso interno. Es quien vive de cerca el costo del desorden: cierres lentos,
+
+doble captura, errores entre áreas y conciliaciones que nunca cuadran a tiempo.
+
+Procesos manuales
+
+Captura repetida en múltiples sistemas o formatos
+
+sin integración real.
+
+Información duplicada
+
+Datos dispersos entre hojas de cálculo, correos y
+
+sistemas sin conexión.
+
+Errores de captura
+
+Equivocaciones que pegan directo en cobranza,
+
+inventario o facturación.
+
+Conciliaciones tardías
+
+El cierre de mes se convierte en un maratón de
+
+correcciones y verificaciones.
+
+Gatillos de compra
+
+Auditorías o exigencias de control
+
+Crecimiento en volumen operativo
+
+Errores que pegan en cobranza o inventario
+
+Cambio generacional / profesionalización
+
+Presión del director general por reportes más rápidos
+
+Objeciones típicas
+
+"La implementación le va a pegar a la operación"
+
+"Hay que limpiar datos primero"
+
+"Sin patrocinio de dirección, esto no camina"
+
+"El equipo está saturado"
+
+Qué compra realmente
+
+Eficiencia, control y reducción del riesgo operativo.
+
+"Reducimos retrabajo y conectamos áreas para que la operación sea más controlable."
+
+Resumen: Los 4 Perfiles de un Vistazo
+
+Cada perfil tiene un dolor específico, un producto ideal y un mensaje que le resuena. Aquí la vista comparativa para
+
+identificar rápidamente con quién estás hablando y cómo ayudarle mejor.
+
+Identifica el perfil
+
+Escucha el dolor que describe.
+
+Las palabras que usa te dicen
+
+con qué persona estás
+
+hablando.
+
+Adapta el mensaje
+
+Cada perfil compra una
+
+promesa distinta. No vendas
+
+software — vende el
+
+resultado que necesita.
+
+Conecta la solución
+
+Odoo, HubSpot o Qlik son el
+
+vehículo. El destino siempre
+
+es control, certeza o
+
+crecimiento.
+
+
+
+
+
+
+
+Appunto - Guía de Marca
+
+Este documento establece la base estratégica de marca de Appunto: quién es, qué resuelve, cómo
+
+se diferencia y cómo debe sonar y verse. Una referencia clara para comunicar con consistencia
+
+desde el negocio, no desde la herramienta.
+
+Esencia de Marca
+
+Convertimos complejidad operativa en claridad de negocio.
+
+Appunto no es una empresa de IT que implementa herramientas y ya. Su lugar de marca es más
+
+valioso y más específico. Es una consultoría de negocio habilitada por tecnología que ayuda a las
+
+empresas a ordenar su operación, conectar procesos, aprovechar mejor sus datos y tomar
+
+decisiones con más claridad. La tecnología forma parte de la solución, pero nunca es el punto de
+
+partida.
+
+El punto de partida siempre es el negocio: sus fricciones, sus cuellos de botella, su falta de
+
+visibilidad, su necesidad de crecer con más control. Entender esto con precisión es lo que define la
+
+identidad de Appunto y la separa de cualquier competidor que llegue con un catálogo de software
+
+bajo el brazo.
+
+Lo que SÍ es Appunto
+
+Un socio consultivo de negocio
+
+Un traductor entre negocio y tecnología
+
+Un integrador de procesos, información y
+
+herramientas
+
+Un facilitador de orden, visibilidad y mejor
+
+toma de decisiones
+
+Lo que NO es Appunto
+
+Solo una empresa de IT
+
+Solo un implementador de software
+
+Un revendedor de herramientas
+
+Un competidor por catálogo técnico
+
+Un vendedor de transformación por moda
+
+Misión,Visión y Propósito
+
+Misión
+
+Ayudar a las empresas a
+
+operar con mayor
+
+claridad, integración y
+
+control mediante
+
+soluciones de negocio
+
+habilitadas por tecnología,
+
+datos y software
+
+empresarial.
+
+Versión corta: Integramos
+
+negocio, procesos y
+
+tecnología para mejorar
+
+decisiones y operación.
+
+Visión
+
+Ser la consultoría de
+
+negocio referente para
+
+empresas que buscan
+
+crecer con más orden,
+
+mejor visibilidad y uso
+
+más inteligente de su
+
+información y sus
+
+procesos.
+
+Visión ampliada:
+
+Convertirnos en el aliado
+
+estratégico de empresas
+
+que quieren evolucionar
+
+hacia una forma de
+
+trabajar más conectada,
+
+más clara y más
+
+sostenible.
+
+Propósito
+
+Ayudar a que las
+
+empresas crezcan sin
+
+perder control. Este
+
+propósito conecta con
+
+una realidad muy común:
+
+muchas empresas logran
+
+crecer a fuerza de empuje
+
+y talento, pero llega un
+
+punto donde ese modelo
+
+empieza a generar
+
+fricción. Appunto
+
+acompaña ese paso de
+
+crecimiento informal a
+
+operación más clara.
+
+El Problema Cultural que la Marca
+
+Enfrenta
+
+En muchas empresas mexicanas, especialmente PyMEs y medianas, los negocios han avanzado
+
+resolviendo "sobre la marcha". Con Excel, con WhatsApp, con seguimiento manual, con intuición,
+
+con personas clave que sostienen demasiado conocimiento, y con decisiones basadas en
+
+experiencia pero poca visibilidad integrada. Eso no significa que estén mal. Significa que muchas
+
+crecieron antes de formalizar sus procesos.
+
+La oportunidad de Appunto está en romper culturalmente con la idea de "Así operamos y así nos ha
+
+funcionado". Sin juzgar ese pasado, la marca propone una evolución concreta y alcanzable. Appunto
+
+no pelea contra el esfuerzo emprendedor. Pelea contra el costo operativo innecesario que ese
+
+esfuerzo ya no debería seguir cargando.
+
+Sí se puede
+
+profesionalizar
+
+Sin volver la empresa rígida
+
+ni perder la agilidad que la
+
+hizo crecer.
+
+Sí se puede ordenar
+
+Sin complicar
+
+innecesariamente los
+
+procesos ni agregar
+
+burocracia improductiva.
+
+Sí se puede usar
+
+tecnología
+
+Con sentido de negocio
+
+real, no por moda ni por
+
+seguir tendencias del
+
+mercado.
+
+Buyer Personas Núcleo
+
+Aunque Appunto puede tocar varias áreas y sectores, su comunicación debe hablarle principalmente
+
+a cuatro perfiles directivos con necesidades distintas pero complementarias. Conocer con
+
+profundidad a cada uno es clave para que cada mensaje llegue con la precisión y el registro
+
+adecuados.
+
+Dueño Fundador
+
+de PyME
+
+Le mueve: sacar
+
+adelante el negocio, no
+
+perder control, crecer
+
+sin ahogarse en la
+
+operación.
+
+Realmente compra:
+
+orden, claridad, menos
+
+caos, más control sin
+
+burocracia.
+
+Director General
+
+Le mueve: mejor
+
+visibilidad del negocio,
+
+decidir con más
+
+certeza, alinear áreas,
+
+dejar de depender de
+
+versiones distintas de
+
+la verdad.
+
+Realmente compra:
+
+visión integral,
+
+información confiable,
+
+mejor capacidad de
+
+dirección.
+
+Director
+
+Comercial
+
+Le mueve: dar
+
+seguimiento real,
+
+mejorar trazabilidad,
+
+evitar fugas de
+
+oportunidad, coordinar
+
+mejor al equipo.
+
+Realmente compra:
+
+disciplina comercial,
+
+visibilidad del pipeline,
+
+estructura de
+
+seguimiento.
+
+Director de
+
+Administración y
+
+Finanzas
+
+Le mueve: reducir
+
+retrabajo, ordenar
+
+información, tener
+
+procesos más
+
+confiables, mejorar
+
+control.
+
+Realmente compra:
+
+eficiencia, control,
+
+menos fricción
+
+operativa, información
+
+más integrada.
+
+Propuesta de Valor
+
+No implementamos tecnología por moda. La usamos para resolver problemas reales de negocio.
+
+Appunto ayuda a empresas con operación compleja, procesos desconectados o información
+
+dispersa a integrar negocio, datos y tecnología para operar con más claridad y tomar mejores
+
+decisiones. A diferencia de una empresa de IT tradicional, Appunto no parte de la herramienta, sino
+
+del problema de negocio. Su valor está en entender la operación, identificar fricciones, traducir
+
+necesidades y construir una solución viable usando tecnología, software empresarial, analítica y
+
+procesos mejor conectados.
+
+Beneficios que la marca promete
+
+Más visibilidad del negocio
+
+Más orden operativo
+
+Menos retrabajo
+
+Mejor integración entre áreas
+
+Mejor uso de la información
+
+Más capacidad de decisión
+
+Crecimiento con mayor control
+
+Lo que NO debe prometer
+
+Transformación instantánea
+
+Automatización total sin esfuerzo
+
+Resultados milagro
+
+"Con una sola herramienta todo se arregla"
+
+La promesa de Appunto es trabajo serio,
+
+criterio sólido y soluciones que tengan sentido
+
+para la realidad concreta de cada empresa. No
+
+más, no menos.
+
+Diferenciadores Clave
+
+Lo que distingue a Appunto no es un producto ni una tecnología específica. Es una manera de entrar,
+
+de pensar y de construir soluciones. Estos cinco diferenciadores definen su posición competitiva y
+
+deben estar presentes en toda comunicación de marca.
+
+Entra desde el negocio,no desde el software
+
+Appunto no empieza la conversación hablando de la herramienta. Empieza hablando de
+
+la operación, del objetivo y del problema real. Esto cambia completamente la calidad de
+
+la solución.
+
+Conecta negocio y tecnología
+
+No se queda en lo técnico ni en lo conceptual. Hace el puente real entre ambos
+
+mundos, traduciendo con criterio en ambas direcciones.
+
+Integra en vez de fragmentar
+
+Su valor no está en una pieza aislada, sino en cómo ayuda a conectar procesos, áreas
+
+e información en una lógica coherente de negocio.
+
+Habla con claridad
+
+Traduce complejidad técnica a lenguaje de negocio entendible y útil. Sin buzzwords
+
+innecesarios. Sin tecnicismos que oscurecen en lugar de iluminar.
+
+Busca soluciones viables
+
+No vende digitalización aspiracional vacía. Busca lo que sí hace sentido para la realidad
+
+de cada empresa, con criterio práctico y rigor estratégico.
+
+Personalidad y Arquetipo de Marca
+
+Appunto debe sentirse como una marca clara, inteligente, sobria, profesional, confiable, consultiva,
+
+práctica y resolutiva. No es escandalosa ni grandilocuente. Tiene seguridad, pero no presume. Tiene
+
+conocimiento técnico, pero no abruma. Tiene criterio estratégico, pero no se vuelve abstracta.
+
+Arquetipo principal: El Sabio
+
+Porque aporta claridad, comprensión, criterio,
+
+visión y orden mental. No actúa desde la
+
+imposición sino desde el entendimiento
+
+profundo.
+
+Arquetipo secundario: El Guía
+
+Porque acompaña al cliente en un proceso de
+
+cambio realista, ayudándolo a pasar de
+
+operación fragmentada a operación más
+
+conectada y eficiente.
+
+Clave: Appunto no es el héroe de la historia. El
+
+héroe es el cliente. Appunto es quien lo ayuda
+
+a ver con más claridad y avanzar con una
+
+estructura mejor.
+
+Lo que sítransmite
+
+Control y seriedad
+
+Capacidad y entendimiento
+
+Madurez y acompañamiento
+
+Lo que no debe transmitir
+
+Frialdad técnica o arrogancia
+
+Rigidez institucional
+
+Promesas infladas
+
+Exceso de buzzwords
+
+Marketing vacío
+
+Manifiesto de Marca
+
+Este manifiesto sintetiza la voz y la visión de Appunto en su forma más directa y humana. Puede
+
+usarse como base para presentaciones, web, propuestas y cualquier pieza de comunicación que
+
+requiera anclar la esencia de la marca.
+
+Muchas empresas han crecido resolviendo sobre la marcha. Con esfuerzo, intuición y personas
+
+clave que sostienen la operación todos los días. Y durante un tiempo, eso funciona.
+
+Pero llega un momento en que eso deja de ser suficiente. Cuando la información está dispersa,
+
+los procesos no se conectan y decidir se vuelve más difícil de lo que debería.
+
+En Appunto creemos que crecer no debería significar más caos. Debería significar más claridad.
+
+Por eso no nos vemos solo como una consultoría de IT. Somos una consultoría de negocio que
+
+utiliza tecnología, datos y software empresarial para ayudar a las empresas a operar mejor,
+
+integrar procesos y tomar decisiones con mayor visibilidad y control.
+
+No partimos de la herramienta. Partimos del problema, de la operación y del objetivo de negocio.
+
+No prometemos magia. Prometemos trabajo serio, criterio y soluciones que hagan sentido para la
+
+realidad de cada empresa.
+
+Porque el siguiente nivel no se construye con más improvisación. Se construye con más claridad.
+
+Posicionamiento y Tagline
+
+Consultoría de negocio +
+
+tecnología para crecer con
+
+claridad.
+
+Appunto es una consultoría de negocio habilitada por tecnología que ayuda a las empresas a integrar
+
+procesos, datos y software empresarial para operar con más claridad, control y capacidad de
+
+decisión. Este posicionamiento la separa con nitidez de los integradores de software puros, de las
+
+firmas de TI tradicionales y de los consultores estratégicos sin capacidad de ejecución técnica.
+
+Tagline principal
+
+Convertimos complejidad
+
+operativa en claridad de
+
+negocio.
+
+Tecnología con
+
+sentido
+
+Tecnología con sentido de
+
+negocio.
+
+Claridad operativa
+
+Más claridad para operar y
+
+decidir.
+
+Integración real
+
+Integramos negocio, procesos y tecnología.
+
+Menos fricción
+
+Menos fricción operativa, más claridad.
+
+Identidad Verbal y Voz de Marca
+
+La identidad verbal de Appunto es tan importante como su identidad visual. La forma en que la marca
+
+habla construye confianza, demuestra criterio y comunica quién es antes de que el lector termine el
+
+primer párrafo. El principio rector es simple pero poderoso: hablar desde el negocio, nunca desde la
+
+herramienta.
+
+Cómo debe sonar
+
+Como un consultor que entiende operación,
+
+dirección, procesos, datos, tecnología y la
+
+realidad empresarial. Una voz:
+
+Clara y directa
+
+Profesional y didáctica
+
+Segura y serena
+
+Que explica antes de impresionar
+
+Que traduce antes de tecnificar
+
+Que ordena antes de vender
+
+Palabras que SÍ conviene usar
+
+claridad · integración · visibilidad · control ·
+
+orden · operación · decisiones · procesos ·
+
+información · negocio · trazabilidad · eficiencia ·
+
+crecimiento sostenible
+
+Palabras que conviene moderar
+
+disrupción · innovación · transformación digital ·
+
+360 · vanguardia · ecosistema · soluciones
+
+integrales de clase mundial
+
+No porque estén prohibidas, sino porque
+
+usadas solas suenan genéricas y vacías de
+
+contenido real.
+
+Cómo NO debe sonar
+
+Como vendedor de software, como
+
+soporte técnico, como brochure
+
+corporativo genérico, ni como una marca
+
+que usa palabras de moda para verse
+
+moderna sin decir nada concreto.
+
+Principio de escritura
+
+Mostrar criterio, no solo listar
+
+capacidades. Hablar de impacto
+
+operativo y de negocio concreto. Cada
+
+pieza debe dejar al lector con algo útil, no
+
+solo impresionado.
+
+Storytelling de Marca
+
+El storytelling de Appunto tiene una estructura clara y consistente. No es la historia de una empresa
+
+de tecnología brillante que llega a salvar a sus clientes. Es la historia de un cliente que ya demostró
+
+que puede, y que ahora necesita una forma distinta de operar para seguir creciendo con control.
+
+El Cliente
+
+Héroe
+
+Ya creció con
+
+esfuerzo y
+
+convicción
+
+El Conflicto
+
+Desorden,
+
+dependencia y
+
+procesos aislados
+
+Punto de Giro
+
+Reconoce la
+
+necesidad de
+
+nueva forma de
+
+operar
+
+Rol de
+
+Appunto
+
+Guía que organiza,
+
+conecta y
+
+construye
+
+soluciones
+
+El Resultado
+
+Claridad,
+
+integración y
+
+decisiones con
+
+menos fricción
+
+Appunto no viene a robar protagonismo. Su rol es el del guía estratégico que acompaña al cliente en
+
+un proceso de transformación realista. El resultado no es un sistema nuevo por el gusto de tenerlo;
+
+es una empresa que opera con más claridad, más control, más integración y menos fricción
+
+innecesaria en su día a día.
+
+Territorios de Marca
+
+Estos son los grandes temas que Appunto puede y debe ocupar en su comunicación. Cada territorio
+
+abre líneas de contenido, conversaciones y mensajes específicos que refuerzan el posicionamiento
+
+de la marca desde distintos ángulos relevantes para sus buyer personas.
+
+Claridad para decidir
+
+Visibilidad de negocio, toma de
+
+decisiones y necesidad de
+
+información útil. Cuando la
+
+empresa ya no puede decidir
+
+con hojas dispersas. Ver más
+
+claro para dirigir mejor.
+
+Procesos que sostienen
+
+crecimiento
+
+Orden operativo, integración y
+
+evolución de una empresa que
+
+crece. Crecer sin perder
+
+control. Profesionalizar sin
+
+burocratizar.
+
+Tecnología con sentido
+
+de negocio
+
+Tecnología como medio, no
+
+como fin. La herramienta
+
+correcta empieza con el
+
+problema correcto.
+
+Implementar no es transformar.
+
+Datos y analítica
+
+aplicados
+
+Información que ayuda a actuar
+
+y decidir. Datos que sirven para
+
+mover el negocio. Del dato
+
+disperso a la decisión útil.
+
+Integración entre áreas
+
+Conexión entre ventas,
+
+operación, finanzas y dirección.
+
+El costo oculto de la
+
+desconexión. Una mejor
+
+operación empieza cuando
+
+todos ven mejor.
+
+Identidad Visual
+
+La identidad visual de Appunto debe ser una extensión natural de su esencia de marca. Cada
+
+decisión visual debe comunicar los mismos valores que la marca expresa con palabras: orden,
+
+inteligencia, integración, confianza, visibilidad y profesionalismo. La dirección visual es limpia,
+
+modular, estructurada, contemporánea, premium, sobria y muy legible.
+
+El sistema gráfico sugerido se basa en retículas, bloques, líneas de conexión y nodos que evocan
+
+integración y visibilidad estructurada. La fotografía debe mostrar trabajo real: juntas, revisión de
+
+datos, operación y colaboración en entornos empresariales genuinos, nunca personas celebrando
+
+frente a dashboards ni poses artificiales de stock.
+
+Aplicación al Website
+
+Para que la marca se exprese correctamente en el sitio web, Appunto debe construir su narrativa
+
+digital siguiendo un orden específico que va del problema de negocio hacia la solución, y no al revés.
+
+Este orden no es arbitrario: refleja exactamente cómo piensan y priorizan los buyer personas que la
+
+marca quiere alcanzar.
+
+Arrancar el sitio desde "qué software manejamos" es el error más común en empresas del sector
+
+tecnológico. Appunto debe diferenciarse desde el primer scroll, hablando del problema que reconoce
+
+el director general o el dueño fundador antes de hablar de cualquier herramienta o plataforma. El
+
+visitante debe sentir, en los primeros segundos, que alguien finalmente entiende su situación real.
+
+Frases Eje de Marca
+
+Estas frases pueden y deben usarse en presentaciones, web, redes sociales o propuestas
+
+comerciales. Cada una expresa una dimensión distinta de la promesa de Appunto y puede funcionar
+
+de manera independiente o en conjunto. Son las anclas verbales de la marca.
+
+Convertimos complejidad operativa en
+
+claridad de negocio.
+
+La tecnología correcta empieza con el
+
+problema correcto.
+
+Crecer no debería significar más caos. No partimos de la herramienta; partimos
+
+del negocio.
+
+Profesionalizar no tiene por qué
+
+complicar.
+
+Menos fricción operativa, más visibilidad.
+
+Resumen Ejecutivo
+
+Este resumen condensa en una sola vista todo lo que Appunto es, resuelve, hace y promete. Es la
+
+referencia más compacta para alinear a cualquier persona del equipo, socio, cliente o aliado
+
+estratégico con la esencia de la marca.
+
+Qué es Appunto
+
+Una consultoría de
+
+negocio habilitada por
+
+tecnología. No una
+
+empresa de IT, no un
+
+implementador de
+
+software, no un
+
+revendedor de
+
+herramientas.
+
+Qué resuelve
+
+Fricción operativa,
+
+información dispersa,
+
+procesos
+
+desconectados y falta
+
+de visibilidad para
+
+tomar decisiones con
+
+claridad y control.
+
+Cómo lo hace
+
+Integrando procesos,
+
+datos, analítica y
+
+software empresarial
+
+desde el entendimiento
+
+del problema de negocio,
+
+no desde el catálogo de
+
+herramientas.
+
+Qué promete
+
+Más claridad, más orden, más visibilidad y
+
+mejor capacidad de decisión. Trabajo
+
+serio, criterio y soluciones viables para la
+
+realidad de cada empresa.
+
+Qué la diferencia
+
+No entra desde IT; entra desde el negocio.
+
+Ese punto de partida lo cambia todo: el
+
+diagnóstico, la solución, el resultado y la
+
+relación con el cliente.
+

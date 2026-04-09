@@ -1,0 +1,19 @@
+# Archivos comprimidos
+*.zip
+
+# Archivos de Office
+*.docx
+*.xlsx
+*.pptx
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+
+# Entorno
+.env
+.env.local

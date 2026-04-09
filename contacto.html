@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto | Appunto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#991199', surface: '#F4F1ED', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden flex flex-col min-h-screen">
+
+    <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30">
+        <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+            <a href="index.html"><img src="logos/Color logo - no background.svg" alt="Appunto" class="h-14"></a>
+            <div class="hidden lg:flex gap-8 font-medium">
+                <a href="index.html" class="hover:text-tertiary">Inicio</a>
+                <a href="soluciones.html" class="hover:text-tertiary">Soluciones</a>
+                <a href="industrias.html" class="hover:text-tertiary">Industrias</a>
+                <a href="nosotros.html" class="hover:text-tertiary">Nosotros</a>
+                <a href="contacto.html" class="text-primary border-b-2 border-primary pb-1">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto w-full px-8 py-20 flex justify-center items-center">
+        <div class="w-full max-w-5xl bg-surface-container-lowest shadow-2xl rounded-3xl p-12 lg:p-20 grid lg:grid-cols-5 gap-16 relative">
+            <div class="absolute right-0 top-0 w-64 h-64 bg-primary/5 rounded-bl-full pointer-events-none"></div>
+            
+            <div class="lg:col-span-2 relative z-10">
+                <h1 class="text-4xl font-headline font-black mb-6">Agenda una sesión de diagnóstico.</h1>
+                <p class="text-base text-on-surface-variant mb-10 leading-relaxed">Sin costo, sin presión comercial y sin compromiso. Analizamos tu información actual, tus fricciones de negocio y encontramos cómo generar certidumbre directiva unificando tus procesos y datos.</p>
+                <div class="space-y-6">
+                    <div class="flex flex-col">
+                        <span class="font-bold text-primary text-sm uppercase tracking-wider mb-1">WhatsApp Directo</span>
+                        <a href="tel:+5212345678900" class="text-on-surface-variant hover:text-tertiary text-lg">+52 1 234 567 8900</a>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-primary text-sm uppercase tracking-wider mb-1">Correo Electrónico</span>
+                        <a href="mailto:correo@appunto.mx" class="text-on-surface-variant hover:text-tertiary text-lg">correo@appunto.mx</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3 relative z-10">
+                <form class="space-y-6" onsubmit="event.preventDefault(); alert('¡Gracias! En breve un consultor se pondrá en contacto contigo.');">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-on-surface-variant mb-2">Nombre completo</label>
+                            <input type="text" required class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-on-surface-variant mb-2">Empresa</label>
+                            <input type="text" required class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-on-surface-variant mb-2">Email corporativo</label>
+                        <input type="email" required class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="ejemplo@empresa.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-on-surface-variant mb-2">Principal reto a resolver</label>
+                        <textarea required class="w-full border border-outline-variant rounded-md p-3 h-32 resize-none focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="Descríbenos brevemente el dolor actual de la operación..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary text-white font-bold py-4 rounded-md hover:bg-primary-container transition-colors shadow-lg">Solicitar Diagnóstico</button>
+                    <p class="text-xs text-center text-on-surface-variant opacity-70 mt-4">La información proporcionada es 100% confidencial.</p>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-surface-container-lowest border-t border-outline-variant/30 text-on-surface py-12">
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-4 gap-12 text-sm text-on-surface-variant">
+            <div>
+                <img src="logos/Color logo - no background.svg" class="h-12 mb-6">
+                <p>Consultoría de negocio + tecnología.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-primary mb-4">Sitio</h4>
+                <a href="index.html" class="block mb-2">Inicio</a>
+                <a href="soluciones.html" class="block mb-2">Soluciones</a>
+                <a href="industrias.html" class="block mb-2">Industrias</a>
+                <a href="nosotros.html" class="block">Nosotros</a>
+            </div>
+            <div>
+                <h4 class="font-bold text-primary mb-4">Contacto</h4>
+                <p>correo@appunto.mx</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

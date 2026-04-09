@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Inter:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#216580",
+                    "outline": "#70787d",
+                    "on-tertiary-fixed": "#380038",
+                    "surface-variant": "#e1e3e5",
+                    "primary": "#0d5973",
+                    "primary-container": "#31728d",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#eff1f3",
+                    "secondary-container": "#cfe6f4",
+                    "surface-container-highest": "#e1e3e5",
+                    "on-surface": "#191c1e",
+                    "on-secondary-fixed": "#061e28",
+                    "on-tertiary-fixed-variant": "#810081",
+                    "tertiary-container": "#b130af",
+                    "inverse-surface": "#2e3133",
+                    "on-surface-variant": "#40484c",
+                    "on-primary-fixed": "#001f2a",
+                    "on-tertiary-container": "#ffe5f7",
+                    "secondary": "#4c616d",
+                    "primary-fixed": "#bfe9ff",
+                    "surface-bright": "#f8f9fc",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#004d65",
+                    "surface": "#f8f9fc",
+                    "background": "#f8f9fc",
+                    "secondary-fixed-dim": "#b3cad7",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#d7f0ff",
+                    "tertiary": "#940594",
+                    "tertiary-fixed": "#ffd7f5",
+                    "on-secondary-container": "#526773",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#91cfed",
+                    "on-background": "#191c1e",
+                    "on-secondary-fixed-variant": "#344a55",
+                    "outline-variant": "#c0c8cd",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary-fixed": "#cfe6f4",
+                    "tertiary-fixed-dim": "#ffaaf4",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#91cfed",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#eceef0",
+                    "surface-container-high": "#e7e8ea",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="bg-[#f8f9fc]/80 dark:bg-[#191c1e]/80 backdrop-blur-md text-[#31728D] font-['Manrope'] font-semibold tracking-tight docked full-width top-0 sticky z-50 transition-colors duration-300">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-7xl mx-auto">
+<div class="text-2xl font-black text-[#31728D] dark:text-[#5fa8c9] tracking-tighter">Appunto</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#191c1e]/70 dark:text-[#f2f4f6]/70 hover:text-[#991199] transition-colors duration-300" href="#">Inicio</a>
+<a class="text-[#191c1e]/70 dark:text-[#f2f4f6]/70 hover:text-[#991199] transition-colors duration-300" href="#">Soluciones</a>
+<a class="text-[#31728D] dark:text-[#5fa8c9] border-b-2 border-[#31728D] pb-1" href="#">Industrias</a>
+<a class="text-[#191c1e]/70 dark:text-[#f2f4f6]/70 hover:text-[#991199] transition-colors duration-300" href="#">Nosotros</a>
+<a class="text-[#191c1e]/70 dark:text-[#f2f4f6]/70 hover:text-[#991199] transition-colors duration-300" href="#">Contacto</a>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-md font-bold hover:opacity-90 transition-all">
+                Agenda un diagnóstico
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-24 pb-32 overflow-hidden bg-surface">
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="flex flex-col gap-6 max-w-4xl">
+<span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase">Industrias &amp; Casos</span>
+<h1 class="text-6xl md:text-8xl font-black text-on-surface tracking-tighter leading-[0.95]">
+                        Reconoce tu situación. <br/>
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-tertiary">Encuentra tu solución.</span>
+</h1>
+<p class="text-title-lg text-on-surface-variant max-w-2xl text-xl leading-relaxed mt-4">
+                        Diseñamos arquitecturas de datos y procesos que se adaptan a la madurez de tu negocio, no al revés.
+                    </p>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-surface-container-low -skew-x-12 translate-x-1/2 z-0"></div>
+</section>
+<!-- Profiles Section (Asymmetric Editorial Layout) -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<div class="lg:col-span-4 sticky top-32">
+<h2 class="text-4xl font-headline font-extrabold tracking-tight text-primary">Perfiles de <br/>Crecimiento</h2>
+<p class="mt-6 text-on-surface-variant leading-relaxed">Cada empresa transita un camino único hacia la digitalización. Identifica en qué etapa te encuentras para recibir una consultoría a medida.</p>
+</div>
+<div class="lg:col-span-8 flex flex-col gap-16">
+<!-- Profile A -->
+<div class="bg-surface-container-lowest p-12 rounded-xl flex flex-col md:flex-row gap-10 group hover:shadow-2xl transition-all duration-500">
+<div class="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-4xl">storefront</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-4">A: PyME en Expansión</h3>
+<p class="text-on-surface-variant leading-relaxed">Operas con agilidad pero tus procesos empiezan a sentirse manuales. Buscas una base sólida que soporte el crecimiento sin perder el control.</p>
+<div class="mt-6 flex gap-4">
+<span class="text-xs font-bold text-tertiary py-1 px-3 bg-tertiary-fixed rounded-full">Estandarización</span>
+<span class="text-xs font-bold text-tertiary py-1 px-3 bg-tertiary-fixed rounded-full">Control Inicial</span>
+</div>
+</div>
+</div>
+<!-- Profile B -->
+<div class="bg-surface-container-lowest p-12 rounded-xl flex flex-col md:flex-row gap-10 ml-0 md:ml-12 group hover:shadow-2xl transition-all duration-500">
+<div class="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-4xl">account_tree</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-4">B: Mediana con Datos Dispersos</h3>
+<p class="text-on-surface-variant leading-relaxed">Tienes varios sistemas operando pero "la verdad" está fragmentada. Necesitas una arquitectura que unifique la visión de tu directiva.</p>
+<div class="mt-6 flex gap-4">
+<span class="text-xs font-bold text-tertiary py-1 px-3 bg-tertiary-fixed rounded-full">Business Intelligence</span>
+<span class="text-xs font-bold text-tertiary py-1 px-3 bg-tertiary-fixed rounded-full">Integración ERP</span>
+</div>
+</div>
+</div>
+<!-- Profile C -->
+<div class="bg-surface-container-lowest p-12 rounded-xl flex flex-col md:flex-row gap-10 group hover:shadow-2xl transition-all duration-500 border-l-4 border-tertiary">
+<div class="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-4xl">verified_user</span>
+</div>
+<div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-4">C: Profesionalización</h3>
+<p class="text-on-surface-variant leading-relaxed">Listos para el siguiente nivel. Buscas optimización total, auditoría en tiempo real y una cultura organizacional basada en la evidencia de los datos.</p>
+<div class="mt-6 flex gap-4">
+<span class="text-xs font-bold text-tertiary py-1 px-3 bg-tertiary-fixed rounded-full">Data Governance</span>
+<span class="text-xs font-bold text-tertiary py-1 px-3 bg-tertiary-fixed rounded-full">Escalabilidad Directiva</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sector Grid (Bento Grid Style) -->
+<section class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-20 text-center max-w-3xl mx-auto">
+<h2 class="text-5xl font-headline font-black text-on-surface tracking-tight mb-6">Sectores donde generamos impacto</h2>
+<p class="text-lg text-on-surface-variant">Experiencia multisectorial aplicada a la resolución de problemas específicos de cada industria.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<!-- Comercialización -->
+<div class="col-span-2 row-span-2 bg-primary-container p-8 rounded-xl relative overflow-hidden group">
+<img alt="" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700" data-alt="professional modern retail space with clean lines and soft commercial lighting showing customer engagement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwVn_4EVgbiondfin6Kw30JSc-VmJ0AUTviyR_O4A6ZTiHpm5bJmGtgiN-SpQv7a8F6LcAef1RVlyUHiGnh2VcwpitFQFtPAJgq8hPiH5IYs9M3H2QyLXwL6x3zBjCQ3FHRQL-pQtCdiZMc3fpicfoQQEpTAkxV_awlWxpX-fa4Mep6pgVWHN8HqjSQWP0yrfMNlh2CYzh42CdlSYfnHtk0nvEXa1gw-zOdoOd289jVrRsE6LcPIw3Pg4EC1F-6IpgLL_4AP2k6n6b"/>
+<div class="relative z-10 h-full flex flex-col justify-end">
+<h3 class="text-3xl font-headline font-bold text-on-primary-container">Comercialización</h3>
+<p class="text-on-primary-container/80 mt-2">Optimización de márgenes y rotación de inventarios.</p>
+</div>
+</div>
+<!-- Manufactura -->
+<div class="bg-surface-container-high p-8 rounded-xl flex flex-col justify-between group">
+<span class="material-symbols-outlined text-4xl text-primary">factory</span>
+<h3 class="text-xl font-headline font-bold mt-4">Manufactura</h3>
+</div>
+<!-- Servicios B2B -->
+<div class="bg-surface-container-high p-8 rounded-xl flex flex-col justify-between group">
+<span class="material-symbols-outlined text-4xl text-primary">groups_3</span>
+<h3 class="text-xl font-headline font-bold mt-4">Servicios B2B</h3>
+</div>
+<!-- Logística -->
+<div class="bg-surface-container-high p-8 rounded-xl flex flex-col justify-between group">
+<span class="material-symbols-outlined text-4xl text-primary">local_shipping</span>
+<h3 class="text-xl font-headline font-bold mt-4">Logística</h3>
+</div>
+<!-- Agro -->
+<div class="bg-surface-container-high p-8 rounded-xl flex flex-col justify-between group">
+<span class="material-symbols-outlined text-4xl text-primary">agriculture</span>
+<h3 class="text-xl font-headline font-bold mt-4">Agro</h3>
+</div>
+<!-- Financiero -->
+<div class="col-span-2 bg-surface-container-highest p-8 rounded-xl border-l-4 border-primary flex items-center justify-between">
+<div>
+<h3 class="text-2xl font-headline font-bold">Financiero</h3>
+<p class="text-on-surface-variant text-sm mt-1">Cumplimiento, flujos y proyecciones dinámicas.</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-primary/50">account_balance</span>
+</div>
+<!-- Retail -->
+<div class="bg-surface-container-high p-8 rounded-xl flex flex-col justify-between group">
+<span class="material-symbols-outlined text-4xl text-primary">shopping_basket</span>
+<h3 class="text-xl font-headline font-bold mt-4">Retail</h3>
+</div>
+<!-- Integradores -->
+<div class="bg-surface-container-high p-8 rounded-xl flex flex-col justify-between group">
+<span class="material-symbols-outlined text-4xl text-primary">hub</span>
+<h3 class="text-xl font-headline font-bold mt-4">Integradores</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Frequent Scenarios -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex items-end justify-between mb-16 gap-8 flex-wrap">
+<div class="max-w-2xl">
+<h2 class="text-4xl font-headline font-extrabold tracking-tight">Escenarios Frecuentes</h2>
+<p class="mt-4 text-on-surface-variant text-lg">¿Te suena familiar alguno de estos retos? No son problemas aislados, son síntomas de una estructura que necesita evolución.</p>
+</div>
+<div class="h-px flex-grow bg-outline-variant opacity-30 mb-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Scenario 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg transition-transform hover:-translate-y-2">
+<div class="text-tertiary mb-4">
+<span class="material-symbols-outlined text-3xl">table_view</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-3">"Todo vive en Excel"</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Tu operación depende de hojas de cálculo aisladas que requieren horas de trabajo manual para consolidar.</p>
+</div>
+<!-- Scenario 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg transition-transform hover:-translate-y-2">
+<div class="text-tertiary mb-4">
+<span class="material-symbols-outlined text-3xl">rule</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-3">"Números no coinciden"</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Contabilidad dice una cosa, Operaciones otra y Ventas una muy distinta. La falta de una fuente única de verdad genera desconfianza.</p>
+</div>
+<!-- Scenario 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg transition-transform hover:-translate-y-2">
+<div class="text-tertiary mb-4">
+<span class="material-symbols-outlined text-3xl">timer</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-3">"Reportes con retraso"</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Recibes la información del mes pasado cuando ya es tarde para tomar decisiones correctivas en el presente.</p>
+</div>
+<!-- Scenario 4 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg transition-transform hover:-translate-y-2">
+<div class="text-tertiary mb-4">
+<span class="material-symbols-outlined text-3xl">person_off</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-3">"Dependencia Total"</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Si una persona clave se va, el conocimiento de cómo se procesan los datos desaparece con ella.</p>
+</div>
+<!-- Scenario 5 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg transition-transform hover:-translate-y-2">
+<div class="text-tertiary mb-4">
+<span class="material-symbols-outlined text-3xl">error</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-3">"Fallas en Inventario"</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Vendes lo que no tienes o tienes stock muerto porque los sistemas no se hablan entre sí en tiempo real.</p>
+</div>
+<!-- Scenario 6 -->
+<div class="bg-surface-container-lowest p-8 rounded-lg transition-transform hover:-translate-y-2">
+<div class="text-tertiary mb-4">
+<span class="material-symbols-outlined text-3xl">trending_down</span>
+</div>
+<h4 class="text-xl font-headline font-bold mb-3">"Rentabilidad Ciega"</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Vendes mucho, pero no sabes exactamente cuánto estás ganando después de todos los costos ocultos.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-32 bg-surface">
+<div class="max-w-7xl mx-auto px-8 text-center">
+<div class="relative inline-block mb-8">
+<span class="text-6xl md:text-8xl font-black tracking-tighter text-on-surface opacity-10 absolute inset-0 select-none">TU CASO</span>
+<h2 class="text-5xl md:text-7xl font-headline font-black text-on-surface relative z-10">Tu caso seguramente <br/>tiene nombre.</h2>
+</div>
+<p class="text-xl text-on-surface-variant max-w-2xl mx-auto mb-12">Hablemos de tus retos específicos y tracemos la hoja de ruta hacia tu arquitectura de datos ideal.</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<button class="bg-primary text-on-primary px-10 py-5 rounded-md font-bold text-lg hover:bg-primary-container transition-all flex items-center justify-center gap-3 group">
+                        Solicitar Diagnóstico
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="border-2 border-outline/20 text-on-surface px-10 py-5 rounded-md font-bold text-lg hover:bg-surface-container-low transition-all">
+                        Explorar Soluciones
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f2f4f6] dark:bg-[#121416] text-[#31728D] py-16 transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12 font-['Inter'] text-sm leading-relaxed">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-bold text-[#31728D] dark:text-[#5fa8c9] mb-6">Appunto</div>
+<p class="text-[#191c1e]/60 dark:text-[#f2f4f6]/60">Consultoría estratégica en arquitectura de datos y optimización de procesos de negocio.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-[#31728D]">Plataforma</h4>
+<a class="text-[#191c1e]/60 dark:text-[#f2f4f6]/60 hover:text-[#991199] hover:translate-x-1 transition-all" href="#">Inicio</a>
+<a class="text-[#191c1e]/60 dark:text-[#f2f4f6]/60 hover:text-[#991199] hover:translate-x-1 transition-all" href="#">Soluciones</a>
+<a class="text-[#31728D] font-bold" href="#">Industrias</a>
+<a class="text-[#191c1e]/60 dark:text-[#f2f4f6]/60 hover:text-[#991199] hover:translate-x-1 transition-all" href="#">Nosotros</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-[#31728D]">Tecnologías</h4>
+<a class="text-[#191c1e]/60 dark:text-[#f2f4f6]/60 hover:text-[#991199] hover:translate-x-1 transition-all" href="#">Odoo</a>
+<a class="text-[#191c1e]/60 dark:text-[#f2f4f6]/60 hover:text-[#991199] hover:translate-x-1 transition-all" href="#">Qlik</a>
+<a class="text-[#191c1e]/60 dark:text-[#f2f4f6]/60 hover:text-[#991199] hover:translate-x-1 transition-all" href="#">Contacto</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-[#31728D]">Legal</h4>
+<a class="text-[#191c1e]/60 dark:text-[#f2f4f6]/60 hover:text-[#991199] hover:translate-x-1 transition-all" href="#">Aviso de Privacidad</a>
+<a class="text-[#191c1e]/60 dark:text-[#f2f4f6]/60 hover:text-[#991199] hover:translate-x-1 transition-all" href="#">Términos</a>
+</div>
+<div class="col-span-1 md:col-span-4 pt-12 border-t border-outline-variant/10 text-center text-[#191c1e]/40 dark:text-[#f2f4f6]/40">
+                © 2024 Appunto Consulting. Todos los derechos reservados.
+            </div>
+</div>
+</footer>
+</body></html>

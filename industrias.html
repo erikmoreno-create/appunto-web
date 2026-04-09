@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrias y Casos | Appunto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#991199', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden">
+
+    <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/20">
+        <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+            <a href="index.html"><img src="logos/Color logo - no background.svg" alt="Appunto" class="h-14 w-auto"></a>
+            <div class="hidden lg:flex gap-8 font-medium items-center">
+                <a href="index.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Inicio</a>
+                <a href="soluciones.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Soluciones</a>
+                <a href="industrias.html" class="text-primary border-b-2 border-primary pb-1">Industrias</a>
+                <a href="nosotros.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Nosotros</a>
+                <a href="contacto.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Contacto</a>
+                <a href="contacto.html" class="bg-primary text-white px-6 py-2.5 rounded-md hover:bg-primary-container">Diagnóstico</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="py-24 text-center px-8">
+            <h1 class="text-5xl md:text-7xl font-headline font-black text-on-surface tracking-tighter">Sectores donde impactamos.</h1>
+            <p class="text-xl text-on-surface-variant mt-6 max-w-2xl mx-auto">Cada industria tiene reglas distintas, pero los síntomas de una operación desconectada son universales. Aportamos experiencia aplicada a la resolución de problemas específicos.</p>
+        </section>
+
+        <!-- Sectores 8 Grid -->
+        <section class="pb-24">
+            <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Retail (Image) -->
+                <div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden shadow-2xl h-[500px] group">
+                    <img src="images/industry_retail_1775672028785.png" alt="Retail" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8 z-10">
+                        <h3 class="text-4xl font-headline font-bold text-white mb-2">Comercialización & Retail</h3>
+                        <p class="text-white/80">Optimización de márgenes, rotación de inventarios y control de sucursales en tiempo real.</p>
+                    </div>
+                </div>
+
+                <!-- Manufactura (Image) -->
+                <div class="md:col-span-2 relative rounded-3xl overflow-hidden shadow-xl h-[240px] group">
+                    <img src="images/industry_manufacturing_1775672044539.png" alt="Manufactura" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-transparent"></div>
+                    <div class="absolute bottom-6 left-8 z-10 max-w-md">
+                        <h3 class="text-2xl font-headline font-bold text-white mb-1">Manufactura Ligera</h3>
+                        <p class="text-white/80 text-sm">Gestión de recursos (MRP), control de piso y cálculo real de costos de producción.</p>
+                    </div>
+                </div>
+
+                <!-- 6 Text Grids -->
+                <div class="bg-surface-container-lowest p-6 rounded-3xl flex flex-col justify-center shadow-md h-[240px] border-t-4 border-tertiary">
+                    <h3 class="text-xl font-headline font-bold text-on-surface mb-2">Servicios B2B</h3>
+                    <p class="text-on-surface-variant text-sm">Trazabilidad de proyectos, rentabilidad por hora y control de suscripciones o igualas.</p>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-3xl flex flex-col justify-center shadow-md h-[240px] border-t-4 border-primary">
+                    <h3 class="text-xl font-headline font-bold text-on-surface mb-2">Logística</h3>
+                    <p class="text-on-surface-variant text-sm">Control de flotas, geolocalización o consolidación de información de envíos.</p>
+                </div>
+                
+                <div class="bg-surface-container-lowest p-6 rounded-3xl flex flex-col justify-center shadow-md h-[240px]">
+                    <h3 class="text-xl font-headline font-bold text-on-surface mb-2">Agroindustria</h3>
+                    <p class="text-on-surface-variant text-sm">Control de volumen, mermas de campo a almacén y consolidación de centros.</p>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-3xl flex flex-col justify-center shadow-md h-[240px]">
+                    <h3 class="text-xl font-headline font-bold text-on-surface mb-2">Sector Financiero</h3>
+                    <p class="text-on-surface-variant text-sm">Bancos, Sofipos y Fintech. Cumplimiento, flujos de análisis de riesgo y proyecciones dinámicas.</p>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-3xl flex flex-col justify-center shadow-md h-[240px]">
+                    <h3 class="text-xl font-headline font-bold text-on-surface mb-2">Integradores</h3>
+                    <p class="text-on-surface-variant text-sm">Gestión de proyectos a largo plazo con hitos de facturación complejos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Escenarios Frecuentes (6 items) -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto px-8">
+                <h2 class="text-4xl md:text-5xl font-headline font-black mb-6">Escenarios Frecuentes</h2>
+                <p class="text-xl text-on-surface-variant mb-12 max-w-3xl">¿Te suena familiar alguno de estos retos? No son problemas aislados, son síntomas de una estructura que necesita evolución.</p>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-t-2 border-primary hover:shadow-lg transition-all">
+                        <h3 class="text-xl font-bold mb-3">"Todo vive en Excel"</h3>
+                        <p class="text-on-surface-variant">Tu operación depende de hojas de cálculo aisladas que requieren horas de trabajo manual para consolidar.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-t-2 border-primary hover:shadow-lg transition-all">
+                        <h3 class="text-xl font-bold mb-3">"Números no coinciden"</h3>
+                        <p class="text-on-surface-variant">Contabilidad dice una cosa, Operaciones dice otra y Ventas una muy distinta. La falta de una fuente única de verdad genera desconfianza.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-t-2 border-primary hover:shadow-lg transition-all">
+                        <h3 class="text-xl font-bold mb-3">"Reportes con retraso"</h3>
+                        <p class="text-on-surface-variant">Recibes la información del mes pasado cuando ya es tarde para tomar decisiones correctivas en el presente.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-t-2 border-tertiary hover:shadow-lg transition-all">
+                        <h3 class="text-xl font-bold mb-3">"Dependencia Total"</h3>
+                        <p class="text-on-surface-variant">Si una persona clave se va de vacaciones o renuncia, el conocimiento de cómo se procesan los datos desaparece con ella.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-t-2 border-tertiary hover:shadow-lg transition-all">
+                        <h3 class="text-xl font-bold mb-3">"Fallas en Inventario"</h3>
+                        <p class="text-on-surface-variant">Vendes lo que no tienes o tienes dinero detenido en stock muerto porque los sistemas no se hablan entre sí en tiempo real.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-t-2 border-tertiary hover:shadow-lg transition-all">
+                        <h3 class="text-xl font-bold mb-3">"Rentabilidad Ciega"</h3>
+                        <p class="text-on-surface-variant">Vendes mucho, pero no sabes exactamente cuánto estás ganando después de sumar todos los costos ocultos y mermas operativas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 text-center">
+            <h2 class="text-5xl font-headline font-black mb-8">Tu caso seguramente tiene nombre.</h2>
+            <p class="text-xl text-on-surface-variant mb-10 max-w-2xl mx-auto">Hablemos de tus retos específicos y tracemos la hoja de ruta hacia tu arquitectura de datos ideal.</p>
+            <a href="contacto.html" class="bg-primary text-white font-bold px-10 py-5 rounded-md hover:bg-primary-container shadow-xl">Solicitar Diagnóstico</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low border-t border-outline-variant/30 text-on-surface py-20 mt-auto">
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-4 gap-12 text-sm text-on-surface-variant">
+            <div>
+                <img src="logos/Color logo - no background.svg" class="h-12 mb-6">
+                <p>Consultoría de negocio + tecnología.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-primary mb-4">Sitio</h4>
+                <a href="index.html" class="block mb-2">Inicio</a>
+                <a href="soluciones.html" class="block mb-2">Soluciones</a>
+                <a href="industrias.html" class="block mb-2">Industrias</a>
+                <a href="nosotros.html" class="block">Nosotros</a>
+            </div>
+            <div>
+                <h4 class="font-bold text-primary mb-4">Contacto</h4>
+                <p>correo@appunto.mx</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-8 mt-16 text-center">
+            <p>© 2025 Appunto.</p>
+        </div>
+    </footer>
+</body>
+</html>
