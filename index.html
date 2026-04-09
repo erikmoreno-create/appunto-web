@@ -150,25 +150,37 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 border-primary">
-                        <h3 class="text-2xl font-headline font-bold mb-2">Dueño o director de PyME</h3>
-                        <p class="text-tertiary font-bold mb-4">"La empresa creció pero ya no tengo control de lo que pasa."</p>
-                        <p class="text-on-surface-variant">Tienes más volumen, más personas y más fricción, pero menos visibilidad. Necesitas una operación que no dependa de ti para funcionar.</p>
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 border-primary flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-headline font-bold mb-2">Dueño o director de PyME</h3>
+                            <p class="text-tertiary font-bold mb-4">"La empresa creció, pero el control no creció con ella."</p>
+                            <p class="text-on-surface-variant">Más personas, más operación y más fricción. Necesitas orden y visibilidad para que la empresa siga avanzando sin depender de ti.</p>
+                        </div>
+                        <p class="text-xs text-on-surface-variant/60 mt-6 pt-4 border-t border-outline-variant/20">Suele pasar en empresas a partir de 15 a 20 colaboradores.</p>
                     </div>
-                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 border-primary-container">
-                        <h3 class="text-2xl font-headline font-bold mb-2">Director General de empresa mediana</h3>
-                        <p class="text-tertiary font-bold mb-4">"Tengo datos por todos lados y ninguna lectura clara del negocio."</p>
-                        <p class="text-on-surface-variant">Cada área reporta diferente. Necesitas una sola versión de la verdad para dirigir con más certeza y menos intuición.</p>
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 border-primary-container flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-headline font-bold mb-2">Director General de empresa mediana</h3>
+                            <p class="text-tertiary font-bold mb-4">"Tengo datos, pero no claridad para dirigir."</p>
+                            <p class="text-on-surface-variant">Cada área reporta distinto y eso vuelve más lenta la decisión. Necesitas una sola lectura del negocio para avanzar con más certeza.</p>
+                        </div>
+                        <p class="text-xs text-on-surface-variant/60 mt-6 pt-4 border-t border-outline-variant/20">Común en empresas con varias áreas y operación en crecimiento.</p>
                     </div>
-                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 border-tertiary">
-                        <h3 class="text-2xl font-headline font-bold mb-2">Director Comercial</h3>
-                        <p class="text-tertiary font-bold mb-4">"Se nos van oportunidades porque no hay seguimiento real."</p>
-                        <p class="text-on-surface-variant">El equipo vende, pero sin trazabilidad del pipeline el forecast no es confiable y los cierres se pierden.</p>
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 border-tertiary flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-headline font-bold mb-2">Director Comercial</h3>
+                            <p class="text-tertiary font-bold mb-4">"Hay actividad comercial, pero no visibilidad real del pipeline."</p>
+                            <p class="text-on-surface-variant">Sin seguimiento consistente, el forecast pierde credibilidad y las oportunidades se enfrían o se pierden.</p>
+                        </div>
+                        <p class="text-xs text-on-surface-variant/60 mt-6 pt-4 border-t border-outline-variant/20">Frecuente cuando el proceso comercial ya superó lo que permiten herramientas sueltas.</p>
                     </div>
-                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 border-primary">
-                        <h3 class="text-2xl font-headline font-bold mb-2">Director de Administración y Finanzas</h3>
-                        <p class="text-tertiary font-bold mb-4">"El cierre de mes es un maratón de correcciones y retrabajo."</p>
-                        <p class="text-on-surface-variant">Doble captura, conciliaciones manuales y errores que llegan a cobranza. Necesitas procesos conectados y menos dependencia del criterio de cada quien.</p>
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 border-primary flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-2xl font-headline font-bold mb-2">Director de Administración y Finanzas</h3>
+                            <p class="text-tertiary font-bold mb-4">"El cierre de mes sigue dependiendo de retrabajo y correcciones."</p>
+                            <p class="text-on-surface-variant">La doble captura, las conciliaciones manuales y los errores consumen tiempo y energía del equipo.</p>
+                        </div>
+                        <p class="text-xs text-on-surface-variant/60 mt-6 pt-4 border-t border-outline-variant/20">Típico en empresas que ya necesitan más integración y control operativo.</p>
                     </div>
                 </div>
                 <div class="text-center mt-12">
@@ -210,22 +222,59 @@
         </section>
 
         <!-- Por qué Appunto -->
-        <section class="py-24 bg-surface-container-low">
-            <div class="max-w-7xl mx-auto px-8">
-                <h2 class="text-4xl md:text-5xl font-headline font-black text-center mb-16">Lo que nos diferencia no es el catálogo. Es cómo resolvemos.</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-3">Negocio antes que herramienta</h3>
-                        <p class="text-on-surface-variant">No llegamos con una propuesta lista antes de entender el problema. La conversación siempre empieza con la operación.</p>
+        <section class="py-24 relative overflow-hidden" style="background: linear-gradient(135deg, #1a3a47 0%, #0f2530 50%, #1a1a2e 100%);">
+            <!-- Ambient glow blobs -->
+            <div class="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(49,114,141,0.25) 0%, transparent 70%);"></div>
+            <div class="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(153,17,153,0.2) 0%, transparent 70%);"></div>
+
+            <div class="max-w-7xl mx-auto px-8 relative z-10">
+                <div class="text-center mb-16">
+                    <span class="text-[#5fa8c9] font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Nuestra manera de trabajar</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-black text-white tracking-tight">Lo que nos diferencia no es el catálogo.<br>Es cómo resolvemos.</h2>
+                </div>
+
+                <!-- Bento grid -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+                    <!-- Card grande izquierda -->
+                    <div class="md:col-span-5 relative rounded-3xl p-10 overflow-hidden flex flex-col justify-between min-h-[320px]" style="background: linear-gradient(135deg, rgba(49,114,141,0.35) 0%, rgba(49,114,141,0.1) 100%); border: 1px solid rgba(49,114,141,0.3);">
+                        <div class="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(49,114,141,0.4) 0%, transparent 70%); transform: translate(30%, -30%);"></div>
+                        <div>
+                            <span class="text-[#5fa8c9] font-bold tracking-widest text-xs uppercase mb-4 block">01</span>
+                            <h3 class="text-2xl font-headline font-bold text-white mb-4">Negocio antes que herramienta</h3>
+                            <p class="text-white/70 leading-relaxed">No llegamos con una propuesta lista antes de entender el problema. La conversación siempre empieza con la operación.</p>
+                        </div>
+                        <div class="mt-8 w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(49,114,141,0.3);">
+                            <span class="material-symbols-outlined text-[#5fa8c9] text-2xl">psychology</span>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-3">Implementación real, no instalación</h3>
-                        <p class="text-on-surface-variant">Configuramos, acompañamos y nos quedamos hasta que el equipo usa la solución y genera valor. No desaparecemos después del go-live.</p>
+
+                    <!-- Columna derecha: dos cards apiladas -->
+                    <div class="md:col-span-7 grid grid-rows-2 gap-6">
+
+                        <!-- Card top derecha -->
+                        <div class="relative rounded-3xl p-8 overflow-hidden flex items-center gap-6" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
+                            <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, rgba(153,17,153,0.4), rgba(153,17,153,0.15)); border: 1px solid rgba(153,17,153,0.3);">
+                                <span class="material-symbols-outlined text-[#d06bd0] text-2xl">build</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-headline font-bold text-white mb-2">Implementación real, no instalación</h3>
+                                <p class="text-white/60 text-sm leading-relaxed">Configuramos, acompañamos y nos quedamos hasta que el equipo usa la solución y genera valor. No desaparecemos después del go-live.</p>
+                            </div>
+                        </div>
+
+                        <!-- Card bottom derecha -->
+                        <div class="relative rounded-3xl p-8 overflow-hidden flex items-center gap-6" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
+                            <div class="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, rgba(49,114,141,0.4), rgba(49,114,141,0.15)); border: 1px solid rgba(49,114,141,0.3);">
+                                <span class="material-symbols-outlined text-[#5fa8c9] text-2xl">verified</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-headline font-bold text-white mb-2">Alcance claro, sin sorpresas</h3>
+                                <p class="text-white/60 text-sm leading-relaxed">Definimos el alcance antes de empezar y lo respetamos. Si algo no va a funcionar para tu empresa, te lo decimos antes, no después.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-primary mb-3">Alcance claro, sin sorpresas</h3>
-                        <p class="text-on-surface-variant">Definimos el alcance antes de empezar y lo respetamos. Si algo no va a funcionar para tu empresa, te lo decimos antes, no después.</p>
-                    </div>
+
                 </div>
             </div>
         </section>
@@ -279,12 +328,12 @@
             </div>
             <div class="flex flex-col gap-4">
                 <h4 class="font-bold text-primary">Contacto</h4>
-                <a class="text-on-surface-variant hover:text-tertiary font-bold" href="mailto:correo@appunto.mx">correo@appunto.mx</a>
+                <a class="text-on-surface-variant hover:text-tertiary font-bold" href="mailto:contacto@appunto.mx">correo@appunto.mx</a>
                 <span class="text-on-surface-variant mt-2">Querétaro, México.</span>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/30 text-center text-on-surface-variant/70 text-xs">
-            © 2025 Appunto. Todos los derechos reservados.
+            © 2026 Appunto. Todos los derechos reservados.
         </div>
     </footer>
 </body>
