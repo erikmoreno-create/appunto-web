@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odoo ERP | Appunto — Integración operativa para empresas en crecimiento</title>
+    <title>Odoo | Appunto — Integración operativa para empresas en crecimiento</title>
     <meta name="description" content="Implementamos Odoo adaptado a tu operación. Conectamos ventas, compras, inventario y contabilidad para que tu empresa opere con orden, trazabilidad y menos retrabajo.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,11 +12,11 @@
         tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#714B67', 'tertiary-light': '#8a6080', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
     </script>
 </head>
-<body class="bg-surface text-on-surface font-body overflow-x-hidden relative">
+<body class="bg-surface text-on-surface font-body overflow-x-hidden relative" style="background-color: #f2edf1;">
 
-    <div class="fixed top-[-10%] left-[-10%] w-[55%] h-[55%] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(113,75,103,0.22) 0%, transparent 70%); filter: blur(130px);"></div>
-    <div class="fixed bottom-[-10%] right-[-10%] w-[45%] h-[45%] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(113,75,103,0.18) 0%, transparent 70%); filter: blur(110px);"></div>
-    <div class="fixed top-[40%] right-[20%] w-[30%] h-[30%] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(113,75,103,0.10) 0%, transparent 70%); filter: blur(100px);"></div>
+    <div class="fixed top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(113,75,103,0.38) 0%, transparent 65%); filter: blur(120px);"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(113,75,103,0.30) 0%, transparent 65%); filter: blur(100px);"></div>
+    <div class="fixed top-[35%] right-[10%] w-[35%] h-[35%] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(113,75,103,0.20) 0%, transparent 65%); filter: blur(90px);"></div>
 
     <!-- Brand Context Pill -->
     <style>
@@ -41,10 +41,10 @@
     </script>
 
     <!-- Navigation -->
-    <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300 border-b border-outline-variant/20">
+    <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300 border-b border-[#714B67]/25" style="background-color: rgba(242,237,241,0.85);">
         <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
             <a href="../index.html" class="flex items-center">
-                <img src="../logos/Color logo - no background.svg" alt="Appunto Logo" class="h-14 w-auto">
+                <img src="../logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png" alt="Appunto Logo" class="h-14 w-auto">
             </a>
             <div class="hidden lg:flex items-center gap-8 font-medium">
                 <a href="../index.html" class="text-on-surface-variant hover:text-primary transition-colors">Inicio</a>
@@ -84,8 +84,8 @@
                             <a href="#metodologia" class="border flex items-center border-outline-variant text-primary px-8 py-4 rounded-md font-bold text-lg hover:bg-surface-container-low transition-all">Ver metodología</a>
                         </div>
                     </div>
-                    <div class="bg-surface-container-lowest rounded-[40px] h-[500px] flex items-center justify-center p-16 shadow-2xl overflow-hidden relative group">
-                        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent group-hover:from-primary/10 transition-all duration-700"></div>
+                    <div class="rounded-[40px] h-[500px] flex items-center justify-center p-16 shadow-2xl overflow-hidden relative group" style="background: linear-gradient(135deg, #f0e8ee 0%, #e8dde6 100%);">
+                        <div class="absolute inset-0 transition-all duration-700" style="background: radial-gradient(circle at 30% 40%, rgba(113,75,103,0.15) 0%, transparent 60%);"></div>
                         <img src="../logos/odoo_logo.png" alt="Odoo" class="max-h-[200px] object-contain group-hover:scale-110 transition-transform duration-700 z-10 relative">
                     </div>
                 </div>
@@ -306,7 +306,7 @@
                 <p class="text-xl text-on-surface-variant mb-10">Agenda una sesión de diagnóstico sin costo. Revisamos tu operación actual y te mostramos cómo podría verse con Odoo bien implementado.</p>
                 <div class="flex flex-wrap justify-center gap-4">
                     <a href="../contacto.html" class="bg-primary text-white px-10 py-5 rounded-md font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all">Agenda un diagnóstico</a>
-                    <a href="../qlik/index.html" class="bg-surface-container-lowest text-primary px-10 py-5 rounded-md font-bold text-lg hover:bg-surface-container-low border border-outline-variant transition-all">Ver también: Qlik BI</a>
+                    <a href="../qlik/index.html" class="bg-surface-container-lowest text-primary px-10 py-5 rounded-md font-bold text-lg hover:bg-surface-container-low border border-outline-variant transition-all">Ver también: Qlik</a>
                 </div>
             </div>
         </section>
@@ -317,9 +317,9 @@
     <footer class="bg-surface-container-low border-t border-outline-variant/30 text-on-surface py-20">
         <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12 font-body text-sm leading-relaxed">
             <div class="col-span-1">
-                <img src="../logos/Color logo - no background.svg" alt="Appunto" class="h-12 mb-6">
-                <p class="text-on-surface-variant font-medium">Consultoría de negocio + tecnología.</p>
-                <p class="text-on-surface-variant">Convertimos complejidad operativa en claridad de negocio.</p>
+                <img src="../logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png" alt="Appunto" class="h-12 mb-6">
+                <p class="text-on-surface-variant font-medium">Tu mejor aliado tecnológico.</p>
+                <p class="text-on-surface-variant">El éxito de tu empresa es nuestro éxito.</p>
             </div>
             <div class="flex flex-col gap-4">
                 <h4 class="font-bold text-primary">Sitio</h4>
@@ -331,8 +331,8 @@
             </div>
             <div class="flex flex-col gap-4">
                 <h4 class="font-bold text-primary">Soluciones</h4>
-                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="index.html">Odoo ERP</a>
-                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../qlik/index.html">Qlik BI</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="index.html">Odoo</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../qlik/index.html">Qlik</a>
             </div>
             <div class="flex flex-col gap-4">
                 <h4 class="font-bold text-primary">Contacto</h4>
