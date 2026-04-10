@@ -12,18 +12,18 @@
         tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#714B67', 'tertiary-light': '#8a6080', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
     </script>
 </head>
-<body class="bg-surface text-on-surface font-body overflow-x-hidden relative" style="background-color: #f2edf1;">
+<body class="bg-surface text-on-surface font-body overflow-x-hidden relative">
 
-    <div class="fixed top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(113,75,103,0.38) 0%, transparent 65%); filter: blur(120px);"></div>
-    <div class="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(113,75,103,0.30) 0%, transparent 65%); filter: blur(100px);"></div>
-    <div class="fixed top-[35%] right-[10%] w-[35%] h-[35%] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(113,75,103,0.20) 0%, transparent 65%); filter: blur(90px);"></div>
+    <div class="fixed top-[-10%] left-[-10%] w-[55%] h-[55%] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(113,75,103,0.18) 0%, transparent 65%); filter: blur(130px);"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[45%] h-[45%] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(113,75,103,0.14) 0%, transparent 65%); filter: blur(110px);"></div>
+    <div class="fixed top-[35%] right-[10%] w-[35%] h-[35%] rounded-full pointer-events-none z-0" style="background: radial-gradient(circle, rgba(113,75,103,0.10) 0%, transparent 65%); filter: blur(90px);"></div>
 
     <!-- Brand Context Pill -->
     <style>
         #brand-pill { opacity: 0; transform: translateY(-10px); transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none; }
         #brand-pill.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
     </style>
-    <div id="brand-pill" class="fixed top-[76px] left-1/2 z-40" style="transform: translateX(-50%) translateY(-10px);">
+    <div id="brand-pill" class="fixed top-[96px] left-1/2 z-40" style="transform: translateX(-50%) translateY(-10px);">
         <div class="flex items-center gap-3 bg-white/90 backdrop-blur-md shadow-lg border border-[#714B67]/20 rounded-full px-5 py-2">
             <img src="../logos/odoo_logo.png" alt="Odoo" class="h-4 object-contain">
             <span class="text-xs font-bold text-[#714B67] tracking-widest uppercase">ERP · Integración Operativa</span>
@@ -41,7 +41,7 @@
     </script>
 
     <!-- Navigation -->
-    <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300 border-b border-[#714B67]/25" style="background-color: rgba(242,237,241,0.85);">
+    <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300 border-b border-outline-variant/20">
         <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
             <a href="../index.html" class="flex items-center">
                 <img src="../logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png" alt="Appunto Logo" class="h-14 w-auto">
@@ -84,8 +84,8 @@
                             <a href="#metodologia" class="border flex items-center border-outline-variant text-primary px-8 py-4 rounded-md font-bold text-lg hover:bg-surface-container-low transition-all">Ver metodología</a>
                         </div>
                     </div>
-                    <div class="rounded-[40px] h-[500px] flex items-center justify-center p-16 shadow-2xl overflow-hidden relative group" style="background: linear-gradient(135deg, #f0e8ee 0%, #e8dde6 100%);">
-                        <div class="absolute inset-0 transition-all duration-700" style="background: radial-gradient(circle at 30% 40%, rgba(113,75,103,0.15) 0%, transparent 60%);"></div>
+                    <div class="bg-surface-container-lowest rounded-[40px] h-[500px] flex items-center justify-center p-16 shadow-2xl overflow-hidden relative group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent group-hover:from-tertiary/10 transition-all duration-700"></div>
                         <img src="../logos/odoo_logo.png" alt="Odoo" class="max-h-[200px] object-contain group-hover:scale-110 transition-transform duration-700 z-10 relative">
                     </div>
                 </div>
