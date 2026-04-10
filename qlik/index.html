@@ -9,13 +9,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <script>
-        tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#991199', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
+        tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#009845', 'tertiary-light': '#00b351', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
     </script>
 </head>
 <body class="bg-surface text-on-surface font-body overflow-x-hidden relative">
 
-    <div class="fixed top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary/5 blur-[120px] pointer-events-none z-0"></div>
-    <div class="fixed bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[100px] pointer-events-none z-0"></div>
+    <div class="fixed top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary/8 blur-[140px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-tertiary/5 blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- Brand Context Pill -->
+    <style>
+        #brand-pill { opacity: 0; transform: translateY(-10px); transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none; }
+        #brand-pill.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    </style>
+    <div id="brand-pill" class="fixed top-[76px] left-1/2 z-40" style="transform: translateX(-50%) translateY(-10px);">
+        <div class="flex items-center gap-3 bg-white/90 backdrop-blur-md shadow-lg border border-[#009845]/20 rounded-full px-5 py-2">
+            <img src="../logos/qlik-logo.png" alt="Qlik" class="h-4 object-contain">
+            <span class="text-xs font-bold text-[#009845] tracking-widest uppercase">BI · Analítica · Decisiones</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-[#009845] inline-block"></span>
+        </div>
+    </div>
+    <script>
+        (function(){
+            var pill = document.getElementById('brand-pill');
+            window.addEventListener('scroll', function(){
+                if(window.scrollY > 350){ pill.classList.add('visible'); }
+                else { pill.classList.remove('visible'); }
+            }, { passive: true });
+        })();
+    </script>
 
     <!-- Navigation -->
     <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300 border-b border-outline-variant/20">
