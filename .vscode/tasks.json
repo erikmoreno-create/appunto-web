@@ -4,9 +4,13 @@
     {
       "label": "🚀 Deploy a Vercel",
       "type": "shell",
-      "command": "git add . && git commit -m 'Update' && git push",
+      "command": "git add . & git commit -m \"Update\" & git push",
       "options": {
-        "cwd": "${workspaceFolder}"
+        "cwd": "${workspaceFolder}",
+        "shell": {
+          "executable": "cmd.exe",
+          "args": ["/c"]
+        }
       },
       "presentation": {
         "reveal": "always",
