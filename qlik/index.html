@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qlik | Appunto — Analítica e inteligencia de negocio para decisiones más rápidas</title>
-    <meta name="description" content="Conectamos tus fuentes de datos con Qlik para construir dashboards accionables y una sola versión de la verdad. Deja de decidir con información tardía o incompleta.">
+    <title>Qlik en México · Integración de datos y analítica | Appunto</title>
+    <meta name="description" content="Implementamos Qlik para integrar tus fuentes de datos y construir analítica que le dé a tu dirección una lectura clara del negocio. Qlik Data Integration + Qlik Analytics. Partner implementador en México.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -19,13 +19,13 @@
 
     <!-- Brand Context Pill -->
     <style>
-        #brand-pill { opacity: 0; transform: translateY(-10px); transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none; }
-        #brand-pill.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        #brand-pill { opacity: 0; transform: translateX(-50%) translateY(-10px); transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none; }
+        #brand-pill.visible { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
     </style>
-    <div id="brand-pill" class="fixed top-[96px] left-1/2 z-40" style="transform: translateX(-50%) translateY(-10px);">
+    <div id="brand-pill" class="fixed top-[96px] left-1/2 z-40">
         <div class="flex items-center gap-3 bg-white/90 backdrop-blur-md shadow-lg border border-[#009845]/20 rounded-full px-5 py-2">
             <img src="../logos/qlik-logo.png" alt="Qlik" class="h-4 object-contain">
-            <span class="text-xs font-bold text-[#009845] tracking-widest uppercase">BI · Analítica · Decisiones</span>
+            <span class="text-xs font-bold text-[#009845] tracking-widest uppercase">Integración y analítica de datos</span>
             <span class="w-1.5 h-1.5 rounded-full bg-[#009845] inline-block"></span>
         </div>
     </div>
@@ -56,11 +56,6 @@
                     Agenda un diagnóstico
                 </a>
             </div>
-            <div class="lg:hidden flex flex-col gap-1.5 cursor-pointer">
-                <span class="w-6 h-0.5 bg-on-surface"></span>
-                <span class="w-6 h-0.5 bg-on-surface"></span>
-                <span class="w-6 h-0.5 bg-on-surface"></span>
-            </div>
         </div>
     </nav>
 
@@ -71,16 +66,23 @@
             <div class="max-w-7xl mx-auto px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div class="flex flex-col gap-6">
-                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase">BI · Analítica · Decisiones</span>
+                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase">Qlik · Implementado por Appunto</span>
                         <h1 class="text-5xl md:text-7xl font-headline font-black text-on-surface tracking-tighter leading-[1.05]">
-                            Una sola versión de la verdad.
+                            Tus datos ya existen. El problema es que no trabajan juntos.
                         </h1>
                         <p class="text-xl text-on-surface-variant leading-relaxed max-w-xl">
-                            Conectamos tus fuentes de datos con Qlik para construir dashboards que realmente responden preguntas de negocio. Deja de decidir con información tardía, incompleta o contradictoria.
+                            Implementamos Qlik para integrar tus fuentes de información, limpiar y unificar tus datos, y construir analítica que le dé a tu dirección una lectura clara y confiable del negocio.
                         </p>
+                        <!-- Dos pasos -->
+                        <div class="flex items-center gap-3 mt-2">
+                            <span class="bg-tertiary/10 text-tertiary font-bold text-sm px-4 py-2 rounded-full">Integración de datos</span>
+                            <span class="text-on-surface-variant text-lg">→</span>
+                            <span class="bg-primary/10 text-primary font-bold text-sm px-4 py-2 rounded-full">Analítica</span>
+                        </div>
+                        <p class="text-sm text-on-surface-variant italic">Primero ordenamos los datos. Luego los convertimos en decisiones.</p>
                         <div class="mt-4 flex flex-wrap gap-4">
                             <a href="../contacto.html" class="bg-primary text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-primary-container transition-all shadow-md">Agenda un diagnóstico</a>
-                            <a href="#como-trabajamos" class="border flex items-center border-outline-variant text-primary px-8 py-4 rounded-md font-bold text-lg hover:bg-surface-container-low transition-all">Ver cómo trabajamos</a>
+                            <a href="#capacidades" class="border flex items-center gap-2 border-outline-variant text-primary px-8 py-4 rounded-md font-bold text-lg hover:bg-surface-container-low transition-all">Ver cómo funciona <span class="material-symbols-outlined text-xl">arrow_downward</span></a>
                         </div>
                     </div>
                     <div class="bg-surface-container-lowest rounded-[40px] h-[500px] flex items-center justify-center p-16 shadow-2xl overflow-hidden relative group">
@@ -91,221 +93,340 @@
             </div>
         </section>
 
-        <!-- Qué es Qlik desde Appunto -->
-        <section class="py-20 bg-surface-container-low/50">
+        <!-- El problema que resolvemos -->
+        <section class="py-24 bg-surface-container-low/50">
             <div class="max-w-7xl mx-auto px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-5">
-                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Nuestra perspectiva</span>
-                        <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-6">Qlik es el motor. Appunto es quien convierte los datos en decisiones.</h2>
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">El problema que resolvemos</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-6">Muchas empresas tienen datos. Pocas tienen claridad.</h2>
+                    <p class="text-lg text-on-surface-variant leading-relaxed">El problema no suele ser falta de información. Es que esa información vive dispersa en sistemas que no se hablan entre sí: ERP, CRM, hojas de cálculo, bases de datos operativas, reportes por correo. Cada área tiene su versión. Nadie tiene la versión completa.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-surface-container-lowest p-7 rounded-2xl border-l-4 border-tertiary shadow-sm">
+                        <span class="material-symbols-outlined text-tertiary text-3xl mb-4 block">schedule</span>
+                        <p class="font-bold text-on-surface mb-2">Reportes que llegan tarde</p>
+                        <p class="text-on-surface-variant text-sm">Tienes reportes, pero llegan tarde o no coinciden entre áreas. Para cuando los recibes, la oportunidad de actuar ya pasó.</p>
                     </div>
-                    <div class="lg:col-span-7 flex flex-col gap-6 text-on-surface-variant text-lg leading-relaxed">
-                        <p>Qlik es una de las plataformas de Business Intelligence más potentes del mercado, reconocida por su motor de analítica asociativa que permite explorar datos sin rutas predefinidas. Qlik Sense conecta múltiples fuentes — ERP, CRM, Excel, bases de datos — en una sola capa de análisis.</p>
-                        <p>Pero los dashboards bonitos no toman decisiones. En Appunto diseñamos soluciones analíticas que responden preguntas reales de negocio: qué está pasando, por qué está pasando y qué debería hacerse al respecto.</p>
-                        <div class="bg-surface-container-lowest border-l-4 border-tertiary p-6 rounded-r-xl">
-                            <p class="font-bold text-on-surface mb-1">No hacemos reportes. Hacemos visibilidad de negocio.</p>
-                            <p class="text-base">La diferencia está en entender qué preguntas necesita responder cada director antes de diseñar una sola vista.</p>
+                    <div class="bg-surface-container-lowest p-7 rounded-2xl border-l-4 border-tertiary shadow-sm">
+                        <span class="material-symbols-outlined text-tertiary text-3xl mb-4 block">sync_problem</span>
+                        <p class="font-bold text-on-surface mb-2">Versiones contradictorias</p>
+                        <p class="text-on-surface-variant text-sm">Cada departamento presenta números distintos en las mismas juntas. No hay una sola lectura del negocio en la que todos confíen.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-7 rounded-2xl border-l-4 border-tertiary shadow-sm">
+                        <span class="material-symbols-outlined text-tertiary text-3xl mb-4 block">person</span>
+                        <p class="font-bold text-on-surface mb-2">Dependencia de una persona</p>
+                        <p class="text-on-surface-variant text-sm">El cierre de mes depende de alguien que consolida todo a mano. Si esa persona no está, la información no fluye.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-7 rounded-2xl border-l-4 border-tertiary shadow-sm">
+                        <span class="material-symbols-outlined text-tertiary text-3xl mb-4 block">visibility_off</span>
+                        <p class="font-bold text-on-surface mb-2">Decisiones sin visibilidad real</p>
+                        <p class="text-on-surface-variant text-sm">La dirección toma decisiones importantes con información que no es del todo confiable. El riesgo no siempre es visible.</p>
+                    </div>
+                </div>
+                <div class="mt-10 bg-surface-container-lowest border-l-4 border-tertiary p-6 rounded-r-xl max-w-3xl mx-auto">
+                    <p class="text-on-surface-variant leading-relaxed"><span class="font-bold text-on-surface">El problema no es la gente. Es la arquitectura de datos.</span> Y eso sí se puede resolver con la herramienta correcta y quien sepa implementarla.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Las dos capacidades de Qlik -->
+        <div id="capacidades"></div>
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="text-center mb-6">
+                    <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Las dos capacidades</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4">Qlik resuelve el problema en dos pasos.<br>Appunto los implementa bien.</h2>
+                    <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">No son productos independientes: son dos partes del mismo recorrido. Primero construyes una base de datos confiable. Luego la conviertes en visibilidad real.</p>
+                </div>
+
+                <!-- Conector visual -->
+                <div class="flex justify-center items-center gap-4 my-12">
+                    <div class="flex-1 h-px bg-gradient-to-r from-transparent to-tertiary/30 max-w-xs"></div>
+                    <div class="flex items-center gap-3">
+                        <span class="bg-tertiary text-white font-bold text-sm px-4 py-1.5 rounded-full">Paso 1</span>
+                        <span class="text-on-surface-variant">→</span>
+                        <span class="bg-primary text-white font-bold text-sm px-4 py-1.5 rounded-full">Paso 2</span>
+                    </div>
+                    <div class="flex-1 h-px bg-gradient-to-l from-transparent to-primary/30 max-w-xs"></div>
+                </div>
+
+                <!-- Capacidad 1: Data Integration -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16 bg-surface-container-lowest rounded-3xl p-10 shadow-sm border-t-4 border-tertiary">
+                    <div>
+                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Paso 1 · Integración de datos</span>
+                        <h3 class="text-3xl md:text-4xl font-headline font-black mb-4">Datos limpios, conectados y listos para usarse.</h3>
+                        <p class="text-on-surface-variant leading-relaxed mb-6">Antes de que puedas ver bien tu negocio, necesitas que tus datos estén en orden: integrados desde todas las fuentes, sin duplicados, actualizados y disponibles para análisis. Eso es lo que hace <span class="font-bold text-on-surface">Qlik Data Integration</span>.</p>
+                        <h4 class="font-bold text-on-surface mb-3">Qué hace:</h4>
+                        <ul class="space-y-2 mb-6 text-on-surface-variant">
+                            <li class="flex items-start gap-2"><span class="text-tertiary mt-0.5">✦</span> Conecta y consolida fuentes de datos de distintos sistemas (ERP, bases de datos, apps en la nube, archivos) en un solo repositorio limpio y confiable.</li>
+                            <li class="flex items-start gap-2"><span class="text-tertiary mt-0.5">✦</span> Usa captura de datos en tiempo real para que la información siempre esté actualizada sin intervención manual.</li>
+                            <li class="flex items-start gap-2"><span class="text-tertiary mt-0.5">✦</span> Automatiza el movimiento, transformación y validación de datos para eliminar el trabajo manual de consolidación.</li>
+                        </ul>
+                        <a href="../contacto.html?caso=integracion-datos" class="inline-flex items-center gap-2 text-tertiary font-bold hover:underline">Hablar sobre integración de datos <span class="material-symbols-outlined text-xl">arrow_forward</span></a>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <h4 class="font-bold text-on-surface mb-1">Lo que obtienes:</h4>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="flex items-start gap-3 bg-tertiary/5 p-4 rounded-xl">
+                                <span class="material-symbols-outlined text-tertiary text-xl mt-0.5">check_circle</span>
+                                <p class="text-sm text-on-surface-variant">Una sola fuente de verdad para toda la organización.</p>
+                            </div>
+                            <div class="flex items-start gap-3 bg-tertiary/5 p-4 rounded-xl">
+                                <span class="material-symbols-outlined text-tertiary text-xl mt-0.5">check_circle</span>
+                                <p class="text-sm text-on-surface-variant">Datos actualizados sin depender de alguien que los consolide.</p>
+                            </div>
+                            <div class="flex items-start gap-3 bg-tertiary/5 p-4 rounded-xl">
+                                <span class="material-symbols-outlined text-tertiary text-xl mt-0.5">check_circle</span>
+                                <p class="text-sm text-on-surface-variant">Eliminación de reportes manuales y conciliaciones interminables.</p>
+                            </div>
+                            <div class="flex items-start gap-3 bg-tertiary/5 p-4 rounded-xl">
+                                <span class="material-symbols-outlined text-tertiary text-xl mt-0.5">check_circle</span>
+                                <p class="text-sm text-on-surface-variant">Base sólida para que la analítica funcione bien y sea confiable.</p>
+                            </div>
+                        </div>
+                        <div class="mt-2 bg-surface-container-low p-5 rounded-xl">
+                            <p class="text-sm font-bold text-on-surface mb-1">¿Para quién es esta capacidad?</p>
+                            <p class="text-sm text-on-surface-variant">Directores de sistemas, IT o transformación digital que necesitan resolver la arquitectura de datos antes de construir visibilidad real.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capacidad 2: Analytics -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-surface-container-lowest rounded-3xl p-10 shadow-sm border-t-4 border-primary">
+                    <div>
+                        <span class="text-primary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Paso 2 · Analítica e inteligencia de negocio</span>
+                        <h3 class="text-3xl md:text-4xl font-headline font-black mb-4">Del dato integrado a la decisión clara.</h3>
+                        <p class="text-on-surface-variant leading-relaxed mb-6">Con los datos ya integrados y confiables, el siguiente paso es convertirlos en visibilidad útil. <span class="font-bold text-on-surface">Qlik Analytics</span> permite construir dashboards interactivos, explorar información desde distintos ángulos y generar insights que realmente ayuden a dirigir el negocio.</p>
+                        <p class="text-on-surface-variant leading-relaxed mb-6">Lo que diferencia a Qlik de otras herramientas de BI es su <span class="font-bold text-on-surface">motor asociativo</span>: en lugar de análisis lineales y predefinidos, permite explorar relaciones entre datos en cualquier dirección, revelando conexiones y patrones que otras herramientas no muestran.</p>
+                        <h4 class="font-bold text-on-surface mb-3">Qué hace:</h4>
+                        <ul class="space-y-2 mb-6 text-on-surface-variant">
+                            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">✦</span> Crea dashboards interactivos y cuadros de mando para dirección, líderes de área y equipos operativos.</li>
+                            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">✦</span> Genera reportes automáticos en PDF, Excel y PowerPoint para distribución programada.</li>
+                            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">✦</span> Soporta analítica en lenguaje natural: los usuarios hacen preguntas y obtienen respuestas sin necesidad de saber SQL ni programar.</li>
+                        </ul>
+                        <a href="../contacto.html?caso=analitica-negocio" class="inline-flex items-center gap-2 text-primary font-bold hover:underline">Hablar sobre analítica <span class="material-symbols-outlined text-xl">arrow_forward</span></a>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <h4 class="font-bold text-on-surface mb-1">Lo que obtienes:</h4>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="flex items-start gap-3 bg-primary/5 p-4 rounded-xl">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <p class="text-sm text-on-surface-variant">Una lectura integrada del negocio en tiempo real.</p>
+                            </div>
+                            <div class="flex items-start gap-3 bg-primary/5 p-4 rounded-xl">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <p class="text-sm text-on-surface-variant">Dashboards útiles y accionables, no solo visuales.</p>
+                            </div>
+                            <div class="flex items-start gap-3 bg-primary/5 p-4 rounded-xl">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <p class="text-sm text-on-surface-variant">Menor dependencia de reportes manuales y hojas de cálculo.</p>
+                            </div>
+                            <div class="flex items-start gap-3 bg-primary/5 p-4 rounded-xl">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <p class="text-sm text-on-surface-variant">Más velocidad y más confianza en la toma de decisiones.</p>
+                            </div>
+                            <div class="flex items-start gap-3 bg-primary/5 p-4 rounded-xl">
+                                <span class="material-symbols-outlined text-primary text-xl mt-0.5">check_circle</span>
+                                <p class="text-sm text-on-surface-variant">Visibilidad compartida entre áreas, con la misma fuente de verdad.</p>
+                            </div>
+                        </div>
+                        <div class="mt-2 bg-surface-container-low p-5 rounded-xl">
+                            <p class="text-sm font-bold text-on-surface mb-1">¿Para quién es esta capacidad?</p>
+                            <p class="text-sm text-on-surface-variant">Directores generales, comerciales y líderes de finanzas que necesitan una lectura clara del negocio para decidir con certeza.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Para quién es -->
+        <!-- Por qué tiene sentido implementar los dos -->
+        <section class="py-20 bg-surface-container-low/50">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="max-w-3xl mx-auto text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-6">La analítica sin integración es solo una vista bonita de datos sucios.</h2>
+                    <p class="text-lg text-on-surface-variant leading-relaxed">Muchas implementaciones de BI fracasan no porque la herramienta sea mala, sino porque los datos de base no están integrados ni son confiables. Los dashboards muestran información que no cuadra, los usuarios dejan de confiar en los números y el proyecto muere por falta de adopción.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm text-center">
+                        <span class="material-symbols-outlined text-tertiary text-4xl mb-4 block">database</span>
+                        <h3 class="font-headline font-bold text-lg mb-3">Base confiable</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Datos integrados, limpios y actualizados desde todas las fuentes de la organización. Sin esto, cualquier dashboard es un riesgo.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm text-center">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4 block">dashboard</span>
+                        <h3 class="font-headline font-bold text-lg mb-3">Visibilidad real</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Dashboards que la dirección usa de verdad porque confía en lo que muestran. No una herramienta instalada que nadie abre.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm text-center">
+                        <span class="material-symbols-outlined text-on-surface text-4xl mb-4 block">handshake</span>
+                        <h3 class="font-headline font-bold text-lg mb-3">Adopción sostenida</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Acompañamos la implementación hasta que los equipos usan la solución con autonomía. No desaparecemos después del go-live.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Para quién es esta solución -->
         <section class="py-24">
             <div class="max-w-7xl mx-auto px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4">¿Para quién es esta solución?</h2>
-                    <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Directivos que tienen datos, pero no tienen visibilidad real del negocio.</p>
+                    <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Para quién es</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4">¿Cuál de estas situaciones describe la tuya?</h2>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-surface-container-lowest p-8 rounded-2xl border-t-4 border-primary shadow-sm">
-                        <span class="material-symbols-outlined text-primary text-4xl mb-4 block">leaderboard</span>
-                        <h3 class="text-xl font-headline font-bold mb-3">Tienes datos, pero no claridad</h3>
-                        <p class="text-on-surface-variant">Hay información en el ERP, en Excel y en reportes de cada área. Pero cada uno dice algo diferente y nadie sabe cuál creer.</p>
-                    </div>
-                    <div class="bg-surface-container-lowest p-8 rounded-2xl border-t-4 border-primary-container shadow-sm">
-                        <span class="material-symbols-outlined text-primary text-4xl mb-4 block">schedule</span>
-                        <h3 class="text-xl font-headline font-bold mb-3">Los reportes siempre llegan tarde</h3>
-                        <p class="text-on-surface-variant">El cierre del mes toma días. Para cuando recibes los números, la oportunidad de actuar ya pasó. Necesitas información en tiempo real.</p>
-                    </div>
-                    <div class="bg-surface-container-lowest p-8 rounded-2xl border-t-4 border-tertiary shadow-sm">
-                        <span class="material-symbols-outlined text-tertiary text-4xl mb-4 block">device_hub</span>
-                        <h3 class="text-xl font-headline font-bold mb-3">Múltiples fuentes sin integrar</h3>
-                        <p class="text-on-surface-variant">Ventas en el CRM, finanzas en el ERP, operación en Excel. Cada área tiene su propia "versión de la verdad" y no se reconcilian.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Qué resolvemos -->
-        <section class="py-24 bg-surface-container-low/50">
-            <div class="max-w-7xl mx-auto px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                    <div>
-                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Casos de uso frecuentes</span>
-                        <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-8">Problemas que resolvemos con Qlik.</h2>
-                        <div class="flex flex-col gap-5">
-                            <div class="flex items-start gap-4">
-                                <span class="text-tertiary font-bold text-lg mt-0.5">✦</span>
-                                <div>
-                                    <p class="font-bold text-on-surface">Múltiples "verdades" en la organización</p>
-                                    <p class="text-on-surface-variant text-sm mt-1">Ventas dice que vendió X, finanzas registra Y y operación entregó Z. Con Qlik, todas las áreas ven los mismos números desde una sola fuente.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <span class="text-tertiary font-bold text-lg mt-0.5">✦</span>
-                                <div>
-                                    <p class="font-bold text-on-surface">Reportes manuales que consumen semanas</p>
-                                    <p class="text-on-surface-variant text-sm mt-1">Un analista dedica días a consolidar datos antes de que el director pueda verlos. Con Qlik, los dashboards se actualizan automáticamente.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <span class="text-tertiary font-bold text-lg mt-0.5">✦</span>
-                                <div>
-                                    <p class="font-bold text-on-surface">Decisiones tomadas sin contexto completo</p>
-                                    <p class="text-on-surface-variant text-sm mt-1">Los directores deciden con la información disponible, que rara vez es completa. Qlik permite explorar los datos desde múltiples ángulos antes de decidir.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <span class="text-tertiary font-bold text-lg mt-0.5">✦</span>
-                                <div>
-                                    <p class="font-bold text-on-surface">KPIs desalineados entre áreas</p>
-                                    <p class="text-on-surface-variant text-sm mt-1">Cada área mide su éxito con sus propias métricas, a veces contradictorias. Qlik permite definir KPIs corporativos y alinear a todo el equipo directivo.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <span class="text-tertiary font-bold text-lg mt-0.5">✦</span>
-                                <div>
-                                    <p class="font-bold text-on-surface">Datos atrapados en silos tecnológicos</p>
-                                    <p class="text-on-surface-variant text-sm mt-1">El ERP no habla con el CRM, el CRM no habla con el sistema de inventario. Qlik conecta todas las fuentes en una capa de análisis unificada.</p>
-                                </div>
-                            </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Tarjeta 1 -->
+                    <a href="../contacto.html?caso=analitica-negocio" class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/20 hover:shadow-lg hover:-translate-y-1 transition-all block group">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-primary/10 text-primary font-bold text-xs px-3 py-1 rounded-full">Qlik Analytics · Visibilidad ejecutiva</span>
                         </div>
-                    </div>
-                    <div class="flex flex-col gap-6">
-                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase block">Capacidades que implementamos</span>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
-                                <span class="material-symbols-outlined text-tertiary">dashboard</span>
-                                <span class="font-medium text-sm">Dashboards ejecutivos</span>
-                            </div>
-                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
-                                <span class="material-symbols-outlined text-tertiary">analytics</span>
-                                <span class="font-medium text-sm">Analítica operacional</span>
-                            </div>
-                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
-                                <span class="material-symbols-outlined text-tertiary">account_tree</span>
-                                <span class="font-medium text-sm">Integración multi-fuente</span>
-                            </div>
-                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
-                                <span class="material-symbols-outlined text-tertiary">trending_up</span>
-                                <span class="font-medium text-sm">KPIs y métricas clave</span>
-                            </div>
-                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
-                                <span class="material-symbols-outlined text-tertiary">search_insights</span>
-                                <span class="font-medium text-sm">Exploración asociativa</span>
-                            </div>
-                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
-                                <span class="material-symbols-outlined text-tertiary">storage</span>
-                                <span class="font-medium text-sm">Data pipelines</span>
-                            </div>
-                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
-                                <span class="material-symbols-outlined text-tertiary">smartphone</span>
-                                <span class="font-medium text-sm">Acceso móvil</span>
-                            </div>
-                            <div class="bg-surface-container-lowest p-5 rounded-xl flex items-center gap-3 shadow-sm">
-                                <span class="material-symbols-outlined text-tertiary">lock</span>
-                                <span class="font-medium text-sm">Control de accesos</span>
-                            </div>
+                        <h3 class="text-xl font-headline font-bold mb-2">Director General de empresa mediana</h3>
+                        <p class="text-tertiary font-medium italic mb-3">"Tengo datos, pero no claridad para dirigir."</p>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Cada área reporta distinto. El cierre de mes es lento. Las decisiones se toman con información que no siempre es confiable. Necesitas una sola lectura del negocio para avanzar con más certeza.</p>
+                        <p class="text-xs text-on-surface-variant/60 mt-4 italic">Común en empresas con varias áreas y operación en crecimiento.</p>
+                        <span class="text-tertiary font-bold text-sm mt-4 flex items-center gap-1 group-hover:gap-2 transition-all">Agendar diagnóstico <span class="material-symbols-outlined text-base">arrow_forward</span></span>
+                    </a>
+                    <!-- Tarjeta 2 -->
+                    <a href="../contacto.html?caso=integracion-datos" class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/20 hover:shadow-lg hover:-translate-y-1 transition-all block group">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-tertiary/10 text-tertiary font-bold text-xs px-3 py-1 rounded-full">Qlik Data Integration · Arquitectura de datos</span>
                         </div>
-                        <div class="bg-tertiary/5 border-l-4 border-tertiary p-6 rounded-r-xl mt-2">
-                            <p class="font-bold text-tertiary mb-1">Lo que obtienes:</p>
-                            <p class="text-sm text-on-surface-variant">Una sola versión de la verdad. Rapidez para decidir. Dashboards que responden preguntas reales. Analítica que mueve el negocio, no solo lo describe.</p>
+                        <h3 class="text-xl font-headline font-bold mb-2">Director de Sistemas / CIO / CDO</h3>
+                        <p class="text-tertiary font-medium italic mb-3">"Tenemos múltiples sistemas y los datos no están integrados."</p>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Cada área vive en su propio sistema y la consolidación es manual, lenta y propensa a errores. Necesitas una arquitectura de datos limpia, automatizada y confiable como base para cualquier proyecto de analítica o IA.</p>
+                        <p class="text-xs text-on-surface-variant/60 mt-4 italic">Frecuente en empresas medianas con varios años de operación y múltiples herramientas acumuladas.</p>
+                        <span class="text-tertiary font-bold text-sm mt-4 flex items-center gap-1 group-hover:gap-2 transition-all">Agendar diagnóstico <span class="material-symbols-outlined text-base">arrow_forward</span></span>
+                    </a>
+                    <!-- Tarjeta 3 -->
+                    <a href="../contacto.html?caso=analitica-negocio" class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/20 hover:shadow-lg hover:-translate-y-1 transition-all block group">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-primary/10 text-primary font-bold text-xs px-3 py-1 rounded-full">Qlik Analytics · Plataforma de BI</span>
                         </div>
-                    </div>
+                        <h3 class="text-xl font-headline font-bold mb-2">Líder de BI o Analítica</h3>
+                        <p class="text-tertiary font-medium italic mb-3">"Necesito una plataforma de BI sólida que el negocio adopte de verdad."</p>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Ya tienes claridad técnica sobre lo que necesitas. El reto es encontrar un partner que implemente bien, no solo que venda licencias. Buscas solidez técnica, buena experiencia de usuario y acompañamiento real en la adopción.</p>
+                        <p class="text-xs text-on-surface-variant/60 mt-4 italic">Perfil habitual en empresas que ya tuvieron una mala experiencia con una implementación anterior.</p>
+                        <span class="text-tertiary font-bold text-sm mt-4 flex items-center gap-1 group-hover:gap-2 transition-all">Agendar diagnóstico <span class="material-symbols-outlined text-base">arrow_forward</span></span>
+                    </a>
+                    <!-- Tarjeta 4 -->
+                    <a href="../contacto.html?caso=analitica-negocio" class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/20 hover:shadow-lg hover:-translate-y-1 transition-all block group">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-primary/10 text-primary font-bold text-xs px-3 py-1 rounded-full">Qlik Analytics · Visibilidad comercial</span>
+                        </div>
+                        <h3 class="text-xl font-headline font-bold mb-2">Director Comercial</h3>
+                        <p class="text-tertiary font-medium italic mb-3">"Hay actividad comercial, pero no visibilidad real del pipeline."</p>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">El equipo vende, pero sin trazabilidad del proceso comercial el forecast no es confiable y las oportunidades se pierden sin que nadie las detecte a tiempo.</p>
+                        <p class="text-xs text-on-surface-variant/60 mt-4 italic">Frecuente cuando el volumen comercial ya superó lo que permiten herramientas sueltas o reportes en Excel.</p>
+                        <span class="text-tertiary font-bold text-sm mt-4 flex items-center gap-1 group-hover:gap-2 transition-all">Agendar diagnóstico <span class="material-symbols-outlined text-base">arrow_forward</span></span>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Cómo trabajamos -->
-        <section class="py-24" id="como-trabajamos">
+        <!-- Cómo trabaja Appunto con Qlik -->
+        <section class="py-24 bg-surface-container-low/50" id="como-trabajamos">
             <div class="max-w-7xl mx-auto px-8">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4">Cómo construimos tu solución analítica.</h2>
-                    <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Partimos de las preguntas de negocio, no de los datos disponibles.</p>
+                    <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Nuestro proceso</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4">No solo implementamos. Acompañamos hasta que funciona.</h2>
+                    <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">Appunto es partner implementador de Qlik. Tenemos el conocimiento técnico para configurar la plataforma correctamente, y el criterio de negocio para asegurarnos de que lo que construimos se adopta en la organización.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border-t-4 border-tertiary">
-                        <span class="text-tertiary font-bold tracking-widest text-sm mb-3 block">1. DIAGNÓSTICO</span>
-                        <h3 class="font-headline font-bold text-lg mb-2">¿Qué decisiones necesitas tomar?</h3>
-                        <p class="text-on-surface-variant text-sm leading-relaxed">Antes de ver un solo dato, preguntamos qué decisiones se toman con información incompleta hoy y qué visibilidad falta para tomarlas mejor.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div class="bg-surface-container-lowest p-7 rounded-2xl shadow-sm border-t-4 border-tertiary">
+                        <span class="text-tertiary font-bold tracking-widest text-xs mb-3 block">1. DIAGNÓSTICO</span>
+                        <h3 class="font-headline font-bold text-base mb-2">Diagnóstico de datos y necesidades</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Entendemos cómo está organizada tu información hoy: qué sistemas tienes, cómo se conectan, qué decisiones necesitas tomar. Este paso define si empezamos por integración, por analítica o por los dos.</p>
                     </div>
-                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border-t-4 border-tertiary">
-                        <span class="text-tertiary font-bold tracking-widest text-sm mb-3 block">2. ARQUITECTURA</span>
-                        <h3 class="font-headline font-bold text-lg mb-2">Mapeamos tus fuentes de datos</h3>
-                        <p class="text-on-surface-variant text-sm leading-relaxed">Identificamos dónde vive cada dato relevante, cómo se conectan las fuentes y qué transformaciones se necesitan para tener una capa analítica limpia.</p>
+                    <div class="bg-surface-container-lowest p-7 rounded-2xl shadow-sm border-t-4 border-tertiary">
+                        <span class="text-tertiary font-bold tracking-widest text-xs mb-3 block">2. DISEÑO</span>
+                        <h3 class="font-headline font-bold text-base mb-2">Diseño de arquitectura</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Definimos qué fuentes integrar, cómo estructurar los datos y qué dashboards e indicadores construir. Nada genérico: todo diseñado para tu negocio específico.</p>
                     </div>
-                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border-t-4 border-tertiary">
-                        <span class="text-tertiary font-bold tracking-widest text-sm mb-3 block">3. DESARROLLO</span>
-                        <h3 class="font-headline font-bold text-lg mb-2">Construimos la solución</h3>
-                        <p class="text-on-surface-variant text-sm leading-relaxed">Integramos las fuentes en Qlik, diseñamos los dashboards con los usuarios directos y validamos que cada vista responda las preguntas correctas.</p>
+                    <div class="bg-surface-container-lowest p-7 rounded-2xl shadow-sm border-t-4 border-tertiary">
+                        <span class="text-tertiary font-bold tracking-widest text-xs mb-3 block">3. IMPLEMENTACIÓN</span>
+                        <h3 class="font-headline font-bold text-base mb-2">Implementación técnica</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Configuramos Qlik Data Integration y/o Qlik Analytics, conectamos fuentes, migramos datos y construimos los dashboards acordados. Con criterio técnico y rigor en la calidad de los datos.</p>
                     </div>
-                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border-t-4 border-tertiary">
-                        <span class="text-tertiary font-bold tracking-widest text-sm mb-3 block">4. ADOPCIÓN</span>
-                        <h3 class="font-headline font-bold text-lg mb-2">Hacemos que lo usen de verdad</h3>
-                        <p class="text-on-surface-variant text-sm leading-relaxed">Capacitamos a los usuarios, afinamos las vistas en las primeras semanas de uso y aseguramos que la herramienta se convierta en parte del flujo de trabajo real.</p>
+                    <div class="bg-surface-container-lowest p-7 rounded-2xl shadow-sm border-t-4 border-tertiary">
+                        <span class="text-tertiary font-bold tracking-widest text-xs mb-3 block">4. VALIDACIÓN</span>
+                        <h3 class="font-headline font-bold text-base mb-2">Validación con usuarios clave</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Antes del lanzamiento, validamos los dashboards con las personas que los van a usar. Ajustamos, refinamos y nos aseguramos de que lo que se ve en pantalla sea reconocible y confiable para el equipo.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-7 rounded-2xl shadow-sm border-t-4 border-tertiary">
+                        <span class="text-tertiary font-bold tracking-widest text-xs mb-3 block">5. ACOMPAÑAMIENTO</span>
+                        <h3 class="font-headline font-bold text-base mb-2">Adopción y mejoras</h3>
+                        <p class="text-on-surface-variant text-sm leading-relaxed">Capacitamos al equipo, resolvemos dudas y nos quedamos disponibles para ajustes posteriores. La adopción no es un accidente: es parte del proyecto.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Por qué con Appunto -->
-        <section class="py-20 bg-surface-container-low/50">
+        <!-- Por qué Qlik y no otra herramienta -->
+        <section class="py-24">
             <div class="max-w-7xl mx-auto px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-8">Un dashboard que nadie usa no vale nada.<br><span class="text-tertiary">Eso es lo que evitamos.</span></h2>
-                        <div class="flex flex-col gap-6">
-                            <div class="flex gap-4 items-start">
-                                <span class="material-symbols-outlined text-tertiary text-3xl">question_answer</span>
-                                <div>
-                                    <h3 class="font-headline font-bold mb-1">Empezamos con las preguntas correctas</h3>
-                                    <p class="text-on-surface-variant text-sm">No empezamos conectando datos. Empezamos preguntando qué decisiones se toman mal hoy por falta de visibilidad.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4 items-start">
-                                <span class="material-symbols-outlined text-primary text-3xl">handshake</span>
-                                <div>
-                                    <h3 class="font-headline font-bold mb-1">Diseñamos con los usuarios directos</h3>
-                                    <p class="text-on-surface-variant text-sm">Cada dashboard se valida con la persona que lo va a usar. Si el director de ventas no puede responder su pregunta en 10 segundos, lo rediseñamos.</p>
-                                </div>
-                            </div>
-                            <div class="flex gap-4 items-start">
-                                <span class="material-symbols-outlined text-tertiary text-3xl">update</span>
-                                <div>
-                                    <h3 class="font-headline font-bold mb-1">Seguimiento real post-implementación</h3>
-                                    <p class="text-on-surface-variant text-sm">Revisamos el uso en las primeras semanas, ajustamos lo que no funciona y proponemos nuevas vistas conforme el negocio evoluciona.</p>
-                                </div>
-                            </div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    <div class="lg:col-span-4">
+                        <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Por qué Qlik</span>
+                        <h2 class="text-4xl font-headline font-black tracking-tight mb-6">Una herramienta es tan buena como el problema que resuelve.</h2>
+                        <p class="text-on-surface-variant leading-relaxed">No recomendamos Qlik porque lo tenemos en catálogo. Lo recomendamos cuando es la herramienta correcta para el problema que tiene la empresa.</p>
+                    </div>
+                    <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="bg-surface-container-lowest p-7 rounded-2xl shadow-sm border border-outline-variant/20">
+                            <span class="material-symbols-outlined text-tertiary text-3xl mb-3 block">hub</span>
+                            <h3 class="font-bold text-on-surface mb-2">Motor asociativo único</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed">A diferencia de herramientas de BI tradicionales con análisis lineales, Qlik permite explorar relaciones entre datos en cualquier dirección. Eso revela patrones y conexiones que otros sistemas no muestran.</p>
+                        </div>
+                        <div class="bg-surface-container-lowest p-7 rounded-2xl shadow-sm border border-outline-variant/20">
+                            <span class="material-symbols-outlined text-tertiary text-3xl mb-3 block">layers</span>
+                            <h3 class="font-bold text-on-surface mb-2">Integración y analítica en una sola plataforma</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed">La mayoría de las herramientas de BI solo hacen análisis. Qlik también hace integración de datos. Eso reduce la necesidad de múltiples herramientas y proveedores distintos.</p>
+                        </div>
+                        <div class="bg-surface-container-lowest p-7 rounded-2xl shadow-sm border border-outline-variant/20">
+                            <span class="material-symbols-outlined text-tertiary text-3xl mb-3 block">workspace_premium</span>
+                            <h3 class="font-bold text-on-surface mb-2">Reconocido como líder global</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed">Qlik ha sido reconocido como líder en el Gartner Magic Quadrant tanto para Data Integration como para Analytics and Business Intelligence durante más de diez años consecutivos.</p>
+                        </div>
+                        <div class="bg-surface-container-lowest p-7 rounded-2xl shadow-sm border border-outline-variant/20">
+                            <span class="material-symbols-outlined text-tertiary text-3xl mb-3 block">groups</span>
+                            <h3 class="font-bold text-on-surface mb-2">Alta adopción por usuarios no técnicos</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed">Qlik Sense está diseñado para que cualquier persona en la organización pueda explorar datos y construir visualizaciones sin necesidad de saber programar. Eso acelera la adopción y democratiza la información.</p>
+                        </div>
+                        <div class="bg-surface-container-lowest p-7 rounded-2xl shadow-sm border border-outline-variant/20 md:col-span-2">
+                            <span class="material-symbols-outlined text-tertiary text-3xl mb-3 block">cloud_sync</span>
+                            <h3 class="font-bold text-on-surface mb-2">Flexibilidad de despliegue</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed">Disponible en la nube (Qlik Cloud) o en instalación local (on-premise), según las necesidades y política de datos de cada empresa.</p>
                         </div>
                     </div>
-                    <div class="bg-surface-container-lowest p-10 rounded-3xl shadow-lg">
-                        <p class="text-on-surface-variant font-serif italic text-xl leading-relaxed mb-6">"Antes el cierre del mes tardaba una semana y lo hacía una sola persona. Con Qlik, los directores ven los números en tiempo real y el analista se dedica a interpretar, no a construir tablas."</p>
-                        <p class="font-bold text-on-surface text-sm">— Director General, empresa de servicios, sector financiero.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimoniales (placeholder) -->
+        <section class="py-20 bg-surface-container-low/50">
+            <div class="max-w-7xl mx-auto px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-headline font-black tracking-tight mb-2">Empresas que ya toman decisiones con más claridad.</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/20">
+                        <p class="text-on-surface-variant italic leading-relaxed mb-6">"Antes de implementar Qlik con Appunto, el cierre de mes nos tomaba casi dos semanas y los números siempre generaban discusión entre áreas. Hoy tenemos una sola lectura del negocio y las juntas de dirección son completamente distintas."</p>
+                        <p class="font-bold text-on-surface text-sm">— Director General, empresa mediana, sector agroindustria.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/20">
+                        <p class="text-on-surface-variant italic leading-relaxed mb-6">"Lo que valoré de Appunto fue que entendieron el problema de datos antes de proponer cualquier solución. No llegaron a vender licencias: llegaron a entender cómo teníamos la información y qué necesitábamos ver. Eso hizo toda la diferencia en la implementación."</p>
+                        <p class="font-bold text-on-surface text-sm">— Director de Sistemas, empresa mediana, sector financiero.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
+        <!-- CTA Final -->
         <section class="py-32 bg-tertiary/5 border-t border-tertiary/10">
             <div class="max-w-4xl mx-auto px-8 text-center">
-                <h2 class="text-5xl md:text-6xl font-headline font-black mb-6">¿Listo para decidir con claridad?</h2>
-                <p class="text-xl text-on-surface-variant mb-10">Agenda una sesión de diagnóstico sin costo. Revisamos tus fuentes de datos actuales y te mostramos cómo podría verse tu solución analítica con Qlik.</p>
+                <h2 class="text-5xl md:text-6xl font-headline font-black mb-6">¿Tiene sentido conversar sobre tus datos?</h2>
+                <p class="text-xl text-on-surface-variant mb-10 max-w-2xl mx-auto leading-relaxed">Una sesión de diagnóstico de 30 minutos, sin costo y sin compromiso. Revisamos cómo está organizada tu información hoy, qué no puedes ver bien y si Qlik tiene sentido para tu caso. Si no lo tiene, también te lo decimos.</p>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="../contacto.html" class="bg-primary text-white px-10 py-5 rounded-md font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all">Agenda un diagnóstico</a>
-                    <a href="../odoo/index.html" class="bg-surface-container-lowest text-primary px-10 py-5 rounded-md font-bold text-lg hover:bg-surface-container-low border border-outline-variant transition-all">Ver también: Odoo</a>
+                    <a href="../contacto.html" class="bg-primary text-white px-10 py-5 rounded-md font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all">Agenda tu diagnóstico</a>
+                    <a href="https://wa.me/524464066544" target="_blank" class="bg-white text-primary px-10 py-5 rounded-md font-bold text-lg hover:bg-gray-50 border border-outline-variant transition-all">Escríbenos por WhatsApp</a>
                 </div>
             </div>
         </section>
@@ -330,13 +451,12 @@
             </div>
             <div class="flex flex-col gap-4">
                 <h4 class="font-bold text-primary">Soluciones</h4>
-                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../odoo/index.html">Odoo</a>
                 <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="index.html">Qlik</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../odoo/index.html">Odoo</a>
             </div>
             <div class="flex flex-col gap-4">
                 <h4 class="font-bold text-primary">Contacto</h4>
                 <a class="text-on-surface-variant hover:text-tertiary font-bold" href="mailto:contacto@appunto.mx">contacto@appunto.mx</a>
-                <span class="text-on-surface-variant mt-2">Querétaro, México.</span>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/30 text-center text-on-surface-variant/70 text-xs">
