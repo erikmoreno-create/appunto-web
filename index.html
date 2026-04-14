@@ -27,8 +27,8 @@
             <div class="hidden lg:flex items-center gap-8 font-medium">
                 <a href="index.html" class="text-primary border-b-2 border-primary pb-1">Inicio</a>
                 <a href="soluciones.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Soluciones</a>
-                <a href="odoo/index.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Odoo</a>
                 <a href="qlik/index.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Qlik</a>
+                <a href="odoo/index.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Odoo</a>
                 <a href="industrias.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Industrias</a>
                 <a href="nosotros.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Nosotros</a>
                 <a href="contacto.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Contacto</a>
@@ -165,59 +165,65 @@
                     <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-4 text-on-surface">¿Cuál de estas situaciones describe la tuya?</h2>
                 </div>
 
+                <style>
+                    .card-caso { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+                    .card-caso:hover { transform: translateY(-4px) scale(1.01); }
+                    .card-qlik:hover { box-shadow: 0 12px 36px rgba(0,152,69,0.18); }
+                    .card-odoo:hover { box-shadow: 0 12px 36px rgba(113,75,103,0.18); }
+                </style>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-                    <!-- Odoo 1 -->
-                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 flex flex-col justify-between" style="border-color: #714B67;">
-                        <div>
-                            <span class="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4" style="background: rgba(113,75,103,0.10); color: #714B67;">
-                                <img src="logos/odoo_logo.png" class="h-3 object-contain" alt=""> Odoo · Integración operativa
-                            </span>
-                            <h3 class="text-2xl font-headline font-bold mb-2">Dueño o director de PyME</h3>
-                            <p class="font-bold mb-4" style="color: #714B67;">"La empresa creció, pero el control no creció con ella."</p>
-                            <p class="text-on-surface-variant">Más personas, más volumen, más fricción. Necesitas que la operación funcione con orden y visibilidad sin depender de ti para resolver cada cosa.</p>
-                        </div>
-                        <p class="text-xs text-on-surface-variant/60 mt-6 pt-4 border-t border-outline-variant/20">Empresas de 15 a 100 colaboradores en comercialización, distribución o servicios B2B.</p>
-                    </div>
-
-                    <!-- Odoo 2 -->
-                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 flex flex-col justify-between" style="border-color: #714B67;">
-                        <div>
-                            <span class="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4" style="background: rgba(113,75,103,0.10); color: #714B67;">
-                                <img src="logos/odoo_logo.png" class="h-3 object-contain" alt=""> Odoo · Control financiero
-                            </span>
-                            <h3 class="text-2xl font-headline font-bold mb-2">Director de Administración y Finanzas</h3>
-                            <p class="font-bold mb-4" style="color: #714B67;">"El cierre de mes sigue dependiendo de retrabajo y correcciones."</p>
-                            <p class="text-on-surface-variant">La doble captura, las conciliaciones manuales y los errores entre áreas consumen tiempo y energía que debería ir a analizar, no a corregir.</p>
-                        </div>
-                        <p class="text-xs text-on-surface-variant/60 mt-6 pt-4 border-t border-outline-variant/20">Típico en empresas que ya necesitan más integración entre operación y finanzas.</p>
-                    </div>
-
                     <!-- Qlik 1: Integración de datos -->
-                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 flex flex-col justify-between" style="border-color: #009845;">
+                    <a href="contacto.html?caso=integracion-datos" class="card-caso card-qlik bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 flex flex-col justify-between cursor-pointer" style="border-color: #009845;">
                         <div>
-                            <span class="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4" style="background: rgba(0,152,69,0.10); color: #009845;">
-                                <img src="logos/qlik-logo.png" class="h-3 object-contain" alt=""> Qlik · Integración de datos
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mb-4" style="background: rgba(0,152,69,0.10);">
+                                <img src="logos/qlik-logo.png" class="h-4 object-contain" alt="Qlik">
                             </span>
                             <h3 class="text-2xl font-headline font-bold mb-2">Director de Sistemas / CIO</h3>
                             <p class="font-bold mb-4" style="color: #009845;">"Tenemos múltiples sistemas y los datos no están integrados."</p>
                             <p class="text-on-surface-variant">Cada área vive en su propio sistema y la consolidación es manual, lenta y propensa a errores. Necesitas una arquitectura de datos limpia y confiable como base para cualquier proyecto de analítica.</p>
                         </div>
                         <p class="text-xs text-on-surface-variant/60 mt-6 pt-4 border-t border-outline-variant/20">Frecuente en empresas con varios años de operación y múltiples herramientas acumuladas.</p>
-                    </div>
+                    </a>
 
                     <!-- Qlik 2: Analítica -->
-                    <div class="bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 flex flex-col justify-between" style="border-color: #009845;">
+                    <a href="contacto.html?caso=analitica-negocio" class="card-caso card-qlik bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 flex flex-col justify-between cursor-pointer" style="border-color: #009845;">
                         <div>
-                            <span class="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-4" style="background: rgba(0,152,69,0.10); color: #009845;">
-                                <img src="logos/qlik-logo.png" class="h-3 object-contain" alt=""> Qlik · Analítica de negocio
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mb-4" style="background: rgba(0,152,69,0.10);">
+                                <img src="logos/qlik-logo.png" class="h-4 object-contain" alt="Qlik">
                             </span>
                             <h3 class="text-2xl font-headline font-bold mb-2">Director General de empresa mediana</h3>
                             <p class="font-bold mb-4" style="color: #009845;">"Tengo datos, pero no claridad para dirigir."</p>
                             <p class="text-on-surface-variant">Cada área reporta distinto. El cierre de mes es lento. Las decisiones se toman con información que no siempre es confiable. Necesitas una sola lectura del negocio para avanzar con certeza.</p>
                         </div>
                         <p class="text-xs text-on-surface-variant/60 mt-6 pt-4 border-t border-outline-variant/20">Común en empresas con varias áreas y operación en crecimiento.</p>
-                    </div>
+                    </a>
+
+                    <!-- Odoo 1 -->
+                    <a href="contacto.html?caso=integracion-operativa" class="card-caso card-odoo bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 flex flex-col justify-between cursor-pointer" style="border-color: #714B67;">
+                        <div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mb-4" style="background: rgba(113,75,103,0.10);">
+                                <img src="logos/odoo_logo.png" class="h-4 object-contain" alt="Odoo">
+                            </span>
+                            <h3 class="text-2xl font-headline font-bold mb-2">Dueño o director de PyME</h3>
+                            <p class="font-bold mb-4" style="color: #714B67;">"La empresa creció, pero el control no creció con ella."</p>
+                            <p class="text-on-surface-variant">Más personas, más volumen, más fricción. Necesitas que la operación funcione con orden y visibilidad sin depender de ti para resolver cada cosa.</p>
+                        </div>
+                        <p class="text-xs text-on-surface-variant/60 mt-6 pt-4 border-t border-outline-variant/20">Empresas de 15 a 100 colaboradores en comercialización, distribución o servicios B2B.</p>
+                    </a>
+
+                    <!-- Odoo 2 -->
+                    <a href="contacto.html?caso=control-financiero" class="card-caso card-odoo bg-surface-container-lowest p-10 rounded-2xl shadow-sm border-l-4 flex flex-col justify-between cursor-pointer" style="border-color: #714B67;">
+                        <div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mb-4" style="background: rgba(113,75,103,0.10);">
+                                <img src="logos/odoo_logo.png" class="h-4 object-contain" alt="Odoo">
+                            </span>
+                            <h3 class="text-2xl font-headline font-bold mb-2">Director de Administración y Finanzas</h3>
+                            <p class="font-bold mb-4" style="color: #714B67;">"El cierre de mes sigue dependiendo de retrabajo y correcciones."</p>
+                            <p class="text-on-surface-variant">La doble captura, las conciliaciones manuales y los errores entre áreas consumen tiempo y energía que debería ir a analizar, no a corregir.</p>
+                        </div>
+                        <p class="text-xs text-on-surface-variant/60 mt-6 pt-4 border-t border-outline-variant/20">Típico en empresas que ya necesitan más integración entre operación y finanzas.</p>
+                    </a>
 
                 </div>
                 <div class="text-center mt-12">
