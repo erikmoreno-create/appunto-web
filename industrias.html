@@ -42,13 +42,13 @@
     <main>
 
         <!-- ═══════════════════════════════════════════
-             HERO — Editorial, left-aligned
+             HERO — Editorial, centered
         ════════════════════════════════════════════ -->
         <section class="relative pt-24 pb-32 overflow-hidden bg-surface">
             <!-- Decorative skewed block -->
             <div class="absolute top-0 right-0 w-1/3 h-full -skew-x-12 translate-x-1/3 z-0" style="background: linear-gradient(180deg, rgba(49,114,141,0.08) 0%, rgba(49,114,141,0.03) 100%);"></div>
             <div class="max-w-7xl mx-auto px-8 relative z-10">
-                <div class="flex flex-col gap-6 max-w-4xl">
+                <div class="flex flex-col gap-6 items-center text-center max-w-4xl mx-auto">
                     <span class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase">Industrias &amp; Casos</span>
                     <h1 class="text-6xl md:text-8xl font-headline font-black text-on-surface tracking-tighter leading-[0.95]">
                         Sectores donde<br>
@@ -57,7 +57,7 @@
                     <p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed mt-4">
                         Cada industria tiene sus reglas, pero los síntomas de una operación desconectada son universales. Combinamos ERP e inteligencia de datos para dar certidumbre directiva en cada sector.
                     </p>
-                    <div class="flex flex-wrap gap-4 mt-4">
+                    <div class="flex flex-wrap gap-4 mt-4 justify-center">
                         <a href="contacto.html" class="bg-primary text-white px-8 py-4 rounded-md font-bold hover:bg-primary-container transition-all shadow-md">Habla con un especialista</a>
                         <a href="#sectores" class="flex items-center gap-2 text-primary font-bold px-8 py-4 rounded-md border border-outline-variant hover:bg-surface-container-low transition-all">Ver sectores <span class="material-symbols-outlined text-xl">arrow_downward</span></a>
                     </div>
@@ -75,83 +75,92 @@
                     <p class="text-lg text-on-surface-variant max-w-2xl mx-auto">No llegamos a aprender tu industria. Llegamos con experiencia en ella y con criterio para distinguir qué resolver primero.</p>
                 </div>
 
-                <!-- Bento grid: 4 cols, Financiero 2x2 featured -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:auto-rows-[260px]">
+                <!-- Grid simétrico: 3 columnas, todos del mismo tamaño -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-                    <!-- FINANCIERO — featured 2×2 -->
-                    <a href="contacto.html?caso=integracion-datos" class="sector-card col-span-2 md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden flex flex-col justify-end p-8 min-h-[300px] md:min-h-0 group cursor-pointer" style="background: linear-gradient(145deg, #1a3a47 0%, #0f2530 60%, #2a1a2e 100%);">
+                    <!-- FINANCIERO -->
+                    <a href="contacto.html?caso=integracion-datos" class="sector-card relative rounded-3xl overflow-hidden flex flex-col justify-end p-8 min-h-[300px] group cursor-pointer" style="background: linear-gradient(145deg, #1a3a47 0%, #0f2530 60%, #2a1a2e 100%);">
                         <!-- Ambient glow -->
                         <div class="absolute top-[-20%] right-[-10%] w-[70%] h-[70%] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(153,17,153,0.25) 0%, transparent 65%);"></div>
                         <div class="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(49,114,141,0.3) 0%, transparent 65%);"></div>
-                        <!-- Priority badge -->
-                        <div class="absolute top-6 left-6">
-                            <span class="bg-white/15 backdrop-blur-sm text-white font-bold text-xs px-3 py-1.5 rounded-full border border-white/20">Sector prioritario</span>
-                        </div>
                         <div class="relative z-10">
                             <span class="material-symbols-outlined text-white/60 text-5xl mb-4 block group-hover:text-white/90 transition-colors">account_balance</span>
-                            <h3 class="text-3xl font-headline font-black text-white mb-3">Sector Financiero</h3>
-                            <p class="text-white/75 leading-relaxed mb-5">Bancos, Sofipos y Fintech. Dashboards de riesgo crediticio, análisis de cartera en tiempo real y proyecciones dinámicas. Cumplimiento regulatorio con visibilidad completa para la dirección.</p>
+                            <h3 class="text-2xl font-headline font-black text-white mb-3">Sector Financiero</h3>
+                            <p class="text-white/75 text-sm leading-relaxed mb-5">Bancos, Sofipos y Fintech. Dashboards de riesgo crediticio, análisis de cartera en tiempo real y proyecciones dinámicas. Cumplimiento regulatorio con visibilidad completa para la dirección.</p>
                             <div class="flex flex-wrap gap-2">
                                 <span class="text-xs font-bold px-3 py-1 rounded-full bg-[#009845]/20 text-[#5cd98a]">Qlik Analytics</span>
-                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-[#714B67]/30 text-[#e0a8d5]">Odoo Back-office</span>
-                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-white/10 text-white/80">Data Integration</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-[#009845]/20 text-[#5cd98a]">Qlik Data Integration</span>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-[#714B67]/30 text-[#e0a8d5]">Odoo Contabilidad</span>
                             </div>
                         </div>
                     </a>
 
-                    <!-- MANUFACTURA — col-span-2, top right -->
-                    <a href="contacto.html" class="sector-card col-span-2 md:col-span-2 bg-surface-container-lowest rounded-3xl p-8 flex flex-col justify-between group cursor-pointer" style="box-shadow: 0 4px 24px rgba(25,28,30,0.06);">
+                    <!-- MANUFACTURA -->
+                    <a href="contacto.html" class="sector-card bg-surface-container-lowest rounded-3xl p-8 flex flex-col justify-between min-h-[300px] group cursor-pointer" style="box-shadow: 0 4px 24px rgba(25,28,30,0.06);">
                         <span class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">factory</span>
                         <div>
                             <h3 class="text-2xl font-headline font-black text-on-surface mb-2">Manufactura</h3>
                             <p class="text-on-surface-variant text-sm leading-relaxed">Control de piso y cálculo real de costos por orden. Dashboards de OEE, eficiencia y mermas integrados con MRP, compras e inventario.</p>
-                            <div class="flex gap-2 mt-4">
+                            <div class="flex flex-wrap gap-2 mt-4">
                                 <span class="tool-badge-odoo text-xs font-bold px-2.5 py-1 rounded-full">Odoo MRP</span>
-                                <span class="tool-badge-qlik text-xs font-bold px-2.5 py-1 rounded-full">Qlik Producción</span>
+                                <span class="tool-badge-odoo text-xs font-bold px-2.5 py-1 rounded-full">Odoo Inventario</span>
+                                <span class="tool-badge-qlik text-xs font-bold px-2.5 py-1 rounded-full">Qlik Analytics</span>
                             </div>
                         </div>
                     </a>
 
-                    <!-- SERVICIOS B2B — 1×1 -->
-                    <a href="contacto.html" class="sector-card col-span-1 bg-surface-container-lowest rounded-3xl p-7 flex flex-col justify-between group cursor-pointer" style="box-shadow: 0 4px 24px rgba(25,28,30,0.06);">
+                    <!-- SERVICIOS B2B -->
+                    <a href="contacto.html" class="sector-card bg-surface-container-lowest rounded-3xl p-8 flex flex-col justify-between min-h-[300px] group cursor-pointer" style="box-shadow: 0 4px 24px rgba(25,28,30,0.06);">
                         <span class="material-symbols-outlined text-tertiary text-4xl group-hover:scale-110 transition-transform">groups_3</span>
                         <div>
-                            <h3 class="text-lg font-headline font-black text-on-surface mb-1.5">Servicios B2B</h3>
-                            <p class="text-on-surface-variant text-xs leading-relaxed">Rentabilidad por proyecto, dashboards de utilización y forecast de ingresos recurrentes.</p>
+                            <h3 class="text-2xl font-headline font-black text-on-surface mb-2">Servicios B2B</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed">Rentabilidad por proyecto, dashboards de utilización y forecast de ingresos recurrentes. Pipeline de ventas y seguimiento de clientes centralizado.</p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="tool-badge-odoo text-xs font-bold px-2.5 py-1 rounded-full">Odoo CRM</span>
+                                <span class="tool-badge-odoo text-xs font-bold px-2.5 py-1 rounded-full">Odoo Proyectos</span>
+                                <span class="tool-badge-qlik text-xs font-bold px-2.5 py-1 rounded-full">Qlik Analytics</span>
+                            </div>
                         </div>
                     </a>
 
-                    <!-- COMERCIALIZACIÓN — 1×1 -->
-                    <a href="contacto.html" class="sector-card col-span-1 bg-surface-container-lowest rounded-3xl p-7 flex flex-col justify-between group cursor-pointer" style="box-shadow: 0 4px 24px rgba(25,28,30,0.06);">
+                    <!-- COMERCIALIZACIÓN -->
+                    <a href="contacto.html" class="sector-card bg-surface-container-lowest rounded-3xl p-8 flex flex-col justify-between min-h-[300px] group cursor-pointer" style="box-shadow: 0 4px 24px rgba(25,28,30,0.06);">
                         <span class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">storefront</span>
                         <div>
-                            <h3 class="text-lg font-headline font-black text-on-surface mb-1.5">Comercialización</h3>
-                            <p class="text-on-surface-variant text-xs leading-relaxed">Márgenes por SKU, rotación de inventarios y análisis de canales de venta en tiempo real.</p>
+                            <h3 class="text-2xl font-headline font-black text-on-surface mb-2">Comercialización</h3>
+                            <p class="text-on-surface-variant text-sm leading-relaxed">Márgenes por SKU, rotación de inventarios y análisis de canales de venta en tiempo real. Control de compras y reposición automatizada.</p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="tool-badge-odoo text-xs font-bold px-2.5 py-1 rounded-full">Odoo Ventas</span>
+                                <span class="tool-badge-odoo text-xs font-bold px-2.5 py-1 rounded-full">Odoo Inventario</span>
+                                <span class="tool-badge-qlik text-xs font-bold px-2.5 py-1 rounded-full">Qlik Analytics</span>
+                            </div>
                         </div>
                     </a>
 
-                    <!-- AGROINDUSTRIA — col-span-2, bottom left -->
-                    <a href="contacto.html" class="sector-card col-span-2 md:col-span-2 bg-surface-container-lowest rounded-3xl p-8 flex flex-col justify-between group cursor-pointer" style="box-shadow: 0 4px 24px rgba(25,28,30,0.06);">
+                    <!-- AGROINDUSTRIA -->
+                    <a href="contacto.html" class="sector-card bg-surface-container-lowest rounded-3xl p-8 flex flex-col justify-between min-h-[300px] group cursor-pointer" style="box-shadow: 0 4px 24px rgba(25,28,30,0.06);">
                         <span class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">agriculture</span>
                         <div>
                             <h3 class="text-2xl font-headline font-black text-on-surface mb-2">Agroindustria</h3>
                             <p class="text-on-surface-variant text-sm leading-relaxed">Control de volumen y mermas de campo a almacén. Consolidación de múltiples centros con dashboards de producción por ciclo y calidad.</p>
-                            <div class="flex gap-2 mt-4">
+                            <div class="flex flex-wrap gap-2 mt-4">
                                 <span class="tool-badge-odoo text-xs font-bold px-2.5 py-1 rounded-full">Odoo Inventario</span>
-                                <span class="tool-badge-qlik text-xs font-bold px-2.5 py-1 rounded-full">Qlik Operaciones</span>
+                                <span class="tool-badge-odoo text-xs font-bold px-2.5 py-1 rounded-full">Odoo Compras</span>
+                                <span class="tool-badge-qlik text-xs font-bold px-2.5 py-1 rounded-full">Qlik Analytics</span>
                             </div>
                         </div>
                     </a>
 
-                    <!-- INTEGRADORES — col-span-2, bottom right -->
-                    <a href="contacto.html" class="sector-card col-span-2 md:col-span-2 rounded-3xl p-8 flex flex-col justify-between group cursor-pointer border border-outline-variant/30 hover:border-primary/30 transition-colors" style="background: linear-gradient(135deg, rgba(49,114,141,0.06) 0%, rgba(49,114,141,0.02) 100%);">
+                    <!-- INTEGRADORES -->
+                    <a href="contacto.html" class="sector-card rounded-3xl p-8 flex flex-col justify-between min-h-[300px] group cursor-pointer border border-outline-variant/30 hover:border-primary/30 transition-colors" style="background: linear-gradient(135deg, rgba(49,114,141,0.06) 0%, rgba(49,114,141,0.02) 100%);">
                         <span class="material-symbols-outlined text-primary text-4xl group-hover:scale-110 transition-transform">hub</span>
                         <div>
                             <h3 class="text-2xl font-headline font-black text-on-surface mb-2">Integradores</h3>
-                            <p class="text-on-surface-variant text-sm leading-relaxed">Proyectos con hitos complejos y facturación por avance. Análisis de rentabilidad por cliente y control de backlog con visibilidad en tiempo real.</p>
-                            <div class="flex gap-2 mt-4">
+                            <p class="text-on-surface-variant text-sm leading-relaxed">Proyectos con hitos complejos y facturación por avance. Análisis de rentabilidad por cliente y control de pipeline con visibilidad en tiempo real.</p>
+                            <div class="flex flex-wrap gap-2 mt-4">
                                 <span class="tool-badge-odoo text-xs font-bold px-2.5 py-1 rounded-full">Odoo Proyectos</span>
-                                <span class="tool-badge-qlik text-xs font-bold px-2.5 py-1 rounded-full">Qlik Backlog</span>
+                                <span class="tool-badge-odoo text-xs font-bold px-2.5 py-1 rounded-full">Odoo Facturación</span>
+                                <span class="tool-badge-qlik text-xs font-bold px-2.5 py-1 rounded-full">Qlik Analytics</span>
                             </div>
                         </div>
                     </a>
