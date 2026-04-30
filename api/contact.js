@@ -33,54 +33,52 @@ module.exports = async function handler(req, res) {
     const casoLabel = casoLabels[caso] || 'No especificado';
 
     try {
-        // ── 1. Autenticar con Odoo usando la API Key como contraseña ──────────
-        const authRes = await fetch(`${ODOO_URL}/web/session/authenticate`, {
+        // ── 1. Autenticar vía JSON-RPC con API key ────────────────────────────
+        const authRes = await fetch(`${ODOO_URL}/jsonrpc`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 jsonrpc: '2.0',
                 method: 'call',
-                id: 1,
-                params: { db: ODOO_DB, login: ODOO_USER, password: ODOO_API_KEY },
+                params: {
+                    service: 'common',
+                    method: 'authenticate',
+                    args: [ODOO_DB, ODOO_USER, ODOO_API_KEY, {}],
+                },
             }),
         });
 
         const authData = await authRes.json();
-        if (!authData.result || authData.result.uid === false) {
+        const uid = authData.result;
+        if (!uid) {
             console.error('Odoo auth failed:', JSON.stringify(authData));
             return res.status(500).json({ error: 'Error de autenticación con Odoo' });
         }
 
-        // Extraer session_id de la cookie de respuesta
-        const rawCookie = authRes.headers.get('set-cookie') || '';
-        const sessionMatch = rawCookie.match(/session_id=([^;]+)/);
-        const sessionId = sessionMatch?.[1];
-        if (!sessionId) {
-            return res.status(500).json({ error: 'No se pudo obtener sesión de Odoo' });
-        }
-
-        // ── 2. Crear el lead en CRM ───────────────────────────────────────────
-        const leadRes = await fetch(`${ODOO_URL}/web/dataset/call_kw`, {
+        // ── 2. Crear el lead en CRM vía execute_kw ────────────────────────────
+        const leadRes = await fetch(`${ODOO_URL}/jsonrpc`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Cookie': `session_id=${sessionId}`,
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 jsonrpc: '2.0',
                 method: 'call',
-                id: 2,
                 params: {
-                    model: 'crm.lead',
-                    method: 'create',
-                    args: [{
-                        name:          `${nombre}${empresa ? ' — ' + empresa : ''}`,
-                        contact_name:  nombre,
-                        email_from:    email,
-                        partner_name:  empresa || '',
-                        description:   `Caso de interés: ${casoLabel}\n\nReto principal:\n${reto}`,
-                    }],
-                    kwargs: {},
+                    service: 'object',
+                    method: 'execute_kw',
+                    args: [
+                        ODOO_DB,
+                        uid,
+                        ODOO_API_KEY,
+                        'crm.lead',
+                        'create',
+                        [{
+                            name:         `${nombre}${empresa ? ' — ' + empresa : ''}`,
+                            contact_name: nombre,
+                            email_from:   email,
+                            partner_name: empresa || '',
+                            description:  `Caso de interés: ${casoLabel}\n\nReto principal:\n${reto}`,
+                        }],
+                    ],
                 },
             }),
         });
