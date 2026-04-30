@@ -46,24 +46,25 @@
             </div>
 
             <div class="lg:col-span-3 relative z-10">
-                <form class="space-y-6" onsubmit="event.preventDefault(); alert('¡Gracias! En breve un consultor se pondrá en contacto contigo.');">
+                <!-- Formulario -->
+                <form id="contact-form" class="space-y-6">
                     <div class="grid grid-cols-2 gap-6">
                         <div>
                             <label class="block text-sm font-bold text-on-surface-variant mb-2">Nombre completo</label>
-                            <input type="text" required class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50">
+                            <input name="nombre" type="text" required class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50">
                         </div>
                         <div>
                             <label class="block text-sm font-bold text-on-surface-variant mb-2">Empresa</label>
-                            <input type="text" required class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50">
+                            <input name="empresa" type="text" class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50">
                         </div>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-on-surface-variant mb-2">Email corporativo</label>
-                        <input type="email" required class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="ejemplo@empresa.com">
+                        <input name="email" type="email" required class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="ejemplo@empresa.com">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-on-surface-variant mb-2">¿Qué estás buscando?</label>
-                        <select id="campo-caso" class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50 text-on-surface-variant">
+                        <select name="caso" id="campo-caso" class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50 text-on-surface-variant">
                             <option value="">Selecciona tu caso...</option>
                             <option value="integracion-datos">Integración de datos (Qlik)</option>
                             <option value="analitica-negocio">Analítica de negocio (Qlik)</option>
@@ -74,17 +75,42 @@
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-on-surface-variant mb-2">Principal reto a resolver</label>
-                        <textarea required class="w-full border border-outline-variant rounded-md p-3 h-32 resize-none focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="Descríbenos brevemente el dolor actual de la operación..."></textarea>
+                        <textarea name="reto" required class="w-full border border-outline-variant rounded-md p-3 h-32 resize-none focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="Descríbenos brevemente el dolor actual de la operación..."></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-primary text-white font-bold py-4 rounded-md hover:bg-primary-container transition-colors shadow-lg">Solicitar Diagnóstico</button>
+                    <button id="submit-btn" type="submit" class="w-full bg-primary text-white font-bold py-4 rounded-md hover:bg-primary-container transition-colors shadow-lg">
+                        Solicitar diagnóstico gratuito
+                    </button>
                     <p class="text-xs text-center text-on-surface-variant opacity-70 mt-4">La información proporcionada es 100% confidencial.</p>
                 </form>
+
+                <!-- Estado: enviando -->
+                <div id="form-loading" class="hidden text-center py-12">
+                    <div class="inline-block w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin mb-4"></div>
+                    <p class="text-on-surface-variant font-medium">Enviando tu solicitud…</p>
+                </div>
+
+                <!-- Estado: éxito -->
+                <div id="form-success" class="hidden text-center py-12">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-headline font-black mb-3">¡Recibimos tu solicitud!</h3>
+                    <p class="text-on-surface-variant leading-relaxed max-w-sm mx-auto">Un consultor de Appunto se pondrá en contacto contigo en menos de 24 horas hábiles.</p>
+                </div>
+
+                <!-- Estado: error -->
+                <div id="form-error" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-center">
+                    <p class="text-red-700 font-medium text-sm">Ocurrió un error al enviar tu solicitud. Por favor escríbenos directamente a <a href="mailto:contacto@appunto.mx" class="underline">contacto@appunto.mx</a></p>
+                </div>
             </div>
 
         </div>
     </main>
 
     <script>
+        // Pre-seleccionar caso desde la URL (?caso=integracion-datos, etc.)
         (function(){
             const params = new URLSearchParams(window.location.search);
             const caso = params.get('caso');
@@ -93,6 +119,53 @@
                 if(sel) sel.value = caso;
             }
         })();
+
+        // Envío del formulario → API de Vercel → Odoo CRM
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form    = document.getElementById('contact-form');
+            const loading = document.getElementById('form-loading');
+            const success = document.getElementById('form-success');
+            const error   = document.getElementById('form-error');
+            const btn     = document.getElementById('submit-btn');
+
+            // Mostrar loading
+            form.classList.add('hidden');
+            loading.classList.remove('hidden');
+            error.classList.add('hidden');
+
+            const data = {
+                nombre:  form.nombre.value.trim(),
+                empresa: form.empresa.value.trim(),
+                email:   form.email.value.trim(),
+                caso:    form.caso.value,
+                reto:    form.reto.value.trim(),
+            };
+
+            try {
+                const res = await fetch('/api/contact', {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body:    JSON.stringify(data),
+                });
+
+                const json = await res.json();
+
+                loading.classList.add('hidden');
+
+                if (res.ok && json.success) {
+                    success.classList.remove('hidden');
+                } else {
+                    form.classList.remove('hidden');
+                    error.classList.remove('hidden');
+                }
+            } catch(err) {
+                loading.classList.add('hidden');
+                form.classList.remove('hidden');
+                error.classList.remove('hidden');
+            }
+        });
     </script>
 
     <footer class="bg-surface-container-lowest border-t border-outline-variant/30 text-on-surface py-12">
