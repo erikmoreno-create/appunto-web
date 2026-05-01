@@ -7,7 +7,7 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') return res.status(200).end();
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-    const { nombre, empresa, email, caso, reto } = req.body || {};
+    const { nombre, empresa, email, telefono, caso, reto } = req.body || {};
 
     if (!nombre || !email || !reto) {
         return res.status(400).json({ error: 'Faltan campos requeridos' });
@@ -75,7 +75,9 @@ module.exports = async function handler(req, res) {
                             name:         `${nombre}${empresa ? ' — ' + empresa : ''}`,
                             contact_name: nombre,
                             email_from:   email,
+                            phone:        telefono || '',
                             partner_name: empresa || '',
+                            type:         'opportunity',
                             description:  `Caso de interés: ${casoLabel}\n\nReto principal:\n${reto}`,
                         }],
                     ],

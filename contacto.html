@@ -58,9 +58,15 @@
                             <input name="empresa" type="text" class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50">
                         </div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-bold text-on-surface-variant mb-2">Email corporativo</label>
-                        <input name="email" type="email" required class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="ejemplo@empresa.com">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-on-surface-variant mb-2">Email corporativo</label>
+                            <input name="email" type="email" required class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="ejemplo@empresa.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-on-surface-variant mb-2">Teléfono</label>
+                            <input name="telefono" type="tel" class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="+52 ...">
+                        </div>
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-on-surface-variant mb-2">¿Qué estás buscando?</label>
@@ -136,11 +142,12 @@
             error.classList.add('hidden');
 
             const data = {
-                nombre:  form.nombre.value.trim(),
-                empresa: form.empresa.value.trim(),
-                email:   form.email.value.trim(),
-                caso:    form.caso.value,
-                reto:    form.reto.value.trim(),
+                nombre:   form.nombre.value.trim(),
+                empresa:  form.empresa.value.trim(),
+                email:    form.email.value.trim(),
+                telefono: form.telefono.value.trim(),
+                caso:     form.caso.value,
+                reto:     form.reto.value.trim(),
             };
 
             try {
