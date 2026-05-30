@@ -7,30 +7,21 @@ module.exports = async function handler(req, res) {
     if (req.method === 'OPTIONS') return res.status(200).end();
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-    const { nombre, empresa, email, telefono, caso, reto } = req.body || {};
+    const { nombre, empresa, email, telefono, reto } = req.body || {};
 
     if (!nombre || !email || !reto) {
         return res.status(400).json({ error: 'Faltan campos requeridos' });
     }
 
-    const ODOO_URL     = process.env.ODOO_URL;      // https://appunto-mx.odoo.com
-    const ODOO_DB      = process.env.ODOO_DB;       // appunto-mx
-    const ODOO_USER    = process.env.ODOO_USER;     // email del usuario administrador
-    const ODOO_API_KEY = process.env.ODOO_API_KEY;  // API key generada en Odoo
+    const ODOO_URL     = process.env.ODOO_URL;
+    const ODOO_DB      = process.env.ODOO_DB;
+    const ODOO_USER    = process.env.ODOO_USER;
+    const ODOO_API_KEY = process.env.ODOO_API_KEY;
 
     if (!ODOO_URL || !ODOO_DB || !ODOO_USER || !ODOO_API_KEY) {
         console.error('Faltan variables de entorno de Odoo');
         return res.status(500).json({ error: 'Configuración incompleta en el servidor' });
     }
-
-    const casoLabels = {
-        'integracion-datos':    'Integración de datos (Qlik)',
-        'analitica-negocio':    'Analítica de negocio (Qlik)',
-        'integracion-operativa':'Integración operativa (Odoo)',
-        'control-financiero':   'Control financiero (Odoo)',
-        'otro':                 'Otro / No estoy seguro',
-    };
-    const casoLabel = casoLabels[caso] || 'No especificado';
 
     try {
         // ── 1. Autenticar vía JSON-RPC con API key ────────────────────────────
@@ -78,7 +69,7 @@ module.exports = async function handler(req, res) {
                             phone:        telefono || '',
                             partner_name: empresa || '',
                             type:         'opportunity',
-                            description:  `Caso de interés: ${casoLabel}\n\nReto principal:\n${reto}`,
+                            description:  `Reto principal:\n${reto}`,
                         }],
                     ],
                 },

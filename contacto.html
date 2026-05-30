@@ -69,17 +69,6 @@
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-on-surface-variant mb-2">¿Qué estás buscando?</label>
-                        <select name="caso" id="campo-caso" class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50 text-on-surface-variant">
-                            <option value="">Selecciona tu caso...</option>
-                            <option value="integracion-datos">Integración de datos (Qlik)</option>
-                            <option value="analitica-negocio">Analítica de negocio (Qlik)</option>
-                            <option value="integracion-operativa">Integración operativa (Odoo)</option>
-                            <option value="control-financiero">Control financiero (Odoo)</option>
-                            <option value="otro">Otro / No estoy seguro</option>
-                        </select>
-                    </div>
-                    <div>
                         <label class="block text-sm font-bold text-on-surface-variant mb-2">Principal reto a resolver</label>
                         <textarea name="reto" required class="w-full border border-outline-variant rounded-md p-3 h-32 resize-none focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="Descríbenos brevemente el dolor actual de la operación..."></textarea>
                     </div>
@@ -103,7 +92,8 @@
                         </svg>
                     </div>
                     <h3 class="text-2xl font-headline font-black mb-3">¡Recibimos tu solicitud!</h3>
-                    <p class="text-on-surface-variant leading-relaxed max-w-sm mx-auto">Un consultor de Appunto se pondrá en contacto contigo en menos de 24 horas hábiles.</p>
+                    <p class="text-on-surface-variant leading-relaxed max-w-sm mx-auto mb-6">Te abrimos una pestaña para que agendes directamente tu sesión de diagnóstico en el horario que prefieras.</p>
+                    <a href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" class="inline-block bg-primary text-white font-bold px-6 py-3 rounded-md hover:bg-primary-container transition-colors shadow-lg">Agendar mi cita ahora</a>
                 </div>
 
                 <!-- Estado: error -->
@@ -116,16 +106,6 @@
     </main>
 
     <script>
-        // Pre-seleccionar caso desde la URL (?caso=integracion-datos, etc.)
-        (function(){
-            const params = new URLSearchParams(window.location.search);
-            const caso = params.get('caso');
-            if(caso){
-                const sel = document.getElementById('campo-caso');
-                if(sel) sel.value = caso;
-            }
-        })();
-
         // Envío del formulario → API de Vercel → Odoo CRM
         document.getElementById('contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -134,9 +114,7 @@
             const loading = document.getElementById('form-loading');
             const success = document.getElementById('form-success');
             const error   = document.getElementById('form-error');
-            const btn     = document.getElementById('submit-btn');
 
-            // Mostrar loading
             form.classList.add('hidden');
             loading.classList.remove('hidden');
             error.classList.add('hidden');
@@ -146,7 +124,6 @@
                 empresa:  form.empresa.value.trim(),
                 email:    form.email.value.trim(),
                 telefono: form.telefono.value.trim(),
-                caso:     form.caso.value,
                 reto:     form.reto.value.trim(),
             };
 
@@ -158,11 +135,11 @@
                 });
 
                 const json = await res.json();
-
                 loading.classList.add('hidden');
 
                 if (res.ok && json.success) {
                     success.classList.remove('hidden');
+                    window.open('https://appunto-mx.odoo.com/book/EU30', '_blank', 'noopener');
                 } else {
                     form.classList.remove('hidden');
                     error.classList.remove('hidden');
