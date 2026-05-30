@@ -27,130 +27,35 @@
     </nav>
 
     <main class="flex-grow max-w-7xl mx-auto w-full px-8 py-20 flex justify-center items-center">
-        <div class="w-full max-w-5xl bg-surface-container-lowest shadow-2xl rounded-3xl p-12 lg:p-20 grid lg:grid-cols-5 gap-16 relative">
+        <div class="w-full max-w-3xl bg-surface-container-lowest shadow-2xl rounded-3xl p-12 lg:p-16 relative text-center overflow-hidden">
             <div class="absolute right-0 top-0 w-64 h-64 bg-primary/5 rounded-bl-full pointer-events-none"></div>
-            
-            <div class="lg:col-span-2 relative z-10">
-                <h1 class="text-4xl font-headline font-black mb-6">Agenda una sesión de diagnóstico.</h1>
-                <p class="text-base text-on-surface-variant mb-10 leading-relaxed">Sin costo, sin presión comercial y sin compromiso. Analizamos tu información actual, tus fricciones de negocio y encontramos cómo generar certidumbre directiva unificando tus procesos y datos.</p>
-                <div class="space-y-6">
-                    <div class="flex flex-col">
-                        <span class="font-bold text-primary text-sm uppercase tracking-wider mb-1">WhatsApp Directo</span>
-                        <a href="tel:+524464066544" class="text-on-surface-variant hover:text-tertiary text-lg">+52 (446) 406 6544</a>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="font-bold text-primary text-sm uppercase tracking-wider mb-1">Correo Electrónico</span>
-                        <a href="mailto:contacto@appunto.mx" class="text-on-surface-variant hover:text-tertiary text-lg">contacto@appunto.mx</a>
+
+            <div class="relative z-10">
+                <h1 class="text-4xl md:text-5xl font-headline font-black mb-6">Agenda tu sesión de diagnóstico</h1>
+                <p class="text-base md:text-lg text-on-surface-variant mb-10 leading-relaxed max-w-xl mx-auto">
+                    Sin costo, sin presión comercial y sin compromiso. Analizamos tu información actual, tus fricciones de negocio y encontramos cómo generar certidumbre directiva unificando tus procesos y datos.
+                </p>
+
+                <a href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" class="inline-block bg-primary text-white font-bold text-lg px-10 py-5 rounded-md hover:bg-primary-container transition-colors shadow-lg mb-12">
+                    Agenda mi cita ahora
+                </a>
+
+                <div class="border-t border-outline-variant/30 pt-10">
+                    <p class="text-xs text-on-surface-variant mb-6 uppercase tracking-widest font-bold">O contáctanos directamente</p>
+                    <div class="grid sm:grid-cols-2 gap-6 max-w-xl mx-auto">
+                        <div class="flex flex-col items-center">
+                            <span class="font-bold text-primary text-sm uppercase tracking-wider mb-2">WhatsApp</span>
+                            <a href="https://wa.me/524464066544" target="_blank" rel="noopener" class="text-on-surface-variant hover:text-tertiary text-lg">+52 (446) 406 6544</a>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <span class="font-bold text-primary text-sm uppercase tracking-wider mb-2">Correo</span>
+                            <a href="mailto:contacto@appunto.mx" class="text-on-surface-variant hover:text-tertiary text-lg">contacto@appunto.mx</a>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="lg:col-span-3 relative z-10">
-                <!-- Formulario -->
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-bold text-on-surface-variant mb-2">Nombre completo</label>
-                            <input name="nombre" type="text" required class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-on-surface-variant mb-2">Empresa</label>
-                            <input name="empresa" type="text" class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50">
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-bold text-on-surface-variant mb-2">Email corporativo</label>
-                            <input name="email" type="email" required class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="ejemplo@empresa.com">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-on-surface-variant mb-2">Teléfono</label>
-                            <input name="telefono" type="tel" class="w-full border border-outline-variant rounded-md p-3 focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="+52 ...">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold text-on-surface-variant mb-2">Principal reto a resolver</label>
-                        <textarea name="reto" required class="w-full border border-outline-variant rounded-md p-3 h-32 resize-none focus:outline-none focus:border-primary focus:ring-1 bg-surface/50" placeholder="Descríbenos brevemente el dolor actual de la operación..."></textarea>
-                    </div>
-                    <button id="submit-btn" type="submit" class="w-full bg-primary text-white font-bold py-4 rounded-md hover:bg-primary-container transition-colors shadow-lg">
-                        Solicitar diagnóstico gratuito
-                    </button>
-                    <p class="text-xs text-center text-on-surface-variant opacity-70 mt-4">La información proporcionada es 100% confidencial.</p>
-                </form>
-
-                <!-- Estado: enviando -->
-                <div id="form-loading" class="hidden text-center py-12">
-                    <div class="inline-block w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin mb-4"></div>
-                    <p class="text-on-surface-variant font-medium">Enviando tu solicitud…</p>
-                </div>
-
-                <!-- Estado: éxito -->
-                <div id="form-success" class="hidden text-center py-12">
-                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-headline font-black mb-3">¡Recibimos tu solicitud!</h3>
-                    <p class="text-on-surface-variant leading-relaxed max-w-sm mx-auto mb-6">Te abrimos una pestaña para que agendes directamente tu sesión de diagnóstico en el horario que prefieras.</p>
-                    <a href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" class="inline-block bg-primary text-white font-bold px-6 py-3 rounded-md hover:bg-primary-container transition-colors shadow-lg">Agendar mi cita ahora</a>
-                </div>
-
-                <!-- Estado: error -->
-                <div id="form-error" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-lg text-center">
-                    <p class="text-red-700 font-medium text-sm">Ocurrió un error al enviar tu solicitud. Por favor escríbenos directamente a <a href="mailto:contacto@appunto.mx" class="underline">contacto@appunto.mx</a></p>
-                </div>
-            </div>
-
         </div>
     </main>
-
-    <script>
-        // Envío del formulario → API de Vercel → Odoo CRM
-        document.getElementById('contact-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            const form    = document.getElementById('contact-form');
-            const loading = document.getElementById('form-loading');
-            const success = document.getElementById('form-success');
-            const error   = document.getElementById('form-error');
-
-            form.classList.add('hidden');
-            loading.classList.remove('hidden');
-            error.classList.add('hidden');
-
-            const data = {
-                nombre:   form.nombre.value.trim(),
-                empresa:  form.empresa.value.trim(),
-                email:    form.email.value.trim(),
-                telefono: form.telefono.value.trim(),
-                reto:     form.reto.value.trim(),
-            };
-
-            try {
-                const res = await fetch('/api/contact', {
-                    method:  'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body:    JSON.stringify(data),
-                });
-
-                const json = await res.json();
-                loading.classList.add('hidden');
-
-                if (res.ok && json.success) {
-                    success.classList.remove('hidden');
-                    window.open('https://appunto-mx.odoo.com/book/EU30', '_blank', 'noopener');
-                } else {
-                    form.classList.remove('hidden');
-                    error.classList.remove('hidden');
-                }
-            } catch(err) {
-                loading.classList.add('hidden');
-                form.classList.remove('hidden');
-                error.classList.remove('hidden');
-            }
-        });
-    </script>
 
     <footer class="bg-surface-container-lowest border-t border-outline-variant/30 text-on-surface py-12">
         <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-4 gap-12 text-sm text-on-surface-variant">
