@@ -1,0 +1,16 @@
+{
+  "name": "appunto-web",
+  "version": "1.0.0",
+  "description": "Appunto - Consultoría de negocio y tecnología",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static HTML site - no build step required'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
