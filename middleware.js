@@ -101,7 +101,7 @@ function extractBody(html) {
     if (tag === 'li') out.push(`- ${text}`);
     // <summary> es la pregunta de un <details>: sin esto el Markdown se queda
     // con la respuesta suelta y sin la pregunta que le da sentido.
-    else if (tag === 'summary') out.push(`### ${text}`);
+    else if (tag === 'summary') out.push(`#### ${text}`);
     else if (tag === 'blockquote') out.push(`> ${text}`);
     else if (tag === 'p') out.push(text);
     // El titulo del documento ya ocupa el H1, asi que el contenido baja un nivel.
