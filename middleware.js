@@ -80,7 +80,7 @@ function extractBody(html) {
     .replace(/<span[^>]*class="[^"]*material-symbols[^"]*"[^>]*>[\s\S]*?<\/span>/gi, '');
 
   const out = [];
-  const re = /<(h[1-4]|p|li|blockquote)\b[^>]*>([\s\S]*?)<\/\1>/gi;
+  const re = /<(h[1-4]|p|li|blockquote|summary)\b[^>]*>([\s\S]*?)<\/\1>/gi;
   let m;
   while ((m = re.exec(body)) !== null) {
     const tag = m[1].toLowerCase();
@@ -99,6 +99,9 @@ function extractBody(html) {
     if (!text) continue;
 
     if (tag === 'li') out.push(`- ${text}`);
+    // <summary> es la pregunta de un <details>: sin esto el Markdown se queda
+    // con la respuesta suelta y sin la pregunta que le da sentido.
+    else if (tag === 'summary') out.push(`### ${text}`);
     else if (tag === 'blockquote') out.push(`> ${text}`);
     else if (tag === 'p') out.push(text);
     // El titulo del documento ya ocupa el H1, asi que el contenido baja un nivel.

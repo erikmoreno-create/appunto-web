@@ -50,6 +50,7 @@
                 "name": "Appunto",
                 "legalName": "APPUNTO MX, S.A. de C.V.",
                 "url": "https://appunto.mx/",
+                "sameAs": ["https://www.linkedin.com/company/appuntomx/"],
                 "logo": "https://appunto.mx/logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png",
                 "image": "https://appunto.mx/logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png",
                 "slogan": "Tu mejor aliado tecnológico",
@@ -168,6 +169,51 @@
                 "about": {
                     "@id": "https://appunto.mx/#organization"
                 }
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://appunto.mx/#faq",
+                "isPartOf": {
+                    "@id": "https://appunto.mx/#webpage"
+                },
+                "inLanguage": "es-MX",
+                "about": {
+                    "@id": "https://appunto.mx/#organization"
+                },
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "¿Qué hace Appunto?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Appunto es una consultora de negocio y tecnología con sede en Querétaro, México. Implementamos Odoo (ERP) y Qlik (integración y analítica de datos) en empresas medianas mexicanas. Partimos del problema de negocio, no de la marca del software: primero entendemos cómo opera tu empresa y después definimos qué herramienta tiene sentido."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Qué tamaño de empresa atienden?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Empresas medianas mexicanas, típicamente de 10 a 250 empleados. Las de 10 a 50 suelen necesitar orden en la operación, y ahí Odoo es la respuesta; las de 50 a 250 ya tienen datos pero no claridad para decidir, y ahí entra Qlik. No trabajamos con corporativos globales ni con microempresas."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Atienden empresas fuera de Querétaro?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Sí. Trabajamos en toda la República de forma remota, y presencial cuando el proyecto lo requiere. Nuestra base es Querétaro y el corredor del Bajío es donde tenemos mayor presencia."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Solo trabajan con Odoo y Qlik?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Son nuestras dos líneas de servicio. Odoo cubre la operación —ventas, compras, inventario, facturación— y Qlik cubre la integración y el análisis de datos. Cuando un proyecto no necesita ninguna de las dos, lo decimos."
+                        }
+                    }
+                ]
             }
         ]
     }
@@ -495,6 +541,44 @@
                     <span class="text-6xl text-primary/20 absolute top-8 left-8">"</span>
                     <p class="relative z-10">Antes de Appunto tomábamos decisiones con información que llegaba tarde y nunca cuadraba entre áreas. Hoy tenemos visibilidad real y el cierre de mes dejó de ser un problema.</p>
                     <p class="text-base text-on-surface-variant mt-6 not-italic font-sans font-bold">— Director General, empresa mediana, sector distribución.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preguntas frecuentes -->
+        <section class="py-24 bg-surface-container-low scroll-mt-24" id="preguntas-frecuentes">
+            <div class="max-w-3xl mx-auto px-8">
+                <p class="text-tertiary font-headline font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Preguntas frecuentes</p>
+                <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-12">Lo que nos preguntan antes de empezar.</h2>
+                <div class="space-y-4">
+                    <details class="group bg-surface-container-lowest rounded-2xl px-8 py-6">
+                        <summary class="flex items-center justify-between gap-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden font-headline font-bold text-lg">
+                            <span>¿Qué hace Appunto?</span>
+                            <span class="material-symbols-outlined text-primary shrink-0 transition-transform group-open:rotate-180">expand_more</span>
+                        </summary>
+                        <p class="text-on-surface-variant leading-relaxed mt-4">Appunto es una consultora de negocio y tecnología con sede en Querétaro, México. Implementamos Odoo (ERP) y Qlik (integración y analítica de datos) en empresas medianas mexicanas. Partimos del problema de negocio, no de la marca del software: primero entendemos cómo opera tu empresa y después definimos qué herramienta tiene sentido.</p>
+                    </details>
+                    <details class="group bg-surface-container-lowest rounded-2xl px-8 py-6">
+                        <summary class="flex items-center justify-between gap-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden font-headline font-bold text-lg">
+                            <span>¿Qué tamaño de empresa atienden?</span>
+                            <span class="material-symbols-outlined text-primary shrink-0 transition-transform group-open:rotate-180">expand_more</span>
+                        </summary>
+                        <p class="text-on-surface-variant leading-relaxed mt-4">Empresas medianas mexicanas, típicamente de 10 a 250 empleados. Las de 10 a 50 suelen necesitar orden en la operación, y ahí Odoo es la respuesta; las de 50 a 250 ya tienen datos pero no claridad para decidir, y ahí entra Qlik. No trabajamos con corporativos globales ni con microempresas.</p>
+                    </details>
+                    <details class="group bg-surface-container-lowest rounded-2xl px-8 py-6">
+                        <summary class="flex items-center justify-between gap-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden font-headline font-bold text-lg">
+                            <span>¿Atienden empresas fuera de Querétaro?</span>
+                            <span class="material-symbols-outlined text-primary shrink-0 transition-transform group-open:rotate-180">expand_more</span>
+                        </summary>
+                        <p class="text-on-surface-variant leading-relaxed mt-4">Sí. Trabajamos en toda la República de forma remota, y presencial cuando el proyecto lo requiere. Nuestra base es Querétaro y el corredor del Bajío es donde tenemos mayor presencia.</p>
+                    </details>
+                    <details class="group bg-surface-container-lowest rounded-2xl px-8 py-6">
+                        <summary class="flex items-center justify-between gap-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden font-headline font-bold text-lg">
+                            <span>¿Solo trabajan con Odoo y Qlik?</span>
+                            <span class="material-symbols-outlined text-primary shrink-0 transition-transform group-open:rotate-180">expand_more</span>
+                        </summary>
+                        <p class="text-on-surface-variant leading-relaxed mt-4">Son nuestras dos líneas de servicio. Odoo cubre la operación —ventas, compras, inventario, facturación— y Qlik cubre la integración y el análisis de datos. Cuando un proyecto no necesita ninguna de las dos, lo decimos.</p>
+                    </details>
                 </div>
             </div>
         </section>
