@@ -38,6 +38,46 @@
     <script>
         tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#991199', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
     </script>
+    <!-- JSON-LD. La organizacion es espejo de /organization.jsonld:
+         si cambias uno, cambia el otro. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://appunto.mx/soluciones.html#webpage",
+                "url": "https://appunto.mx/soluciones.html",
+                "name": "Soluciones | Appunto — ERP, BI y analítica",
+                "description": "Implementamos Odoo ERP, Qlik BI y analítica de datos para ordenar la operación de tu empresa: soluciones a la medida de tus procesos, sin fricción entre sistemas.",
+                "inLanguage": "es-MX",
+                "isPartOf": {
+                    "@id": "https://appunto.mx/#website"
+                },
+                "publisher": {
+                    "@id": "https://appunto.mx/#organization"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Inicio",
+                        "item": "https://appunto.mx/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Soluciones",
+                        "item": "https://appunto.mx/soluciones.html"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-surface text-on-surface font-body overflow-x-hidden relative">
 

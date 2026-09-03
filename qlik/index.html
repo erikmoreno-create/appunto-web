@@ -37,6 +37,64 @@
     <script>
         tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#009845', 'tertiary-light': '#00b351', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
     </script>
+    <!-- JSON-LD. La organizacion es espejo de /organization.jsonld:
+         si cambias uno, cambia el otro. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://appunto.mx/qlik/#webpage",
+                "url": "https://appunto.mx/qlik/",
+                "name": "Qlik en México · Integración de datos y analítica | Appunto",
+                "description": "Implementamos Qlik para integrar tus fuentes de datos y construir analítica que le dé a tu dirección una lectura clara del negocio. Qlik Data Integration + Qlik Analytics. Partner implementador en México.",
+                "inLanguage": "es-MX",
+                "isPartOf": {
+                    "@id": "https://appunto.mx/#website"
+                },
+                "publisher": {
+                    "@id": "https://appunto.mx/#organization"
+                },
+                "about": {
+                    "@id": "https://appunto.mx/qlik/#service"
+                }
+            },
+            {
+                "@type": "Service",
+                "name": "Implementación de Qlik",
+                "serviceType": "Integración y analítica de datos",
+                "description": "Qlik Data Integration para unificar fuentes de datos y Qlik Analytics para construir la analítica que le da a la dirección una lectura clara del negocio.",
+                "url": "https://appunto.mx/qlik/",
+                "@id": "https://appunto.mx/qlik/#service",
+                "provider": {
+                    "@id": "https://appunto.mx/#organization"
+                },
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "México"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Inicio",
+                        "item": "https://appunto.mx/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Qlik",
+                        "item": "https://appunto.mx/qlik/"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-surface text-on-surface font-body overflow-x-hidden relative">
 

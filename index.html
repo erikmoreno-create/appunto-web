@@ -38,6 +38,140 @@
     <script>
         tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#991199', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
     </script>
+    <!-- JSON-LD. La organizacion es espejo de /organization.jsonld:
+         si cambias uno, cambia el otro. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "ProfessionalService",
+                "@id": "https://appunto.mx/#organization",
+                "name": "Appunto",
+                "legalName": "APPUNTO MX, S.A. de C.V.",
+                "url": "https://appunto.mx/",
+                "logo": "https://appunto.mx/logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png",
+                "image": "https://appunto.mx/logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png",
+                "slogan": "Tu mejor aliado tecnológico",
+                "description": "Consultoría de negocio y tecnología. Ayudamos a empresas con procesos desconectados o información dispersa a ordenar su operación y tomar mejores decisiones, implementando Odoo y Qlik con criterio de negocio antes que de herramienta.",
+                "email": "contacto@appunto.mx",
+                "telephone": "+52-446-406-6544",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Blvd. Bernardo Quintana 7000-B, Interior 2, Piso 14, oficina 1411, Col. Centro Sur",
+                    "addressLocality": "Querétaro",
+                    "addressRegion": "Querétaro",
+                    "postalCode": "76090",
+                    "addressCountry": "MX"
+                },
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "México"
+                },
+                "knowsLanguage": [
+                    "es-MX"
+                ],
+                "knowsAbout": [
+                    "Implementación de ERP",
+                    "Odoo",
+                    "Qlik",
+                    "Integración de datos",
+                    "Analítica de negocio",
+                    "Integración de procesos operativos"
+                ],
+                "makesOffer": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Implementación de Odoo",
+                            "serviceType": "Implementación de ERP",
+                            "description": "Implementación de Odoo para PyMEs y empresas medianas que crecieron con Excel y herramientas sueltas. Conecta ventas, compras, inventario y finanzas para reducir la doble captura y el retrabajo entre áreas.",
+                            "url": "https://appunto.mx/odoo/"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Implementación de Qlik",
+                            "serviceType": "Integración y analítica de datos",
+                            "description": "Qlik Data Integration para unificar fuentes de datos y Qlik Analytics para construir la analítica que le da a la dirección una lectura clara del negocio.",
+                            "url": "https://appunto.mx/qlik/"
+                        }
+                    }
+                ],
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Industrias atendidas",
+                    "itemListElement": [
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Financiero"
+                        },
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Manufactura"
+                        },
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Comercialización"
+                        },
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Servicios B2B"
+                        },
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Agroindustria"
+                        },
+                        {
+                            "@type": "OfferCatalog",
+                            "name": "Integradores"
+                        }
+                    ]
+                },
+                "contactPoint": [
+                    {
+                        "@type": "ContactPoint",
+                        "contactType": "sales",
+                        "email": "contacto@appunto.mx",
+                        "telephone": "+52-446-406-6544",
+                        "availableLanguage": "es-MX",
+                        "areaServed": "MX"
+                    }
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://appunto.mx/#website",
+                "url": "https://appunto.mx/",
+                "name": "Appunto",
+                "inLanguage": "es-MX",
+                "publisher": {
+                    "@id": "https://appunto.mx/#organization"
+                }
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://appunto.mx/#webpage",
+                "url": "https://appunto.mx/",
+                "name": "Appunto | Consultoría de negocio y tecnología · Querétaro",
+                "description": "Ayudamos a empresas con procesos desconectados o información dispersa a ordenar su operación y tomar mejores decisiones. Odoo y Qlik implementados con criterio de negocio.",
+                "inLanguage": "es-MX",
+                "isPartOf": {
+                    "@id": "https://appunto.mx/#website"
+                },
+                "publisher": {
+                    "@id": "https://appunto.mx/#organization"
+                },
+                "about": {
+                    "@id": "https://appunto.mx/#organization"
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-surface text-on-surface font-body overflow-x-hidden relative">
 

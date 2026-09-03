@@ -35,6 +35,46 @@
     <script>
         tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#991199', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
     </script>
+    <!-- JSON-LD. La organizacion es espejo de /organization.jsonld:
+         si cambias uno, cambia el otro. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://appunto.mx/nosotros.html#webpage",
+                "url": "https://appunto.mx/nosotros.html",
+                "name": "Nosotros | Appunto",
+                "description": "Somos consultores de arquitectura de negocio, no una casa de software. Conoce la misión, visión y valores con los que integramos la operación de nuestros clientes con Odoo y Qlik.",
+                "inLanguage": "es-MX",
+                "isPartOf": {
+                    "@id": "https://appunto.mx/#website"
+                },
+                "publisher": {
+                    "@id": "https://appunto.mx/#organization"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Inicio",
+                        "item": "https://appunto.mx/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Nosotros",
+                        "item": "https://appunto.mx/nosotros.html"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-surface text-on-surface font-body overflow-x-hidden">
     <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30">
