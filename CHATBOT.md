@@ -99,7 +99,7 @@ Una IP ya rechazada se recuerda en memoria y sale sin volver a consultar a Upsta
 
 **Consumo de Upstash:** 6 comandos por mensaje aceptado (INCR + EXPIRE de minuto, hora y global). Un mensaje rechazado por cuota de IP gasta 4, y los siguientes de esa misma IP gastan **0** mientras dure el bloqueo. Con el free tier de 10 mil comandos al día eso da margen de sobra: el tope diario de 1500 mensajes consume unos 9 mil comandos en el peor caso.
 
-La lógica vive en `api/_ratelimit.js`, compartida para que `api/contact.js` pueda usarla sin copiar y pegar.
+La lógica vive en `api/_ratelimit.js`, compartida con `api/contact.js`. Cada endpoint declara sus propias cuotas ahí: el chat 10 por minuto, el formulario 3 por hora. Quedarse sin cuota en uno no afecta al otro.
 
 ### Cómo probar los límites sin gastar
 

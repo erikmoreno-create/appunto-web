@@ -20,3 +20,9 @@ deploy.bat
 
 # Pruebas: no son parte del sitio publicado
 api/*.test.js
+
+# /api/contact no se publica: hoy ninguna pagina del sitio lo llama (no hay
+# ningun <form> en el repo) y escribe leads en el CRM de produccion. Un
+# endpoint sin consumidores es riesgo sin beneficio. El codigo se conserva,
+# ya protegido: para reactivarlo, quita esta linea y anade el formulario.
+api/contact.js

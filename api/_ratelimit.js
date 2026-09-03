@@ -51,13 +51,29 @@ function clientIp(req) {
 // previews no consuman el presupuesto de produccion.
 const ENTORNO = process.env.VERCEL_ENV || 'dev';
 
-const CUOTAS_IP = [
-    { etiqueta: 'minuto', ventanaMs: 60 * 1000,      max: 10, ttl: 120,  retryAfter: 60 },
-    { etiqueta: 'hora',   ventanaMs: 60 * 60 * 1000, max: 60, ttl: 7200, retryAfter: 900 },
-];
+const DIA_MS = 24 * 60 * 60 * 1000;
 
-const CUOTA_GLOBAL = {
-    etiqueta: 'global', ventanaMs: 24 * 60 * 60 * 1000, max: 1500, ttl: 172800, retryAfter: 3600,
+// Cada endpoint tiene su propio perfil de uso legitimo, asi que sus cuotas no
+// pueden ser las mismas: a un chatbot se le mandan muchos mensajes seguidos,
+// un formulario de contacto lo envia una persona una vez.
+const CUOTAS = {
+    chat: {
+        porIp: [
+            { etiqueta: 'minuto', ventanaMs: 60 * 1000,      max: 10, ttl: 120,  retryAfter: 60 },
+            { etiqueta: 'hora',   ventanaMs: 60 * 60 * 1000, max: 60, ttl: 7200, retryAfter: 900 },
+        ],
+        global: { etiqueta: 'global', ventanaMs: DIA_MS, max: 1500, ttl: 172800, retryAfter: 3600 },
+    },
+    contact: {
+        // Escribe leads en el CRM de produccion. Nadie llena el formulario tres
+        // veces en una hora de buena fe, y un lead basura cuesta tiempo del
+        // equipo comercial, asi que se aprieta mucho mas que el chat.
+        porIp: [
+            { etiqueta: 'hora', ventanaMs: 60 * 60 * 1000, max: 3,  ttl: 7200,   retryAfter: 900 },
+            { etiqueta: 'dia',  ventanaMs: DIA_MS,         max: 10, ttl: 172800, retryAfter: 3600 },
+        ],
+        global: { etiqueta: 'global', ventanaMs: DIA_MS, max: 200, ttl: 172800, retryAfter: 3600 },
+    },
 };
 
 const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL;
@@ -105,16 +121,16 @@ function contarEnMemoria(clave, ttlSeg) {
 // mas comandos.
 const bloqueadas = new Map();
 
-function estaBloqueada(ip) {
-    const b = bloqueadas.get(ip);
+function estaBloqueada(llave) {
+    const b = bloqueadas.get(llave);
     if (b === undefined) return null;
-    if (b.exp <= Date.now()) { bloqueadas.delete(ip); return null; }
+    if (b.exp <= Date.now()) { bloqueadas.delete(llave); return null; }
     return b;
 }
 
-function bloquear(ip, etiqueta, segundos) {
+function bloquear(llave, etiqueta, segundos) {
     if (bloqueadas.size > MEMORIA_MAX) bloqueadas.clear();
-    bloqueadas.set(ip, { etiqueta, exp: Date.now() + segundos * 1000, retryAfter: segundos });
+    bloqueadas.set(llave, { etiqueta, exp: Date.now() + segundos * 1000, retryAfter: segundos });
 }
 
 // Upstash se llama por su API REST a proposito: el repo no tiene package.json
@@ -185,7 +201,14 @@ async function contar(entradas) {
  * segundos de peticiones.
  */
 async function verificarCuota(ip, ambito) {
-    const yaBloqueada = estaBloqueada(ip);
+    const cuotas = CUOTAS[ambito];
+    if (!cuotas) throw new Error('verificarCuota: ambito desconocido -> ' + ambito);
+
+    // La llave lleva el ambito: quedarse sin cuota en el formulario no debe
+    // dejarte sin chatbot, son limites independientes.
+    const llaveBloqueo = ambito + ':' + ip;
+
+    const yaBloqueada = estaBloqueada(llaveBloqueo);
     if (yaBloqueada) {
         return { ok: false, etiqueta: yaBloqueada.etiqueta, retryAfter: yaBloqueada.retryAfter };
     }
@@ -193,7 +216,7 @@ async function verificarCuota(ip, ambito) {
     const ahora = Date.now();
     const prefijo = 'rl:' + ENTORNO + ':' + ambito + ':';
 
-    const porIp = CUOTAS_IP.map(c => ({
+    const porIp = cuotas.porIp.map(c => ({
         clave: prefijo + c.etiqueta + ':' + ip + ':' + Math.floor(ahora / c.ventanaMs),
         ttl: c.ttl, max: c.max, etiqueta: c.etiqueta, retryAfter: c.retryAfter,
     }));
@@ -201,19 +224,20 @@ async function verificarCuota(ip, ambito) {
     const conteosIp = await contar(porIp);
     for (let i = 0; i < porIp.length; i++) {
         if (conteosIp[i] > porIp[i].max) {
-            bloquear(ip, porIp[i].etiqueta, porIp[i].retryAfter);
+            bloquear(llaveBloqueo, porIp[i].etiqueta, porIp[i].retryAfter);
             return { ok: false, etiqueta: porIp[i].etiqueta, retryAfter: porIp[i].retryAfter };
         }
     }
 
+    const g = cuotas.global;
     const global = {
-        clave: prefijo + CUOTA_GLOBAL.etiqueta + ':' + Math.floor(ahora / CUOTA_GLOBAL.ventanaMs),
-        ttl: CUOTA_GLOBAL.ttl,
+        clave: prefijo + g.etiqueta + ':' + Math.floor(ahora / g.ventanaMs),
+        ttl: g.ttl,
     };
     const [conteoGlobal] = await contar([global]);
-    if (conteoGlobal > CUOTA_GLOBAL.max) {
-        // No se bloquea la IP: el tope global no es culpa de quien pregunta.
-        return { ok: false, etiqueta: CUOTA_GLOBAL.etiqueta, retryAfter: CUOTA_GLOBAL.retryAfter };
+    if (conteoGlobal > g.max) {
+        // No se bloquea la IP: el tope global no es culpa de quien escribe.
+        return { ok: false, etiqueta: g.etiqueta, retryAfter: g.retryAfter };
     }
 
     return { ok: true };

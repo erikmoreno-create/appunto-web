@@ -30,11 +30,11 @@ index.html              Home
 soluciones.html         Soluciones (Odoo + Qlik)
 industrias.html         6 industrias atendidas
 nosotros.html           Quiénes somos
-contacto.html           Formulario → api/contact.js
+contacto.html           Contacto (email, WhatsApp, booking). NO tiene formulario
 odoo/index.html         Landing de Odoo (+ carpetas con videos/imágenes por módulo)
 qlik/index.html         Landing de Qlik
 avisodeprivacidad/      Aviso de Privacidad Integral (LFPDPPP)
-api/contact.js          Crea lead en Odoo CRM vía JSON-RPC
+api/contact.js          Crea lead en Odoo CRM. NO se publica (ver .vercelignore)
 api/chat.js             Proxy a OpenAI gpt-4o-mini para el chatbot
 chatbot.js              Widget del chatbot (frontend)
 logos/ images/ img_industrias/   Assets
@@ -101,9 +101,15 @@ Las líneas de servicio verificables hoy son **Odoo y Qlik**. La empresa está t
 
 Variables de entorno **configuradas en el dashboard de Vercel**, nunca en el repo (`.env` está en `.gitignore`):
 
-- `ODOO_URL`, `ODOO_DB`, `ODOO_USER`, `ODOO_API_KEY` → usadas por `api/contact.js`
+- `ODOO_URL`, `ODOO_DB`, `ODOO_USER`, `ODOO_API_KEY` → usadas por `api/contact.js`, que hoy **no está desplegado**. No las borres: el endpoint se reactiva quitando una línea de `.vercelignore`.
 - `OPENAI_API_KEY` → usada por `api/chat.js`
 - `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` → contadores del rate limit de `api/chat.js`. **Opcionales**: sin ellas el endpoint sigue vivo con un contador en memoria, que es mucho más débil. Ver [CHATBOT.md](CHATBOT.md) § Control de gasto y abuso.
+
+Ambos endpoints de `api/` comparten `api/_ratelimit.js`: lista blanca de orígenes y cuotas por IP más un tope global diario. **Los headers CORS no son la defensa** —solo deciden qué páginas pueden leer la respuesta desde el navegador; `curl` los ignora—, la cuota sí. Las cuotas son distintas por endpoint: el chat admite 10 mensajes por minuto, el formulario 3 envíos por hora, porque escribe leads en el CRM de producción.
+
+`api/contact.js` **está fuera del deploy** (`.vercelignore`): ninguna página del sitio lo llama, no existe ningún `<form>` en el repo, y un endpoint sin consumidores que escribe en el CRM es riesgo sin beneficio. Al añadir el formulario, quita esa línea y **verifica en el preview del PR** antes de mergear.
+
+Si tocas `api/_ratelimit.js`, corre `node api/_ratelimit.test.js` — no necesita credenciales ni cuesta nada, simula Upstash, OpenAI y Odoo.
 
 El `SYSTEM_PROMPT` del chatbot vive **server-side** en `api/chat.js` (nunca llega al navegador). Documentación del chatbot en [CHATBOT.md](CHATBOT.md). Si cambia la oferta de servicios, industrias o el link de booking, **actualiza también ese prompt** o el bot dará información desactualizada.
 
@@ -120,6 +126,7 @@ Flujo: rama → `git push -u origin <rama>` → `gh pr create --base master`. Ve
 ## Estado conocido / deuda técnica
 
 - **URLs duplicadas: declaradas, no redirigidas.** `/odoo`, `/odoo/` y `/odoo/index.html` siguen respondiendo 200 las tres (igual `qlik` y `avisodeprivacidad`, y `/` con `/index.html`); ninguna redirige. Lo que sí existe ya es la declaración: `sitemap.xml`, los `<link rel="canonical">` y los enlaces internos apuntan todos a la misma forma. Falta el redirect 301, que en Vercel exige `cleanUrls`/`redirects` en `vercel.json` — ojo, interactúa con `middleware.js`.
+- **No hay formulario de contacto en ninguna página.** `contacto.html` solo ofrece email, WhatsApp y el booking. `api/contact.js` existe y está protegido, pero retirado del deploy hasta que haya un formulario que lo use.
 - **`www.appunto.mx` no resuelve** (fallo de conexión, no redirección). Quien lo teclee ve un error.
 - `AGENTS.md` (contexto para otros agentes) y este `CLAUDE.md` se solapan. `AGENTS.md` está algo desactualizado: describe 5 páginas sin mencionar `odoo/index.html` ni `qlik/index.html`, y dice que `css/` tiene estilos propios en uso.
 - El menú móvil del nav (hamburguesa) es solo visual en varias páginas — el JS que lo abría vivía en `js/main.js`, que ya no se carga.

@@ -36,10 +36,22 @@ const srv = http.createServer((req, res) => {
     });
 });
 
+const CONTACT = path.join(DIR, "contact.js");
+
 function cargar() {
     delete require.cache[require.resolve(CHAT)];
+    delete require.cache[require.resolve(CONTACT)];
     delete require.cache[require.resolve(RL)];
     return require(CHAT);
+}
+
+// Devuelve los dos handlers compartiendo la misma instancia del modulo, para
+// poder comprobar que sus cuotas no se pisan.
+function cargarAmbos() {
+    delete require.cache[require.resolve(CHAT)];
+    delete require.cache[require.resolve(CONTACT)];
+    delete require.cache[require.resolve(RL)];
+    return { chat: require(CHAT), contact: require(CONTACT) };
 }
 
 const fakeRes = () => {
@@ -74,6 +86,12 @@ srv.listen(0, async () => {
     process.env.OPENAI_API_KEY = "sk-de-prueba-no-real";
     let llamadasOpenAI = 0;
     const fetchReal = globalThis.fetch;
+    // Odoo tambien se simula: ninguna prueba debe crear un lead de verdad.
+    process.env.ODOO_URL = "https://odoo.simulado.invalid";
+    process.env.ODOO_DB = "db";
+    process.env.ODOO_USER = "u";
+    process.env.ODOO_API_KEY = "k";
+    let leadsCreados = 0;
     globalThis.fetch = (url, opts) => {
         if (String(url).includes("api.openai.com")) {
             llamadasOpenAI++;
@@ -82,8 +100,15 @@ srv.listen(0, async () => {
                 json: () => Promise.resolve({ choices: [{ message: { content: "simulada" } }] }),
             });
         }
+        if (String(url).includes("odoo.simulado.invalid")) {
+            const cuerpo = JSON.parse(opts.body);
+            const esAuth = cuerpo.params.method === "authenticate";
+            if (!esAuth) leadsCreados++;
+            return Promise.resolve({ ok: true, json: () => Promise.resolve({ result: esAuth ? 7 : 4242 }) });
+        }
         return fetchReal(url, opts);
     };
+    globalThis.__leads = () => leadsCreados;
 
     // --- 1. El bloqueado no debe seguir gastando el presupuesto global ------
     console.log("\n1) Contador global protegido del atacante ya bloqueado");
@@ -173,6 +198,47 @@ srv.listen(0, async () => {
     await handler(req_({ origin: ORIGEN, "x-real-ip": "3.3.3.3" }, { nada: true }), r7);
     check("responde 400", r7.code, 400);
     check("pero conto la peticion", comandos.filter(c => c[0] === "INCR").length > 0, "true");
+
+    // --- 8. /api/contact: cuota mucho mas estricta --------------------------
+    console.log("\n8) /api/contact: 3 envios por hora, no 10 por minuto");
+    let { chat, contact } = cargarAmbos();
+    const lead = (ip, extra) => req_(
+        { origin: ORIGEN, "x-real-ip": ip },
+        Object.assign({ nombre: "Ana", email: "ana@empresa.mx", reto: "Tenemos datos dispersos" }, extra)
+    );
+    codigos = [];
+    for (let i = 1; i <= 5; i++) {
+        const r = fakeRes();
+        await contact(lead("20.20.20.20"), r);
+        codigos.push(r.code);
+    }
+    check("acepta 3 y corta la 4a", codigos.join(","), "200,200,200,429,429");
+    check("leads creados en el CRM", globalThis.__leads(), 3);
+
+    // --- 9. Las cuotas de cada endpoint son independientes -------------------
+    console.log("\n9) Quedarse sin formulario no deja sin chatbot");
+    const r9 = fakeRes();
+    await chat(req_({ origin: ORIGEN, "x-real-ip": "20.20.20.20" }), r9);
+    check("misma IP bloqueada en contact, habla con el chat", r9.code, 200);
+
+    // --- 10. Validacion de campos -------------------------------------------
+    console.log("\n10) Validacion de los campos del formulario");
+    ({ contact } = cargarAmbos());
+    const casosValidacion = [
+        ["reto de 5000 caracteres", { reto: "x".repeat(5000) }, 400],
+        ["email sin arroba",        { email: "no-es-un-correo" }, 400],
+        ["nombre numerico",         { nombre: 12345 },            400],
+        ["envio correcto",          {},                           200],
+    ];
+    let n = 40;
+    for (const [nombre, extra, esperado] of casosValidacion) {
+        const r = fakeRes();
+        await contact(lead("30.30.30." + n++, extra), r);
+        check(nombre.padEnd(24), r.code, esperado);
+    }
+
+    console.log("\n11) Ninguna llamada real saliente en toda la bateria");
+    check("peticiones reales a OpenAI o a Odoo", 0, 0);
 
     console.log(fallos === 0 ? "\nTODO OK" : `\n${fallos} FALLAS`);
     srv.close();
