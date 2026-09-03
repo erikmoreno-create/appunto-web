@@ -219,6 +219,12 @@
     }
 
     // ─── Envío ────────────────────────────────────────────────────────────
+    // Avisos del sistema: se pintan como una burbuja del bot para que el
+    // visitante los lea, pero se quedan fuera de 'history'.
+    function showNotice(texto) {
+        appendMessageBubble('bot', texto);
+    }
+
     function sendMessage(text) {
         if (isLoading) return;
         isLoading = true;
@@ -246,24 +252,21 @@
         })
         .then(function (r) {
             hideTyping();
-            var reply;
             if (r.ok && r.data && r.data.reply) {
-                reply = r.data.reply;
-            } else if (r.data && r.data.error) {
-                reply = r.data.error;
-            } else {
-                reply = 'No pude responder en este momento. Si quieres, [agenda un diagnóstico gratuito](https://appunto-mx.odoo.com/book/EU30) o escríbenos a contacto@appunto.mx.';
+                history.push({ role: 'assistant', content: r.data.reply });
+                saveHistory();
+                appendMessageBubble('bot', r.data.reply);
+                return;
             }
-            history.push({ role: 'assistant', content: reply });
-            saveHistory();
-            appendMessageBubble('bot', reply);
+            // Un aviso del servidor (rate limit, caída, error de red) se
+            // muestra pero NO entra al historial: si entrara, en el siguiente
+            // turno se le mandaría a OpenAI como algo que dijo el asistente, y
+            // el modelo razonaría a partir de un mensaje de infraestructura.
+            showNotice((r.data && r.data.error) || 'No pude responder en este momento. Si quieres, [agenda un diagnóstico gratuito](https://appunto-mx.odoo.com/book/EU30) o escríbenos a contacto@appunto.mx.');
         })
         .catch(function () {
             hideTyping();
-            var reply = 'No pude conectarme. Si quieres, [agenda un diagnóstico gratuito](https://appunto-mx.odoo.com/book/EU30) o escríbenos a contacto@appunto.mx.';
-            history.push({ role: 'assistant', content: reply });
-            saveHistory();
-            appendMessageBubble('bot', reply);
+            showNotice('No pude conectarme. Si quieres, [agenda un diagnóstico gratuito](https://appunto-mx.odoo.com/book/EU30) o escríbenos a contacto@appunto.mx.');
         })
         .then(function () {
             isLoading = false;

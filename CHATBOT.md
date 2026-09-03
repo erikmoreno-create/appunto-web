@@ -41,6 +41,8 @@ OpenAI API (gpt-4o-mini)
 | Variable | Dónde | Para qué |
 |----------|-------|----------|
 | `OPENAI_API_KEY` | Vercel → Project Settings → Environment Variables | Autenticar contra la API de OpenAI |
+| `UPSTASH_REDIS_REST_URL` | Vercel → Project Settings → Environment Variables | Contador del rate limit (opcional, ver abajo) |
+| `UPSTASH_REDIS_REST_TOKEN` | Vercel → Project Settings → Environment Variables | Token de ese Redis (opcional, ver abajo) |
 
 La key **nunca** se hardcodea ni se envía al cliente. Si se filtra (en un commit, en un log, en un chat), hay que regenerarla en OpenAI y actualizar el valor en Vercel.
 
@@ -74,6 +76,53 @@ Si en el futuro migras a otro proveedor (Anthropic, Google), hay que cambiar:
 2. La forma del body (cada proveedor tiene su propio formato).
 3. Cómo se extrae el `reply` de la respuesta (`data.choices[0].message.content` para OpenAI; otros proveedores devuelven distinto).
 4. La variable de entorno con la key.
+
+## Control de gasto y abuso
+
+`/api/chat` es **público por necesidad**: lo llama el navegador de cada visitante, así que no hay credencial que se pueda exigir. Y cada petición que entra se convierte en una llamada de pago a OpenAI. Sin límite, quien descubra la URL puede generar factura indefinidamente.
+
+**Los headers CORS no son la defensa.** Solo deciden qué páginas pueden *leer* la respuesta desde el navegador de un visitante; un script con `curl` los ignora por completo. Sirven para cortar el uso desde otro sitio web, nada más.
+
+Lo que sí protege, en `api/chat.js`:
+
+| Capa | Límite | Qué cubre |
+|---|---|---|
+| Por IP, por minuto | 10 | La ráfaga de un script |
+| Por IP, por hora | 60 | El goteo sostenido desde una IP |
+| Global, por día | 1500 | El techo de la factura aunque roten las IPs |
+
+Los contadores viven en **Upstash Redis**, llamado por su **API REST** — a propósito: el repo no tiene `package.json` y añadir una dependencia npm cambiaría el modelo de deploy del sitio.
+
+**Las cuotas por IP se comprueban antes de tocar el contador global**, y el global solo sube si la IP pasó. Si subieran juntas, quien ya está bloqueado por IP seguiría vaciando el presupuesto diario y podría dejar el asistente muerto para todos durante 24 horas con unos segundos de peticiones.
+
+Una IP ya rechazada se recuerda en memoria y sale sin volver a consultar a Upstash: bajo ataque es justo cuando no conviene agotar su cuota de comandos.
+
+**Consumo de Upstash:** 6 comandos por mensaje aceptado (INCR + EXPIRE de minuto, hora y global). Un mensaje rechazado por cuota de IP gasta 4, y los siguientes de esa misma IP gastan **0** mientras dure el bloqueo. Con el free tier de 10 mil comandos al día eso da margen de sobra: el tope diario de 1500 mensajes consume unos 9 mil comandos en el peor caso.
+
+La lógica vive en `api/_ratelimit.js`, compartida para que `api/contact.js` pueda usarla sin copiar y pegar.
+
+### Cómo probar los límites sin gastar
+
+```
+node api/_ratelimit.test.js
+```
+
+Levanta un servidor local que imita la API REST de Upstash e intercepta el `fetch` a OpenAI, así que no hace falta cuenta ni credenciales y no cuesta nada. Cubre el tope global protegido del atacante, el `x-forwarded-for` falsificado, el fallo parcial de Upstash, el `Retry-After` por ventana y la lista blanca de orígenes. **Si tocas `_ratelimit.js`, córrelo.**
+
+### Si `UPSTASH_REDIS_REST_URL` y `_TOKEN` no están configuradas
+
+El endpoint **sigue funcionando**, con un contador en la memoria del proceso. Atrapa la ráfaga desde una IP porque Vercel reutiliza instancias calientes, pero se pierde en cada arranque en frío y no ve las otras instancias. **Es una reja, no un muro.** Lo mismo aplica si Upstash deja de responder: se registra en los logs y se sigue con el contador en memoria, porque dejar el asistente muerto por una caída de Redis es peor para el negocio que el riesgo de que alguien ataque justo en esa ventana.
+
+### Cómo configurar Upstash (una vez, gratis)
+
+1. Crear cuenta en <https://upstash.com> y una base **Redis** (free tier: 10 mil comandos al día; ver el consumo real arriba).
+2. En la base creada, sección **REST API**, copiar `UPSTASH_REDIS_REST_URL` y `UPSTASH_REDIS_REST_TOKEN`.
+3. Pegarlas en Vercel → Project Settings → Environment Variables, para Production y Preview.
+4. Redesplegar (cualquier push, o *Redeploy* en el dashboard). En los logs debe **dejar de aparecer** `Rate limit: UPSTASH_... sin configurar`.
+
+### El techo que no depende de este código
+
+Aunque todo lo anterior falle, el límite de gasto de la cuenta de OpenAI acota la factura: **Settings → Limits → Usage limits → monthly budget**. Configurarlo no es opcional.
 
 ## Cómo monitorear costos
 

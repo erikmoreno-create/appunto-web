@@ -103,6 +103,7 @@ Variables de entorno **configuradas en el dashboard de Vercel**, nunca en el rep
 
 - `ODOO_URL`, `ODOO_DB`, `ODOO_USER`, `ODOO_API_KEY` → usadas por `api/contact.js`
 - `OPENAI_API_KEY` → usada por `api/chat.js`
+- `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` → contadores del rate limit de `api/chat.js`. **Opcionales**: sin ellas el endpoint sigue vivo con un contador en memoria, que es mucho más débil. Ver [CHATBOT.md](CHATBOT.md) § Control de gasto y abuso.
 
 El `SYSTEM_PROMPT` del chatbot vive **server-side** en `api/chat.js` (nunca llega al navegador). Documentación del chatbot en [CHATBOT.md](CHATBOT.md). Si cambia la oferta de servicios, industrias o el link de booking, **actualiza también ese prompt** o el bot dará información desactualizada.
 
