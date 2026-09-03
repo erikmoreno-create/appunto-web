@@ -8,7 +8,9 @@
 // a contacto.html. Para reactivarlo: quitar la linea "api/contact.js" de
 // .vercelignore y verificar en el preview del PR antes de mergear.
 
-const { clientIp, verificarCuota, aplicarCors } = require('./_ratelimit.js');
+const { clientIp, verificarCuota, rechazarPorCuota, aplicarCors } = require('./_ratelimit.js');
+
+const HUMAN_FALLBACK = 'No pudimos registrar tu mensaje. Escríbenos a contacto@appunto.mx o por WhatsApp.';
 
 // Limites de longitud: sin ellos, un solo POST puede meter megabytes de basura
 // en el CRM y dejarlo inservible para el equipo comercial.
@@ -24,6 +26,16 @@ const CAMPOS = {
 // estricta rechaza direcciones validas y pierde leads reales, que es peor que
 // dejar pasar una mal escrita.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+const ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+
+// crm.lead.description es un campo Html en las versiones actuales de Odoo, y
+// lo que llega aqui lo escribe un desconocido. Odoo sanitiza por su cuenta,
+// asi que esto es defensa en profundidad: no se anade markup propio para no
+// cambiar como se ve el lead en el back office del equipo comercial.
+function escaparHtml(texto) {
+    return texto.replace(/[&<>"']/g, c => ESCAPES[c]);
+}
 
 function limpiarCampos(body) {
     const datos = {};
@@ -53,7 +65,17 @@ function limpiarCampos(body) {
 module.exports = async function handler(req, res) {
     if (!aplicarCors(req, res)) return;
 
-    // Lo gratis primero: sin configuracion no hay nada que hacer.
+    const ip = clientIp(req);
+
+    // Cuota de intentos: se cobra en cuanto entra la peticion, valida o no.
+    // Es holgada, para no estorbar a quien se equivoca al escribir, pero le
+    // pone techo al bucle de peticiones basura, que factura invocaciones de
+    // Vercel aunque nunca llegue al CRM.
+    const intentos = await verificarCuota(ip, 'contact-intentos');
+    if (!intentos.ok) {
+        return rechazarPorCuota(res, intentos, ip, `Demasiados intentos seguidos. ${HUMAN_FALLBACK}`);
+    }
+
     const ODOO_URL     = process.env.ODOO_URL;
     const ODOO_DB      = process.env.ODOO_DB;
     const ODOO_USER    = process.env.ODOO_USER;
@@ -61,23 +83,23 @@ module.exports = async function handler(req, res) {
 
     if (!ODOO_URL || !ODOO_DB || !ODOO_USER || !ODOO_API_KEY) {
         console.error('Faltan variables de entorno de Odoo');
-        return res.status(500).json({ error: 'No pudimos registrar tu mensaje. Escríbenos a contacto@appunto.mx.' });
+        return res.status(500).json({ error: HUMAN_FALLBACK });
     }
 
-    // La cuota se cobra antes de parsear: si solo contaramos los envios bien
-    // formados, un bucle de peticiones basura no tocaria ningun contador.
-    const ip = clientIp(req);
-    const cuota = await verificarCuota(ip, 'contact');
-    if (!cuota.ok) {
-        console.warn('Cuota agotada (' + cuota.etiqueta + ') para ' + ip);
-        res.setHeader('Retry-After', String(cuota.retryAfter));
-        return res.status(429).json({
-            error: 'Ya recibimos tu mensaje. Si es urgente, escríbenos a contacto@appunto.mx o por WhatsApp.',
-        });
-    }
-
+    // Validar ANTES de cobrar la cuota de envios. Son solo 3 por hora: si se
+    // cobrara antes, tres erratas seguidas al escribir el correo dejarian a esa
+    // persona sin poder escribir durante una hora, y el lead se pierde. Un
+    // envio invalido no llega al CRM, asi que no hay nada que racionar.
     const { datos, error } = limpiarCampos(req.body || {});
     if (error) return res.status(400).json({ error });
+
+    const cuota = await verificarCuota(ip, 'contact');
+    if (!cuota.ok) {
+        const mensaje = cuota.etiqueta === 'global'
+            ? `Estamos recibiendo muchos mensajes ahora mismo. ${HUMAN_FALLBACK}`
+            : 'Ya recibimos tus mensajes anteriores y te vamos a responder. Si es urgente, escríbenos a contacto@appunto.mx o por WhatsApp.';
+        return rechazarPorCuota(res, cuota, ip, mensaje);
+    }
 
     const { nombre, empresa, email, telefono, reto } = datos;
 
@@ -97,13 +119,18 @@ module.exports = async function handler(req, res) {
             }),
         });
 
+        if (!authRes.ok) {
+            console.error('Odoo auth HTTP', authRes.status);
+            return res.status(502).json({ error: HUMAN_FALLBACK });
+        }
+
         const authData = await authRes.json();
         const uid = authData.result;
         if (!uid) {
             // El detalle va al log, no al cliente: los mensajes de error no
             // tienen por que revelar que hay detras del endpoint.
             console.error('Odoo auth failed:', JSON.stringify(authData));
-            return res.status(502).json({ error: 'No pudimos registrar tu mensaje. Escríbenos a contacto@appunto.mx.' });
+            return res.status(502).json({ error: HUMAN_FALLBACK });
         }
 
         // ── 2. Crear el lead en CRM vía execute_kw ────────────────────────────
@@ -129,23 +156,30 @@ module.exports = async function handler(req, res) {
                             phone:        telefono,
                             partner_name: empresa,
                             type:         'opportunity',
-                            description:  `Reto principal:\n${reto}`,
+                            description:  `Reto principal:\n${escaparHtml(reto)}`,
                         }],
                     ],
                 },
             }),
         });
 
+        if (!leadRes.ok) {
+            console.error('Odoo create lead HTTP', leadRes.status);
+            return res.status(502).json({ error: HUMAN_FALLBACK });
+        }
+
         const leadData = await leadRes.json();
-        if (leadData.error) {
-            console.error('Odoo create lead error:', JSON.stringify(leadData.error));
-            return res.status(502).json({ error: 'No pudimos registrar tu mensaje. Escríbenos a contacto@appunto.mx.' });
+        if (leadData.error || !leadData.result) {
+            // Sin un id de lead no se puede prometer que llego: confirmar un
+            // registro que no existe hace que nadie vuelva a insistir.
+            console.error('Odoo create lead sin resultado:', JSON.stringify(leadData).slice(0, 500));
+            return res.status(502).json({ error: HUMAN_FALLBACK });
         }
 
         return res.status(200).json({ success: true, leadId: leadData.result });
 
     } catch (err) {
         console.error('Error inesperado:', err);
-        return res.status(500).json({ error: 'No pudimos registrar tu mensaje. Escríbenos a contacto@appunto.mx.' });
+        return res.status(500).json({ error: HUMAN_FALLBACK });
     }
 };

@@ -59,20 +59,35 @@ const DIA_MS = 24 * 60 * 60 * 1000;
 const CUOTAS = {
     chat: {
         porIp: [
-            { etiqueta: 'minuto', ventanaMs: 60 * 1000,      max: 10, ttl: 120,  retryAfter: 60 },
-            { etiqueta: 'hora',   ventanaMs: 60 * 60 * 1000, max: 60, ttl: 7200, retryAfter: 900 },
+            { etiqueta: 'minuto', ventanaMs: 60 * 1000,      max: 10, ttl: 120 },
+            { etiqueta: 'hora',   ventanaMs: 60 * 60 * 1000, max: 60, ttl: 7200 },
         ],
-        global: { etiqueta: 'global', ventanaMs: DIA_MS, max: 1500, ttl: 172800, retryAfter: 3600 },
+        global: { etiqueta: 'global', ventanaMs: DIA_MS, max: 1500, ttl: 172800 },
     },
     contact: {
         // Escribe leads en el CRM de produccion. Nadie llena el formulario tres
         // veces en una hora de buena fe, y un lead basura cuesta tiempo del
         // equipo comercial, asi que se aprieta mucho mas que el chat.
+        //
+        // Esta cuota se cobra SOLO cuando el envio es valido. Con un tope tan
+        // bajo, cobrarla antes de validar convertiria tres erratas seguidas al
+        // escribir el correo en un lead perdido durante una hora, justo en la
+        // pagina cuyo proposito es captar leads.
         porIp: [
-            { etiqueta: 'hora', ventanaMs: 60 * 60 * 1000, max: 3,  ttl: 7200,   retryAfter: 900 },
-            { etiqueta: 'dia',  ventanaMs: DIA_MS,         max: 10, ttl: 172800, retryAfter: 3600 },
+            { etiqueta: 'hora', ventanaMs: 60 * 60 * 1000, max: 3,  ttl: 7200 },
+            { etiqueta: 'dia',  ventanaMs: DIA_MS,         max: 10, ttl: 172800 },
         ],
-        global: { etiqueta: 'global', ventanaMs: DIA_MS, max: 200, ttl: 172800, retryAfter: 3600 },
+        global: { etiqueta: 'global', ventanaMs: DIA_MS, max: 200, ttl: 172800 },
+    },
+    'contact-intentos': {
+        // Contrapeso del anterior: esta si se cobra en cuanto entra la
+        // peticion, valida o no. Es holgada para no estorbar a quien se
+        // equivoca, pero le pone techo al bucle de peticiones basura, que
+        // factura invocaciones de Vercel aunque nunca llegue al CRM.
+        porIp: [
+            { etiqueta: 'hora', ventanaMs: 60 * 60 * 1000, max: 30, ttl: 7200 },
+        ],
+        global: { etiqueta: 'global', ventanaMs: DIA_MS, max: 2000, ttl: 172800 },
     },
 };
 
@@ -216,9 +231,15 @@ async function verificarCuota(ip, ambito) {
     const ahora = Date.now();
     const prefijo = 'rl:' + ENTORNO + ':' + ambito + ':';
 
+    // Las ventanas son fijas, asi que lo que falta para poder reintentar es lo
+    // que queda de la ventana en curso, no un numero inventado. Con un valor
+    // fijo mas corto el cliente reintenta antes de tiempo, se lleva otro 429 y
+    // gasta comandos de Upstash en cada vuelta.
+    const restante = ventanaMs => Math.ceil((ventanaMs - (ahora % ventanaMs)) / 1000);
+
     const porIp = cuotas.porIp.map(c => ({
         clave: prefijo + c.etiqueta + ':' + ip + ':' + Math.floor(ahora / c.ventanaMs),
-        ttl: c.ttl, max: c.max, etiqueta: c.etiqueta, retryAfter: c.retryAfter,
+        ttl: c.ttl, max: c.max, etiqueta: c.etiqueta, retryAfter: restante(c.ventanaMs),
     }));
 
     const conteosIp = await contar(porIp);
@@ -237,10 +258,21 @@ async function verificarCuota(ip, ambito) {
     const [conteoGlobal] = await contar([global]);
     if (conteoGlobal > g.max) {
         // No se bloquea la IP: el tope global no es culpa de quien escribe.
-        return { ok: false, etiqueta: g.etiqueta, retryAfter: g.retryAfter };
+        return { ok: false, etiqueta: g.etiqueta, retryAfter: restante(g.ventanaMs) };
     }
 
     return { ok: true };
+}
+
+/**
+ * Responde un 429 ya formado. Vive aqui para que los endpoints no repitan el
+ * bloque y para que cualquier cambio de cabeceras o de codigo se aplique a
+ * todos a la vez.
+ */
+function rechazarPorCuota(res, cuota, ip, mensaje) {
+    console.warn('Cuota agotada (' + cuota.etiqueta + ') para ' + ip);
+    res.setHeader('Retry-After', String(cuota.retryAfter));
+    return res.status(429).json({ error: mensaje });
 }
 
 /**
@@ -256,6 +288,10 @@ function aplicarCors(req, res) {
     res.setHeader('Vary', 'Origin');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    // Sin esto, el JS de la pagina no puede leer el Retry-After que manda el
+    // 429: CORS solo expone un puñado de cabeceras seguras por defecto, y el
+    // cliente se quedaria reintentando a ciegas.
+    res.setHeader('Access-Control-Expose-Headers', 'Retry-After');
     if (origin && isAllowedOrigin(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin);
     }
@@ -276,4 +312,4 @@ function aplicarCors(req, res) {
     return true;
 }
 
-module.exports = { isAllowedOrigin, clientIp, verificarCuota, aplicarCors, HAY_REDIS };
+module.exports = { isAllowedOrigin, clientIp, verificarCuota, rechazarPorCuota, aplicarCors, HAY_REDIS };

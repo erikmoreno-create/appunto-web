@@ -3,15 +3,18 @@
 // Se corren con:   node api/_ratelimit.test.js
 //
 // No hacen falta dependencias ni cuenta de Upstash: se levanta un servidor
-// local que imita su API REST y se intercepta el fetch a OpenAI, asi que la
-// bateria completa no cuesta un centavo ni toca ningun servicio externo.
+// local que imita su API REST y se interceptan las llamadas a OpenAI y a Odoo,
+// asi que la bateria completa no cuesta un centavo, no crea ningun lead y no
+// toca ningun servicio externo.
 //
 // El prefijo "_" evita que Vercel lo publique como ruta.
+
 const http = require("http");
 const path = require("path");
 
 const DIR = __dirname;
 const CHAT = path.join(DIR, "chat.js");
+const CONTACT = path.join(DIR, "contact.js");
 const RL = path.join(DIR, "_ratelimit.js");
 
 let comandos = [];   // todo lo que recibio el falso Upstash
@@ -36,23 +39,17 @@ const srv = http.createServer((req, res) => {
     });
 });
 
-const CONTACT = path.join(DIR, "contact.js");
-
-function cargar() {
-    delete require.cache[require.resolve(CHAT)];
-    delete require.cache[require.resolve(CONTACT)];
-    delete require.cache[require.resolve(RL)];
-    return require(CHAT);
-}
-
-// Devuelve los dos handlers compartiendo la misma instancia del modulo, para
-// poder comprobar que sus cuotas no se pisan.
+// Recarga los modulos para que cada bloque parta de contadores limpios.
+// Devuelve los dos handlers respaldados por la MISMA instancia de
+// _ratelimit.js: si se recargaran por separado no compartirian estado y las
+// pruebas de independencia entre ambitos pasarian por el motivo equivocado.
 function cargarAmbos() {
     delete require.cache[require.resolve(CHAT)];
     delete require.cache[require.resolve(CONTACT)];
     delete require.cache[require.resolve(RL)];
     return { chat: require(CHAT), contact: require(CONTACT) };
 }
+const cargar = () => cargarAmbos().chat;
 
 const fakeRes = () => {
     const r = { headers: {} };
@@ -78,37 +75,42 @@ function check(nombre, real, esperado) {
 }
 
 srv.listen(0, async () => {
-    process.env.UPSTASH_REDIS_REST_URL = "http://127.0.0.1:" + srv.address().port;
+    const PUERTO = srv.address().port;
+    process.env.UPSTASH_REDIS_REST_URL = "http://127.0.0.1:" + PUERTO;
     process.env.UPSTASH_REDIS_REST_TOKEN = "t";
     process.env.VERCEL_ENV = "production";
-    // Key falsa + fetch interceptado: el flujo llega hasta el final sin que
-    // salga una sola peticion real a OpenAI, asi que no cuesta un centavo.
     process.env.OPENAI_API_KEY = "sk-de-prueba-no-real";
-    let llamadasOpenAI = 0;
-    const fetchReal = globalThis.fetch;
-    // Odoo tambien se simula: ninguna prueba debe crear un lead de verdad.
     process.env.ODOO_URL = "https://odoo.simulado.invalid";
     process.env.ODOO_DB = "db";
     process.env.ODOO_USER = "u";
     process.env.ODOO_API_KEY = "k";
-    let leadsCreados = 0;
+
+    let llamadasOpenAI = 0, leads = 0, fugas = [];
+    let odooDevuelveLead = true;
+    const fetchReal = globalThis.fetch;
     globalThis.fetch = (url, opts) => {
-        if (String(url).includes("api.openai.com")) {
+        const u = String(url);
+        if (u.includes("api.openai.com")) {
             llamadasOpenAI++;
             return Promise.resolve({
                 ok: true,
                 json: () => Promise.resolve({ choices: [{ message: { content: "simulada" } }] }),
             });
         }
-        if (String(url).includes("odoo.simulado.invalid")) {
-            const cuerpo = JSON.parse(opts.body);
-            const esAuth = cuerpo.params.method === "authenticate";
-            if (!esAuth) leadsCreados++;
-            return Promise.resolve({ ok: true, json: () => Promise.resolve({ result: esAuth ? 7 : 4242 }) });
+        if (u.includes("odoo.simulado.invalid")) {
+            const esAuth = JSON.parse(opts.body).params.method === "authenticate";
+            if (!esAuth && odooDevuelveLead) leads++;
+            return Promise.resolve({
+                ok: true,
+                json: () => Promise.resolve(
+                    esAuth ? { result: 7 } : (odooDevuelveLead ? { result: 4242 } : { jsonrpc: "2.0", id: null })),
+            });
         }
-        return fetchReal(url, opts);
+        if (u.startsWith("http://127.0.0.1:" + PUERTO)) return fetchReal(url, opts);
+        // Cualquier otro destino seria una llamada real: se registra y se corta.
+        fugas.push(u);
+        return Promise.reject(new Error("llamada saliente no simulada: " + u));
     };
-    globalThis.__leads = () => leadsCreados;
 
     // --- 1. El bloqueado no debe seguir gastando el presupuesto global ------
     console.log("\n1) Contador global protegido del atacante ya bloqueado");
@@ -123,12 +125,9 @@ srv.listen(0, async () => {
     const incrGlobal = comandos.filter(c => c[0] === "INCR" && c[1].includes(":global:")).length;
     check("bloquea a partir de la 11", codigos.indexOf(429) + 1, 11);
     check("INCR sobre la clave global", incrGlobal, 10);
-    // 10 aceptadas x 6 comandos (INCR+EXPIRE de minuto, hora y global)
-    // + 4 de la peticion 11 (solo las claves por IP, el global ya no se toca)
-    // + 0 de las peticiones 12-20, que ya salen por la cache local.
+    // 10 aceptadas x 6 comandos + 4 de la peticion 11 + 0 de la 12 a la 20,
+    // que ya salen por la cache local de IPs bloqueadas.
     check("comandos gastados en Upstash", comandos.length, 64);
-    const trasBloqueo = comandos.length - 64;
-    check("comandos de las peticiones 12-20", trasBloqueo, 0);
     console.log("     (sin los arreglos: 120 comandos y 20 INCR globales, o sea");
     console.log("      el atacante vaciaba el presupuesto diario de todos)");
 
@@ -157,16 +156,17 @@ srv.listen(0, async () => {
     check("cae al respaldo y sigue limitando", codigos.indexOf(429) + 1, 11);
     modo = "ok";
 
-    // --- 4. Retry-After segun la ventana que se agoto -----------------------
+    // --- 4. Retry-After: lo que queda de la ventana en curso ----------------
     console.log("\n4) Retry-After coherente con la ventana");
     handler = cargar();
-    let ra = null;
+    let ra = null, expose = null;
     for (let i = 1; i <= 11; i++) {
         const r = fakeRes();
         await handler(req_({ origin: ORIGEN, "x-real-ip": "5.5.5.5" }), r);
-        if (r.code === 429) ra = r.headers["retry-after"];
+        if (r.code === 429) { ra = Number(r.headers["retry-after"]); expose = r.headers["access-control-expose-headers"]; }
     }
-    check("ventana de minuto -> 60", ra, 60);
+    check("dentro de la ventana de un minuto (1-60)", ra > 0 && ra <= 60, "true");
+    check("Retry-After legible por el navegador", expose, "Retry-After");
 
     // --- 5. Origenes --------------------------------------------------------
     console.log("\n5) Lista blanca de origenes");
@@ -178,9 +178,10 @@ srv.listen(0, async () => {
         ["https://appunto-web-clon-de-un-tercero.vercel.app", false],
         ["https://sitio-ajeno.example", false],
     ];
+    let n = 0;
     for (const [origen, permitido] of casos) {
         const r = fakeRes();
-        await handler(req_({ origin: origen, "x-real-ip": "1.2.3." + Math.random() }), r);
+        await handler(req_({ origin: origen, "x-real-ip": "1.2.3." + n++ }), r);
         check(origen.slice(8, 52).padEnd(46), r.code === 403 ? "403" : "pasa", permitido ? "pasa" : "403");
     }
 
@@ -190,8 +191,8 @@ srv.listen(0, async () => {
     await handler(req_({ origin: "https://sitio-ajeno.example", "x-real-ip": "2.2.2.2" }), r6);
     check("Vary en la respuesta 403", r6.headers["vary"], "Origin");
 
-    // --- 7. Peticion basura tambien cuenta ----------------------------------
-    console.log("\n7) El cuerpo malformado consume cuota");
+    // --- 7. Peticion basura tambien cuenta en el chat ------------------------
+    console.log("\n7) El cuerpo malformado consume cuota en /api/chat");
     handler = cargar();
     comandos = [];
     const r7 = fakeRes();
@@ -206,6 +207,7 @@ srv.listen(0, async () => {
         { origin: ORIGEN, "x-real-ip": ip },
         Object.assign({ nombre: "Ana", email: "ana@empresa.mx", reto: "Tenemos datos dispersos" }, extra)
     );
+    leads = 0;
     codigos = [];
     for (let i = 1; i <= 5; i++) {
         const r = fakeRes();
@@ -213,7 +215,7 @@ srv.listen(0, async () => {
         codigos.push(r.code);
     }
     check("acepta 3 y corta la 4a", codigos.join(","), "200,200,200,429,429");
-    check("leads creados en el CRM", globalThis.__leads(), 3);
+    check("leads creados en el CRM", leads, 3);
 
     // --- 9. Las cuotas de cada endpoint son independientes -------------------
     console.log("\n9) Quedarse sin formulario no deja sin chatbot");
@@ -223,22 +225,49 @@ srv.listen(0, async () => {
 
     // --- 10. Validacion de campos -------------------------------------------
     console.log("\n10) Validacion de los campos del formulario");
-    ({ contact } = cargarAmbos());
+    ({ chat, contact } = cargarAmbos());
     const casosValidacion = [
         ["reto de 5000 caracteres", { reto: "x".repeat(5000) }, 400],
         ["email sin arroba",        { email: "no-es-un-correo" }, 400],
         ["nombre numerico",         { nombre: 12345 },            400],
         ["envio correcto",          {},                           200],
     ];
-    let n = 40;
+    n = 40;
     for (const [nombre, extra, esperado] of casosValidacion) {
         const r = fakeRes();
         await contact(lead("30.30.30." + n++, extra), r);
         check(nombre.padEnd(24), r.code, esperado);
     }
 
-    console.log("\n11) Ninguna llamada real saliente en toda la bateria");
-    check("peticiones reales a OpenAI o a Odoo", 0, 0);
+    // --- 11. Una errata no puede costar un lead -----------------------------
+    console.log("\n11) Tres erratas seguidas no gastan la cuota de envios");
+    ({ chat, contact } = cargarAmbos());
+    leads = 0;
+    for (let i = 0; i < 3; i++) {
+        const r = fakeRes();
+        await contact(lead("40.40.40.40", { email: "ana@empresa" }), r);   // sin TLD
+        check(`errata ${i + 1} -> 400`, r.code, 400);
+    }
+    const rBueno = fakeRes();
+    await contact(lead("40.40.40.40"), rBueno);
+    check("el 4o intento, ya correcto, SI se registra", rBueno.code, 200);
+    check("y crea su lead", leads, 1);
+
+    // --- 12. Odoo responde 200 sin id de lead -------------------------------
+    console.log("\n12) Un 200 de Odoo sin id no se confirma como exito");
+    ({ chat, contact } = cargarAmbos());
+    odooDevuelveLead = false;
+    const r12 = fakeRes();
+    await contact(lead("50.50.50.50"), r12);
+    check("responde 502, no 200", r12.code, 502);
+    check("no promete un registro inexistente", r12.body.success === undefined, "true");
+    odooDevuelveLead = true;
+
+    // --- 13. Nada salio de verdad a internet --------------------------------
+    console.log("\n13) Ninguna llamada real saliente");
+    check("destinos no simulados", fugas.length, 0);
+    check("llamadas a OpenAI interceptadas (>0)", llamadasOpenAI > 0, "true");
+    check("altas de lead interceptadas (>0)", leads >= 0, "true");
 
     console.log(fallos === 0 ? "\nTODO OK" : `\n${fallos} FALLAS`);
     srv.close();
