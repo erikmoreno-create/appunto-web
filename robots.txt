@@ -7,6 +7,8 @@
 # respuesta basados en IA. Solo se excluyen los endpoints de API y el
 # material de trabajo interno que no forma parte del sitio publicado.
 
+Sitemap: https://appunto.mx/sitemap.xml
+
 
 # ---------------------------------------------------------------------------
 # Regla general - cualquier rastreador no listado abajo

@@ -55,6 +55,11 @@ logos/ images/ img_industrias/   Assets
 4. Guía de diseño completa en [DESIGN.md](DESIGN.md). Regla clave: **evitar bordes 1px sólidos** para separar secciones; usar cambios de superficie.
 5. Copy de referencia (el texto "oficial" de cada sección) en [contenido-web.md](contenido-web.md), [odoo/contenido-web-odoo.md](odoo/contenido-web-odoo.md) y [qlik/contenido-web-qlik.md](qlik/contenido-web-qlik.md).
 6. Tono del copy: tutea, directo, lenguaje de negocio (no de software vendor), sin emojis ni superlativos vacíos.
+7. **Al publicar o retirar una página, actualiza [sitemap.xml](sitemap.xml)** — es manual, no hay build que lo regenere. La `<lastmod>` de cada archivo sale de `git log -1 --format=%cs -- <archivo>`.
+
+### Servicios: qué se puede afirmar públicamente
+
+Las líneas de servicio verificables hoy son **Odoo y Qlik**. La empresa está transicionando hacia soluciones de **IA**, pero eso aún no está formalizado: no lo declares como servicio en JSON-LD, FAQs ni copy estructurado hasta que el usuario confirme que ya es oferta firme. Los motores de respuesta citan lo que encuentran, y una afirmación prematura se propaga.
 
 ## Backend y secretos
 
@@ -77,7 +82,9 @@ Flujo: rama → `git push -u origin <rama>` → `gh pr create --base master`. Ve
 
 ## Estado conocido / deuda técnica
 
-- **SEO/AEO incompleto:** ninguna página tiene `<link rel="canonical">`, Open Graph, Twitter Cards ni JSON-LD. Falta `sitemap.xml` (y con él, la línea `Sitemap:` en `robots.txt`).
+- **SEO/AEO incompleto:** ninguna página tiene `<link rel="canonical">`, Open Graph, Twitter Cards ni JSON-LD.
+- **URLs duplicadas sin canonicalizar.** El mismo contenido responde 200 en varias rutas y ninguna redirige: `/odoo`, `/odoo/` y `/odoo/index.html` son la misma página (igual `qlik` y `avisodeprivacidad`), y `/` con `/index.html`. El `sitemap.xml` ya declara cuál es la buena; falta que las etiquetas `<link rel="canonical">` y los enlaces internos del nav apunten a esa misma forma.
+- **`www.appunto.mx` no resuelve** (fallo de conexión, no redirección). Quien lo teclee ve un error.
 - `AGENTS.md` (contexto para otros agentes) y este `CLAUDE.md` se solapan. `AGENTS.md` está algo desactualizado: describe 5 páginas sin mencionar `odoo/index.html` ni `qlik/index.html`, y dice que `css/` tiene estilos propios en uso.
 - Las meta descriptions de `contacto`/`nosotros`/`soluciones` mencionan **Inteligencia Artificial** como tercera línea de servicio, junto a Odoo y Qlik. El resto del sitio y el prompt del chatbot solo hablan de Odoo y Qlik.
 - El menú móvil del nav (hamburguesa) es solo visual en varias páginas — el JS que lo abría vivía en `js/main.js`, que ya no se carga.
