@@ -1,0 +1,64 @@
+# robots.txt - https://appunto.mx
+# Appunto MX, S.A. de C.V. - Consultoria de negocio y tecnologia (Queretaro, Mexico)
+# Formato conforme a RFC 9309: https://www.rfc-editor.org/rfc/rfc9309
+#
+# Politica: todo el contenido publico del sitio es libremente rastreable e
+# indexable, incluido su uso por buscadores tradicionales y por motores de
+# respuesta basados en IA. Solo se excluyen los endpoints de API y el
+# material de trabajo interno que no forma parte del sitio publicado.
+
+
+# ---------------------------------------------------------------------------
+# Regla general - cualquier rastreador no listado abajo
+# ---------------------------------------------------------------------------
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /stitch_images/
+Disallow: /prompt.txt
+Disallow: /*.md$
+
+
+# ---------------------------------------------------------------------------
+# Motores de respuesta y agentes de IA - acceso explicitamente permitido
+#
+# Se declaran por nombre a proposito: bajo RFC 9309 un rastreador obedece
+# unicamente al grupo mas especifico que coincide con su nombre, asi que este
+# bloque repite las mismas reglas que "*" en lugar de heredarlas.
+# ---------------------------------------------------------------------------
+
+# OpenAI (ChatGPT)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+# Anthropic (Claude)
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+# Google (Gemini / AI Overviews)
+User-agent: Google-Extended
+# Perplexity
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+# Microsoft (Copilot)
+User-agent: bingbot
+# Apple (Siri / Apple Intelligence)
+User-agent: Applebot
+User-agent: Applebot-Extended
+# Meta (Meta AI)
+User-agent: meta-externalagent
+# Amazon
+User-agent: Amazonbot
+# Mistral
+User-agent: MistralAI-User
+# DuckDuckGo
+User-agent: DuckAssistBot
+# You.com
+User-agent: YouBot
+# Common Crawl
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+Disallow: /stitch_images/
+Disallow: /prompt.txt
+Disallow: /*.md$

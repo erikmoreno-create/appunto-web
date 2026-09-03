@@ -1,0 +1,19 @@
+# .vercelignore - archivos del repo que NO deben publicarse en appunto.mx
+#
+# El proyecto se sirve con outputDirectory "." (la raiz tal cual), asi que
+# TODO lo que este en el repo queda accesible por URL. Este archivo es lo
+# unico que separa "codigo del sitio" de "material de trabajo interno".
+#
+# Antes de agregar un archivo nuevo al repo, pregunta: si alguien abre
+# https://appunto.mx/<ese-archivo>, hay algun problema? Si si, listalo aqui.
+
+# Documentacion interna, copy de referencia y prompts
+*.md
+prompt.txt
+
+# Maquetas y exploraciones de diseno descartadas
+stitch_images/
+
+# Herramientas de desarrollo local
+.vscode/
+deploy.bat
