@@ -20,29 +20,5 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": ".*text/markdown.*"
-        }
-      ],
-      "destination": "/probe.md"
-    },
-    {
-      "source": "/soluciones.html",
-      "has": [
-        {
-          "type": "header",
-          "key": "accept",
-          "value": ".*text/markdown.*"
-        }
-      ],
-      "destination": "/probe.md"
-    }
   ]
 }
