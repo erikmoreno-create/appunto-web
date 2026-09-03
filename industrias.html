@@ -45,6 +45,46 @@
         .tool-badge-qlik { background: rgba(0,152,69,0.10); color: #007a37; }
         .tool-badge-odoo { background: rgba(113,75,103,0.10); color: #714B67; }
     </style>
+    <!-- JSON-LD. La organizacion es espejo de /organization.jsonld:
+         si cambias uno, cambia el otro. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://appunto.mx/industrias.html#webpage",
+                "url": "https://appunto.mx/industrias.html",
+                "name": "Industrias | Appunto — ERP y analítica para sectores en crecimiento",
+                "description": "Appunto implementa Odoo y Qlik en distintas industrias: Financiero, Manufactura, Comercialización, Servicios B2B, Agroindustria e Integradores.",
+                "inLanguage": "es-MX",
+                "isPartOf": {
+                    "@id": "https://appunto.mx/#website"
+                },
+                "publisher": {
+                    "@id": "https://appunto.mx/#organization"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Inicio",
+                        "item": "https://appunto.mx/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Industrias",
+                        "item": "https://appunto.mx/industrias.html"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-surface text-on-surface font-body overflow-x-hidden">
 

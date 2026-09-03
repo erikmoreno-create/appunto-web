@@ -56,6 +56,8 @@ logos/ images/ img_industrias/   Assets
 5. Copy de referencia (el texto "oficial" de cada sección) en [contenido-web.md](contenido-web.md), [odoo/contenido-web-odoo.md](odoo/contenido-web-odoo.md) y [qlik/contenido-web-qlik.md](qlik/contenido-web-qlik.md).
 6. Tono del copy: tutea, directo, lenguaje de negocio (no de software vendor), sin emojis ni superlativos vacíos.
 7. **Al publicar o retirar una página, actualiza [sitemap.xml](sitemap.xml)** — es manual, no hay build que lo regenere. La `<lastmod>` de cada archivo sale de `git log -1 --format=%cs -- <archivo>`.
+8. **El JSON-LD de la organización está duplicado a propósito**: vive en [organization.jsonld](organization.jsonld) (servido por Link header, para agentes) y también inline en el `<head>` de [index.html](index.html) (para Google, que no sigue `rel="describedby"`). Sin build no hay forma de generarlo de uno solo. **Si cambias uno, cambia el otro.** Las demás páginas no lo repiten: lo referencian por `@id` `https://appunto.mx/#organization`.
+9. La imagen de Open Graph es `images/og-appunto.png` (1200×630), una sola para todo el sitio. Se regenera con Pillow desde el logo horizontal y la paleta; no la edites a mano si puedes rehacerla.
 
 ### `middleware.js` — negociación de Markdown
 
@@ -116,11 +118,9 @@ Flujo: rama → `git push -u origin <rama>` → `gh pr create --base master`. Ve
 
 ## Estado conocido / deuda técnica
 
-- **SEO/AEO incompleto:** ninguna página tiene `<link rel="canonical">`, Open Graph, Twitter Cards ni JSON-LD.
-- **URLs duplicadas sin canonicalizar.** El mismo contenido responde 200 en varias rutas y ninguna redirige: `/odoo`, `/odoo/` y `/odoo/index.html` son la misma página (igual `qlik` y `avisodeprivacidad`), y `/` con `/index.html`. El `sitemap.xml` ya declara cuál es la buena; falta que las etiquetas `<link rel="canonical">` y los enlaces internos del nav apunten a esa misma forma.
+- **URLs duplicadas: declaradas, no redirigidas.** `/odoo`, `/odoo/` y `/odoo/index.html` siguen respondiendo 200 las tres (igual `qlik` y `avisodeprivacidad`, y `/` con `/index.html`); ninguna redirige. Lo que sí existe ya es la declaración: `sitemap.xml`, los `<link rel="canonical">` y los enlaces internos apuntan todos a la misma forma. Falta el redirect 301, que en Vercel exige `cleanUrls`/`redirects` en `vercel.json` — ojo, interactúa con `middleware.js`.
 - **`www.appunto.mx` no resuelve** (fallo de conexión, no redirección). Quien lo teclee ve un error.
 - `AGENTS.md` (contexto para otros agentes) y este `CLAUDE.md` se solapan. `AGENTS.md` está algo desactualizado: describe 5 páginas sin mencionar `odoo/index.html` ni `qlik/index.html`, y dice que `css/` tiene estilos propios en uso.
-- Las meta descriptions de `contacto`/`nosotros`/`soluciones` mencionan **Inteligencia Artificial** como tercera línea de servicio, junto a Odoo y Qlik. El resto del sitio y el prompt del chatbot solo hablan de Odoo y Qlik.
 - El menú móvil del nav (hamburguesa) es solo visual en varias páginas — el JS que lo abría vivía en `js/main.js`, que ya no se carga.
 - El footer dice "© 2026".
 - Assets pesados versionados en git: `OdooAppuntoDemoComercial.mp4` (~10 MB) y `qlik_espanol.mp4` (~11 MB).
