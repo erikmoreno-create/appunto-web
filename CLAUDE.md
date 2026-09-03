@@ -57,6 +57,27 @@ logos/ images/ img_industrias/   Assets
 6. Tono del copy: tutea, directo, lenguaje de negocio (no de software vendor), sin emojis ni superlativos vacíos.
 7. **Al publicar o retirar una página, actualiza [sitemap.xml](sitemap.xml)** — es manual, no hay build que lo regenere. La `<lastmod>` de cada archivo sale de `git log -1 --format=%cs -- <archivo>`.
 
+### Qué mide (y qué no) el escáner de isitagentready.com
+
+Es la herramienta con la que se audita este sitio. **Mide si el sitio es consumible por agentes autónomos, no AEO.** No revisa JSON-LD, canonicals, Open Graph, estructura de encabezados ni marcado `FAQPage` — justo las palancas clásicas de posicionamiento en motores de respuesta. Un score alto ahí no implica buen AEO, y viceversa. Úsalo como un insumo, no como la definición de "listo".
+
+De sus 22 checks, para un sitio de marketing como este solo aplican unos pocos. Los que exigen `apiCatalog`, `oauthDiscovery`, `oauthProtectedResource`, `authMd`, `mcpServerCard`, `a2aAgentCard`, `agentSkills`, `webMcp` y `ard` presuponen que el sitio **es** un servicio consumible por agentes (servidor MCP, agente A2A, APIs con OAuth). Appunto no lo es; pasarlos exigiría construir esa infraestructura, no configurarla.
+
+### Content Signals: política declarada
+
+`robots.txt` declara `search=yes, ai-input=yes, ai-train=yes`. Decidido con el usuario en sept 2026. `ai-input` es la que importa para el objetivo del sitio: cubre RAG y grounding, o sea el uso del contenido al generar respuestas. `search` solo cubre índices y enlaces con extractos, no resúmenes de IA.
+
+### DNS-AID: decidido NO implementar (sept 2026)
+
+El escáner de isitagentready reporta `dnsAid: fail` y lo seguirá reportando. **Es intencional, no un pendiente.** Razones:
+
+1. DNS-AID (`draft-mozleywilliams-dnsop-dnsaid`) es un borrador individual del IETF, sin adoptar. El propio documento dice que "no está respaldado por el IETF y no tiene posición formal en el proceso de estándares".
+2. Los registros bajo `_agents` anuncian **un agente que habla MCP o A2A**, con su endpoint y capacidades. Appunto no tiene ninguno; publicarlos sería anunciar una puerta inexistente.
+3. **No aporta al AEO.** Los motores de respuesta llegan por HTTP rastreando; no consultan registros DNS `_agents`.
+4. El DNS lo opera Akky (`dns1-4.akkyhosting13.mx`), **sin DNSSEC** (no hay registros DS), y el borrador insiste en DNSSEC. Los paneles de registradores mexicanos con frecuencia no permiten crear registros SVCB.
+
+Reconsiderar solo si se construye un servidor MCP real que exponga la información de Appunto. Ahí los registros apuntarían a algo que existe.
+
 ### Servicios: qué se puede afirmar públicamente
 
 Las líneas de servicio verificables hoy son **Odoo y Qlik**. La empresa está transicionando hacia soluciones de **IA**, pero eso aún no está formalizado: no lo declares como servicio en JSON-LD, FAQs ni copy estructurado hasta que el usuario confirme que ya es oferta firme. Los motores de respuesta citan lo que encuentran, y una afirmación prematura se propaga.

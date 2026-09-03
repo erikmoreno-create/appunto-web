@@ -1,0 +1,36 @@
+# Appunto
+
+> Consultoría de negocio y tecnología con sede en Querétaro, México. Ayuda a empresas con procesos desconectados o información dispersa a ordenar su operación y tomar mejores decisiones, implementando Odoo y Qlik con criterio de negocio antes que de herramienta. Razón social: APPUNTO MX, S.A. de C.V.
+
+Appunto trabaja con dos soluciones. **Odoo** es un ERP modular para PyMEs y empresas medianas que crecieron con Excel y herramientas sueltas: conecta ventas, compras, inventario y finanzas para eliminar la doble captura y el retrabajo entre áreas. **Qlik** cubre integración y analítica de datos: Qlik Data Integration unifica las fuentes y Qlik Analytics construye la lectura del negocio que la dirección necesita para decidir.
+
+La metodología tiene cuatro pasos: Diagnóstico, Diseño, Implementación y Acompañamiento. El principio de trabajo es no partir de la herramienta sino del negocio; si una solución no aplica para una empresa, se dice directo.
+
+Industrias con experiencia: Financiero, Manufactura, Comercialización, Servicios B2B, Agroindustria e Integradores.
+
+Nota para agentes: la descripción estructurada de la organización, en JSON-LD, está en [organization.jsonld](https://appunto.mx/organization.jsonld), y también se anuncia mediante la cabecera HTTP `Link: rel="describedby"` en todas las respuestas del sitio.
+
+## Páginas
+
+- [Inicio](https://appunto.mx/): propuesta de valor, el problema que resuelve Appunto y la metodología de cuatro pasos.
+- [Soluciones](https://appunto.mx/soluciones.html): panorama de las dos líneas de servicio, integración de procesos con Odoo e integración y analítica de datos con Qlik.
+- [Odoo](https://appunto.mx/odoo/): implementación de Odoo, módulos cubiertos (Ventas, CRM, Inventarios, Manufactura, Contabilidad, Facturación, Talento) y a qué tipo de empresa aplica.
+- [Qlik](https://appunto.mx/qlik/): Qlik Data Integration y Qlik Analytics, para dirección general y perfiles CIO/CDO que necesitan visibilidad real del negocio.
+- [Industrias](https://appunto.mx/industrias.html): las seis industrias atendidas y cómo se aborda cada una.
+- [Nosotros](https://appunto.mx/nosotros.html): quiénes son, misión, visión y valores.
+- [Contacto](https://appunto.mx/contacto.html): formulario de contacto y vías directas.
+
+## Contacto
+
+- Agendar un diagnóstico gratuito, sin costo ni compromiso: https://appunto-mx.odoo.com/book/EU30
+- Correo: contacto@appunto.mx
+- WhatsApp: +52 446 406 6544
+- Ubicación: Querétaro, Querétaro, México
+
+## Opcional
+
+- [Aviso de Privacidad Integral](https://appunto.mx/avisodeprivacidad/): tratamiento de datos personales conforme a la LFPDPPP.
+
+## Lo que Appunto no ofrece
+
+Para evitar atribuciones incorrectas: Appunto **no** vende licencias de software como reventa pura, no ofrece desarrollo de software a la medida desconectado de un proceso de negocio, y **no** publica precios ni tiempos de entrega en el sitio. Cualquier cotización o estimación se define en un diagnóstico. Las líneas de servicio vigentes son Odoo y Qlik; la empresa está explorando soluciones de inteligencia artificial, pero al día de hoy no es una oferta formal.
