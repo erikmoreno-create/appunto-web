@@ -93,13 +93,29 @@ Lo que sí protege, en `api/chat.js`:
 
 Los contadores viven en **Upstash Redis**, llamado por su **API REST** — a propósito: el repo no tiene `package.json` y añadir una dependencia npm cambiaría el modelo de deploy del sitio.
 
+**Las cuotas por IP se comprueban antes de tocar el contador global**, y el global solo sube si la IP pasó. Si subieran juntas, quien ya está bloqueado por IP seguiría vaciando el presupuesto diario y podría dejar el asistente muerto para todos durante 24 horas con unos segundos de peticiones.
+
+Una IP ya rechazada se recuerda en memoria y sale sin volver a consultar a Upstash: bajo ataque es justo cuando no conviene agotar su cuota de comandos.
+
+**Consumo de Upstash:** 6 comandos por mensaje aceptado (INCR + EXPIRE de minuto, hora y global). Un mensaje rechazado por cuota de IP gasta 4, y los siguientes de esa misma IP gastan **0** mientras dure el bloqueo. Con el free tier de 10 mil comandos al día eso da margen de sobra: el tope diario de 1500 mensajes consume unos 9 mil comandos en el peor caso.
+
+La lógica vive en `api/_ratelimit.js`, compartida para que `api/contact.js` pueda usarla sin copiar y pegar.
+
+### Cómo probar los límites sin gastar
+
+```
+node api/_ratelimit.test.js
+```
+
+Levanta un servidor local que imita la API REST de Upstash e intercepta el `fetch` a OpenAI, así que no hace falta cuenta ni credenciales y no cuesta nada. Cubre el tope global protegido del atacante, el `x-forwarded-for` falsificado, el fallo parcial de Upstash, el `Retry-After` por ventana y la lista blanca de orígenes. **Si tocas `_ratelimit.js`, córrelo.**
+
 ### Si `UPSTASH_REDIS_REST_URL` y `_TOKEN` no están configuradas
 
 El endpoint **sigue funcionando**, con un contador en la memoria del proceso. Atrapa la ráfaga desde una IP porque Vercel reutiliza instancias calientes, pero se pierde en cada arranque en frío y no ve las otras instancias. **Es una reja, no un muro.** Lo mismo aplica si Upstash deja de responder: se registra en los logs y se sigue con el contador en memoria, porque dejar el asistente muerto por una caída de Redis es peor para el negocio que el riesgo de que alguien ataque justo en esa ventana.
 
 ### Cómo configurar Upstash (una vez, gratis)
 
-1. Crear cuenta en <https://upstash.com> y una base **Redis** (el free tier son 10 mil comandos al día; cada mensaje del chatbot consume 6).
+1. Crear cuenta en <https://upstash.com> y una base **Redis** (free tier: 10 mil comandos al día; ver el consumo real arriba).
 2. En la base creada, sección **REST API**, copiar `UPSTASH_REDIS_REST_URL` y `UPSTASH_REDIS_REST_TOKEN`.
 3. Pegarlas en Vercel → Project Settings → Environment Variables, para Production y Preview.
 4. Redesplegar (cualquier push, o *Redeploy* en el dashboard). En los logs debe **dejar de aparecer** `Rate limit: UPSTASH_... sin configurar`.

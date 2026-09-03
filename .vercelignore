@@ -17,3 +17,6 @@ stitch_images/
 # Herramientas de desarrollo local
 .vscode/
 deploy.bat
+
+# Pruebas: no son parte del sitio publicado
+api/*.test.js
