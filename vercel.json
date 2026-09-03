@@ -1,4 +1,24 @@
 {
   "buildCommand": "",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</organization.jsonld>; rel=\"describedby\"; type=\"application/ld+json\", </avisodeprivacidad/>; rel=\"privacy-policy\""
+        }
+      ]
+    },
+    {
+      "source": "/organization.jsonld",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/ld+json; charset=utf-8"
+        }
+      ]
+    }
+  ]
 }
