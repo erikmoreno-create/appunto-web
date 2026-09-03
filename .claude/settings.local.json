@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(nslookup -type=ns appunto.mx 8.8.8.8)",
+      "Bash(nslookup -type=a appunto.mx 8.8.8.8)",
+      "Bash(nslookup -type=mx appunto.mx 8.8.8.8)",
+      "Bash(nslookup appunto.mx 8.8.8.8)",
+      "Bash(curl -sI https://appunto.mx)",
+      "Bash(curl -s -X POST https://appunto.mx/api/contact -H \"Content-Type: application/json\" -d '{\"nombre\":\"test\",\"email\":\"test@test.com\",\"reto\":\"test diagnostico\"}')",
+      "Bash(curl -s -o NUL -w \"Total time: %{time_total}s\\\\nHTTP code: %{http_code}\\\\n\" https://appunto-mx.odoo.com/web/login)",
+      "Bash(time curl -s -X POST https://appunto-mx.odoo.com/jsonrpc -H \"Content-Type: application/json\" -d '{\"jsonrpc\":\"2.0\",\"method\":\"call\",\"params\":{\"service\":\"common\",\"method\":\"version\",\"args\":[]}}' --max-time 20)"
+    ]
+  }
+}
