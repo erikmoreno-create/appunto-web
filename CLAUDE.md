@@ -57,6 +57,19 @@ logos/ images/ img_industrias/   Assets
 6. Tono del copy: tutea, directo, lenguaje de negocio (no de software vendor), sin emojis ni superlativos vacíos.
 7. **Al publicar o retirar una página, actualiza [sitemap.xml](sitemap.xml)** — es manual, no hay build que lo regenere. La `<lastmod>` de cada archivo sale de `git log -1 --format=%cs -- <archivo>`.
 
+### `middleware.js` — negociación de Markdown
+
+Edge Middleware que devuelve Markdown cuando la petición trae `Accept: text/markdown`. Cualquier otra petición sale por el camino rápido en las primeras dos líneas y recibe el HTML normal.
+
+Dos cosas verificadas empíricamente que conviene no re-descubrir:
+
+1. **Los `rewrites` de `vercel.json` NO se disparan sobre rutas con archivo estático** — el sistema de archivos se resuelve antes. Por eso es middleware y no un rewrite.
+2. Devolver `undefined` desde el middleware continúa al manejo normal. El sitio queda intacto.
+
+El Markdown se genera **al vuelo desde el propio HTML**, no de archivos `.md` guardados. Es deliberado: sin build, unas copias `.md` a mano se desincronizarían, y servirle contenido viejo a un motor de respuesta propaga información falsa sobre la empresa. Si cambias el marcado de las páginas de forma importante, revisa que el conversor siga produciendo algo sensato.
+
+**Ojo:** el middleware corre en *todas* las peticiones. Un error ahí tumba el sitio completo, no una página. Pruébalo siempre en el preview del PR antes de mergear.
+
 ### Qué mide (y qué no) el escáner de isitagentready.com
 
 Es la herramienta con la que se audita este sitio. **Mide si el sitio es consumible por agentes autónomos, no AEO.** No revisa JSON-LD, canonicals, Open Graph, estructura de encabezados ni marcado `FAQPage` — justo las palancas clásicas de posicionamiento en motores de respuesta. Un score alto ahí no implica buen AEO, y viceversa. Úsalo como un insumo, no como la definición de "listo".
