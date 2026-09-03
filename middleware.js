@@ -22,7 +22,7 @@ export default async function middleware(request) {
   // Camino rapido: la inmensa mayoria de peticiones sale por aqui sin tocar nada.
   const accept = request.headers.get('accept') || '';
   if (!accept.includes('text/markdown')) return;
-  if (request.method !== 'GET') return;
+  if (request.method !== 'GET' && request.method !== 'HEAD') return;
 
   const url = new URL(request.url);
   if (url.pathname.startsWith('/api/')) return;
@@ -43,14 +43,15 @@ export default async function middleware(request) {
   const html = await upstream.text();
   const md = buildMarkdown(html, url);
 
-  return new Response(md, {
+  // El header Link (describedby / privacy-policy) lo pone vercel.json y tambien
+  // aplica a esta respuesta, asi que no se repite aqui.
+  return new Response(request.method === 'HEAD' ? null : md, {
     headers: {
       'content-type': 'text/markdown; charset=utf-8',
       // Estimacion (~4 caracteres por token), no un conteo exacto.
       'x-markdown-tokens': String(Math.ceil(md.length / 4)),
       // Critico: sin esto una cache intermedia podria servir Markdown a un navegador.
       'vary': 'accept',
-      'link': `<${url.origin}/organization.jsonld>; rel="describedby"; type="application/ld+json"`,
     },
   });
 }
