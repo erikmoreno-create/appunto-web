@@ -6,6 +6,19 @@
 # indexable, incluido su uso por buscadores tradicionales y por motores de
 # respuesta basados en IA. Solo se excluyen los endpoints de API y el
 # material de trabajo interno que no forma parte del sitio publicado.
+#
+# Las directivas Content-Signal declaran esa politica de forma explicita
+# (contentsignals.org / draft-romm-aipref-contentsignals). Tres categorias:
+#
+#   search    Construir un indice de busqueda y devolver enlaces con
+#             extractos cortos. NO incluye resumenes generados por IA.
+#   ai-input  Meter el contenido a un modelo para RAG, grounding o
+#             respuestas generativas en tiempo real.
+#   ai-train  Entrenar o afinar modelos con el contenido.
+#
+# Appunto acepta las tres: el objetivo del sitio es ser encontrado y
+# citado con precision, y ai-input es justamente lo que permite que un
+# motor de respuesta use esta informacion al contestar sobre la empresa.
 
 Sitemap: https://appunto.mx/sitemap.xml
 
@@ -14,6 +27,7 @@ Sitemap: https://appunto.mx/sitemap.xml
 # Regla general - cualquier rastreador no listado abajo
 # ---------------------------------------------------------------------------
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /api/
 Disallow: /stitch_images/
@@ -59,6 +73,7 @@ User-agent: DuckAssistBot
 User-agent: YouBot
 # Common Crawl
 User-agent: CCBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /api/
 Disallow: /stitch_images/
