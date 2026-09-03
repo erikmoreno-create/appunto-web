@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap de appunto.mx | protocolo https://www.sitemaps.org/protocol.html
+
+  Solo URLs canonicas: una entrada por pagina, en la forma exacta que debe
+  indexarse. Se omiten a proposito las variantes que sirven el mismo
+  contenido (/index.html, /odoo/index.html, /odoo sin barra final).
+
+  MANTENIMIENTO: este archivo es manual, el sitio no tiene build.
+  Al publicar o retirar una pagina, actualiza su entrada y su <lastmod>.
+  La fecha real de cada archivo se consulta con "git log" pidiendo el
+  formato de fecha corta (%cs) del ultimo commit que lo toco.
+
+  Se omiten <changefreq> y <priority>: los buscadores principales los
+  ignoran desde hace anios y solo agregan ruido que se desactualiza.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://appunto.mx/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+
+  <url>
+    <loc>https://appunto.mx/soluciones.html</loc>
+    <lastmod>2026-08-29</lastmod>
+  </url>
+
+  <url>
+    <loc>https://appunto.mx/odoo/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+
+  <url>
+    <loc>https://appunto.mx/qlik/</loc>
+    <lastmod>2026-07-17</lastmod>
+  </url>
+
+  <url>
+    <loc>https://appunto.mx/industrias.html</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+
+  <url>
+    <loc>https://appunto.mx/nosotros.html</loc>
+    <lastmod>2026-08-29</lastmod>
+  </url>
+
+  <url>
+    <loc>https://appunto.mx/contacto.html</loc>
+    <lastmod>2026-08-29</lastmod>
+  </url>
+
+  <url>
+    <loc>https://appunto.mx/avisodeprivacidad/</loc>
+    <lastmod>2026-07-08</lastmod>
+  </url>
+
+</urlset>
