@@ -62,7 +62,7 @@ Filosofía: "No partimos de la herramienta, partimos del negocio". Honestidad po
 
 const HUMAN_FALLBACK = 'Si quieres, [agenda un diagnóstico gratuito](https://appunto-mx.odoo.com/book/EU30) o escríbenos a contacto@appunto.mx.';
 
-const { clientIp, verificarCuota, aplicarCors } = require('./_ratelimit.js');
+const { clientIp, verificarCuota, rechazarPorCuota, aplicarCors } = require('./_ratelimit.js');
 
 module.exports = async function handler(req, res) {
     if (!aplicarCors(req, res)) return;
@@ -81,11 +81,8 @@ module.exports = async function handler(req, res) {
     const ip = clientIp(req);
     const cuota = await verificarCuota(ip, 'chat');
     if (!cuota.ok) {
-        console.warn('Cuota agotada (' + cuota.etiqueta + ') para ' + ip);
-        res.setHeader('Retry-After', String(cuota.retryAfter));
-        return res.status(429).json({
-            error: `Estás enviando mensajes muy seguido. Espera un momento y vuelve a intentar. ${HUMAN_FALLBACK}`,
-        });
+        return rechazarPorCuota(res, cuota, ip,
+            `Estás enviando mensajes muy seguido. Espera un momento y vuelve a intentar. ${HUMAN_FALLBACK}`);
     }
 
     const { messages } = req.body || {};

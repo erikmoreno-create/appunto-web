@@ -25,19 +25,21 @@ BASE=$(git symbolic-ref --short refs/remotes/origin/HEAD | sed 's|origin/||')
 
 | Ruta | Qué es |
 |---|---|
-| `index.html` `nosotros.html` `soluciones.html` `industrias.html` `contacto.html` | las 5 páginas del sitio |
-| `css/` | estilos propios (pocos — la mayor parte del diseño es Tailwind) |
+| `index.html` `nosotros.html` `soluciones.html` `industrias.html` `contacto.html` `odoo/index.html` `qlik/index.html` `avisodeprivacidad/index.html` | las 8 páginas del sitio |
+| `css/` `js/` | **legacy: ninguna página los enlaza.** Editarlos no cambia nada del sitio |
 | `images/` `img_industrias/` | imágenes (png, webp, svg) |
 | `chatbot.js` | widget del chatbot, del lado del cliente |
-| `api/chat.js` `api/contact.js` | **funciones serverless de Vercel** |
+| `api/chat.js` | **función serverless de Vercel** (el chatbot) |
+| `api/contact.js` | función serverless **no desplegada** (ver `.vercelignore`): hoy no hay formulario que la use |
 | `avisodeprivacidad/` | aviso de privacidad |
 | `DESIGN.md` `CHATBOT.md` `contenido-web.md` | documentación existente — léela antes de cambiar diseño o textos |
 | `vercel.json` | `buildCommand` vacío, `outputDirectory: "."` |
 
 ## 🚫 Zona prohibida: `api/`
 
-`api/chat.js` y `api/contact.js` son backend real: consumen créditos de API y
-envían correo. **Ninguna tarjeta de feedback es lo bastante "chica" para tocar
+`api/chat.js` y `api/contact.js` son backend real: el primero consume créditos
+de OpenAI en cada llamada, el segundo escribe leads en el CRM de Odoo. Ninguno
+envía correo. `api/_ratelimit.js` controla el gasto de ambos. **Ninguna tarjeta de feedback es lo bastante "chica" para tocar
 esa carpeta.** Si una tarjeta lo requiere, bloquéala y explica que es trabajo de
 backend para Erik.
 
