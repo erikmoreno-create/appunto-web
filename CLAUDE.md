@@ -67,14 +67,19 @@ El `SYSTEM_PROMPT` del chatbot vive **server-side** en `api/chat.js` (nunca lleg
 
 ## Deploy
 
-`git push` a `master` dispara el deploy en Vercel (~1 min). También existen `deploy.bat` y una task de VS Code que hacen `add + commit "Update" + push`.
+**`master` es rama protegida: no acepta `push` directo, solo Pull Requests.**
 
-**Pide confirmación al usuario antes de cualquier `git push`** — va directo a producción.
+Flujo: rama → `git push -u origin <rama>` → `gh pr create --base master`. Vercel publica una **URL de preview** en un comentario del PR; úsala para verificar antes de mergear (es la única forma de probar `robots.txt`, `.vercelignore`, headers o cualquier cosa que dependa del servidor). El merge a `master` despliega a producción en ~1 min.
+
+`deploy.bat` y la task de VS Code hacen `add + commit + push` directo — **ya no funcionan** con la protección de rama.
+
+**Pide confirmación al usuario antes de mergear un PR** — eso es lo que va a producción.
 
 ## Estado conocido / deuda técnica
 
-- **SEO/AEO incompleto:** ninguna página tiene `<link rel="canonical">`, Open Graph, Twitter Cards ni JSON-LD. No existen `robots.txt` ni `sitemap.xml`.
-- `soluciones.html`, `nosotros.html` y `contacto.html` **no tienen `<meta name="description">`.**
+- **SEO/AEO incompleto:** ninguna página tiene `<link rel="canonical">`, Open Graph, Twitter Cards ni JSON-LD. Falta `sitemap.xml` (y con él, la línea `Sitemap:` en `robots.txt`).
+- `AGENTS.md` (contexto para otros agentes) y este `CLAUDE.md` se solapan. `AGENTS.md` está algo desactualizado: describe 5 páginas sin mencionar `odoo/index.html` ni `qlik/index.html`, y dice que `css/` tiene estilos propios en uso.
+- Las meta descriptions de `contacto`/`nosotros`/`soluciones` mencionan **Inteligencia Artificial** como tercera línea de servicio, junto a Odoo y Qlik. El resto del sitio y el prompt del chatbot solo hablan de Odoo y Qlik.
 - El menú móvil del nav (hamburguesa) es solo visual en varias páginas — el JS que lo abría vivía en `js/main.js`, que ya no se carga.
 - El footer dice "© 2026".
 - Assets pesados versionados en git: `OdooAppuntoDemoComercial.mp4` (~10 MB) y `qlik_espanol.mp4` (~11 MB).
