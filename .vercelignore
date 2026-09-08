@@ -19,7 +19,7 @@ stitch_images/
 deploy.bat
 
 # Pruebas: no son parte del sitio publicado
-api/*.test.js
+*.test.js
 
 # /api/contact no se publica: hoy ninguna pagina del sitio lo llama (no hay
 # ningun <form> en el repo) y escribe leads en el CRM de produccion. Un

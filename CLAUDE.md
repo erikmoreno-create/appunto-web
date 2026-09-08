@@ -57,7 +57,8 @@ logos/ images/ img_industrias/   Assets
 6. Tono del copy: tutea, directo, lenguaje de negocio (no de software vendor), sin emojis ni superlativos vacíos.
 7. **Al publicar o retirar una página, actualiza [sitemap.xml](sitemap.xml)** — es manual, no hay build que lo regenere. La `<lastmod>` de cada archivo sale de `git log -1 --format=%cs -- <archivo>`.
 8. **El JSON-LD de la organización está duplicado a propósito**: vive en [organization.jsonld](organization.jsonld) (servido por Link header, para agentes) y también inline en el `<head>` de [index.html](index.html) (para Google, que no sigue `rel="describedby"`). Sin build no hay forma de generarlo de uno solo. **Si cambias uno, cambia el otro.** Las demás páginas no lo repiten: lo referencian por `@id` `https://appunto.mx/#organization`.
-9. La imagen de Open Graph es `images/og-appunto.png` (1200×630), una sola para todo el sitio. Se regenera con Pillow desde el logo horizontal y la paleta; no la edites a mano si puedes rehacerla.
+9. **Las preguntas frecuentes estan duplicadas dentro de cada pagina**: el texto vive en el `<details>` visible y otra vez en el nodo `FAQPage` del JSON-LD. Sin build no hay forma de generar uno del otro. **Si cambias una respuesta, cambia las dos** — y revisa tambien el copy de referencia y el `SYSTEM_PROMPT` de [api/chat.js](api/chat.js), porque el chatbot vive en la misma pagina y contradecirlo se nota. Corre `node verificar-contenido.test.js` (sin credenciales, sin costo): comprueba que todo JSON-LD parsea, que cada pregunta y respuesta del `FAQPage` aparece en el texto visible, que las referencias por `@id` resuelven, y que el rango de tamano de empresa es el mismo en todo el sitio.
+10. La imagen de Open Graph es `images/og-appunto.png` (1200×630), una sola para todo el sitio. Se regenera con Pillow desde el logo horizontal y la paleta; no la edites a mano si puedes rehacerla.
 
 ### `middleware.js` — negociación de Markdown
 

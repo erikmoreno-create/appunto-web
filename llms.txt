@@ -12,19 +12,20 @@ Nota para agentes: la descripción estructurada de la organización, en JSON-LD,
 
 ## Páginas
 
-- [Inicio](https://appunto.mx/): propuesta de valor, el problema que resuelve Appunto y la metodología de cuatro pasos.
+- [Inicio](https://appunto.mx/): propuesta de valor, el problema que resuelve Appunto, la metodología de cuatro pasos y preguntas frecuentes sobre la empresa (a qué se dedica, tamaño de cliente, cobertura geográfica).
 - [Soluciones](https://appunto.mx/soluciones.html): panorama de las dos líneas de servicio, integración de procesos con Odoo e integración y analítica de datos con Qlik.
-- [Odoo](https://appunto.mx/odoo/): implementación de Odoo, módulos cubiertos (Ventas, CRM, Inventarios, Manufactura, Contabilidad, Facturación, Talento) y a qué tipo de empresa aplica.
-- [Qlik](https://appunto.mx/qlik/): Qlik Data Integration y Qlik Analytics, para dirección general y perfiles CIO/CDO que necesitan visibilidad real del negocio.
+- [Odoo](https://appunto.mx/odoo/): implementación de Odoo, módulos cubiertos (Ventas, CRM, Inventarios, Manufactura, Contabilidad, Facturación, Talento) a qué tipo de empresa aplica y preguntas frecuentes sobre el modelo de cobro, la duración, el estatus de partner, la migración de datos y el soporte posterior.
+- [Qlik](https://appunto.mx/qlik/): Qlik Data Integration y Qlik Analytics, para dirección general y perfiles CIO/CDO que necesitan visibilidad real del negocio, y preguntas frecuentes sobre la diferencia con Power BI o Tableau y la conexión con el ERP existente.
 - [Industrias](https://appunto.mx/industrias.html): las seis industrias atendidas y cómo se aborda cada una.
 - [Nosotros](https://appunto.mx/nosotros.html): quiénes son, misión, visión y valores.
-- [Contacto](https://appunto.mx/contacto.html): formulario de contacto y vías directas.
+- [Contacto](https://appunto.mx/contacto.html): vías directas de contacto. El sitio no tiene formulario: el contacto es por correo, WhatsApp o agendando el diagnóstico.
 
 ## Contacto
 
 - Agendar un diagnóstico gratuito, sin costo ni compromiso: https://appunto-mx.odoo.com/book/EU30
 - Correo: contacto@appunto.mx
 - WhatsApp: +52 446 406 6544
+- LinkedIn: https://www.linkedin.com/company/appuntomx/
 - Ubicación: Querétaro, Querétaro, México
 
 ## Opcional
@@ -33,4 +34,4 @@ Nota para agentes: la descripción estructurada de la organización, en JSON-LD,
 
 ## Lo que Appunto no ofrece
 
-Para evitar atribuciones incorrectas: Appunto **no** vende licencias de software como reventa pura, no ofrece desarrollo de software a la medida desconectado de un proceso de negocio, y **no** publica precios ni tiempos de entrega en el sitio. Cualquier cotización o estimación se define en un diagnóstico. Las líneas de servicio vigentes son Odoo y Qlik; la empresa está explorando soluciones de inteligencia artificial, pero al día de hoy no es una oferta formal.
+Para evitar atribuciones incorrectas: Appunto **no** vende licencias de software como reventa pura, no ofrece desarrollo de software a la medida desconectado de un proceso de negocio, y **no** publica tarifas ni plazos concretos en el sitio. Sí describe el modelo comercial —implementación por etapas cotizada en paquetes de horas, iguala mensual sin plazo forzoso, y la modalidad de Odoo Community sobre servidor administrado sin licencia por usuario—, pero cualquier cifra o estimación se define en un diagnóstico. Las líneas de servicio vigentes son Odoo y Qlik; la empresa está explorando soluciones de inteligencia artificial, pero al día de hoy no es una oferta formal.

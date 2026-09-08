@@ -174,6 +174,28 @@ Empresas que operan con más claridad.
 
 ---
 
+## Sección: Preguntas frecuentes
+
+**Overline:**
+Preguntas frecuentes
+
+**Título de sección:**
+Lo que nos preguntan antes de empezar.
+
+**¿Qué hace Appunto?**
+Appunto es una consultora de negocio y tecnología con sede en Querétaro, México. Implementamos Odoo (ERP) y Qlik (integración y analítica de datos) en empresas medianas mexicanas. Partimos del problema de negocio, no de la marca del software: primero entendemos cómo opera tu empresa y después definimos qué herramienta tiene sentido.
+
+**¿Qué tamaño de empresa atienden?**
+Empresas medianas mexicanas, típicamente de 15 a 100 colaboradores. Cuando la operación creció y el control no creció con ella, el camino suele ser Odoo; cuando ya hay datos pero no claridad para decidir, es Qlik. No trabajamos con corporativos globales ni con microempresas.
+
+**¿Atienden empresas fuera de Querétaro?**
+Sí. Trabajamos en toda la República de forma remota, y presencial cuando el proyecto lo requiere. Nuestra base es Querétaro y el corredor del Bajío es donde tenemos mayor presencia.
+
+**¿Solo trabajan con Odoo y Qlik?**
+Son nuestras dos líneas de servicio. Odoo cubre la operación —ventas, compras, inventario, facturación— y Qlik cubre la integración y el análisis de datos. Cuando un proyecto no necesita ninguna de las dos, lo decimos.
+
+---
+
 ## Sección: CTA final de página
 
 **Título:**
