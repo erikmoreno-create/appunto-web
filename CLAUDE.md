@@ -130,8 +130,8 @@ Flujo: rama → `git push -u origin <rama>` → `gh pr create --base master`. Ve
 - **No hay formulario de contacto en ninguna página.** `contacto.html` solo ofrece email, WhatsApp y el booking. `api/contact.js` existe y está protegido, pero retirado del deploy hasta que haya un formulario que lo use.
 - **`www.appunto.mx` no resuelve** (fallo de conexión, no redirección). Quien lo teclee ve un error.
 - `AGENTS.md` (contexto para otros agentes) y este `CLAUDE.md` se solapan. `AGENTS.md` está algo desactualizado: describe 5 páginas sin mencionar `odoo/index.html` ni `qlik/index.html`, y dice que `css/` tiene estilos propios en uso.
-- El menú móvil del nav (hamburguesa) es solo visual en varias páginas — el JS que lo abría vivía en `js/main.js`, que ya no se carga.
-- El footer dice "© 2026".
+- **No hay menú móvil.** No es que se haya roto: nunca existió. Bajo 1024px, en **7 de 8 páginas** el nav muestra solo el logo — el bloque de enlaces es `hidden lg:flex` y no hay nada más. `index.html` sí pinta una hamburguesa, pero son tres `<span>` decorativos con `cursor-pointer`: sin `id`, sin panel que abrir y sin JS. Construirlo es trabajo nuevo en los 8 HTML, no revivir `js/main.js`.
+- **El nav de `odoo/` y `qlik/` no incluye "Contacto"**; el de las demás páginas sí.
 - Assets pesados versionados en git: `OdooAppuntoDemoComercial.mp4` (~10 MB) y `qlik_espanol.mp4` (~11 MB).
 
 ## Git
