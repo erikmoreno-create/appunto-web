@@ -17,7 +17,7 @@ const fs = require('fs');
 
 const PAGINAS = ['index.html', 'soluciones.html', 'industrias.html', 'nosotros.html',
                  'contacto.html', 'odoo/index.html', 'qlik/index.html',
-                 'avisodeprivacidad/index.html'];
+                 'avisodeprivacidad/index.html', 'jornada/index.html'];
 
 let fallos = 0;
 const mal = (msg) => { console.log('  FALLA  ' + msg); fallos++; };
