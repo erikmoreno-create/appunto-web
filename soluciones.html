@@ -84,22 +84,66 @@
     <div class="fixed top-[10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[120px] pointer-events-none z-0"></div>
 
     <!-- Navigation -->
-    <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/20">
-        <div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+    <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300 border-b border-outline-variant/20">
+        <div class="flex justify-between items-center w-full px-6 sm:px-8 py-4 max-w-7xl mx-auto">
             <a href="./" class="flex items-center">
-                <img src="logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png" alt="Appunto Logo" class="h-14 w-auto">
+                <img src="logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png" alt="Appunto" class="h-12 sm:h-14 w-auto">
             </a>
             <div class="hidden lg:flex items-center gap-8 font-medium">
                 <a href="./" class="text-on-surface-variant hover:text-tertiary transition-colors">Inicio</a>
-                <a href="soluciones.html" class="text-primary border-b-2 border-primary pb-1">Soluciones</a>
+                <a href="soluciones.html" aria-current="page" class="text-primary border-b-2 border-primary pb-1">Soluciones</a>
                 <a href="qlik/" class="text-on-surface-variant hover:text-tertiary transition-colors">Qlik</a>
                 <a href="odoo/" class="text-on-surface-variant hover:text-tertiary transition-colors">Odoo</a>
                 <a href="industrias.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Industrias</a>
                 <a href="nosotros.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Nosotros</a>
                 <a href="contacto.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Contacto</a>
-                <a href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-md font-bold hover:shadow-lg transition-transform hover:-translate-y-0.5">Agenda un diagnóstico gratuito</a>
+                <a href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-md font-bold hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Agenda un diagnóstico gratuito
+                </a>
+            </div>
+            <button id="menu-movil-boton" type="button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 rounded-md text-on-surface hover:bg-surface-container-low transition-colors" aria-controls="menu-movil" aria-expanded="false" aria-label="Abrir menú">
+                <svg data-icono="abrir" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                <svg data-icono="cerrar" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+        </div>
+        <div id="menu-movil" class="lg:hidden hidden px-6 sm:px-8 pb-6 max-w-7xl mx-auto">
+            <div class="flex flex-col gap-1 font-medium">
+                <a href="./" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Inicio</a>
+                <a href="soluciones.html" aria-current="page" class="block px-3 py-3 rounded-md text-primary font-bold bg-surface-container-low">Soluciones</a>
+                <a href="qlik/" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Qlik</a>
+                <a href="odoo/" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Odoo</a>
+                <a href="industrias.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Industrias</a>
+                <a href="nosotros.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Nosotros</a>
+                <a href="contacto.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Contacto</a>
+                <a href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" class="mt-3 text-center bg-gradient-to-br from-primary to-primary-container text-white px-6 py-3 rounded-md font-bold">Agenda un diagnóstico gratuito</a>
             </div>
         </div>
+        <script>
+            (function () {
+                var boton = document.getElementById('menu-movil-boton');
+                var menu = document.getElementById('menu-movil');
+                var abrir = boton.querySelector('[data-icono="abrir"]');
+                var cerrarIcono = boton.querySelector('[data-icono="cerrar"]');
+                function cerrar() {
+                    menu.classList.add('hidden');
+                    boton.setAttribute('aria-expanded', 'false');
+                    boton.setAttribute('aria-label', 'Abrir menú');
+                    abrir.classList.remove('hidden');
+                    cerrarIcono.classList.add('hidden');
+                }
+                boton.addEventListener('click', function () {
+                    var abierto = boton.getAttribute('aria-expanded') === 'true';
+                    if (abierto) { cerrar(); return; }
+                    menu.classList.remove('hidden');
+                    boton.setAttribute('aria-expanded', 'true');
+                    boton.setAttribute('aria-label', 'Cerrar menú');
+                    abrir.classList.add('hidden');
+                    cerrarIcono.classList.remove('hidden');
+                });
+                document.addEventListener('keydown', function (e) { if (e.key === 'Escape') cerrar(); });
+                window.matchMedia('(min-width: 1024px)').addEventListener('change', function (e) { if (e.matches) cerrar(); });
+            })();
+        </script>
     </nav>
 
     <main class="relative z-10">
