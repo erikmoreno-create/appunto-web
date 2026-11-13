@@ -27,6 +27,7 @@ BASE=$(git symbolic-ref --short refs/remotes/origin/HEAD | sed 's|origin/||')
 |---|---|
 | `index.html` `nosotros.html` `soluciones.html` `industrias.html` `contacto.html` `odoo/index.html` `qlik/index.html` `avisodeprivacidad/index.html` | las 8 páginas del sitio |
 | `jornada/index.html` | landing de campaña con diseño propio (CSS a mano, sin Tailwind ni chatbot); ver `CLAUDE.md` |
+| `jornada/sim.js`, `jornada/img/`, `jornada/infografias/` | caritas y simulación ilustrativa de Odoo, imágenes y video generados con IA, y los 4 PDF de la infografía |
 | `css/` `js/` | **legacy: ninguna página los enlaza.** Editarlos no cambia nada del sitio |
 | `middleware.js` | Edge Middleware: devuelve Markdown si la petición trae `Accept: text/markdown`. Corre en **todas** las peticiones; un error ahí tumba el sitio |
 | `llms.txt` `organization.jsonld` `robots.txt` `sitemap.xml` | archivos para buscadores y agentes de IA. `sitemap.xml` se actualiza a mano |

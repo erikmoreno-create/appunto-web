@@ -142,6 +142,8 @@
         .btn svg { width: 18px; height: 18px; flex: none; }
         .btn-primary { background: linear-gradient(135deg, var(--calypso), var(--calypso-2)); color: #fff; box-shadow: 0 14px 30px -14px rgba(49, 114, 141, .9); }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 36px -16px rgba(49, 114, 141, .95); }
+        .btn-outline { background: #fff; color: var(--calypso-2); box-shadow: inset 0 0 0 1.5px rgba(33,92,117,.35); }
+        .btn-outline:hover { box-shadow: inset 0 0 0 1.5px var(--calypso-2); }
         .btn-light { background: #fff; color: var(--ink); }
         .btn-light:hover { transform: translateY(-2px); }
         .btn-ghost { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .35); }
@@ -168,6 +170,9 @@
             radial-gradient(45% 55% at 10% 100%, rgba(153, 17, 153, .28), transparent 70%),
             linear-gradient(180deg, var(--ink) 0%, #0D2A39 100%); }
         .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .35; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(80% 70% at 70% 30%, #000, transparent 80%); -webkit-mask-image: radial-gradient(80% 70% at 70% 30%, #000, transparent 80%); }
+        .hero-media { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
+        .hero-media video { width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; opacity: .5; filter: saturate(.75) contrast(1.05); }
+        .hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,36,49,.94) 0%, rgba(11,36,49,.78) 42%, rgba(11,36,49,.45) 100%), linear-gradient(0deg, rgba(11,36,49,.85) 0%, transparent 35%); }
         .hero-in { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(36px, 5vw, 72px); align-items: center; padding-block: clamp(56px, 8vw, 104px) clamp(64px, 8vw, 112px); }
         .deadline { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 8px; border-radius: 999px; background: rgba(255, 255, 255, .08); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, .9); }
         .deadline b { white-space: nowrap; flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: var(--violet); color: #fff; font-family: var(--display); font-weight: 700; font-size: 13px; }
@@ -276,7 +281,7 @@
         .ops-method { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--violet); }
         .ops-method svg { width: 18px; height: 18px; }
         .ops-body h3 { margin-top: 10px; font-size: clamp(22px, 2.4vw, 28px); }
-        .ops-body p { margin-top: 12px; color: var(--muted); }
+        .ops-body > div > p { margin-top: 12px; color: var(--muted); }
         .ops-points { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
         .ops-points li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 15.5px; }
         .ops-points svg { width: 20px; height: 20px; color: var(--calypso); margin-top: 2px; }
@@ -292,33 +297,49 @@
         @keyframes fadein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 
         /* Módulos */
-        .modules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 48px; }
-        .module { display: flex; flex-direction: column; padding: 26px; background: var(--card); border-radius: var(--radius); box-shadow: 0 1px 0 rgba(11,36,49,.04), 0 16px 32px -26px rgba(11,36,49,.5); transition: transform .25s ease, box-shadow .25s ease; }
-        .module:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-        .module-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-        .module i { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: rgba(49,114,141,.1); color: var(--calypso-2); }
-        .module i svg { width: 24px; height: 24px; }
-        .stage { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
-        .stage-1 { background: rgba(49,114,141,.1); color: var(--calypso-2); }
-        .stage-2 { background: rgba(153,17,153,.08); color: var(--violet); }
-        .stage-3 { background: rgba(11,36,49,.07); color: var(--ink); }
-        .module h3 { margin-top: 22px; }
-        .module p { margin-top: 8px; color: var(--muted); font-size: 15.5px; }
-        .module.featured { background: linear-gradient(160deg, var(--ink) 0%, var(--ink-3) 100%); color: #fff; }
-        .module.featured p { color: rgba(255,255,255,.75); }
-        .module.featured i { background: rgba(124,195,221,.14); color: var(--sky); }
-        .module.featured .stage { background: rgba(224,143,224,.16); color: var(--orchid); }
+        .modules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 48px; }
+        .module { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; min-height: 500px; padding: 18px; border-radius: 24px; overflow: hidden; color: #fff; background: var(--ink-3); box-shadow: 0 30px 50px -34px rgba(11,36,49,.7); transition: transform .35s ease, box-shadow .35s ease; }
+        .module > img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+        .module::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(8,26,35,.05) 0%, rgba(8,26,35,0) 28%, rgba(8,26,35,.55) 52%, rgba(8,26,35,.92) 74%, #081A23 100%); }
+        .module:hover { transform: translateY(-6px); box-shadow: 0 40px 60px -34px rgba(11,36,49,.85); }
+        .module:hover > img { transform: scale(1.06); }
+        .stage { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; color: #fff; background: rgba(8,26,35,.42); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: inset 0 0 0 1px rgba(255,255,255,.22); }
+        .stage::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--sky); }
+        .stage-2::before { background: var(--orchid); }
+        .stage-3::before { background: #F2C46B; }
+        .stage-4::before { background: #5FD38A; }
+        .module-txt { width: 100%; }
+        .module h3 { font-size: 24px; }
+        .module p { margin-top: 8px; color: rgba(255,255,255,.8); font-size: 15px; line-height: 1.5; }
+        .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; }
+        .tags li { padding: 4px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 500; background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
+        .module-btn { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; padding: 12px 16px; border-radius: 999px; background: #fff; color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 15px; text-decoration: none; transition: background .2s, gap .2s; }
+        .module-btn svg { width: 18px; height: 18px; }
+        .module-btn:hover { background: var(--paper); gap: 12px; }
+        .module-btn:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
         .modules-note { margin-top: 22px; font-size: 14px; color: #7A8284; }
 
         /* Pasos */
-        .steps { list-style: none; margin: 52px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; counter-reset: paso; position: relative; }
-        .steps::before { content: ""; position: absolute; top: 27px; left: 8%; right: 8%; height: 2px; background: repeating-linear-gradient(90deg, var(--calypso) 0 8px, transparent 8px 16px); opacity: .45; z-index: 0; }
-        .step { position: relative; z-index: 1; }
-        .step-dot { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--paper); box-shadow: inset 0 0 0 2px var(--calypso); font-family: var(--display); font-weight: 800; font-size: 20px; color: var(--calypso-2); }
-        .step:first-child .step-dot { background: var(--calypso); color: #fff; box-shadow: none; }
-        .step-when { margin-top: 22px; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--violet); }
+        .process { position: relative; margin-top: 40px; }
+        .wave { position: absolute; left: 0; right: 0; top: 0; width: 100%; height: 170px; overflow: visible; pointer-events: none; }
+        .wave path { fill: none; stroke: var(--calypso); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; opacity: .55; vector-effect: non-scaling-stroke; transition: stroke-dashoffset 1.8s cubic-bezier(.6,.1,.2,1) .2s; }
+        .process.on .wave path { stroke-dashoffset: 0; }
+        .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); position: relative; }
+        .step { position: relative; padding: 0 22px; text-align: center; }
+        .step-head { position: relative; height: 170px; }
+        .hex { position: absolute; left: 50%; top: 0; width: 80px; height: 80px; margin-left: -40px; display: grid; place-items: center; color: #fff; background: linear-gradient(150deg, var(--calypso) 0%, var(--calypso-2) 100%); clip-path: polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0 50%); filter: drop-shadow(0 12px 18px rgba(33,92,117,.35)); transform: scale(.4); opacity: 0; transition: transform .6s cubic-bezier(.3,1.5,.5,1), opacity .4s ease; }
+        .hex svg { width: 30px; height: 30px; }
+        .step:nth-child(2) .hex { top: 90px; background: linear-gradient(150deg, #A43AA4 0%, var(--violet) 100%); filter: drop-shadow(0 12px 18px rgba(153,17,153,.3)); }
+        .step:nth-child(3) .hex { background: linear-gradient(150deg, var(--ink-3) 0%, var(--ink) 100%); }
+        .process.on .hex { transform: none; opacity: 1; }
+        .process.on .step:nth-child(1) .hex { transition-delay: .3s; }
+        .process.on .step:nth-child(2) .hex { transition-delay: .9s; }
+        .process.on .step:nth-child(3) .hex { transition-delay: 1.5s; }
+        .step-num { position: absolute; left: 50%; top: 6px; transform: translateX(-118%); font-family: var(--display); font-weight: 800; font-size: 120px; line-height: 1; letter-spacing: -.05em; color: var(--calypso); opacity: .08; user-select: none; }
+        .step:nth-child(2) .step-num { top: 66px; color: var(--violet); }
+        .step-when { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--violet); }
         .step h3 { margin-top: 6px; }
-        .step p { margin-top: 8px; color: var(--muted); max-width: 34ch; }
+        .step p:last-child { margin: 8px auto 0; color: var(--muted); max-width: 32ch; }
 
         /* Infografía */
         .lead-box { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 0; margin-top: 8px; background: var(--card); border-radius: 26px; box-shadow: var(--shadow); overflow: hidden; }
@@ -368,7 +389,8 @@
         .done h4 { margin: 0; display: flex; align-items: center; gap: 10px; font-family: var(--display); font-size: 20px; color: #145C3C; }
         .done h4 svg { width: 24px; height: 24px; }
         .done p { margin-top: 8px; color: #2B4A3B; }
-        .done .btn { margin-top: 18px; }
+        .done-ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+        .done .btn svg { width: 18px; height: 18px; }
 
         /* FAQ */
         .faq-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
@@ -412,6 +434,131 @@
         .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
         .reveal.on { opacity: 1; transform: none; }
 
+        /* Caritas (ilustradas en sim.js) */
+        .cara { display: inline-block; flex: none; border-radius: 50%; overflow: hidden; line-height: 0; background: #E7E2DA; }
+        .cara svg { width: 100%; height: 100%; display: block; }
+        .cara.xs { width: 26px; height: 26px; }
+        .cara.sm { width: 34px; height: 34px; }
+        .cara.md { width: 44px; height: 44px; }
+        .cara.lg { width: 64px; height: 64px; }
+        .cara.ini { display: inline-grid; place-items: center; line-height: 1; font: 700 10px/1 var(--display); color: var(--calypso-2); background: #DCEAF0; }
+        .avatar { overflow: hidden; background: #E7E2DA; }
+        .avatar svg { width: 100%; height: 100%; display: block; }
+        .crew { display: flex; align-items: center; gap: 14px; padding: 2px 20px 12px; }
+        .crew-faces { display: flex; align-items: center; }
+        .crew-face, .crew-more { width: 32px; height: 32px; border-radius: 50%; margin-left: -9px; box-shadow: 0 0 0 2.5px #fff; overflow: hidden; flex: none; }
+        .crew-face:first-child { margin-left: 0; }
+        .crew-face svg { width: 100%; height: 100%; display: block; }
+        .crew-face.nueva { animation: pop .5s cubic-bezier(.3,1.6,.5,1); }
+        .crew-more { display: grid; place-items: center; background: var(--ink); color: #fff; font: 700 11px/1 var(--display); }
+        .crew p { font-size: 13px; color: var(--muted); }
+        .crew p b { font-family: var(--display); color: var(--text); font-size: 15px; font-variant-numeric: tabular-nums; }
+        .crew p span { color: var(--warn); }
+        .bubble-face { width: 22px; height: 22px; border-radius: 50%; overflow: hidden; flex: none; display: inline-block; vertical-align: middle; }
+        .bubble-face svg { width: 100%; height: 100%; display: block; }
+        .week-who { display: inline-flex; align-items: center; gap: 8px; }
+        @keyframes pop { from { transform: scale(.3); opacity: 0; } to { transform: none; opacity: 1; } }
+
+        /* Simulación de Odoo */
+        .sim { position: relative; }
+        .so-win { position: relative; height: 380px; border-radius: 14px; background: #fff; box-shadow: 0 30px 60px -30px rgba(11,36,49,.55), 0 0 0 1px #E6E0D8; overflow: hidden; font-family: var(--body); font-size: 13px; color: #212529; user-select: none; }
+        .so-top { display: flex; align-items: center; gap: 14px; height: 42px; padding: 0 14px; background: #fff; border-bottom: 1px solid #E8E3DC; }
+        .so-grid { display: grid; grid-template-columns: repeat(2, 6px); gap: 3px; }
+        .so-grid i { width: 6px; height: 6px; border-radius: 2px; background: #71639E; }
+        .so-grid i:nth-child(2) { background: #E46E78; } .so-grid i:nth-child(3) { background: #21B799; } .so-grid i:nth-child(4) { background: #5B899E; }
+        .so-app { font-weight: 600; font-size: 14px; white-space: nowrap; }
+        .so-menu { display: flex; gap: 14px; color: #5f6368; white-space: nowrap; overflow: hidden; }
+        .so-menu .on { color: #212529; font-weight: 600; }
+        .so-co { margin-left: auto; font-size: 12px; color: #8A9093; white-space: nowrap; }
+        .so-body { position: relative; height: calc(100% - 42px); padding: 14px 16px; background: #F9FAFB; overflow: hidden; }
+        .so-bar2 { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .so-crumb { font-weight: 600; font-size: 14px; }
+        .so-systray { display: inline-flex; align-items: center; gap: 8px; padding: 4px 6px 4px 10px; border: 0; border-radius: 999px; background: #fff; box-shadow: 0 0 0 1px #E2DDD6; cursor: default; }
+        .so-dot { width: 9px; height: 9px; border-radius: 50%; background: #D44C59; transition: background .3s; }
+        .so-dot.on { background: #28A745; box-shadow: 0 0 0 3px rgba(40,167,69,.18); }
+        .so-pop { position: absolute; right: 16px; top: 52px; z-index: 3; width: 230px; padding: 14px; border-radius: 12px; background: #fff; box-shadow: 0 18px 40px -16px rgba(0,0,0,.35), 0 0 0 1px #E6E0D8; animation: fadein .25s ease; }
+        .so-pop-head { display: flex; align-items: center; gap: 10px; }
+        .so-pop-head b { display: block; font-size: 14px; }
+        .so-pop-head small { display: block; font-size: 12px; color: #6C757D; line-height: 1.35; }
+        .so-big { width: 100%; margin-top: 12px; padding: 10px; border: 0; border-radius: 9px; font: 600 14px/1.2 var(--body); color: #fff; cursor: default; transition: background .3s; }
+        .so-big.in { background: #28A745; }
+        .so-big.out { background: #D44C59; }
+        .so-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 0 0 1px #E8E3DC; font-variant-numeric: tabular-nums; }
+        .so-table th { text-align: left; font-size: 11px; font-weight: 600; color: #6C757D; text-transform: uppercase; letter-spacing: .05em; padding: 9px 10px; background: #F3F1EE; }
+        .so-table td { padding: 8px 10px; border-top: 1px solid #F0ECE6; white-space: nowrap; }
+        .so-emp { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
+        .so-table tr.nueva td { animation: nueva 2.4s ease; }
+        @keyframes nueva { 0% { background: rgba(40,167,69,.22); } 100% { background: transparent; } }
+        .so-toast { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 10px; background: #1F2D33; color: #fff; font-size: 13px; white-space: nowrap; box-shadow: 0 14px 30px -12px rgba(0,0,0,.5); animation: fadein .3s ease; }
+        .so-toast svg { width: 16px; height: 16px; color: #5FD38A; }
+
+        .so-win.kiosco .so-body { display: grid; place-items: center; background: linear-gradient(160deg, #EEF5F8, #F7F3EE); }
+        .so-kiosk { text-align: center; display: grid; justify-items: center; animation: fadein .3s ease; }
+        .so-kiosk[hidden] { display: none; }
+        .so-k-title { font: 700 17px/1.25 var(--display); margin-top: 6px; }
+        .so-k-sub { font-size: 13px; color: #6C757D; margin-top: 2px; }
+        .so-k-grid { display: grid; grid-template-columns: repeat(3, 84px); gap: 10px; margin-top: 16px; }
+        .so-k-emp { display: grid; justify-items: center; gap: 6px; padding: 10px 6px; border: 0; border-radius: 12px; background: #fff; box-shadow: 0 0 0 1px #E6E0D8; font: 500 12.5px/1 var(--body); color: #212529; cursor: default; }
+        .so-k-emp .cara.lg { width: 50px; height: 50px; }
+        .so-pin { display: flex; gap: 10px; margin: 12px 0 10px; }
+        .so-pin i { width: 12px; height: 12px; border-radius: 50%; box-shadow: inset 0 0 0 2px #9AA5AA; transition: background .2s; }
+        .so-pin i.on { background: var(--calypso); box-shadow: none; }
+        .so-pad { display: grid; grid-template-columns: repeat(3, 46px); gap: 6px; }
+        .so-pad button { height: 34px; border: 0; border-radius: 9px; background: #fff; box-shadow: 0 0 0 1px #E2DDD6; font: 600 14px/1 var(--body); color: #212529; cursor: default; }
+        .so-pad button.ok { background: #28A745; color: #fff; box-shadow: none; }
+        .so-k-check { width: 72px; height: 72px; border-radius: 50%; display: grid; place-items: center; background: #28A745; color: #fff; animation: pop .5s cubic-bezier(.3,1.6,.5,1); }
+        .so-k-check svg { width: 38px; height: 38px; }
+        .so-k-note { margin-top: 12px; padding: 7px 12px; border-radius: 999px; background: #fff; box-shadow: 0 0 0 1px #E6E0D8; font-size: 12.5px; color: var(--calypso-2); font-weight: 600; }
+
+        .so-win.movil .so-body { display: grid; place-items: center; background: linear-gradient(160deg, #EEF5F8, #F7F3EE); }
+        .so-phone { width: 210px; height: 300px; padding: 10px 12px 12px; border-radius: 28px; background: #fff; box-shadow: 0 0 0 6px #1F2D33, 0 24px 40px -18px rgba(0,0,0,.5); display: flex; flex-direction: column; gap: 10px; }
+        .so-ph-top { display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 600; color: #444; }
+        .so-ph-head { display: flex; align-items: center; gap: 8px; }
+        .so-ph-head b { display: block; font-size: 13px; line-height: 1.2; }
+        .so-ph-head small { display: block; font-size: 11px; color: #6C757D; }
+        .so-map { position: relative; flex: 1; border-radius: 12px; overflow: hidden; background:
+            linear-gradient(90deg, transparent 46%, #fff 46% 50%, transparent 50%),
+            linear-gradient(0deg, transparent 58%, #fff 58% 62%, transparent 62%),
+            linear-gradient(25deg, transparent 70%, #F4E3B8 70% 74%, transparent 74%),
+            #DDEBD8; }
+        .so-pin-map { position: absolute; left: 48%; top: 60%; width: 18px; height: 18px; margin: -18px 0 0 -9px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg) scale(0); background: #D44C59; transition: transform .45s cubic-bezier(.3,1.6,.5,1); }
+        .so-pin-map.on { transform: rotate(-45deg) scale(1); }
+        .so-pin-map::after { content: ""; position: absolute; inset: 5px; border-radius: 50%; background: #fff; }
+        .so-map-tag { position: absolute; left: 8px; right: 8px; bottom: 8px; padding: 5px 8px; border-radius: 8px; background: rgba(255,255,255,.94); font-size: 10.5px; font-weight: 600; color: #333; }
+        .so-ph-done { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px; border-radius: 9px; background: rgba(40,167,69,.12); color: #1E7B39; font-size: 12px; font-weight: 600; animation: fadein .3s ease; }
+        .so-ph-done svg { width: 16px; height: 16px; }
+        .so-phone .so-big { margin-top: 0; }
+
+        .so-kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+        .so-kpi { padding: 8px 12px; border-radius: 10px; background: #fff; box-shadow: 0 0 0 1px #E8E3DC; }
+        .so-kpi small { display: block; font-size: 11px; color: #6C757D; }
+        .so-kpi b { display: block; font: 700 18px/1.2 var(--display); font-variant-numeric: tabular-nums; }
+        .so-kpi span { font-size: 11px; color: #28A745; }
+        .so-h { margin: 10px 0 6px; font-weight: 600; font-size: 13px; }
+        .so-ot { display: grid; gap: 6px; }
+        .so-ot-row { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; padding: 6px 10px; border-radius: 10px; background: #fff; box-shadow: 0 0 0 1px #E8E3DC; }
+        .so-ot-row b { display: block; font-size: 13px; line-height: 1.25; }
+        .so-ot-row small { display: block; font-size: 11.5px; color: #6C757D; }
+        .so-ot-row button { padding: 6px 12px; border: 0; border-radius: 8px; background: #71639E; color: #fff; font: 600 12px/1 var(--body); cursor: default; transition: background .3s; }
+        .so-ot-row button.ok { background: #28A745; }
+        .so-alert { margin-top: 8px; padding: 9px 12px; border-radius: 10px; background: #FFF4E5; color: #8A4A0B; font-size: 12.5px; box-shadow: inset 3px 0 0 var(--warn); animation: fadein .3s ease; }
+
+        .so-cursor { position: absolute; left: 0; top: 0; z-index: 5; width: 22px; height: 22px; transition: transform .7s cubic-bezier(.45,.05,.25,1); pointer-events: none; }
+        .so-cursor svg { position: relative; z-index: 1; width: 22px; height: 22px; filter: drop-shadow(0 2px 3px rgba(0,0,0,.3)); }
+        .so-ripple { position: absolute; left: -9px; top: -9px; width: 26px; height: 26px; border-radius: 50%; background: rgba(49,114,141,.45); opacity: 0; transform: scale(.3); }
+        .so-cursor.clic .so-ripple { animation: ripple .45s ease-out; }
+        .so-cursor.clic svg { animation: press .26s ease; }
+        @keyframes ripple { 0% { opacity: .9; transform: scale(.3); } 100% { opacity: 0; transform: scale(1.6); } }
+        @keyframes press { 50% { transform: scale(.82); } }
+        .so-cap { margin-top: 10px; font-size: 12px; color: #7A8284; text-align: center; }
+        @media (max-width: 640px) {
+            .so-win { height: 360px; font-size: 12px; }
+            .so-menu, .so-co { display: none; }
+            .so-table th:nth-child(3), .so-table td:nth-child(3) { display: none; }
+            .so-k-grid { grid-template-columns: repeat(3, 72px); }
+            .so-pop { right: 10px; width: 210px; }
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .hero-in { grid-template-columns: 1fr; }
@@ -426,14 +573,20 @@
         @media (max-width: 860px) {
             .countdown-in { grid-template-columns: 1fr; text-align: center; gap: 16px; }
             .stakes, .compare, .steps { grid-template-columns: 1fr; }
-            .steps::before { top: 0; bottom: 0; left: 27px; right: auto; width: 2px; height: auto; background: repeating-linear-gradient(180deg, var(--calypso) 0 8px, transparent 8px 16px); }
-            .step { display: grid; grid-template-columns: 56px 1fr; column-gap: 20px; }
-            .step-dot { grid-row: span 4; }
-            .step-when { margin-top: 4px; }
+            .wave { display: none; }
+            .steps { gap: 34px; }
+            .steps::before { content: ""; position: absolute; top: 40px; bottom: 150px; left: 39px; width: 2px; background: repeating-linear-gradient(180deg, var(--calypso) 0 8px, transparent 8px 16px); opacity: .45; }
+            .step { display: grid; grid-template-columns: 80px 1fr; column-gap: 22px; padding: 0; text-align: left; }
+            .step-head { grid-row: span 3; height: 80px; }
+            .hex, .step:nth-child(2) .hex { top: 0; }
+            .step-num, .step:nth-child(2) .step-num { top: -14px; left: auto; right: -170px; transform: none; font-size: 88px; }
+            .step-when { margin-top: 6px; }
+            .step p:last-child { margin-left: 0; }
         }
         @media (max-width: 640px) {
             body { font-size: 16px; }
             .modules { grid-template-columns: 1fr; }
+            .module { min-height: 420px; }
             .ops-tabs { grid-template-columns: 1fr 1fr; }
             .ops-tab { padding: 14px 12px; gap: 10px; }
             .ops-tab small { display: none; }
@@ -455,6 +608,8 @@
             html { scroll-behavior: auto; }
             *, *::before, *::after { animation: none !important; transition: none !important; }
             .reveal { opacity: 1; transform: none; }
+            .wave path { stroke-dashoffset: 0; }
+            .hex { transform: none; opacity: 1; }
         }
     </style>
 </head>
@@ -501,6 +656,11 @@
     <main>
         <!-- Hero -->
         <section class="hero" id="inicio">
+            <div class="hero-media" aria-hidden="true">
+                <video data-hero-video muted loop playsinline preload="none" poster="img/hero.webp">
+                    <source src="img/hero.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="wrap hero-in">
                 <div>
                     <p class="deadline"><b><span class="pulse" aria-hidden="true"></span><span data-dias-corto>—</span></b> El registro de jornada es obligatorio el 1 de enero de 2027</p>
@@ -525,19 +685,23 @@
                             </div>
                             <div class="clock" data-reloj aria-hidden="true">07:58</div>
                         </div>
+                        <div class="crew">
+                            <div class="crew-faces" data-turno></div>
+                            <p><b data-turno-n>14</b> de 16 en turno <span>· 1 por revisar</span></p>
+                        </div>
                         <ul class="rows" data-filas aria-live="off">
-                            <li class="row"><span class="avatar" style="background:#31728D">AR</span><div><strong>Ana Ramírez</strong><span class="meta">Kiosco · Acceso principal</span></div><span class="chip in">Entrada 07:52</span></li>
-                            <li class="row"><span class="avatar" style="background:#991199">JL</span><div><strong>Jorge López</strong><span class="meta">App móvil · Ruta Bajío</span></div><span class="chip in">Entrada 07:41</span></li>
-                            <li class="row"><span class="avatar" style="background:#215C75">MT</span><div><strong>María Torres</strong><span class="meta">Ayer · Sin salida registrada</span></div><span class="chip alert">Revisar</span></li>
-                            <li class="row"><span class="avatar" style="background:#4E7E52">CS</span><div><strong>Carlos Soto</strong><span class="meta">Kiosco · Almacén</span></div><span class="chip out">Salida 07:30</span></li>
+                            <li class="row" data-p="ana"><span class="avatar"></span><div><strong>Ana Ramírez</strong><span class="meta">Kiosco · Acceso principal</span></div><span class="chip in">Entrada 07:52</span></li>
+                            <li class="row" data-p="jorge"><span class="avatar"></span><div><strong>Jorge López</strong><span class="meta">App móvil · Ruta Bajío</span></div><span class="chip in">Entrada 07:41</span></li>
+                            <li class="row" data-p="maria"><span class="avatar"></span><div><strong>María Torres</strong><span class="meta">Ayer · Sin salida registrada</span></div><span class="chip alert">Revisar</span></li>
+                            <li class="row" data-p="carlos"><span class="avatar"></span><div><strong>Carlos Soto</strong><span class="meta">Kiosco · Almacén</span></div><span class="chip out">Salida 07:30</span></li>
                         </ul>
                         <div class="week">
-                            <div class="week-top"><span>Horas de la semana · Ana Ramírez</span><b data-horas>0 h</b></div>
+                            <div class="week-top"><span class="week-who"><span class="bubble-face" data-p-face="ana"></span>Horas de la semana · Ana Ramírez</span><b data-horas>0 h</b></div>
                             <div class="bar"><div class="bar-fill" data-barra></div><div class="bar-cap" style="left:calc(100% * 46 / 50)" data-label="Tope 2027 · 46 h"></div></div>
                         </div>
                     </div>
                     <div class="bubble" data-burbuja aria-hidden="true">
-                        <div class="bubble-head"><svg><use href="#i-wa"/></svg>WhatsApp · Appunto Asistencias</div>
+                        <div class="bubble-head"><span class="bubble-face" data-p-face="maria"></span><svg><use href="#i-wa"/></svg>WhatsApp · Appunto Asistencias</div>
                         Hola María, ayer no registraste tu salida. ¿Saliste a las 18:04?
                         <div class="bubble-actions"><span>Sí, correcto</span><span>Corregir</span></div>
                     </div>
@@ -645,14 +809,7 @@
                             <p data-op-desc></p>
                             <ul class="ops-points" data-op-puntos></ul>
                         </div>
-                        <div class="log">
-                            <div class="log-head"><b>Registro de jornada</b><span data-op-lugar></span></div>
-                            <table>
-                                <thead><tr><th scope="col">Quién</th><th scope="col">Entrada</th><th scope="col">Cómo</th><th scope="col">Salida</th></tr></thead>
-                                <tbody data-op-filas></tbody>
-                            </table>
-                            <span class="ex">Ejemplo ilustrativo</span>
-                        </div>
+                        <div class="sim" data-sim></div>
                     </div>
                 </div>
             </div>
@@ -668,34 +825,64 @@
                 </div>
                 <div class="modules">
                     <article class="module reveal">
-                        <div class="module-top"><i><svg aria-hidden="true"><use href="#i-users"/></svg></i><span class="stage stage-1">Para empezar</span></div>
-                        <h3>Empleados</h3>
-                        <p>El expediente de cada persona con su horario, turno, área y jefe directo. Es la base de todo lo demás.</p>
+                        <img src="img/empleados.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
+                        <span class="stage stage-1">Para empezar</span>
+                        <div class="module-txt">
+                            <h3>Empleados</h3>
+                            <p>El expediente de cada persona con su horario, turno, área y jefe directo. Es la base de todo lo demás.</p>
+                            <ul class="tags"><li>Expediente</li><li>Horarios</li><li>Áreas</li></ul>
+                            <a class="module-btn" href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" data-evento="agenda_modulo">Lo quiero en mi Odoo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        </div>
                     </article>
                     <article class="module reveal">
-                        <div class="module-top"><i><svg aria-hidden="true"><use href="#i-finger"/></svg></i><span class="stage stage-1">Para empezar</span></div>
-                        <h3>Asistencias</h3>
-                        <p>Entrada y salida desde un kiosco, la computadora o la app móvil, con la hora, el método y, si lo necesitas, la ubicación.</p>
+                        <img src="img/asistencias.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
+                        <span class="stage stage-1">Para empezar</span>
+                        <div class="module-txt">
+                            <h3>Asistencias</h3>
+                            <p>Entrada y salida desde un kiosco, la computadora o la app móvil, con la hora, el método y, si lo necesitas, la ubicación.</p>
+                            <ul class="tags"><li>Kiosco</li><li>App móvil</li><li>Ubicación</li></ul>
+                            <a class="module-btn" href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" data-evento="agenda_modulo">Lo quiero en mi Odoo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        </div>
                     </article>
                     <article class="module reveal">
-                        <div class="module-top"><i><svg aria-hidden="true"><use href="#i-hourglass"/></svg></i><span class="stage stage-2">Control</span></div>
-                        <h3>Horas extra</h3>
-                        <p>Reglas con el tope de cada año y aprobación del jefe de área, para que ninguna hora extra se autorice de palabra.</p>
+                        <img src="img/horas-extra.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
+                        <span class="stage stage-2">Control</span>
+                        <div class="module-txt">
+                            <h3>Horas extra</h3>
+                            <p>Reglas con el tope de cada año y aprobación del jefe de área, para que ninguna hora extra se autorice de palabra.</p>
+                            <ul class="tags"><li>Topes por año</li><li>Aprobaciones</li></ul>
+                            <a class="module-btn" href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" data-evento="agenda_modulo">Lo quiero en mi Odoo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        </div>
                     </article>
                     <article class="module reveal">
-                        <div class="module-top"><i><svg aria-hidden="true"><use href="#i-grid"/></svg></i><span class="stage stage-2">Control</span></div>
-                        <h3>Planificación de turnos</h3>
-                        <p>Arma los turnos de la semana y compáralos contra lo que realmente se checó.</p>
+                        <img src="img/planificacion.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
+                        <span class="stage stage-2">Control</span>
+                        <div class="module-txt">
+                            <h3>Planificación de turnos</h3>
+                            <p>Arma los turnos de la semana y compáralos contra lo que realmente se checó.</p>
+                            <ul class="tags"><li>Turnos</li><li>Planeado vs. real</li></ul>
+                            <a class="module-btn" href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" data-evento="agenda_modulo">Lo quiero en mi Odoo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        </div>
                     </article>
                     <article class="module reveal">
-                        <div class="module-top"><i><svg aria-hidden="true"><use href="#i-money"/></svg></i><span class="stage stage-3">Integración</span></div>
-                        <h3>Nómina</h3>
-                        <p>Las horas pasan directo a tu nómina: la de Odoo o el programa que ya usas, sin capturar nada a mano.</p>
+                        <img src="img/nomina.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
+                        <span class="stage stage-3">Integración</span>
+                        <div class="module-txt">
+                            <h3>Nómina</h3>
+                            <p>Las horas pasan directo a tu nómina: la de Odoo o el programa que ya usas, sin capturar nada a mano.</p>
+                            <ul class="tags"><li>Sin recaptura</li><li>Tu sistema actual</li></ul>
+                            <a class="module-btn" href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" data-evento="agenda_modulo">Lo quiero en mi Odoo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        </div>
                     </article>
-                    <article class="module featured reveal">
-                        <div class="module-top"><i><svg aria-hidden="true"><use href="#i-spark"/></svg></i><span class="stage">Plus</span></div>
-                        <h3>IA y WhatsApp</h3>
-                        <p>Recordatorios cuando alguien olvida checar y alertas de salidas fuera de horario o personas cerca del tope.</p>
+                    <article class="module reveal">
+                        <img src="img/whatsapp.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
+                        <span class="stage stage-4">Plus</span>
+                        <div class="module-txt">
+                            <h3>IA y WhatsApp</h3>
+                            <p>Recordatorios cuando alguien olvida checar y alertas de salidas fuera de horario o personas cerca del tope.</p>
+                            <ul class="tags"><li>Recordatorios</li><li>Alertas</li></ul>
+                            <a class="module-btn" href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" data-evento="agenda_modulo">Lo quiero en mi Odoo <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                        </div>
                     </article>
                 </div>
                 <p class="modules-note reveal">Odoo es una marca de Odoo S.A. Los módulos exactos dependen de tu versión y tu operación; los definimos juntos en la llamada.</p>
@@ -709,26 +896,29 @@
                     <span class="eyebrow">Cómo lo hacemos</span>
                     <h2>Primero entendemos tu operación. Después configuramos.</h2>
                 </div>
+                <div class="process reveal">
+                    <svg class="wave" viewBox="0 0 1200 170" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0,104 C80,64 120,40 200,40 C350,40 450,130 600,130 C750,130 850,40 1000,40 C1080,40 1120,64 1200,104"/></svg>
                 <ol class="steps">
-                    <li class="step reveal">
-                        <div class="step-dot">1</div>
+                    <li class="step">
+                        <div class="step-head"><span class="step-num" aria-hidden="true">01</span><span class="hex"><svg aria-hidden="true"><use href="#i-users"/></svg></span></div>
                         <p class="step-when">Paso 1 · Semana 1</p>
                         <h3>Llamada de diagnóstico</h3>
                         <p>Personas, turnos, ubicaciones y cómo registran hoy su jornada.</p>
                     </li>
-                    <li class="step reveal">
-                        <div class="step-dot">2</div>
+                    <li class="step">
+                        <div class="step-head"><span class="step-num" aria-hidden="true">02</span><span class="hex"><svg aria-hidden="true"><use href="#i-grid"/></svg></span></div>
                         <p class="step-when">Paso 2 · Implementación</p>
                         <h3>Configuración a tu medida</h3>
                         <p>Odoo con tus horarios, reglas de horas extra y forma de checar.</p>
                     </li>
-                    <li class="step reveal">
-                        <div class="step-dot">3</div>
+                    <li class="step">
+                        <div class="step-head"><span class="step-num" aria-hidden="true">03</span><span class="hex"><svg aria-hidden="true"><use href="#i-check"/></svg></span></div>
                         <p class="step-when">Paso 3 · Arranque</p>
                         <h3>Capacitación y acompañamiento</h3>
                         <p>Tu equipo checa desde el día uno y ajustamos cuando la STPS publique sus lineamientos.</p>
                     </li>
                 </ol>
+                </div>
             </div>
         </section>
 
@@ -739,7 +929,7 @@
                     <div class="lead-art">
                         <span class="eyebrow">Infografía gratuita</span>
                         <h2>10 cosas que debes saber de la reforma de 40 horas</h2>
-                        <p>La reforma no le pega igual a todas las empresas. Dinos el tamaño de la tuya y te mandamos la infografía con las 10 cosas que tienes que saber.</p>
+                        <p>La reforma no le pega igual a todas las empresas. Dinos el tamaño de la tuya y descarga la infografía con las 10 cosas que tienes que saber.</p>
                         <div class="cover" aria-hidden="true">
                             <div class="cover-top"><span>Reforma LFT 2026</span><span data-cover-tam>Tu empresa</span></div>
                             <h4>10 cosas que debes saber de la reforma de 40 horas</h4>
@@ -764,10 +954,10 @@
                             </div>
                             <fieldset class="sizes" data-tamanos>
                                 <legend>Tamaño de tu empresa</legend>
-                                <label class="size"><input type="radio" name="tamano" value="Micro · 1 a 10 personas" data-corto="Micro"><span><b>Micro</b><small>1 a 10 personas</small></span></label>
-                                <label class="size"><input type="radio" name="tamano" value="Pequeña · 11 a 50 personas" data-corto="Pequeña"><span><b>Pequeña</b><small>11 a 50 personas</small></span></label>
-                                <label class="size"><input type="radio" name="tamano" value="Mediana · 51 a 250 personas" data-corto="Mediana"><span><b>Mediana</b><small>51 a 250 personas</small></span></label>
-                                <label class="size"><input type="radio" name="tamano" value="Grande · más de 250 personas" data-corto="Grande"><span><b>Grande</b><small>más de 250 personas</small></span></label>
+                                <label class="size"><input type="radio" name="tamano" value="Micro · 1 a 10 personas" data-corto="Micro" data-pdf="infografias/reforma-40-horas-micro.pdf"><span><b>Micro</b><small>1 a 10 personas</small></span></label>
+                                <label class="size"><input type="radio" name="tamano" value="Pequeña · 11 a 50 personas" data-corto="Pequeña" data-pdf="infografias/reforma-40-horas-pequena.pdf"><span><b>Pequeña</b><small>11 a 50 personas</small></span></label>
+                                <label class="size"><input type="radio" name="tamano" value="Mediana · 51 a 250 personas" data-corto="Mediana" data-pdf="infografias/reforma-40-horas-mediana.pdf"><span><b>Mediana</b><small>51 a 250 personas</small></span></label>
+                                <label class="size"><input type="radio" name="tamano" value="Grande · más de 250 personas" data-corto="Grande" data-pdf="infografias/reforma-40-horas-grande.pdf"><span><b>Grande</b><small>más de 250 personas</small></span></label>
                             </fieldset>
                             <p class="form-error" role="alert" data-error hidden></p>
                             <div class="form-foot">
@@ -776,9 +966,12 @@
                             </div>
                         </form>
                         <div class="done" data-listo hidden tabindex="-1">
-                            <h4><svg aria-hidden="true"><use href="#i-check"/></svg>¡Listo! Ya la tenemos apartada para ti.</h4>
-                            <p>Te mandamos la infografía para empresa <span data-listo-tam></span> por correo o WhatsApp en menos de un día hábil. Si quieres revisar tu caso de una vez, agenda tu llamada.</p>
-                            <a class="btn btn-primary" href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" data-evento="agenda_infografia">Agenda una llamada</a>
+                            <h4><svg aria-hidden="true"><use href="#i-check"/></svg>¡Listo! Aquí está tu infografía.</h4>
+                            <p>La versión para empresa <span data-listo-tam></span>: las 10 cosas que debes saber y una lista para preparar el 1 de enero. Si quieres revisar tu caso, agenda tu llamada.</p>
+                            <div class="done-ctas">
+                                <a class="btn btn-primary" href="infografias/reforma-40-horas-mediana.pdf" download data-listo-pdf data-evento="descarga_infografia"><svg aria-hidden="true"><use href="#i-doc"/></svg>Descargar PDF</a>
+                                <a class="btn btn-outline" href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" data-evento="agenda_infografia">Agenda una llamada</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -862,6 +1055,7 @@
 
     <a class="wa" href="https://wa.me/524464066544?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20registro%20de%20jornada" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" data-evento="whatsapp_flotante"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
 
+    <script src="sim.js"></script>
     <script>
     (function () {
         'use strict';
@@ -893,11 +1087,11 @@
         var barra = document.querySelector('[data-barra]');
         var burbuja = document.querySelector('[data-burbuja]');
         var eventos = [
-            { ini: 'LH', color: '#6B4FA0', nombre: 'Luis Hernández', meta: 'Kiosco · Acceso principal', chip: 'in', txt: 'Entrada 07:58' },
-            { ini: 'PG', color: '#31728D', nombre: 'Paola García', meta: 'App móvil · Cliente en Celaya', chip: 'in', txt: 'Entrada 08:03' },
-            { ini: 'RM', color: '#991199', nombre: 'Roberto Méndez', meta: 'Kiosco · Almacén · 45.5 h esta semana', chip: 'alert', txt: 'Cerca del tope' },
-            { ini: 'SF', color: '#215C75', nombre: 'Sofía Flores', meta: 'Computadora · Oficina', chip: 'in', txt: 'Entrada 08:11' },
-            { ini: 'DV', color: '#4E7E52', nombre: 'Diego Vargas', meta: 'Kiosco · Acceso principal', chip: 'out', txt: 'Salida 08:15' }
+            { p: 'luis', nombre: 'Luis Hernández', meta: 'Kiosco · Acceso principal', chip: 'in', txt: 'Entrada 07:58' },
+            { p: 'paola', nombre: 'Paola García', meta: 'App móvil · Cliente en Celaya', chip: 'in', txt: 'Entrada 08:03' },
+            { p: 'roberto', nombre: 'Roberto Méndez', meta: 'Kiosco · Almacén · 45.5 h esta semana', chip: 'alert', txt: 'Cerca del tope' },
+            { p: 'sofia', nombre: 'Sofía Flores', meta: 'Computadora · Oficina', chip: 'in', txt: 'Entrada 08:11' },
+            { p: 'diego', nombre: 'Diego Vargas', meta: 'Kiosco · Acceso principal', chip: 'out', txt: 'Salida 08:15' }
         ];
         var minutos = 7 * 60 + 58, iEv = 0;
         function pintaReloj() { if (reloj) reloj.textContent = dos(Math.floor(minutos / 60) % 24) + ':' + dos(minutos % 60); }
@@ -905,7 +1099,8 @@
             var li = document.createElement('li');
             li.className = 'row fresh';
             li.innerHTML = '<span class="avatar"></span><div><strong></strong><span class="meta"></span></div><span class="chip"></span>';
-            var av = li.querySelector('.avatar'); av.textContent = ev.ini; av.style.background = ev.color;
+            li.querySelector('.avatar').innerHTML = Caras.svg(Caras.gente[ev.p]);
+            sumaTurno(ev);
             li.querySelector('strong').textContent = ev.nombre;
             li.querySelector('.meta').textContent = ev.meta;
             var ch = li.querySelector('.chip'); ch.className = 'chip ' + ev.chip; ch.textContent = ev.txt;
@@ -924,6 +1119,43 @@
                 iEv++;
             }, 3200);
         }
+        // Video de fondo del hero: solo si no hay movimiento reducido ni ahorro de datos
+        (function () {
+            var v = document.querySelector('[data-hero-video]');
+            if (!v) return;
+            var ahorro = navigator.connection && navigator.connection.saveData;
+            if (reducido || ahorro) { v.removeAttribute('loop'); return; }
+            v.preload = 'auto';
+            var p = v.play();
+            if (p && p.catch) p.catch(function () {});
+        })();
+        // Caritas del tablero: filas iniciales, burbujas y tira de "en turno"
+        document.querySelectorAll('[data-filas] [data-p]').forEach(function (li) {
+            li.querySelector('.avatar').innerHTML = Caras.svg(Caras.gente[li.getAttribute('data-p')]);
+        });
+        document.querySelectorAll('[data-p-face]').forEach(function (el) {
+            el.innerHTML = Caras.svg(Caras.gente[el.getAttribute('data-p-face')]);
+        });
+        var turno = document.querySelector('[data-turno]');
+        var turnoN = document.querySelector('[data-turno-n]');
+        ['ana', 'jorge', 'carlos', 'karla', 'hugo', 'rosa'].forEach(function (k) {
+            turno.insertAdjacentHTML('beforeend', '<span class="crew-face">' + Caras.svg(Caras.gente[k]) + '</span>');
+        });
+        turno.insertAdjacentHTML('beforeend', '<span class="crew-more" data-turno-mas>+8</span>');
+        var enTurno = 14, extra = 8;
+        function sumaTurno(ev) {
+            if (ev.chip !== 'in' || enTurno >= 16) return;
+            enTurno++; extra++;
+            turnoN.textContent = enTurno;
+            var mas = turno.querySelector('[data-turno-mas]');
+            var nueva = document.createElement('span');
+            nueva.className = 'crew-face nueva';
+            nueva.innerHTML = Caras.svg(Caras.gente[ev.p]);
+            turno.insertBefore(nueva, turno.firstChild);
+            while (turno.querySelectorAll('.crew-face').length > 6) turno.removeChild(mas.previousElementSibling);
+            mas.textContent = '+' + extra;
+        }
+
         pintaReloj();
         arrancaDemo();
 
@@ -933,33 +1165,25 @@
                 metodo: 'Desde la computadora o el celular',
                 titulo: 'Checan al abrir su sesión, sin filas ni aparatos',
                 desc: 'Tu equipo registra entrada y salida desde Odoo con un clic. Si trabaja desde casa algunos días, el registro es el mismo.',
-                puntos: ['Horario fijo o flexible por persona', 'Aviso por WhatsApp si alguien olvida checar su salida', 'Cada quien puede consultar sus horas'],
-                lugar: 'Oficina · Corporativo',
-                filas: [['Ana R.', '08:57', 'Computadora', '18:04'], ['Iván C.', '09:12', 'Celular', '18:30'], ['Laura P.', '08:45', 'Computadora', '17:52']]
+                puntos: ['Horario fijo o flexible por persona', 'Aviso por WhatsApp si alguien olvida checar su salida', 'Cada quien puede consultar sus horas']
             },
             planta: {
                 metodo: 'Kiosco con gafete o PIN en la entrada',
                 titulo: 'Turnos que rotan y horas extra con autorización',
                 desc: 'Una tablet en el acceso funciona como checador. Odoo sabe a qué turno pertenece cada persona y separa lo ordinario de lo extra.',
-                puntos: ['Turnos matutino, vespertino y nocturno', 'Horas extra solo con aprobación del jefe de área', 'Alerta cuando alguien se acerca al tope de la semana'],
-                lugar: 'Planta · Turno vespertino',
-                filas: [['Jorge L.', '13:56', 'Kiosco + PIN', '22:03'], ['Rosa M.', '14:02', 'Kiosco + gafete', '23:10 · extra'], ['Hugo S.', '13:49', 'Kiosco + gafete', '22:00']]
+                puntos: ['Turnos matutino, vespertino y nocturno', 'Horas extra solo con aprobación del jefe de área', 'Alerta cuando alguien se acerca al tope de la semana']
             },
             campo: {
                 metodo: 'App móvil con ubicación al checar',
                 titulo: 'Tu gente en ruta registra desde donde esté',
                 desc: 'Vendedores, técnicos o cuadrillas checan desde el celular. Odoo guarda la hora y la ubicación aproximada de cada registro.',
-                puntos: ['Ubicación solo al momento de checar', 'Funciona para rutas, obra o visitas a clientes', 'Recordatorio si la jornada se extiende de más'],
-                lugar: 'Campo · Ruta Bajío',
-                filas: [['Paola G.', '07:31', 'App · Celaya', '16:20'], ['Raúl T.', '07:45', 'App · León', '17:05'], ['Mario D.', '08:02', 'App · Querétaro', '16:58']]
+                puntos: ['Ubicación solo al momento de checar', 'Funciona para rutas, obra o visitas a clientes', 'Recordatorio si la jornada se extiende de más']
             },
             sucursales: {
                 metodo: 'Un checador por sucursal, un solo tablero',
                 titulo: 'Todas tus sedes en un mismo registro',
                 desc: 'Cada tienda o sede tiene su kiosco, y tú ves en un tablero quién está, quién faltó y cuántas horas lleva cada persona.',
-                puntos: ['Horarios distintos por sucursal', 'Reportes por sede listos para la autoridad', 'Personal que se mueve entre sucursales sin doble registro'],
-                lugar: 'Sucursales · 3 sedes',
-                filas: [['Karla V.', '09:55', 'Kiosco · Centro', '19:02'], ['Omar B.', '10:58', 'Kiosco · Juriquilla', '20:01'], ['Elena F.', '09:47', 'Kiosco · El Marqués', '18:50']]
+                puntos: ['Horarios distintos por sucursal', 'Reportes por sede listos para la autoridad', 'Personal que se mueve entre sucursales sin doble registro']
             }
         };
         var tabs = Array.prototype.slice.call(document.querySelectorAll('.ops-tab'));
@@ -976,7 +1200,6 @@
             q('[data-op-metodo]').textContent = op.metodo;
             q('[data-op-titulo]').textContent = op.titulo;
             q('[data-op-desc]').textContent = op.desc;
-            q('[data-op-lugar]').textContent = op.lugar;
             var ul = q('[data-op-puntos]'); ul.innerHTML = '';
             op.puntos.forEach(function (p) {
                 var li = document.createElement('li');
@@ -984,12 +1207,7 @@
                 li.querySelector('span').textContent = p;
                 ul.appendChild(li);
             });
-            var tb = q('[data-op-filas]'); tb.innerHTML = '';
-            op.filas.forEach(function (f) {
-                var tr = document.createElement('tr');
-                f.forEach(function (c) { var td = document.createElement('td'); td.textContent = c; tr.appendChild(td); });
-                tb.appendChild(tr);
-            });
+            if (window.SimOdoo) SimOdoo.escena(clave);
             panel.classList.remove('ops-panel'); void panel.offsetWidth; panel.classList.add('ops-panel');
         }
         tabs.forEach(function (t, i) {
@@ -1003,6 +1221,7 @@
                 if (n !== null) { e.preventDefault(); mostrar(tabs[n].getAttribute('data-op'), true); }
             });
         });
+        if (window.SimOdoo) SimOdoo.montar(document.querySelector('[data-sim]'));
         mostrar('oficina');
 
         // ── Formulario de la infografía ────────────────────────────────────
@@ -1069,6 +1288,7 @@
                 if (!res.ok || !res.d.success) throw new Error(res.d.error || '');
                 form.hidden = true;
                 document.querySelector('[data-listo-tam]').textContent = tam.getAttribute('data-corto').toLowerCase();
+                document.querySelector('[data-listo-pdf]').setAttribute('href', tam.getAttribute('data-pdf'));
                 listo.hidden = false;
                 listo.focus();
                 if (window.gtag) gtag('event', 'generate_lead', { form: 'infografia_jornada', company_size: tam.getAttribute('data-corto') });

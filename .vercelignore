@@ -24,3 +24,6 @@ deploy.bat
 # /api/contact SI se publica desde nov 2026: lo usa el formulario de la
 # infografia en /jornada/ y escribe leads en el CRM de produccion. Si algun
 # dia deja de tener consumidores, vuelve a listarlo aqui.
+
+# Generadores de material (infografias de jornada, etc.)
+herramientas/

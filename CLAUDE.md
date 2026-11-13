@@ -105,7 +105,10 @@ Landing del registro electrónico de jornada (reforma a la LFT, obligatorio el 1
 
 - Cuenta regresiva al `2027-01-01T00:00:00-06:00`; pasada esa fecha muestra "Ya es obligatorio". Después de enero hay que reescribir el hero.
 - El selector "Elige cómo trabaja tu equipo" y el tablero del hero son datos de ejemplo en el `<script>` (objeto `OPS` y arreglo `eventos`), marcados como ilustrativos.
-- El formulario manda un lead a `/api/contact` con `reto` = qué pidió + tamaño de empresa. **No envía la infografía**: alguien del equipo debe mandarla por correo o WhatsApp al ver el lead en el CRM.
+- `jornada/sim.js` dibuja las caritas de empleados (SVG, `window.Caras`) y la simulación de clics que imita a Odoo en "Elige cómo trabaja tu equipo" (`window.SimOdoo`, una escena por pestaña). **No son capturas reales**: personas ficticias, nada del Odoo de Appunto. El Odoo de la empresa no se toca para esta página.
+- `jornada/img/`: fotos de las cartas de módulos y el fondo del hero (`hero.webp` como póster + `hero.mp4` en bucle, sin audio). Generadas con IA en Higgsfield en nov 2026; las personas no son reales. El video no se carga con movimiento reducido ni con ahorro de datos.
+- `jornada/infografias/`: 4 PDF "10 cosas que debes saber de la reforma de 40 horas", uno por tamaño de empresa. 7 puntos comunes + 3 por tamaño. Se generan con `herramientas/infografias-jornada.py` + `herramientas/infografias-jornada-pdf.js` (la carpeta no se publica); si cambia la ley o salen los lineamientos de la STPS, hay que rehacerlos.
+- El formulario manda un lead a `/api/contact` con `reto` = qué pidió + tamaño de empresa y, al terminar, muestra el botón de descarga del PDF que corresponde al tamaño elegido. Los PDF son públicos por URL: el formulario es para captar el lead, no una barrera real.
 - Las FAQ siguen la regla del punto 9: `<details>` visible y `FAQPage` deben decir lo mismo (`verificar-contenido.test.js` ya incluye esta página).
 - Menciona IA como parte de la implementación (recordatorios por WhatsApp y alertas) porque así venía el brief; no está declarada como servicio en el JSON-LD.
 
