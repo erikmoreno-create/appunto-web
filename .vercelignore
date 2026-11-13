@@ -21,8 +21,9 @@ deploy.bat
 # Pruebas: no son parte del sitio publicado
 *.test.js
 
-# /api/contact no se publica: hoy ninguna pagina del sitio lo llama (no hay
-# ningun <form> en el repo) y escribe leads en el CRM de produccion. Un
-# endpoint sin consumidores es riesgo sin beneficio. El codigo se conserva,
-# ya protegido: para reactivarlo, quita esta linea y anade el formulario.
-api/contact.js
+# /api/contact SI se publica desde nov 2026: lo usa el formulario de la
+# infografia en /jornada/ y escribe leads en el CRM de produccion. Si algun
+# dia deja de tener consumidores, vuelve a listarlo aqui.
+
+# Generadores de material (infografias de jornada, etc.)
+herramientas/

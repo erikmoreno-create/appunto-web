@@ -17,3 +17,4 @@ Thumbs.db
 # Entorno
 .env
 .env.local
+herramientas/_infografia-*.html

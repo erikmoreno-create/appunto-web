@@ -1,12 +1,9 @@
 // Endpoint del formulario de contacto: crea un lead en el CRM de Odoo.
 //
-// OJO: hoy NINGUNA pagina del sitio lo llama — no existe ningun <form> en el
-// repo. Por eso esta listado en .vercelignore y no se publica: un endpoint sin
-// consumidores que escribe en el CRM de produccion es riesgo sin beneficio.
-//
-// El codigo se conserva, protegido y listo, para cuando se anada el formulario
-// a contacto.html. Para reactivarlo: quitar la linea "api/contact.js" de
-// .vercelignore y verificar en el preview del PR antes de mergear.
+// Consumidor (nov 2026): el formulario de la infografia en jornada/index.html.
+// Manda nombre, telefono, correo y, en "reto", que pidio y el tamano de la
+// empresa. Escribe en el CRM de produccion: si cambias los campos de CAMPOS,
+// revisa tambien ese formulario.
 
 const { clientIp, verificarCuota, rechazarPorCuota, aplicarCors } = require('./_ratelimit.js');
 

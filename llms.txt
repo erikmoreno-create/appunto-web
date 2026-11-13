@@ -18,7 +18,8 @@ Nota para agentes: la descripción estructurada de la organización, en JSON-LD,
 - [Qlik](https://appunto.mx/qlik/): Qlik Data Integration y Qlik Analytics, para dirección general y perfiles CIO/CDO que necesitan visibilidad real del negocio, y preguntas frecuentes sobre la diferencia con Power BI o Tableau y la conexión con el ERP existente.
 - [Industrias](https://appunto.mx/industrias.html): las seis industrias atendidas y cómo se aborda cada una.
 - [Nosotros](https://appunto.mx/nosotros.html): quiénes son, misión, visión y valores.
-- [Contacto](https://appunto.mx/contacto.html): vías directas de contacto. El sitio no tiene formulario: el contacto es por correo, WhatsApp o agendando el diagnóstico.
+- [Contacto](https://appunto.mx/contacto.html): vías directas de contacto por correo, WhatsApp o agendando el diagnóstico.
+- [Registro electrónico de jornada](https://appunto.mx/jornada/): implementación en Odoo del registro electrónico de entrada y salida que exige la reforma a la Ley Federal del Trabajo a partir del 1 de enero de 2027, con preguntas frecuentes sobre los lineamientos de la STPS, el reloj checador, la nómina y los tiempos de implementación.
 
 ## Contacto
 

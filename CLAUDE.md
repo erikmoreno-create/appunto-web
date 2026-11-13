@@ -33,8 +33,9 @@ nosotros.html           Quiénes somos
 contacto.html           Contacto (email, WhatsApp, booking). NO tiene formulario
 odoo/index.html         Landing de Odoo (+ carpetas con videos/imágenes por módulo)
 qlik/index.html         Landing de Qlik
+jornada/index.html      Landing de campaña: registro electrónico de jornada (reforma LFT). Ver abajo
 avisodeprivacidad/      Aviso de Privacidad Integral (LFPDPPP)
-api/contact.js          Crea lead en Odoo CRM. NO se publica (ver .vercelignore)
+api/contact.js          Crea lead en Odoo CRM. Lo usa el formulario de jornada/
 api/chat.js             Proxy a OpenAI gpt-4o-mini para el chatbot
 chatbot.js              Widget del chatbot (frontend)
 logos/ images/ img_industrias/   Assets
@@ -98,17 +99,30 @@ Reconsiderar solo si se construye un servidor MCP real que exponga la informaci�
 
 Las líneas de servicio verificables hoy son **Odoo y Qlik**. La empresa está transicionando hacia soluciones de **IA**, pero eso aún no está formalizado: no lo declares como servicio en JSON-LD, FAQs ni copy estructurado hasta que el usuario confirme que ya es oferta firme. Los motores de respuesta citan lo que encuentran, y una afirmación prematura se propaga.
 
+### `jornada/` — landing de campaña
+
+Landing del registro electrónico de jornada (reforma a la LFT, obligatorio el 1 de enero de 2027). Rehecha en nov 2026 a partir de una versión en Netlify; el copy legal (fechas, multas, FAQ) viene de esa versión. **Es independiente del resto del sitio a propósito:** CSS propio escrito a mano en el `<head>` (no Tailwind CDN), nav y footer propios, sin `chatbot.js` (su prompt no conoce esta oferta). Las reglas de "tócalos todos" del nav y footer **no** aplican aquí.
+
+- Cuenta regresiva al `2027-01-01T00:00:00-06:00`; pasada esa fecha muestra "Ya es obligatorio". Después de enero hay que reescribir el hero.
+- El selector "Elige cómo trabaja tu equipo" y el tablero del hero son datos de ejemplo en el `<script>` (objeto `OPS` y arreglo `eventos`), marcados como ilustrativos.
+- `jornada/sim.js` dibuja las caritas de empleados (SVG, `window.Caras`) y la simulación de clics que imita a Odoo en "Elige cómo trabaja tu equipo" (`window.SimOdoo`, una escena por pestaña). **No son capturas reales**: personas ficticias, nada del Odoo de Appunto. El Odoo de la empresa no se toca para esta página.
+- `jornada/img/`: fotos de las cartas de módulos y el fondo del hero (`hero.webp` como póster + `hero.mp4` en bucle, sin audio). Generadas con IA en Higgsfield en nov 2026; las personas no son reales. El video no se carga con movimiento reducido ni con ahorro de datos.
+- `jornada/infografias/`: 4 PDF "10 cosas que debes saber de la reforma de 40 horas", uno por tamaño de empresa. 7 puntos comunes + 3 por tamaño. Se generan con `herramientas/infografias-jornada.py` + `herramientas/infografias-jornada-pdf.js` (la carpeta no se publica); si cambia la ley o salen los lineamientos de la STPS, hay que rehacerlos.
+- El formulario manda un lead a `/api/contact` con `reto` = qué pidió + tamaño de empresa y, al terminar, muestra el botón de descarga del PDF que corresponde al tamaño elegido. Los PDF son públicos por URL: el formulario es para captar el lead, no una barrera real.
+- Las FAQ siguen la regla del punto 9: `<details>` visible y `FAQPage` deben decir lo mismo (`verificar-contenido.test.js` ya incluye esta página).
+- Menciona IA como parte de la implementación (recordatorios por WhatsApp y alertas) porque así venía el brief; no está declarada como servicio en el JSON-LD.
+
 ## Backend y secretos
 
 Variables de entorno **configuradas en el dashboard de Vercel**, nunca en el repo (`.env` está en `.gitignore`):
 
-- `ODOO_URL`, `ODOO_DB`, `ODOO_USER`, `ODOO_API_KEY` → usadas por `api/contact.js`, que hoy **no está desplegado**. No las borres: el endpoint se reactiva quitando una línea de `.vercelignore`.
+- `ODOO_URL`, `ODOO_DB`, `ODOO_USER`, `ODOO_API_KEY` → usadas por `api/contact.js` (formulario de `jornada/`). Si solo existen en el entorno Production de Vercel, el formulario falla en los previews con un mensaje que manda a WhatsApp; si existen también en Preview, las pruebas en un preview crean leads reales.
 - `OPENAI_API_KEY` → usada por `api/chat.js`
 - `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` → contadores del rate limit de `api/chat.js`. **Opcionales**: sin ellas el endpoint sigue vivo con un contador en memoria, que es mucho más débil. Ver [CHATBOT.md](CHATBOT.md) § Control de gasto y abuso.
 
 Ambos endpoints de `api/` comparten `api/_ratelimit.js`: lista blanca de orígenes y cuotas por IP más un tope global diario. **Los headers CORS no son la defensa** —solo deciden qué páginas pueden leer la respuesta desde el navegador; `curl` los ignora—, la cuota sí. Las cuotas son distintas por endpoint: el chat admite 10 mensajes por minuto, el formulario 3 envíos por hora, porque escribe leads en el CRM de producción.
 
-`api/contact.js` **está fuera del deploy** (`.vercelignore`): ninguna página del sitio lo llama, no existe ningún `<form>` en el repo, y un endpoint sin consumidores que escribe en el CRM es riesgo sin beneficio. Al añadir el formulario, quita esa línea y **verifica en el preview del PR** antes de mergear.
+`api/contact.js` se publica desde que existe el formulario de `jornada/`. Escribe en el CRM de producción: cualquier cambio a sus campos se verifica en el preview del PR antes de mergear.
 
 Si tocas `api/_ratelimit.js`, corre `node api/_ratelimit.test.js` — no necesita credenciales ni cuesta nada, simula Upstash, OpenAI y Odoo.
 
@@ -127,7 +141,7 @@ Flujo: rama → `git push -u origin <rama>` → `gh pr create --base master`. Ve
 ## Estado conocido / deuda técnica
 
 - **URLs duplicadas: redirigidas solo en parte.** `vercel.json` manda `/index.html`, `/odoo/index.html`, `/qlik/index.html` y `/avisodeprivacidad/index.html` a su forma con `/` final (308 permanente, que Google trata igual que un 301). Siguen respondiendo 200 sin redirigir las variantes sin barra (`/odoo`, `/qlik`, `/avisodeprivacidad`): una regla `/odoo` → `/odoo/` en `redirects` puede hacer bucle porque el matcher de Vercel trata la barra final como opcional, y `trailingSlash: true` cambia el comportamiento de todo el sitio. Probarlo en un preview antes de añadirlo. La declaración (`sitemap.xml`, `canonical`, enlaces internos) ya apunta a la forma con barra.
-- **No hay formulario de contacto en ninguna página.** `contacto.html` solo ofrece email, WhatsApp y el booking. `api/contact.js` existe y está protegido, pero retirado del deploy hasta que haya un formulario que lo use.
+- **Formularios:** el único es el de la infografía en `jornada/`, que llama a `api/contact.js` (publicado desde nov 2026; ya no está en `.vercelignore`). `contacto.html` sigue sin formulario: solo email, WhatsApp y el booking.
 - **`www.appunto.mx` no resuelve** (fallo de conexión, no redirección). Quien lo teclee ve un error.
 - `AGENTS.md` (contexto para otros agentes) y este `CLAUDE.md` se solapan a propósito: `AGENTS.md` es la versión corta con las zonas prohibidas; este archivo es la referencia completa.
 - **Menú móvil:** existe desde nov 2026 en las 8 páginas. Bajo 1024px el nav muestra el logo y un botón (`#menu-movil-boton`, SVG en línea, no Material Symbols porque tres páginas no cargan esa fuente) que abre `#menu-movil` con los 7 enlaces y el CTA. El JS es un `<script>` corto dentro del `<nav>`; cierra con Escape y al pasar a escritorio. El nav es idéntico en las 8 páginas salvo el prefijo `../` y el enlace activo (`aria-current="page"`).

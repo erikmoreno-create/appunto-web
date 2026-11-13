@@ -26,13 +26,15 @@ BASE=$(git symbolic-ref --short refs/remotes/origin/HEAD | sed 's|origin/||')
 | Ruta | Qué es |
 |---|---|
 | `index.html` `nosotros.html` `soluciones.html` `industrias.html` `contacto.html` `odoo/index.html` `qlik/index.html` `avisodeprivacidad/index.html` | las 8 páginas del sitio |
+| `jornada/index.html` | landing de campaña con diseño propio (CSS a mano, sin Tailwind ni chatbot); ver `CLAUDE.md` |
+| `jornada/sim.js`, `jornada/img/`, `jornada/infografias/` | caritas y simulación ilustrativa de Odoo, imágenes y video generados con IA, y los 4 PDF de la infografía |
 | `css/` `js/` | **legacy: ninguna página los enlaza.** Editarlos no cambia nada del sitio |
 | `middleware.js` | Edge Middleware: devuelve Markdown si la petición trae `Accept: text/markdown`. Corre en **todas** las peticiones; un error ahí tumba el sitio |
 | `llms.txt` `organization.jsonld` `robots.txt` `sitemap.xml` | archivos para buscadores y agentes de IA. `sitemap.xml` se actualiza a mano |
 | `images/` `img_industrias/` | imágenes (png, webp, svg) |
 | `chatbot.js` | widget del chatbot, del lado del cliente |
 | `api/chat.js` | **función serverless de Vercel** (el chatbot) |
-| `api/contact.js` | función serverless **no desplegada** (ver `.vercelignore`): hoy no hay formulario que la use |
+| `api/contact.js` | función serverless que crea leads en el CRM de Odoo; la usa el formulario de `jornada/` |
 | `avisodeprivacidad/` | aviso de privacidad |
 | `DESIGN.md` `CHATBOT.md` `contenido-web.md` | documentación existente — léela antes de cambiar diseño o textos |
 | `vercel.json` | `buildCommand` vacío, `outputDirectory: "."`, redirects de `*/index.html` y el header `Link` |
