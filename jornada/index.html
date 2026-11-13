@@ -170,9 +170,9 @@
             radial-gradient(45% 55% at 10% 100%, rgba(153, 17, 153, .28), transparent 70%),
             linear-gradient(180deg, var(--ink) 0%, #0D2A39 100%); }
         .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .35; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(80% 70% at 70% 30%, #000, transparent 80%); -webkit-mask-image: radial-gradient(80% 70% at 70% 30%, #000, transparent 80%); }
-        .hero-media { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
-        .hero-media video { width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; opacity: .5; filter: saturate(.75) contrast(1.05); }
-        .hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,36,49,.94) 0%, rgba(11,36,49,.78) 42%, rgba(11,36,49,.45) 100%), linear-gradient(0deg, rgba(11,36,49,.85) 0%, transparent 35%); }
+        .hero-media { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
+        .hero-media video { width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; opacity: .7; filter: saturate(.8) contrast(1.05); }
+        .hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,36,49,.92) 0%, rgba(11,36,49,.7) 40%, rgba(11,36,49,.25) 100%), linear-gradient(0deg, rgba(11,36,49,.8) 0%, transparent 30%), linear-gradient(180deg, rgba(11,36,49,.5) 0%, transparent 25%); }
         .hero-in { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(36px, 5vw, 72px); align-items: center; padding-block: clamp(56px, 8vw, 104px) clamp(64px, 8vw, 112px); }
         .deadline { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 8px; border-radius: 999px; background: rgba(255, 255, 255, .08); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .14); font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, .9); }
         .deadline b { white-space: nowrap; flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: var(--violet); color: #fff; font-family: var(--display); font-weight: 700; font-size: 13px; }
