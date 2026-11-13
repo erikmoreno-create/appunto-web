@@ -27,13 +27,16 @@ BASE=$(git symbolic-ref --short refs/remotes/origin/HEAD | sed 's|origin/||')
 |---|---|
 | `index.html` `nosotros.html` `soluciones.html` `industrias.html` `contacto.html` `odoo/index.html` `qlik/index.html` `avisodeprivacidad/index.html` | las 8 páginas del sitio |
 | `css/` `js/` | **legacy: ninguna página los enlaza.** Editarlos no cambia nada del sitio |
+| `middleware.js` | Edge Middleware: devuelve Markdown si la petición trae `Accept: text/markdown`. Corre en **todas** las peticiones; un error ahí tumba el sitio |
+| `llms.txt` `organization.jsonld` `robots.txt` `sitemap.xml` | archivos para buscadores y agentes de IA. `sitemap.xml` se actualiza a mano |
 | `images/` `img_industrias/` | imágenes (png, webp, svg) |
 | `chatbot.js` | widget del chatbot, del lado del cliente |
 | `api/chat.js` | **función serverless de Vercel** (el chatbot) |
 | `api/contact.js` | función serverless **no desplegada** (ver `.vercelignore`): hoy no hay formulario que la use |
 | `avisodeprivacidad/` | aviso de privacidad |
 | `DESIGN.md` `CHATBOT.md` `contenido-web.md` | documentación existente — léela antes de cambiar diseño o textos |
-| `vercel.json` | `buildCommand` vacío, `outputDirectory: "."` |
+| `vercel.json` | `buildCommand` vacío, `outputDirectory: "."`, redirects de `*/index.html` y el header `Link` |
+| `CLAUDE.md` | contexto técnico completo (convenciones, deuda, decisiones). Es la fuente más detallada |
 
 ## 🚫 Zona prohibida: `api/`
 
@@ -55,14 +58,21 @@ Analytics que va en el `<head>` de cada página.
 - Tipografías: Manrope e Inter, cargadas desde Google Fonts.
 - Textos en español de México.
 - Antes de cambiar diseño o copy, lee `DESIGN.md` y `contenido-web.md`.
+- **El nav (con su menú móvil), el footer, GA4, favicon y chatbot están duplicados
+  en las 8 páginas.** Si tocas uno, tócalos todos. El menú móvil es un `<button
+  id="menu-movil-boton">` con un panel `#menu-movil` y un `<script>` corto dentro
+  del propio `<nav>`.
 
 ## Cómo verificar un cambio
 
-No hay tests ni build. Dos caminos, en orden:
+No hay build. Tres caminos, en orden:
 
-1. **La URL de preview de Vercel** que aparece en el PR — es la mejor
+1. `node verificar-contenido.test.js` si tocaste JSON-LD o preguntas frecuentes,
+   y `node api/_ratelimit.test.js` si tocaste `api/`. Sin credenciales ni costo.
+2. **La URL de preview de Vercel** que aparece en el PR — es la mejor
    verificación disponible.
-2. A ojo: abrir el archivo y revisarlo, incluyendo ancho de móvil (< 480 px).
+3. A ojo: abrir el archivo y revisarlo, incluyendo ancho de móvil (< 480 px)
+   y el menú móvil abierto.
 
 ## Prohibido
 

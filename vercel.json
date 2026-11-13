@@ -1,6 +1,28 @@
 {
   "buildCommand": "",
   "outputDirectory": ".",
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/odoo/index.html",
+      "destination": "/odoo/",
+      "permanent": true
+    },
+    {
+      "source": "/qlik/index.html",
+      "destination": "/qlik/",
+      "permanent": true
+    },
+    {
+      "source": "/avisodeprivacidad/index.html",
+      "destination": "/avisodeprivacidad/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

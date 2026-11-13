@@ -126,12 +126,11 @@ Flujo: rama → `git push -u origin <rama>` → `gh pr create --base master`. Ve
 
 ## Estado conocido / deuda técnica
 
-- **URLs duplicadas: declaradas, no redirigidas.** `/odoo`, `/odoo/` y `/odoo/index.html` siguen respondiendo 200 las tres (igual `qlik` y `avisodeprivacidad`, y `/` con `/index.html`); ninguna redirige. Lo que sí existe ya es la declaración: `sitemap.xml`, los `<link rel="canonical">` y los enlaces internos apuntan todos a la misma forma. Falta el redirect 301, que en Vercel exige `cleanUrls`/`redirects` en `vercel.json` — ojo, interactúa con `middleware.js`.
+- **URLs duplicadas: redirigidas solo en parte.** `vercel.json` manda `/index.html`, `/odoo/index.html`, `/qlik/index.html` y `/avisodeprivacidad/index.html` a su forma con `/` final (308 permanente, que Google trata igual que un 301). Siguen respondiendo 200 sin redirigir las variantes sin barra (`/odoo`, `/qlik`, `/avisodeprivacidad`): una regla `/odoo` → `/odoo/` en `redirects` puede hacer bucle porque el matcher de Vercel trata la barra final como opcional, y `trailingSlash: true` cambia el comportamiento de todo el sitio. Probarlo en un preview antes de añadirlo. La declaración (`sitemap.xml`, `canonical`, enlaces internos) ya apunta a la forma con barra.
 - **No hay formulario de contacto en ninguna página.** `contacto.html` solo ofrece email, WhatsApp y el booking. `api/contact.js` existe y está protegido, pero retirado del deploy hasta que haya un formulario que lo use.
 - **`www.appunto.mx` no resuelve** (fallo de conexión, no redirección). Quien lo teclee ve un error.
-- `AGENTS.md` (contexto para otros agentes) y este `CLAUDE.md` se solapan. `AGENTS.md` está algo desactualizado: describe 5 páginas sin mencionar `odoo/index.html` ni `qlik/index.html`, y dice que `css/` tiene estilos propios en uso.
-- **No hay menú móvil.** No es que se haya roto: nunca existió. Bajo 1024px, en **7 de 8 páginas** el nav muestra solo el logo — el bloque de enlaces es `hidden lg:flex` y no hay nada más. `index.html` sí pinta una hamburguesa, pero son tres `<span>` decorativos con `cursor-pointer`: sin `id`, sin panel que abrir y sin JS. Construirlo es trabajo nuevo en los 8 HTML, no revivir `js/main.js`.
-- **El nav de `odoo/` y `qlik/` no incluye "Contacto"**; el de las demás páginas sí.
+- `AGENTS.md` (contexto para otros agentes) y este `CLAUDE.md` se solapan a propósito: `AGENTS.md` es la versión corta con las zonas prohibidas; este archivo es la referencia completa.
+- **Menú móvil:** existe desde nov 2026 en las 8 páginas. Bajo 1024px el nav muestra el logo y un botón (`#menu-movil-boton`, SVG en línea, no Material Symbols porque tres páginas no cargan esa fuente) que abre `#menu-movil` con los 7 enlaces y el CTA. El JS es un `<script>` corto dentro del `<nav>`; cierra con Escape y al pasar a escritorio. El nav es idéntico en las 8 páginas salvo el prefijo `../` y el enlace activo (`aria-current="page"`).
 - Assets pesados versionados en git: `OdooAppuntoDemoComercial.mp4` (~10 MB) y `qlik_espanol.mp4` (~11 MB).
 
 ## Git
