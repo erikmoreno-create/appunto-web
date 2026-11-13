@@ -409,7 +409,7 @@
         .closing { position: relative; color: #fff; background: var(--ink); overflow: hidden; isolation: isolate; text-align: center; }
         .closing::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(50% 80% at 50% 0%, rgba(49,114,141,.25), transparent 70%); }
         .aurora { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-        .aurora i { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .9; will-change: transform; }
+        .aurora i { position: absolute; border-radius: 50%; opacity: .9; }
         .aurora i:nth-child(1) { width: 60vw; height: 60vw; max-width: 820px; max-height: 820px; left: 20%; top: -45%; background: radial-gradient(circle, rgba(49,114,141,.95), rgba(49,114,141,0) 68%); animation: deriva1 12s ease-in-out infinite alternate; }
         .aurora i:nth-child(2) { width: 46vw; height: 46vw; max-width: 640px; max-height: 640px; right: -12%; bottom: -55%; background: radial-gradient(circle, rgba(153,17,153,.75), rgba(153,17,153,0) 68%); animation: deriva2 14s ease-in-out infinite alternate; }
         .aurora i:nth-child(3) { width: 38vw; height: 38vw; max-width: 520px; max-height: 520px; left: -10%; bottom: -40%; background: radial-gradient(circle, rgba(124,195,221,.45), rgba(124,195,221,0) 68%); animation: deriva3 16s ease-in-out infinite alternate; }
@@ -595,6 +595,7 @@
             body { font-size: 16px; }
             .modules { grid-template-columns: 1fr; }
             .module { min-height: 420px; }
+            .stage { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(8,26,35,.7); }
             .ops-tabs { grid-template-columns: 1fr 1fr; }
             .ops-tab { padding: 14px 12px; gap: 10px; }
             .ops-tab small { display: none; }
@@ -665,8 +666,8 @@
         <!-- Hero -->
         <section class="hero" id="inicio">
             <div class="hero-media" aria-hidden="true">
-                <video data-hero-video muted loop playsinline preload="none" poster="img/hero.webp">
-                    <source src="img/hero.mp4" type="video/mp4">
+                <video data-hero-video muted loop playsinline preload="none" poster="/jornada/img/hero.webp">
+                    <source src="/jornada/img/hero.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="wrap hero-in">
@@ -833,7 +834,7 @@
                 </div>
                 <div class="modules">
                     <article class="module reveal">
-                        <img src="img/empleados.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
+                        <img src="/jornada/img/empleados.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
                         <span class="stage stage-1">Para empezar</span>
                         <div class="module-txt">
                             <h3>Empleados</h3>
@@ -843,7 +844,7 @@
                         </div>
                     </article>
                     <article class="module reveal">
-                        <img src="img/asistencias.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
+                        <img src="/jornada/img/asistencias.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
                         <span class="stage stage-1">Para empezar</span>
                         <div class="module-txt">
                             <h3>Asistencias</h3>
@@ -853,7 +854,7 @@
                         </div>
                     </article>
                     <article class="module reveal">
-                        <img src="img/horas-extra.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
+                        <img src="/jornada/img/horas-extra.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
                         <span class="stage stage-2">Control</span>
                         <div class="module-txt">
                             <h3>Horas extra</h3>
@@ -863,7 +864,7 @@
                         </div>
                     </article>
                     <article class="module reveal">
-                        <img src="img/planificacion.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
+                        <img src="/jornada/img/planificacion.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
                         <span class="stage stage-2">Control</span>
                         <div class="module-txt">
                             <h3>Planificación de turnos</h3>
@@ -873,7 +874,7 @@
                         </div>
                     </article>
                     <article class="module reveal">
-                        <img src="img/nomina.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
+                        <img src="/jornada/img/nomina.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
                         <span class="stage stage-3">Integración</span>
                         <div class="module-txt">
                             <h3>Nómina</h3>
@@ -883,7 +884,7 @@
                         </div>
                     </article>
                     <article class="module reveal">
-                        <img src="img/whatsapp.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
+                        <img src="/jornada/img/whatsapp.webp" alt="" width="600" height="804" loading="lazy" decoding="async" onerror="this.hidden=true">
                         <span class="stage stage-4">Plus</span>
                         <div class="module-txt">
                             <h3>IA y WhatsApp</h3>
@@ -962,10 +963,10 @@
                             </div>
                             <fieldset class="sizes" data-tamanos>
                                 <legend>Tamaño de tu empresa</legend>
-                                <label class="size"><input type="radio" name="tamano" value="Micro · 1 a 10 personas" data-corto="Micro" data-pdf="infografias/reforma-40-horas-micro.pdf"><span><b>Micro</b><small>1 a 10 personas</small></span></label>
-                                <label class="size"><input type="radio" name="tamano" value="Pequeña · 11 a 50 personas" data-corto="Pequeña" data-pdf="infografias/reforma-40-horas-pequena.pdf"><span><b>Pequeña</b><small>11 a 50 personas</small></span></label>
-                                <label class="size"><input type="radio" name="tamano" value="Mediana · 51 a 250 personas" data-corto="Mediana" data-pdf="infografias/reforma-40-horas-mediana.pdf"><span><b>Mediana</b><small>51 a 250 personas</small></span></label>
-                                <label class="size"><input type="radio" name="tamano" value="Grande · más de 250 personas" data-corto="Grande" data-pdf="infografias/reforma-40-horas-grande.pdf"><span><b>Grande</b><small>más de 250 personas</small></span></label>
+                                <label class="size"><input type="radio" name="tamano" value="Micro · 1 a 10 personas" data-corto="Micro" data-pdf="/jornada/infografias/reforma-40-horas-micro.pdf"><span><b>Micro</b><small>1 a 10 personas</small></span></label>
+                                <label class="size"><input type="radio" name="tamano" value="Pequeña · 11 a 50 personas" data-corto="Pequeña" data-pdf="/jornada/infografias/reforma-40-horas-pequena.pdf"><span><b>Pequeña</b><small>11 a 50 personas</small></span></label>
+                                <label class="size"><input type="radio" name="tamano" value="Mediana · 51 a 250 personas" data-corto="Mediana" data-pdf="/jornada/infografias/reforma-40-horas-mediana.pdf"><span><b>Mediana</b><small>51 a 250 personas</small></span></label>
+                                <label class="size"><input type="radio" name="tamano" value="Grande · más de 250 personas" data-corto="Grande" data-pdf="/jornada/infografias/reforma-40-horas-grande.pdf"><span><b>Grande</b><small>más de 250 personas</small></span></label>
                             </fieldset>
                             <p class="form-error" role="alert" data-error hidden></p>
                             <div class="form-foot">
@@ -977,7 +978,7 @@
                             <h4><svg aria-hidden="true"><use href="#i-check"/></svg>¡Listo! Aquí está tu infografía.</h4>
                             <p>La versión para empresa <span data-listo-tam></span>: las 10 cosas que debes saber y una lista para preparar el 1 de enero. Si quieres revisar tu caso, agenda tu llamada.</p>
                             <div class="done-ctas">
-                                <a class="btn btn-primary" href="infografias/reforma-40-horas-mediana.pdf" download data-listo-pdf data-evento="descarga_infografia"><svg aria-hidden="true"><use href="#i-doc"/></svg>Descargar PDF</a>
+                                <a class="btn btn-primary" href="/jornada/infografias/reforma-40-horas-mediana.pdf" download data-listo-pdf data-evento="descarga_infografia"><svg aria-hidden="true"><use href="#i-doc"/></svg>Descargar PDF</a>
                                 <a class="btn btn-outline" href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" data-evento="agenda_infografia">Agenda una llamada</a>
                             </div>
                         </div>
@@ -1064,7 +1065,14 @@
 
     <a class="wa" href="https://wa.me/524464066544?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20registro%20de%20jornada" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" data-evento="whatsapp_flotante"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
 
-    <script src="sim.js"></script>
+    <script>
+        // Red de seguridad: si cualquier script falla, el contenido no se queda invisible
+        window.addEventListener('error', function () {
+            var r = document.querySelectorAll('.reveal');
+            for (var i = 0; i < r.length; i++) r[i].classList.add('on');
+        });
+    </script>
+    <script src="/jornada/sim.js"></script>
     <script>
     (function () {
         'use strict';
