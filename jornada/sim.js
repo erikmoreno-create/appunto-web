@@ -7,7 +7,7 @@
  *   window.Caras.svg(persona)          -> string con el SVG de una carita
  *   window.Caras.gente                 -> catálogo de personas de ejemplo
  *   window.SimOdoo.montar(nodo)        -> monta el simulador en un contenedor
- *   window.SimOdoo.escena(clave)       -> cambia de escena (oficina, planta, campo, sucursales)
+ *   window.SimOdoo.escena(clave)       -> cambia de escena (computadora, kiosco, biometrico, movil)
  */
 (function () {
     'use strict';
@@ -92,7 +92,7 @@
     var CURSOR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 7.2-6.4 1.6L10 18.4z" fill="#111" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>';
 
     var ESCENAS = {
-        oficina: {
+        computadora: {
             app: 'Asistencias', menu: ['Mi asistencia', 'Vista general', 'Informes'], activo: 1,
             html: function () {
                 return '' +
@@ -127,13 +127,13 @@
                 ['mover', 'filas'], ['espera', 2600]
             ]
         },
-        planta: {
+        kiosco: {
             app: 'Asistencias · Kiosco', menu: [], kiosco: true,
             html: function () {
                 var quienes = ['jorge', 'rosa', 'hugo', 'maria', 'diego', 'karla'];
                 return '' +
                 '<div class="so-kiosk" data-t="k1">' +
-                    '<p class="so-k-title">Planta Querétaro · Turno vespertino</p>' +
+                    '<p class="so-k-title">Recepción · Oficinas Querétaro</p>' +
                     '<p class="so-k-sub">Toca tu foto o pasa tu gafete</p>' +
                     '<div class="so-k-grid">' + quienes.map(function (q) {
                         return '<button class="so-k-emp" data-t="emp-' + q + '">' + cara(q, 'lg') + '<span>' + gente[q].nombre.split(' ')[0] + '</span></button>';
@@ -149,7 +149,7 @@
                 '</div>' +
                 '<div class="so-kiosk so-k-done" data-t="k3" hidden>' +
                     '<div class="so-k-check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>' +
-                    '<p class="so-k-title">¡Entrada registrada!</p><p class="so-k-sub">Jorge López · 13:56 · Turno vespertino</p>' +
+                    '<p class="so-k-title">¡Entrada registrada!</p><p class="so-k-sub">Jorge López · 08:56 · Recepción</p>' +
                     '<p class="so-k-note">Llevas 38.0 h esta semana · tope 46 h</p>' +
                 '</div>';
             },
@@ -162,7 +162,7 @@
                 ['espera', 3200]
             ]
         },
-        campo: {
+        movil: {
             app: 'Odoo · App móvil', menu: [], movil: true,
             html: function () {
                 return '' +
@@ -182,45 +182,63 @@
                 ['espera', 3200]
             ]
         },
-        sucursales: {
-            app: 'Asistencias', menu: ['Vista general', 'Horas extra', 'Informes'], activo: 1,
+        biometrico: {
+            app: 'Asistencias', menu: ['Vista general', 'Turnos', 'Informes'], activo: 0, bio: true,
             html: function () {
                 return '' +
-                '<div class="so-kpis">' +
-                    kpi('Centro', '12 / 12') + kpi('Juriquilla', '9 / 10') + kpi('El Marqués', '7 / 8') +
-                '</div>' +
-                '<p class="so-h">Horas extra por aprobar</p>' +
-                '<div class="so-ot">' +
-                    ot('rosa', 'Rosa Martínez', 'Centro · 1.5 h', 'a1') +
-                    ot('omar', 'Omar Benítez', 'Juriquilla · 1.0 h', 'a2') +
-                    ot('elena', 'Elena Fuentes', 'El Marqués · 0.5 h', 'a3') +
-                '</div>' +
-                '<div class="so-alert" data-t="alerta" hidden><b>Alerta:</b> Elena está a 1.5 h del tope semanal.</div>';
+                '<div class="so-bio">' +
+                    '<div class="so-reader" data-t="lector">' +
+                        '<div class="so-lcd" data-t="lcd"><b data-t="lcd1">13:56</b><span data-t="lcd2">Coloca tu dedo</span></div>' +
+                        '<div class="so-pad-bio" data-t="pad">' + HUELLA + '<i class="so-scan"></i></div>' +
+                        '<span class="so-led" data-t="led"></span>' +
+                        '<small>Lector de huella · Acceso planta</small>' +
+                    '</div>' +
+                    '<div class="so-bio-list">' +
+                        '<p class="so-h">Turno vespertino · Planta Querétaro</p>' +
+                        '<div data-t="lista">' +
+                            bioFila('hugo', 'Hugo Sánchez', '13:48') +
+                            bioFila('karla', 'Karla Vega', '13:51') +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
             },
             guion: [
                 ['espera', 900],
-                ['mover', 'a1'], ['clic', 'a1', aprobar('a1')],
-                ['espera', 500],
-                ['mover', 'a2'], ['clic', 'a2', aprobar('a2')],
+                ['hacer', function (s) { s.t('pad').classList.add('leyendo'); s.t('lcd2').textContent = 'Leyendo…'; }],
+                ['espera', 1300],
+                ['hacer', function (s) {
+                    s.t('pad').classList.remove('leyendo'); s.t('led').classList.add('ok');
+                    s.t('lcd1').textContent = 'Jorge López'; s.t('lcd2').textContent = 'Entrada 13:56 ✓';
+                }],
                 ['espera', 700],
-                ['hacer', function (s) { s.t('alerta').hidden = false; }],
-                ['mover', 'alerta'], ['espera', 3000]
+                ['hacer', function (s) { s.t('lista').insertAdjacentHTML('afterbegin', bioFila('jorge', 'Jorge López', '13:56', true)); }],
+                ['espera', 1500],
+                ['hacer', function (s) {
+                    s.t('led').classList.remove('ok'); s.t('lcd1').textContent = '13:57'; s.t('lcd2').textContent = 'Coloca tu dedo';
+                    s.t('pad').classList.add('leyendo'); s.t('lcd2').textContent = 'Leyendo…';
+                }],
+                ['espera', 1300],
+                ['hacer', function (s) {
+                    s.t('pad').classList.remove('leyendo'); s.t('led').classList.add('ok');
+                    s.t('lcd1').textContent = 'Rosa Martínez'; s.t('lcd2').textContent = 'Entrada 13:57 ✓';
+                }],
+                ['espera', 700],
+                ['hacer', function (s) { s.t('lista').insertAdjacentHTML('afterbegin', bioFila('rosa', 'Rosa Martínez', '13:57', true)); }],
+                ['espera', 2600]
             ]
         }
     };
+
+    var HUELLA = '<svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M6.5 7.5A7 7 0 0 1 19 12v2"/><path d="M5 11v1a7 7 0 0 0 1.2 4"/><path d="M12 12v3a5 5 0 0 1-1 3"/><path d="M8.5 12a3.5 3.5 0 0 1 7 0v1.5a9 9 0 0 1-.8 3.7"/><path d="M8 5.2A7.5 7.5 0 0 1 17.6 6"/></g></svg>';
+
+    function bioFila(clave, nombre, hora, nueva) {
+        return '<div class="so-bio-row' + (nueva ? ' nueva' : '') + '">' + cara(clave, 'sm') + '<div><b>' + nombre + '</b><small>Huella · Acceso planta</small></div><span class="so-chip">Entrada ' + hora + '</span></div>';
+    }
 
     function fila(clave, nombre, ent, sal, hrs, nueva) {
         var c = gente[clave] ? cara(clave, 'xs') : '<span class="cara xs ini">' + nombre.split(' ').map(function (w) { return w[0]; }).join('') + '</span>';
         return '<tr' + (nueva ? ' class="nueva"' : '') + '><td><span class="so-emp">' + c + nombre + '</span></td><td>' + ent + '</td><td>' + sal + '</td><td>' + hrs + '</td></tr>';
     }
-    function kpi(sede, val) { return '<div class="so-kpi"><small>' + sede + '</small><b>' + val + '</b><span>presentes</span></div>'; }
-    function ot(clave, nombre, det, id) {
-        return '<div class="so-ot-row">' + cara(clave, 'sm') + '<div><b>' + nombre + '</b><small>' + det + '</small></div><button data-t="' + id + '">Aprobar</button></div>';
-    }
-    function aprobar(id) {
-        return function (s) { var b = s.t(id); b.textContent = 'Aprobada'; b.classList.add('ok'); };
-    }
-
     var sim = null;
 
     function montar(nodo) {
@@ -275,7 +293,7 @@
 
     function pintar(clave) {
         var e = ESCENAS[clave];
-        sim.win.className = 'so-win' + (e.kiosco ? ' kiosco' : '') + (e.movil ? ' movil' : '');
+        sim.win.className = 'so-win' + (e.kiosco ? ' kiosco' : '') + (e.movil ? ' movil' : '') + (e.bio ? ' bio' : '');
         sim.raiz.querySelector('.so-app').textContent = e.app;
         sim.raiz.querySelector('.so-menu').innerHTML = (e.menu || []).map(function (m, i) {
             return '<span' + (i === e.activo ? ' class="on"' : '') + '>' + m + '</span>';
