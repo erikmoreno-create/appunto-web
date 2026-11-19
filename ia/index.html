@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDXKBMMKZ9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDXKBMMKZ9');
+    </script>
+    <!-- Meta Pixel: el ID y los eventos viven en /meta-pixel.js -->
+    <script async src="/meta-pixel.js"></script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementaciones de IA para empresas en México | Appunto</title>
+    <link rel="canonical" href="https://appunto.mx/ia/">
+    <!-- Open Graph / Twitter Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Appunto">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:url" content="https://appunto.mx/ia/">
+    <meta property="og:title" content="Implementaciones de IA sobre procesos que ya funcionan">
+    <meta property="og:description" content="Implementamos IA sobre procesos de negocio probados: partimos de un sistema de código abierto como Odoo y usamos IA para adaptarlo a tu operación. Menos tiempo, menos costo y un sistema que se vuelve un activo de tu empresa.">
+    <meta property="og:image" content="https://appunto.mx/images/og-appunto.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Appunto — Tu mejor aliado tecnológico">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Implementaciones de IA sobre procesos que ya funcionan">
+    <meta name="twitter:description" content="Implementamos IA sobre procesos de negocio probados: partimos de un sistema de código abierto como Odoo y usamos IA para adaptarlo a tu operación. Menos tiempo, menos costo y un sistema que se vuelve un activo de tu empresa.">
+    <meta name="twitter:image" content="https://appunto.mx/images/og-appunto.png">
+    <meta name="description" content="Implementamos IA sobre procesos de negocio probados: partimos de un sistema de código abierto como Odoo y usamos IA para adaptarlo a tu operación. Menos tiempo, menos costo y un sistema que se vuelve un activo de tu empresa.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#31728D', 'primary-container': '#215c75', tertiary: '#991199', surface: '#F4F1ED', 'surface-container-low': '#ebe6e0', 'surface-container-lowest': '#ffffff', 'on-surface': '#191c1e', 'on-surface-variant': '#404547', 'outline-variant': '#cad1d6' }, fontFamily: { headline: ['Manrope', 'sans-serif'], body: ['Inter', 'sans-serif'] } } } }
+    </script>
+    <!-- JSON-LD. La organizacion vive en /organization.jsonld y aqui se referencia por @id. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://appunto.mx/ia/#webpage",
+                "url": "https://appunto.mx/ia/",
+                "name": "Implementaciones de IA para empresas en México | Appunto",
+                "description": "Implementamos IA sobre procesos de negocio probados: partimos de un sistema de código abierto como Odoo y usamos IA para adaptarlo a tu operación. Menos tiempo, menos costo y un sistema que se vuelve un activo de tu empresa.",
+                "inLanguage": "es-MX",
+                "isPartOf": {
+                    "@id": "https://appunto.mx/#website"
+                },
+                "publisher": {
+                    "@id": "https://appunto.mx/#organization"
+                },
+                "about": {
+                    "@id": "https://appunto.mx/ia/#service"
+                }
+            },
+            {
+                "@type": "Service",
+                "@id": "https://appunto.mx/ia/#service",
+                "name": "Implementaciones de IA",
+                "serviceType": "Implementación de inteligencia artificial en procesos de negocio",
+                "description": "Implementación de IA sobre procesos de negocio probados: se parte de un sistema de código abierto como Odoo y la IA lo adapta a la operación de cada empresa con automatizaciones, avisos por WhatsApp, alertas y asistentes.",
+                "url": "https://appunto.mx/ia/",
+                "provider": {
+                    "@id": "https://appunto.mx/#organization"
+                },
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "México"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Inicio",
+                        "item": "https://appunto.mx/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Implementaciones de IA",
+                        "item": "https://appunto.mx/ia/"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://appunto.mx/ia/#faq",
+                "url": "https://appunto.mx/ia/",
+                "mainEntityOfPage": {
+                    "@id": "https://appunto.mx/ia/#webpage"
+                },
+                "isPartOf": {
+                    "@id": "https://appunto.mx/ia/#webpage"
+                },
+                "inLanguage": "es-MX",
+                "about": {
+                    "@id": "https://appunto.mx/ia/#service"
+                },
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "¿Por qué no construir mi sistema desde cero con IA?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Porque la IA es muy buena para acelerar y muy mala para inventar un proceso de negocio que nadie ha definido. Cuando se construye desde cero, cada módulo abre la necesidad de otro (CRM, cotizador, facturación, cuentas por cobrar, inventario) y cada ajuste cuesta más tiempo y más tokens. Partir de un sistema de código abierto con procesos ya probados te da la base, y la IA se usa para adaptarla a tu operación."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Necesito tener Odoo para implementar IA con Appunto?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No necesariamente. Si tu proceso ya vive en un sistema que funciona, la IA se conecta ahí. Si el proceso no está definido o vive en hojas de cálculo, recomendamos partir de uno probado, y ahí Odoo suele ser el punto de partida porque cubre la operación de principio a fin."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Qué tipo de cosas implementan con IA?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Lo que más pedimos implementar son avisos y seguimiento por WhatsApp, alertas cuando algo se sale de lo normal, automatización de capturas y tareas repetitivas entre áreas, consultas a tus datos en lenguaje natural y asistentes que responden con la información de tu empresa. Lo que conviene en tu caso lo definimos en el diagnóstico."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Cuánto cuesta una implementación de IA?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Depende del alcance, por eso no publicamos tarifas. En el diagnóstico gratuito revisamos tu operación, definimos qué conviene automatizar primero y te entregamos una propuesta por etapas. Si la IA no tiene sentido para tu caso, también te lo decimos."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Qué pasa después de la implementación?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "El sistema queda documentado, controlado y en manos de tu equipo, para que se pueda ajustar y mejorar sin empezar de nuevo. Te acompañamos en la adopción y en las mejoras siguientes, sin plazo forzoso."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden relative">
+
+    <div class="fixed top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-tertiary/5 blur-[140px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/5 blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 transition-colors duration-300 border-b border-outline-variant/20">
+        <div class="flex justify-between items-center w-full px-6 sm:px-8 py-4 max-w-7xl mx-auto">
+            <a href="../" class="flex items-center">
+                <img src="../logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png" alt="Appunto" class="h-12 sm:h-14 w-auto">
+            </a>
+            <div class="hidden lg:flex items-center gap-8 font-medium">
+                <a href="../" class="text-on-surface-variant hover:text-tertiary transition-colors">Inicio</a>
+                <div class="relative group">
+                    <a href="../soluciones.html" class="text-primary border-b-2 border-primary pb-1 inline-flex items-center gap-1">Soluciones<svg class="w-4 h-4 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+                    <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block group-focus-within:block">
+                        <div class="w-80 bg-surface-container-lowest rounded-xl shadow-xl p-2">
+                            <a href="../ia/" aria-current="page" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors bg-surface-container-low"><span class="block font-bold text-on-surface">Implementaciones de IA</span><span class="block text-sm font-normal text-on-surface-variant">Procesos probados que la IA adapta a tu operación</span></a>
+                            <a href="../odoo/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">ERP</span><span class="block text-sm font-normal text-on-surface-variant">Odoo para operar en un solo sistema</span></a>
+                            <a href="../qlik/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">Gestión de datos</span><span class="block text-sm font-normal text-on-surface-variant">Qlik para integrar y analizar tus datos</span></a>
+                            <a href="../jornada/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">Reforma laboral</span><span class="block text-sm font-normal text-on-surface-variant">Registro electrónico de jornada, listo en Odoo</span></a>
+                        </div>
+                    </div>
+                </div>
+                <a href="../industrias.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Industrias</a>
+                <a href="../nosotros.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Nosotros</a>
+                <a href="../contacto.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Contacto</a>
+                <a href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" class="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-md font-bold hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    Agenda un diagnóstico gratuito
+                </a>
+            </div>
+            <button id="menu-movil-boton" type="button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 rounded-md text-on-surface hover:bg-surface-container-low transition-colors" aria-controls="menu-movil" aria-expanded="false" aria-label="Abrir menú">
+                <svg data-icono="abrir" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                <svg data-icono="cerrar" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+        </div>
+        <div id="menu-movil" class="lg:hidden hidden px-6 sm:px-8 pb-6 max-w-7xl mx-auto">
+            <div class="flex flex-col gap-1 font-medium">
+                <a href="../" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Inicio</a>
+                <a href="../soluciones.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Soluciones</a>
+                <div class="flex flex-col gap-1 ml-3 pl-3 border-l-2 border-outline-variant/40">
+                    <a href="../ia/" aria-current="page" class="block px-3 py-2.5 rounded-md text-primary font-bold bg-surface-container-low">Implementaciones de IA</a>
+                    <a href="../odoo/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">ERP</a>
+                    <a href="../qlik/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Gestión de datos</a>
+                    <a href="../jornada/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Reforma laboral</a>
+                </div>
+                <a href="../industrias.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Industrias</a>
+                <a href="../nosotros.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Nosotros</a>
+                <a href="../contacto.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Contacto</a>
+                <a href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" class="mt-3 text-center bg-gradient-to-br from-primary to-primary-container text-white px-6 py-3 rounded-md font-bold">Agenda un diagnóstico gratuito</a>
+            </div>
+        </div>
+        <script>
+            (function () {
+                var boton = document.getElementById('menu-movil-boton');
+                var menu = document.getElementById('menu-movil');
+                var abrir = boton.querySelector('[data-icono="abrir"]');
+                var cerrarIcono = boton.querySelector('[data-icono="cerrar"]');
+                function cerrar() {
+                    menu.classList.add('hidden');
+                    boton.setAttribute('aria-expanded', 'false');
+                    boton.setAttribute('aria-label', 'Abrir menú');
+                    abrir.classList.remove('hidden');
+                    cerrarIcono.classList.add('hidden');
+                }
+                boton.addEventListener('click', function () {
+                    var abierto = boton.getAttribute('aria-expanded') === 'true';
+                    if (abierto) { cerrar(); return; }
+                    menu.classList.remove('hidden');
+                    boton.setAttribute('aria-expanded', 'true');
+                    boton.setAttribute('aria-label', 'Cerrar menú');
+                    abrir.classList.add('hidden');
+                    cerrarIcono.classList.remove('hidden');
+                });
+                document.addEventListener('keydown', function (e) { if (e.key === 'Escape') cerrar(); });
+                window.matchMedia('(min-width: 1024px)').addEventListener('change', function (e) { if (e.matches) cerrar(); });
+            })();
+        </script>
+    </nav>
+
+    <main class="relative z-10">
+        <!-- Hero -->
+        <section class="pt-24 pb-24 md:pt-28">
+            <div class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+                <div>
+                    <span class="text-tertiary font-headline font-bold uppercase tracking-[0.2em] text-xs mb-6 block">Implementaciones de IA</span>
+                    <h1 class="text-5xl md:text-7xl font-headline font-black text-on-surface tracking-tighter leading-[1.05]">IA en tu operación, sobre procesos que <span class="bg-gradient-to-r from-primary to-tertiary bg-clip-text text-transparent">ya funcionan</span>.</h1>
+                    <p class="text-xl text-on-surface-variant leading-relaxed mt-8 max-w-xl">No empezamos desde cero. Partimos de un sistema de código abierto con procesos de negocio probados de principio a fin, y usamos IA para adaptarlo a cómo trabaja tu empresa.</p>
+                    <div class="flex flex-wrap gap-4 mt-10">
+                        <a href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" class="bg-gradient-to-br from-primary to-primary-container text-white px-8 py-4 rounded-md font-bold text-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">Agenda un diagnóstico gratuito</a>
+                        <a href="#enfoque" class="bg-surface-container-lowest text-primary px-8 py-4 rounded-md font-bold text-lg hover:shadow-lg transition-all">Cómo lo hacemos</a>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-primary to-primary-container rounded-[40px] p-8 sm:p-12 shadow-2xl text-white">
+                    <p class="font-headline font-bold uppercase tracking-widest text-xs text-white/70 mb-8">Nuestra postura</p>
+                    <p class="text-3xl sm:text-4xl font-headline font-black leading-tight">La IA acelera.<br>El proceso es el que dirige.</p>
+                    <ol class="mt-10 space-y-3">
+                        <li class="flex items-center gap-4 bg-white/10 rounded-2xl px-5 py-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-white/15 flex items-center justify-center"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M4 12h16M4 18h7"/><circle cx="18" cy="6" r="2"/><circle cx="15" cy="18" r="2"/></svg></span><span><b class="block">Un proceso probado</b><span class="text-sm text-white/75">De principio a fin, en código abierto</span></span></li>
+                        <li class="flex items-center gap-4 bg-white/10 rounded-2xl px-5 py-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-white/15 flex items-center justify-center"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></span><span><b class="block">IA que lo adapta</b><span class="text-sm text-white/75">A la operación de tu empresa</span></span></li>
+                        <li class="flex items-center gap-4 bg-white/10 rounded-2xl px-5 py-4"><span class="w-10 h-10 shrink-0 rounded-xl bg-white/15 flex items-center justify-center"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V7z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><span><b class="block">Un activo de tu organización</b><span class="text-sm text-white/75">Controlado, fácil de ajustar y de mejorar</span></span></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- El problema -->
+        <section class="py-24 bg-surface-container-low/60">
+            <div class="max-w-4xl mx-auto px-6 sm:px-8">
+                <span class="text-tertiary font-headline font-bold uppercase tracking-[0.2em] text-xs mb-4 block">El error más caro</span>
+                <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-10">No es ignorar la IA. Es usarla para reinventar lo que ya funciona.</h2>
+                <div class="space-y-6 text-lg text-on-surface-variant leading-relaxed">
+                    <p>Lo vemos seguido. Una empresa construye su CRM con IA, sin perfil técnico y en pocas semanas. Al terminarlo se da cuenta de que le falta el cotizador. Después, la facturación. Luego proveedores, cuentas por cobrar, inventario: los módulos que cualquier negocio, pequeño, mediano o grande, necesita para operar.</p>
+                    <p>Cada requerimiento abre otro. Al final, cada ajuste cuesta más tiempo y más tokens, y nadie tiene claro cómo mantener lo que se construyó.</p>
+                </div>
+                <p class="mt-10 text-2xl font-headline font-bold text-on-surface border-l-4 border-tertiary pl-6">El problema no fue la IA. Fue pedirle que diseñara un proceso de negocio que nunca se había definido.</p>
+            </div>
+        </section>
+
+        <!-- Enfoque -->
+        <section class="py-24 scroll-mt-24" id="enfoque">
+            <div class="max-w-7xl mx-auto px-6 sm:px-8">
+                <div class="max-w-3xl mb-16">
+                    <span class="text-tertiary font-headline font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Cómo lo hacemos</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-6">No hace falta empezar desde cero.</h2>
+                    <p class="text-xl text-on-surface-variant leading-relaxed">Es mucho más eficiente partir de un sistema con un proceso de negocio probado y que la IA lo adapte a la operación de cada empresa.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-surface-container-lowest rounded-3xl p-8">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M4 12h16M4 18h7"/><circle cx="18" cy="6" r="2"/><circle cx="15" cy="18" r="2"/></svg></div>
+                        <h3 class="text-xl font-headline font-bold mb-3">Partimos de un proceso probado</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Usamos un sistema de código abierto como Odoo, que ya resuelve ventas, compras, inventario, facturación y finanzas de principio a fin. Lo que ya funciona no se reinventa.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-3xl p-8">
+                        <div class="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center mb-6"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></div>
+                        <h3 class="text-xl font-headline font-bold mb-3">La IA lo adapta a tu operación</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Automatizaciones, avisos, alertas y asistentes que se ajustan a cómo trabaja tu equipo, en lugar de obligarlo a cambiar todo.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-3xl p-8">
+                        <div class="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-6"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V7z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div>
+                        <h3 class="text-xl font-headline font-bold mb-3">Queda un activo, no un experimento</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Un sistema controlado, fácil de ajustar y de mejorar, documentado y en manos de tu equipo. Menos tiempo, menos costo y menos prueba y error.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qué implementamos -->
+        <section class="py-24 bg-surface-container-low/60">
+            <div class="max-w-7xl mx-auto px-6 sm:px-8">
+                <div class="max-w-3xl mb-16">
+                    <span class="text-tertiary font-headline font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Qué implementamos</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-6">IA donde se nota en la operación.</h2>
+                    <p class="text-xl text-on-surface-variant leading-relaxed">Algunos ejemplos de lo que dejamos funcionando. Qué conviene en tu caso lo definimos juntos en el diagnóstico.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center mb-6"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"/></svg></div>
+                        <h3 class="text-xl font-headline font-bold mb-3">Avisos y seguimiento por WhatsApp</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Recordatorios, confirmaciones y correcciones que llegan a la persona correcta sin que alguien tenga que perseguirla.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center mb-6"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div>
+                        <h3 class="text-xl font-headline font-bold mb-3">Alertas de desviaciones</h3>
+                        <p class="text-on-surface-variant leading-relaxed">La IA vigila lo que se sale de lo normal (un pedido atorado, un registro incompleto, un gasto fuera de rango) y te avisa antes de que sea un problema.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center mb-6"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3L20 9M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-14 5.3L4 15M4 20v-5h5"/></svg></div>
+                        <h3 class="text-xl font-headline font-bold mb-3">Automatización entre áreas</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Capturas, conciliaciones y tareas repetitivas que hoy se hacen a mano y pasan de un área a otra por correo o Excel.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center mb-6"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 4-6"/></svg></div>
+                        <h3 class="text-xl font-headline font-bold mb-3">Consultas a tus datos en lenguaje natural</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Preguntas como “¿qué clientes bajaron sus compras este trimestre?” respondidas con tus propios datos, sin esperar un reporte.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center mb-6"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 5h14v10H9l-4 4z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></div>
+                        <h3 class="text-xl font-headline font-bold mb-3">Asistentes con la información de tu empresa</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Un asistente que contesta con tus políticas, catálogos y procesos, para tu equipo o para tus clientes.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-3xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center mb-6"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div>
+                        <h3 class="text-xl font-headline font-bold mb-3">Procesos completos de punta a punta</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Como el registro electrónico de jornada: Odoo lleva el proceso y la IA hace el seguimiento con tu equipo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ejemplo: jornada -->
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-6 sm:px-8">
+                <a href="../jornada/" class="group grid grid-cols-1 lg:grid-cols-5 gap-10 items-center bg-[#0b2431] text-white rounded-[40px] p-10 md:p-14 overflow-hidden shadow-2xl hover:-translate-y-1 transition-all">
+                    <div class="lg:col-span-3">
+                        <span class="font-headline font-bold uppercase tracking-[0.2em] text-xs text-white/60 mb-4 block">Un ejemplo concreto · Reforma laboral</span>
+                        <h2 class="text-3xl md:text-4xl font-headline font-black tracking-tight mb-6">Registro electrónico de jornada, listo en Odoo y con IA.</h2>
+                        <p class="text-lg text-white/75 leading-relaxed">La reforma a la Ley Federal del Trabajo obliga a registrar la entrada y salida de cada trabajador desde el 1 de enero de 2027. Odoo lleva el registro y la nómina; la IA le escribe por WhatsApp a quien olvidó checar y te alerta de desviaciones.</p>
+                    </div>
+                    <div class="lg:col-span-2 lg:justify-self-end">
+                        <span class="inline-flex items-center gap-3 bg-white text-[#0b2431] px-7 py-4 rounded-md font-bold text-lg group-hover:shadow-xl transition-all">Ver la solución <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Para quién -->
+        <section class="py-24 bg-surface-container-low/60">
+            <div class="max-w-7xl mx-auto px-6 sm:px-8">
+                <div class="max-w-3xl mb-16">
+                    <span class="text-tertiary font-headline font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Para quién es</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight">¿Cuál de estas situaciones describe la tuya?</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-surface-container-lowest rounded-3xl p-8">
+                        <span class="text-tertiary font-headline font-black text-3xl block mb-4">01</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Ya probaste IA y se quedó en piloto</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Hubo una demo que se veía bien, pero nunca llegó a la operación diaria.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-3xl p-8">
+                        <span class="text-tertiary font-headline font-black text-3xl block mb-4">02</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Tu equipo tiene licencias, pero cada quien la usa a su manera</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Hay entusiasmo, pero no hay un proceso que diga qué se automatiza y quién responde por el resultado.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-3xl p-8">
+                        <span class="text-tertiary font-headline font-black text-3xl block mb-4">03</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Construiste algo con IA y ya no sabes mantenerlo</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Cada cambio rompe otra cosa y cada ajuste cuesta más tiempo y más tokens.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest rounded-3xl p-8">
+                        <span class="text-tertiary font-headline font-black text-3xl block mb-4">04</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Quieres empezar y no sabes por dónde</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Sabes que la IA puede ahorrarte horas, pero no qué conviene primero ni cuánto cuesta hacerlo bien.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metodología -->
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-6 sm:px-8">
+                <div class="max-w-3xl mb-16">
+                    <span class="text-tertiary font-headline font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Cómo trabajamos</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-6">Por etapas, con resultados en cada una.</h2>
+                    <p class="text-xl text-on-surface-variant leading-relaxed">La misma metodología con la que implementamos Odoo y Qlik, ahora con IA en el centro.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="relative bg-surface-container-lowest rounded-3xl p-8">
+                        <span class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-container text-white font-headline font-black flex items-center justify-center mb-6">1</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Diagnóstico</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Entendemos cómo opera tu empresa hoy y dónde se pierde el tiempo. Sin costo.</p>
+                    </div>
+                    <div class="relative bg-surface-container-lowest rounded-3xl p-8">
+                        <span class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-container text-white font-headline font-black flex items-center justify-center mb-6">2</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Diseño</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Definimos el proceso base y qué partes conviene automatizar primero, por etapas.</p>
+                    </div>
+                    <div class="relative bg-surface-container-lowest rounded-3xl p-8">
+                        <span class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-container text-white font-headline font-black flex items-center justify-center mb-6">3</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Implementación</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Configuramos el sistema, conectamos la IA y la probamos con tu equipo en casos reales.</p>
+                    </div>
+                    <div class="relative bg-surface-container-lowest rounded-3xl p-8">
+                        <span class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-container text-white font-headline font-black flex items-center justify-center mb-6">4</span>
+                        <h3 class="text-xl font-headline font-bold mb-3">Acompañamiento</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Medimos, ajustamos y mejoramos. El sistema queda documentado y en manos de tu equipo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preguntas frecuentes -->
+        <section class="py-24 bg-surface-container-low/60 scroll-mt-24" id="preguntas-frecuentes">
+            <div class="max-w-3xl mx-auto px-6 sm:px-8">
+                <span class="text-tertiary font-headline font-bold uppercase tracking-[0.2em] text-xs mb-4 block">Preguntas frecuentes</span>
+                <h2 class="text-4xl md:text-5xl font-headline font-black tracking-tight mb-12">Lo que nos preguntan antes de implementar IA.</h2>
+                <div class="space-y-4">
+                    <details class="group bg-surface-container-lowest rounded-2xl px-8 py-6">
+                        <summary class="flex items-center justify-between gap-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden font-headline font-bold text-lg">
+                            <span>¿Por qué no construir mi sistema desde cero con IA?</span>
+                            <svg class="w-6 h-6 text-tertiary shrink-0 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </summary>
+                        <p class="text-on-surface-variant leading-relaxed mt-4">Porque la IA es muy buena para acelerar y muy mala para inventar un proceso de negocio que nadie ha definido. Cuando se construye desde cero, cada módulo abre la necesidad de otro (CRM, cotizador, facturación, cuentas por cobrar, inventario) y cada ajuste cuesta más tiempo y más tokens. Partir de un sistema de código abierto con procesos ya probados te da la base, y la IA se usa para adaptarla a tu operación.</p>
+                    </details>
+                    <details class="group bg-surface-container-lowest rounded-2xl px-8 py-6">
+                        <summary class="flex items-center justify-between gap-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden font-headline font-bold text-lg">
+                            <span>¿Necesito tener Odoo para implementar IA con Appunto?</span>
+                            <svg class="w-6 h-6 text-tertiary shrink-0 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </summary>
+                        <p class="text-on-surface-variant leading-relaxed mt-4">No necesariamente. Si tu proceso ya vive en un sistema que funciona, la IA se conecta ahí. Si el proceso no está definido o vive en hojas de cálculo, recomendamos partir de uno probado, y ahí Odoo suele ser el punto de partida porque cubre la operación de principio a fin.</p>
+                    </details>
+                    <details class="group bg-surface-container-lowest rounded-2xl px-8 py-6">
+                        <summary class="flex items-center justify-between gap-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden font-headline font-bold text-lg">
+                            <span>¿Qué tipo de cosas implementan con IA?</span>
+                            <svg class="w-6 h-6 text-tertiary shrink-0 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </summary>
+                        <p class="text-on-surface-variant leading-relaxed mt-4">Lo que más pedimos implementar son avisos y seguimiento por WhatsApp, alertas cuando algo se sale de lo normal, automatización de capturas y tareas repetitivas entre áreas, consultas a tus datos en lenguaje natural y asistentes que responden con la información de tu empresa. Lo que conviene en tu caso lo definimos en el diagnóstico.</p>
+                    </details>
+                    <details class="group bg-surface-container-lowest rounded-2xl px-8 py-6">
+                        <summary class="flex items-center justify-between gap-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden font-headline font-bold text-lg">
+                            <span>¿Cuánto cuesta una implementación de IA?</span>
+                            <svg class="w-6 h-6 text-tertiary shrink-0 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </summary>
+                        <p class="text-on-surface-variant leading-relaxed mt-4">Depende del alcance, por eso no publicamos tarifas. En el diagnóstico gratuito revisamos tu operación, definimos qué conviene automatizar primero y te entregamos una propuesta por etapas. Si la IA no tiene sentido para tu caso, también te lo decimos.</p>
+                    </details>
+                    <details class="group bg-surface-container-lowest rounded-2xl px-8 py-6">
+                        <summary class="flex items-center justify-between gap-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden font-headline font-bold text-lg">
+                            <span>¿Qué pasa después de la implementación?</span>
+                            <svg class="w-6 h-6 text-tertiary shrink-0 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+                        </summary>
+                        <p class="text-on-surface-variant leading-relaxed mt-4">El sistema queda documentado, controlado y en manos de tu equipo, para que se pueda ajustar y mejorar sin empezar de nuevo. Te acompañamos en la adopción y en las mejoras siguientes, sin plazo forzoso.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-32">
+            <div class="max-w-4xl mx-auto px-6 sm:px-8 text-center">
+                <h2 class="text-4xl md:text-6xl font-headline font-black mb-6">¿Tu equipo está construyendo con IA sobre un proceso definido, o sobre la marcha?</h2>
+                <p class="text-xl text-on-surface-variant mb-10 max-w-2xl mx-auto leading-relaxed">Una sesión de diagnóstico de 30 minutos, sin costo y sin compromiso. Revisamos tu operación, qué conviene automatizar primero y si la IA tiene sentido para tu caso. Si no lo tiene, también te lo decimos.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" class="bg-gradient-to-br from-primary to-primary-container text-white px-10 py-5 rounded-md font-bold text-lg hover:shadow-xl hover:-translate-y-1 transition-all">Agenda un diagnóstico gratuito</a>
+                    <a href="https://wa.me/524464066544" target="_blank" rel="noopener" class="bg-surface-container-lowest text-primary px-10 py-5 rounded-md font-bold text-lg hover:shadow-lg transition-all">Escríbenos por WhatsApp</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low border-t border-outline-variant/30 text-on-surface py-20">
+        <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-12 font-body text-sm leading-relaxed">
+            <div class="col-span-1">
+                <img src="../logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png" alt="Appunto" class="h-12 mb-6">
+                <p class="text-on-surface-variant font-medium">Tu mejor aliado tecnológico.</p>
+                <p class="text-on-surface-variant">El éxito de tu empresa es nuestro éxito.</p>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-primary">Sitio</h4>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../">Inicio</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../soluciones.html">Soluciones</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../industrias.html">Industrias</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../nosotros.html">Nosotros</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../contacto.html">Contacto</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-primary">Soluciones</h4>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../ia/">Implementaciones de IA</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../odoo/">ERP</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../qlik/">Gestión de datos</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="../jornada/">Reforma laboral</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="font-bold text-primary">Contacto</h4>
+                <a class="text-on-surface-variant hover:text-tertiary font-bold" href="mailto:contacto@appunto.mx">contacto@appunto.mx</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="/avisodeprivacidad">Aviso de Privacidad</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/30 text-center text-on-surface-variant/70 text-xs">
+            © 2026 Appunto. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script defer src="../chatbot.js"></script>
+</body>
+</html>

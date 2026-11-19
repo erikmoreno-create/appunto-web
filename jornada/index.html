@@ -180,7 +180,10 @@
         .deadline b { white-space: nowrap; flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: var(--violet); color: #fff; font-family: var(--display); font-weight: 700; font-size: 13px; }
         .pulse { width: 7px; height: 7px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 0 rgba(255,255,255,.7); animation: pulse 1.8s infinite; }
         @keyframes pulse { 70% { box-shadow: 0 0 0 7px rgba(255,255,255,0); } 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); } }
-        .hero h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 800; margin-top: 22px; letter-spacing: -.03em; }
+        .hero h1 { font-size: clamp(34px, 4.4vw, 56px); font-weight: 800; margin-top: 22px; letter-spacing: -.03em; }
+        .hero-multa { margin-top: 22px; padding: 14px 18px; border-radius: 14px; background: rgba(153, 17, 153, .22); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16); border-left: 4px solid var(--violet); font-size: clamp(15px, 1.4vw, 17px); color: rgba(255, 255, 255, .9); max-width: 56ch; }
+        .hero-multa b { color: #fff; font-family: var(--display); font-weight: 800; }
+        .hero-multa small { display: block; margin-top: 4px; font-size: 12px; color: rgba(255, 255, 255, .6); }
         .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--sky), var(--orchid)); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .hero-sub { margin-top: 22px; font-size: clamp(17px, 1.7vw, 20px); color: rgba(255, 255, 255, .78); max-width: 54ch; }
         .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
@@ -762,8 +765,9 @@
             <div class="wrap hero-in">
                 <div>
                     <p class="deadline"><b><span class="pulse" aria-hidden="true"></span><span data-dias-corto>—</span></b> El registro de jornada es obligatorio el 1 de enero de 2027</p>
-                    <h1>Registro electrónico de <em>jornada laboral</em>, listo en Odoo.</h1>
-                    <p class="hero-sub">Con la reforma de reducción de la jornada laboral, las empresas deberán registrar de manera electrónica el horario de entrada y salida de cada trabajador. En Appunto lo implementamos en Odoo con IA, a la medida de cómo trabaja tu equipo.</p>
+                    <h1>La reforma a la Ley Federal del Trabajo obliga a tu empresa a <em>registrar la jornada</em> de cada trabajador.</h1>
+                    <p class="hero-multa"><b>Multas de 250 a 5,000 UMA</b> si no llevas el registro electrónico de entradas y salidas, lo alteras o rebasas los límites de la jornada. <small>Art. 994 de la Ley Federal del Trabajo.</small></p>
+                    <p class="hero-sub">En Appunto lo dejamos listo en Odoo y le sumamos IA: si alguien no registra su salida, le llega un WhatsApp para corregirlo, y tú ves las desviaciones antes de que sean un problema.</p>
                     <div class="hero-ctas">
                         <a class="btn btn-light" href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" data-evento="agenda_hero">Agenda una llamada <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
                         <a class="btn btn-ghost" href="#operacion">Mira cómo funciona</a>
@@ -1092,7 +1096,7 @@
                     <span class="eyebrow">Preguntas frecuentes</span>
                     <h2 style="margin-top:14px">Lo que más nos preguntan.</h2>
                     <p>Si tu duda no está aquí, escríbenos por WhatsApp o resuélvela en la llamada.</p>
-                    <a class="btn btn-primary" href="https://wa.me/524464066544?text=Hola%2C%20tengo%20una%20duda%20sobre%20el%20registro%20de%20jornada" target="_blank" rel="noopener" data-evento="whatsapp_faq"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pregunta por WhatsApp</a>
+                    <a class="btn btn-primary" href="https://wa.me/524429253989?text=Hola%2C%20tengo%20una%20duda%20sobre%20el%20registro%20electr%C3%B3nico%20de%20asistencia" target="_blank" rel="noopener" data-evento="whatsapp_faq"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pregunta por WhatsApp</a>
                 </div>
                 <div class="faq reveal">
                     <details>
@@ -1136,7 +1140,7 @@
                 <p class="reveal">En una llamada revisamos tu operación y te decimos cómo dejar listo tu registro de jornada en Odoo.</p>
                 <div class="hero-ctas reveal">
                     <a class="btn btn-light" href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" data-evento="agenda_cierre">Agenda tu llamada gratis <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-                    <a class="btn btn-ghost" href="https://wa.me/524464066544?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20registro%20de%20jornada" target="_blank" rel="noopener" data-evento="whatsapp_cierre">o habla con nosotros</a>
+                    <a class="btn btn-ghost" href="https://wa.me/524429253989?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20registro%20electr%C3%B3nico%20de%20asistencia" target="_blank" rel="noopener" data-evento="whatsapp_cierre">o habla con nosotros</a>
                 </div>
             </div>
         </section>
@@ -1150,7 +1154,7 @@
             </div>
             <div class="foot-links">
                 <a href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener">Agenda una llamada</a>
-                <a href="https://wa.me/524464066544" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://wa.me/524429253989" target="_blank" rel="noopener">WhatsApp</a>
                 <a href="mailto:contacto@appunto.mx">contacto@appunto.mx</a>
                 <a href="../">appunto.mx</a>
             </div>
@@ -1163,7 +1167,7 @@
 
     <div class="flota" data-flota>
         <a class="flota-agenda" href="https://appunto-mx.odoo.com/book/EU30" target="_blank" rel="noopener" data-evento="agenda_flotante"><span><svg aria-hidden="true"><use href="#i-cal"/></svg></span>Agenda tu llamada<em> gratis</em></a>
-        <a class="flota-wa" href="https://wa.me/524464066544?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20registro%20de%20jornada" target="_blank" rel="noopener" data-evento="whatsapp_flotante"><svg aria-hidden="true"><use href="#i-wa"/></svg>o escríbenos por WhatsApp</a>
+        <a class="flota-wa" href="https://wa.me/524429253989?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20registro%20electr%C3%B3nico%20de%20asistencia" target="_blank" rel="noopener" data-evento="whatsapp_flotante"><svg aria-hidden="true"><use href="#i-wa"/></svg>o escríbenos por WhatsApp</a>
     </div>
 
     <script>

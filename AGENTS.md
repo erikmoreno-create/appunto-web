@@ -25,7 +25,7 @@ BASE=$(git symbolic-ref --short refs/remotes/origin/HEAD | sed 's|origin/||')
 
 | Ruta | Qué es |
 |---|---|
-| `index.html` `nosotros.html` `soluciones.html` `industrias.html` `contacto.html` `odoo/index.html` `qlik/index.html` `avisodeprivacidad/index.html` | las 8 páginas del sitio |
+| `index.html` `nosotros.html` `soluciones.html` `industrias.html` `contacto.html` `odoo/index.html` `qlik/index.html` `ia/index.html` `avisodeprivacidad/index.html` | las 9 páginas del sitio |
 | `jornada/index.html` | landing de campaña con diseño propio (CSS a mano, sin Tailwind ni chatbot); ver `CLAUDE.md` |
 | `jornada/sim.js`, `jornada/img/`, `jornada/infografias/` | caritas y simulación ilustrativa de Odoo, imágenes y video generados con IA, y los 4 PDF de la infografía |
 | `css/` `js/` | **legacy: ninguna página los enlaza.** Editarlos no cambia nada del sitio |
@@ -61,7 +61,7 @@ Analytics que va en el `<head>` de cada página.
 - Textos en español de México.
 - Antes de cambiar diseño o copy, lee `DESIGN.md` y `contenido-web.md`.
 - **El nav (con su menú móvil), el footer, GA4, favicon y chatbot están duplicados
-  en las 8 páginas.** Si tocas uno, tócalos todos. El menú móvil es un `<button
+  en las 9 páginas.** Si tocas uno, tócalos todos. El menú móvil es un `<button
   id="menu-movil-boton">` con un panel `#menu-movil` y un `<script>` corto dentro
   del propio `<nav>`.
 

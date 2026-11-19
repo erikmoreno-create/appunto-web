@@ -87,9 +87,17 @@
             </a>
             <div class="hidden lg:flex items-center gap-8 font-medium">
                 <a href="./" class="text-on-surface-variant hover:text-tertiary transition-colors">Inicio</a>
-                <a href="soluciones.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Soluciones</a>
-                <a href="qlik/" class="text-on-surface-variant hover:text-tertiary transition-colors">Qlik</a>
-                <a href="odoo/" class="text-on-surface-variant hover:text-tertiary transition-colors">Odoo</a>
+                <div class="relative group">
+                    <a href="soluciones.html" class="text-on-surface-variant hover:text-tertiary transition-colors inline-flex items-center gap-1">Soluciones<svg class="w-4 h-4 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+                    <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block group-focus-within:block">
+                        <div class="w-80 bg-surface-container-lowest rounded-xl shadow-xl p-2">
+                            <a href="ia/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">Implementaciones de IA</span><span class="block text-sm font-normal text-on-surface-variant">Procesos probados que la IA adapta a tu operación</span></a>
+                            <a href="odoo/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">ERP</span><span class="block text-sm font-normal text-on-surface-variant">Odoo para operar en un solo sistema</span></a>
+                            <a href="qlik/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">Gestión de datos</span><span class="block text-sm font-normal text-on-surface-variant">Qlik para integrar y analizar tus datos</span></a>
+                            <a href="jornada/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">Reforma laboral</span><span class="block text-sm font-normal text-on-surface-variant">Registro electrónico de jornada, listo en Odoo</span></a>
+                        </div>
+                    </div>
+                </div>
                 <a href="industrias.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Industrias</a>
                 <a href="nosotros.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Nosotros</a>
                 <a href="contacto.html" aria-current="page" class="text-primary border-b-2 border-primary pb-1">Contacto</a>
@@ -106,8 +114,12 @@
             <div class="flex flex-col gap-1 font-medium">
                 <a href="./" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Inicio</a>
                 <a href="soluciones.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Soluciones</a>
-                <a href="qlik/" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Qlik</a>
-                <a href="odoo/" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Odoo</a>
+                <div class="flex flex-col gap-1 ml-3 pl-3 border-l-2 border-outline-variant/40">
+                    <a href="ia/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Implementaciones de IA</a>
+                    <a href="odoo/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">ERP</a>
+                    <a href="qlik/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Gestión de datos</a>
+                    <a href="jornada/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Reforma laboral</a>
+                </div>
                 <a href="industrias.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Industrias</a>
                 <a href="nosotros.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Nosotros</a>
                 <a href="contacto.html" aria-current="page" class="block px-3 py-3 rounded-md text-primary font-bold bg-surface-container-low">Contacto</a>

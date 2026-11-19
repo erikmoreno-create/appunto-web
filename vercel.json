@@ -18,6 +18,11 @@
       "permanent": true
     },
     {
+      "source": "/ia/index.html",
+      "destination": "/ia/",
+      "permanent": true
+    },
+    {
       "source": "/avisodeprivacidad/index.html",
       "destination": "/avisodeprivacidad/",
       "permanent": true

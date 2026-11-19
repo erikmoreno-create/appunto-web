@@ -1,8 +1,8 @@
 # Appunto
 
-> Consultoría de negocio y tecnología con sede en Querétaro, México. Ayuda a empresas con procesos desconectados o información dispersa a ordenar su operación y tomar mejores decisiones, implementando Odoo y Qlik con criterio de negocio antes que de herramienta. Razón social: APPUNTO MX, S.A. de C.V.
+> Consultoría de negocio y tecnología con sede en Querétaro, México. Ayuda a empresas con procesos desconectados o información dispersa a ordenar su operación y tomar mejores decisiones, implementando IA sobre procesos probados con Odoo y Qlik, con criterio de negocio antes que de herramienta. Razón social: APPUNTO MX, S.A. de C.V.
 
-Appunto trabaja con dos soluciones. **Odoo** es un ERP modular para PyMEs y empresas medianas que crecieron con Excel y herramientas sueltas: conecta ventas, compras, inventario y finanzas para eliminar la doble captura y el retrabajo entre áreas. **Qlik** cubre integración y analítica de datos: Qlik Data Integration unifica las fuentes y Qlik Analytics construye la lectura del negocio que la dirección necesita para decidir.
+Su línea principal son las **implementaciones de IA**: en lugar de construir sistemas desde cero, parte de un sistema de código abierto con procesos de negocio probados (normalmente Odoo) y usa IA para adaptarlo a la operación de cada empresa, con automatizaciones, avisos por WhatsApp, alertas de desviaciones y asistentes. Las otras dos líneas son la base de ese trabajo. **Odoo** es un ERP modular para PyMEs y empresas medianas que crecieron con Excel y herramientas sueltas: conecta ventas, compras, inventario y finanzas para eliminar la doble captura y el retrabajo entre áreas. **Qlik** cubre integración y analítica de datos: Qlik Data Integration unifica las fuentes y Qlik Analytics construye la lectura del negocio que la dirección necesita para decidir.
 
 La metodología tiene cuatro pasos: Diagnóstico, Diseño, Implementación y Acompañamiento. El principio de trabajo es no partir de la herramienta sino del negocio; si una solución no aplica para una empresa, se dice directo.
 
@@ -13,7 +13,8 @@ Nota para agentes: la descripción estructurada de la organización, en JSON-LD,
 ## Páginas
 
 - [Inicio](https://appunto.mx/): propuesta de valor, el problema que resuelve Appunto, la metodología de cuatro pasos y preguntas frecuentes sobre la empresa (a qué se dedica, tamaño de cliente, cobertura geográfica).
-- [Soluciones](https://appunto.mx/soluciones.html): panorama de las dos líneas de servicio, integración de procesos con Odoo e integración y analítica de datos con Qlik.
+- [Implementaciones de IA](https://appunto.mx/ia/): el enfoque de Appunto para implementar IA sobre procesos probados, qué implementa (avisos por WhatsApp, alertas, automatización entre áreas, consultas en lenguaje natural, asistentes), cómo trabaja y preguntas frecuentes sobre por qué no construir desde cero, si se necesita Odoo, el costo y el acompañamiento.
+- [Soluciones](https://appunto.mx/soluciones.html): panorama de las líneas de servicio: implementaciones de IA, integración de procesos con Odoo e integración y analítica de datos con Qlik.
 - [Odoo](https://appunto.mx/odoo/): implementación de Odoo, módulos cubiertos (Ventas, CRM, Inventarios, Manufactura, Contabilidad, Facturación, Talento) a qué tipo de empresa aplica y preguntas frecuentes sobre el modelo de cobro, la duración, el estatus de partner, la migración de datos y el soporte posterior.
 - [Qlik](https://appunto.mx/qlik/): Qlik Data Integration y Qlik Analytics, para dirección general y perfiles CIO/CDO que necesitan visibilidad real del negocio, y preguntas frecuentes sobre la diferencia con Power BI o Tableau y la conexión con el ERP existente.
 - [Industrias](https://appunto.mx/industrias.html): las seis industrias atendidas y cómo se aborda cada una.
@@ -35,4 +36,4 @@ Nota para agentes: la descripción estructurada de la organización, en JSON-LD,
 
 ## Lo que Appunto no ofrece
 
-Para evitar atribuciones incorrectas: Appunto **no** vende licencias de software como reventa pura, no ofrece desarrollo de software a la medida desconectado de un proceso de negocio, y **no** publica tarifas ni plazos concretos en el sitio. Sí describe el modelo comercial —implementación por etapas cotizada en paquetes de horas, iguala mensual sin plazo forzoso, y la modalidad de Odoo Community sobre servidor administrado sin licencia por usuario—, pero cualquier cifra o estimación se define en un diagnóstico. Las líneas de servicio vigentes son Odoo y Qlik; la empresa está explorando soluciones de inteligencia artificial, pero al día de hoy no es una oferta formal.
+Para evitar atribuciones incorrectas: Appunto **no** vende licencias de software como reventa pura, no ofrece desarrollo de software a la medida desconectado de un proceso de negocio, y **no** publica tarifas ni plazos concretos en el sitio. Sí describe el modelo comercial —implementación por etapas cotizada en paquetes de horas, iguala mensual sin plazo forzoso, y la modalidad de Odoo Community sobre servidor administrado sin licencia por usuario—, pero cualquier cifra o estimación se define en un diagnóstico. Las líneas de servicio vigentes son implementaciones de IA (la principal), Odoo y Qlik, más la solución de registro electrónico de jornada para la reforma laboral.

@@ -56,7 +56,7 @@
                 "logo": "https://appunto.mx/logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png",
                 "image": "https://appunto.mx/logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png",
                 "slogan": "Tu mejor aliado tecnológico",
-                "description": "Consultoría de negocio y tecnología. Ayudamos a empresas con procesos desconectados o información dispersa a ordenar su operación y tomar mejores decisiones, implementando Odoo y Qlik con criterio de negocio antes que de herramienta.",
+                "description": "Consultoría de negocio y tecnología. Ayudamos a empresas con procesos desconectados o información dispersa a ordenar su operación y tomar mejores decisiones, implementando IA sobre procesos probados con Odoo y Qlik, con criterio de negocio antes que de herramienta.",
                 "email": "contacto@appunto.mx",
                 "telephone": "+52-446-406-6544",
                 "address": {
@@ -75,6 +75,8 @@
                     "es-MX"
                 ],
                 "knowsAbout": [
+                    "Implementación de inteligencia artificial",
+                    "Automatización de procesos con IA",
                     "Implementación de ERP",
                     "Odoo",
                     "Qlik",
@@ -83,6 +85,16 @@
                     "Integración de procesos operativos"
                 ],
                 "makesOffer": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Implementaciones de IA",
+                            "serviceType": "Implementación de inteligencia artificial en procesos de negocio",
+                            "description": "Implementación de IA sobre procesos de negocio probados: se parte de un sistema de código abierto como Odoo y la IA lo adapta a la operación de cada empresa con automatizaciones, avisos por WhatsApp, alertas y asistentes.",
+                            "url": "https://appunto.mx/ia/"
+                        }
+                    },
                     {
                         "@type": "Offer",
                         "itemOffered": {
@@ -192,7 +204,7 @@
                         "name": "¿Qué hace Appunto?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Appunto es una consultora de negocio y tecnología con sede en Querétaro, México. Implementamos Odoo (ERP) y Qlik (integración y analítica de datos) en empresas medianas mexicanas. Partimos del problema de negocio, no de la marca del software: primero entendemos cómo opera tu empresa y después definimos qué herramienta tiene sentido."
+                            "text": "Appunto es una consultora de negocio y tecnología con sede en Querétaro, México. Implementamos IA sobre procesos de negocio probados, con Odoo (ERP) y Qlik (integración y analítica de datos), en empresas medianas mexicanas. Partimos del problema de negocio, no de la marca del software: primero entendemos cómo opera tu empresa y después definimos qué herramienta tiene sentido."
                         }
                     },
                     {
@@ -216,7 +228,7 @@
                         "name": "¿Solo trabajan con Odoo y Qlik?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Son nuestras dos líneas de servicio. Odoo cubre la operación —ventas, compras, inventario, facturación— y Qlik cubre la integración y el análisis de datos. Cuando un proyecto no necesita ninguna de las dos, lo decimos."
+                            "text": "No. Nuestra línea principal son las implementaciones de IA, y las hacemos sobre procesos probados: Odoo cubre la operación —ventas, compras, inventario, facturación— y Qlik cubre la integración y el análisis de datos. La IA adapta esa base a cómo trabaja cada empresa. Cuando un proyecto no necesita nada de esto, lo decimos."
                         }
                     }
                 ]
@@ -238,9 +250,17 @@
             </a>
             <div class="hidden lg:flex items-center gap-8 font-medium">
                 <a href="./" aria-current="page" class="text-primary border-b-2 border-primary pb-1">Inicio</a>
-                <a href="soluciones.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Soluciones</a>
-                <a href="qlik/" class="text-on-surface-variant hover:text-tertiary transition-colors">Qlik</a>
-                <a href="odoo/" class="text-on-surface-variant hover:text-tertiary transition-colors">Odoo</a>
+                <div class="relative group">
+                    <a href="soluciones.html" class="text-on-surface-variant hover:text-tertiary transition-colors inline-flex items-center gap-1">Soluciones<svg class="w-4 h-4 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+                    <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block group-focus-within:block">
+                        <div class="w-80 bg-surface-container-lowest rounded-xl shadow-xl p-2">
+                            <a href="ia/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">Implementaciones de IA</span><span class="block text-sm font-normal text-on-surface-variant">Procesos probados que la IA adapta a tu operación</span></a>
+                            <a href="odoo/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">ERP</span><span class="block text-sm font-normal text-on-surface-variant">Odoo para operar en un solo sistema</span></a>
+                            <a href="qlik/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">Gestión de datos</span><span class="block text-sm font-normal text-on-surface-variant">Qlik para integrar y analizar tus datos</span></a>
+                            <a href="jornada/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">Reforma laboral</span><span class="block text-sm font-normal text-on-surface-variant">Registro electrónico de jornada, listo en Odoo</span></a>
+                        </div>
+                    </div>
+                </div>
                 <a href="industrias.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Industrias</a>
                 <a href="nosotros.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Nosotros</a>
                 <a href="contacto.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Contacto</a>
@@ -257,8 +277,12 @@
             <div class="flex flex-col gap-1 font-medium">
                 <a href="./" aria-current="page" class="block px-3 py-3 rounded-md text-primary font-bold bg-surface-container-low">Inicio</a>
                 <a href="soluciones.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Soluciones</a>
-                <a href="qlik/" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Qlik</a>
-                <a href="odoo/" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Odoo</a>
+                <div class="flex flex-col gap-1 ml-3 pl-3 border-l-2 border-outline-variant/40">
+                    <a href="ia/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Implementaciones de IA</a>
+                    <a href="odoo/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">ERP</a>
+                    <a href="qlik/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Gestión de datos</a>
+                    <a href="jornada/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Reforma laboral</a>
+                </div>
                 <a href="industrias.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Industrias</a>
                 <a href="nosotros.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Nosotros</a>
                 <a href="contacto.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Contacto</a>
@@ -599,7 +623,7 @@
                             <span>¿Qué hace Appunto?</span>
                             <span class="material-symbols-outlined text-primary shrink-0 transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
                         </summary>
-                        <p class="text-on-surface-variant leading-relaxed mt-4">Appunto es una consultora de negocio y tecnología con sede en Querétaro, México. Implementamos Odoo (ERP) y Qlik (integración y analítica de datos) en empresas medianas mexicanas. Partimos del problema de negocio, no de la marca del software: primero entendemos cómo opera tu empresa y después definimos qué herramienta tiene sentido.</p>
+                        <p class="text-on-surface-variant leading-relaxed mt-4">Appunto es una consultora de negocio y tecnología con sede en Querétaro, México. Implementamos IA sobre procesos de negocio probados, con Odoo (ERP) y Qlik (integración y analítica de datos), en empresas medianas mexicanas. Partimos del problema de negocio, no de la marca del software: primero entendemos cómo opera tu empresa y después definimos qué herramienta tiene sentido.</p>
                     </details>
                     <details class="group bg-surface-container-lowest rounded-2xl px-8 py-6">
                         <summary class="flex items-center justify-between gap-6 cursor-pointer list-none [&amp;::-webkit-details-marker]:hidden font-headline font-bold text-lg">
@@ -620,7 +644,7 @@
                             <span>¿Solo trabajan con Odoo y Qlik?</span>
                             <span class="material-symbols-outlined text-primary shrink-0 transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
                         </summary>
-                        <p class="text-on-surface-variant leading-relaxed mt-4">Son nuestras dos líneas de servicio. Odoo cubre la operación —ventas, compras, inventario, facturación— y Qlik cubre la integración y el análisis de datos. Cuando un proyecto no necesita ninguna de las dos, lo decimos.</p>
+                        <p class="text-on-surface-variant leading-relaxed mt-4">No. Nuestra línea principal son las implementaciones de IA, y las hacemos sobre procesos probados: Odoo cubre la operación —ventas, compras, inventario, facturación— y Qlik cubre la integración y el análisis de datos. La IA adapta esa base a cómo trabaja cada empresa. Cuando un proyecto no necesita nada de esto, lo decimos.</p>
                     </details>
                 </div>
             </div>
@@ -657,8 +681,10 @@
             </div>
             <div class="flex flex-col gap-4">
                 <h4 class="font-bold text-primary">Soluciones</h4>
-                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="soluciones.html">Integración de procesos (Odoo)</a>
-                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="soluciones.html">Integración y analítica de datos (Qlik)</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="ia/">Implementaciones de IA</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="odoo/">ERP</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="qlik/">Gestión de datos</a>
+                <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="jornada/">Reforma laboral</a>
             </div>
             <div class="flex flex-col gap-4">
                 <h4 class="font-bold text-primary">Contacto</h4>

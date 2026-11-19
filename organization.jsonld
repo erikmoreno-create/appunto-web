@@ -9,7 +9,7 @@
   "logo": "https://appunto.mx/logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png",
   "image": "https://appunto.mx/logos/ColorLogoNoBackgroundHorizontalNoSlogan800px.png",
   "slogan": "Tu mejor aliado tecnológico",
-  "description": "Consultoría de negocio y tecnología. Ayudamos a empresas con procesos desconectados o información dispersa a ordenar su operación y tomar mejores decisiones, implementando Odoo y Qlik con criterio de negocio antes que de herramienta.",
+  "description": "Consultoría de negocio y tecnología. Ayudamos a empresas con procesos desconectados o información dispersa a ordenar su operación y tomar mejores decisiones, implementando IA sobre procesos probados con Odoo y Qlik, con criterio de negocio antes que de herramienta.",
   "email": "contacto@appunto.mx",
   "telephone": "+52-446-406-6544",
   "address": {
@@ -26,6 +26,8 @@
   },
   "knowsLanguage": ["es-MX"],
   "knowsAbout": [
+    "Implementación de inteligencia artificial",
+    "Automatización de procesos con IA",
     "Implementación de ERP",
     "Odoo",
     "Qlik",
@@ -34,6 +36,16 @@
     "Integración de procesos operativos"
   ],
   "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Implementaciones de IA",
+        "serviceType": "Implementación de inteligencia artificial en procesos de negocio",
+        "description": "Implementación de IA sobre procesos de negocio probados: se parte de un sistema de código abierto como Odoo y la IA lo adapta a la operación de cada empresa con automatizaciones, avisos por WhatsApp, alertas y asistentes.",
+        "url": "https://appunto.mx/ia/"
+      }
+    },
     {
       "@type": "Offer",
       "itemOffered": {
