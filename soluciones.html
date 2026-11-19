@@ -93,9 +93,17 @@
             </a>
             <div class="hidden lg:flex items-center gap-8 font-medium">
                 <a href="./" class="text-on-surface-variant hover:text-tertiary transition-colors">Inicio</a>
-                <a href="soluciones.html" aria-current="page" class="text-primary border-b-2 border-primary pb-1">Soluciones</a>
-                <a href="qlik/" class="text-on-surface-variant hover:text-tertiary transition-colors">Qlik</a>
-                <a href="odoo/" class="text-on-surface-variant hover:text-tertiary transition-colors">Odoo</a>
+                <div class="relative group">
+                    <a href="soluciones.html" aria-current="page" class="text-primary border-b-2 border-primary pb-1 inline-flex items-center gap-1">Soluciones<svg class="w-4 h-4 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+                    <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 hidden group-hover:block group-focus-within:block">
+                        <div class="w-80 bg-surface-container-lowest rounded-xl shadow-xl p-2">
+                            <a href="ia/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">Implementaciones de IA</span><span class="block text-sm font-normal text-on-surface-variant">Procesos probados que la IA adapta a tu operación</span></a>
+                            <a href="odoo/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">ERP</span><span class="block text-sm font-normal text-on-surface-variant">Odoo para operar en un solo sistema</span></a>
+                            <a href="qlik/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">Gestión de datos</span><span class="block text-sm font-normal text-on-surface-variant">Qlik para integrar y analizar tus datos</span></a>
+                            <a href="jornada/" class="block px-4 py-3 rounded-lg hover:bg-surface-container-low transition-colors"><span class="block font-bold text-on-surface">Reforma laboral</span><span class="block text-sm font-normal text-on-surface-variant">Registro electrónico de jornada, listo en Odoo</span></a>
+                        </div>
+                    </div>
+                </div>
                 <a href="industrias.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Industrias</a>
                 <a href="nosotros.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Nosotros</a>
                 <a href="contacto.html" class="text-on-surface-variant hover:text-tertiary transition-colors">Contacto</a>
@@ -112,8 +120,12 @@
             <div class="flex flex-col gap-1 font-medium">
                 <a href="./" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Inicio</a>
                 <a href="soluciones.html" aria-current="page" class="block px-3 py-3 rounded-md text-primary font-bold bg-surface-container-low">Soluciones</a>
-                <a href="qlik/" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Qlik</a>
-                <a href="odoo/" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Odoo</a>
+                <div class="flex flex-col gap-1 ml-3 pl-3 border-l-2 border-outline-variant/40">
+                    <a href="ia/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Implementaciones de IA</a>
+                    <a href="odoo/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">ERP</a>
+                    <a href="qlik/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Gestión de datos</a>
+                    <a href="jornada/" class="block px-3 py-2.5 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Reforma laboral</a>
+                </div>
                 <a href="industrias.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Industrias</a>
                 <a href="nosotros.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Nosotros</a>
                 <a href="contacto.html" class="block px-3 py-3 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-tertiary transition-colors">Contacto</a>
@@ -211,6 +223,40 @@
 
         <!-- Soluciones -->
         <div id="soluciones"></div>
+        <!-- Solución 0 - Implementaciones de IA -->
+        <section class="py-20 scroll-mt-24" id="ia">
+            <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-tertiary font-headline font-bold uppercase tracking-widest text-sm mb-4 block">Implementaciones de IA</span>
+                    <h2 class="text-4xl md:text-5xl font-headline font-black text-on-surface mb-8">La IA acelera. El proceso es el que dirige.</h2>
+
+                    <h3 class="text-xl font-bold text-primary mb-2">¿Para quién es?</h3>
+                    <p class="text-on-surface-variant mb-6">Para empresas que quieren usar IA en su operación sin construir todo desde cero ni avanzar a prueba y error.</p>
+
+                    <h3 class="text-xl font-bold text-primary mb-2">Qué resolvemos</h3>
+                    <ul class="list-none space-y-2 mb-6 text-on-surface-variant">
+                        <li class="flex items-center gap-2"><span class="text-tertiary">✦</span> Sistemas hechos con IA sobre procesos que nunca se definieron.</li>
+                        <li class="flex items-center gap-2"><span class="text-tertiary">✦</span> Cada ajuste cuesta más tiempo y más tokens.</li>
+                        <li class="flex items-center gap-2"><span class="text-tertiary">✦</span> Herramientas sueltas que nadie sabe mantener.</li>
+                        <li class="flex items-center gap-2"><span class="text-tertiary">✦</span> Licencias de IA para todo el equipo, sin un proceso claro para usarlas.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-bold text-primary mb-2">Cómo lo hacemos</h3>
+                    <p class="text-on-surface-variant mb-6">Partimos de un sistema de código abierto con procesos de negocio probados de principio a fin y usamos IA para adaptarlo a la operación de tu empresa: automatizaciones, avisos por WhatsApp y alertas cuando algo se sale de lo normal.</p>
+
+                    <div class="bg-tertiary/5 border-l-4 border-tertiary p-6 rounded-r-lg mb-8">
+                        <p class="font-bold text-tertiary mb-1">Lo que obtienes:</p>
+                        <p class="text-sm">Menos tiempo, menos costo y menos prueba y error. Un sistema controlado, fácil de ajustar y de mejorar, que se convierte en un activo de tu organización.</p>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-primary to-primary-container rounded-[40px] min-h-[420px] lg:h-[550px] flex flex-col justify-center p-10 md:p-14 shadow-2xl text-white">
+                    <p class="font-headline font-bold uppercase tracking-widest text-sm text-white/70 mb-6">Antes de construir</p>
+                    <p class="text-3xl md:text-4xl font-headline font-black leading-tight mb-10">¿Tu equipo está construyendo con IA sobre un proceso definido, o sobre la marcha?</p>
+                    <a href="ia/" class="self-start bg-white text-primary px-6 py-3 rounded-md font-bold hover:shadow-lg transition-all transform hover:-translate-y-0.5">Conoce cómo lo hacemos</a>
+                </div>
+            </div>
+        </section>
+
         <!-- Solución 1 - Qlik -->
         <section class="py-20 bg-surface-container-low/30">
             <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

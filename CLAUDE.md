@@ -4,11 +4,11 @@ Contexto del proyecto para sesiones de Claude Code. Complementa (no reemplaza) l
 
 ## Qué es esto
 
-Sitio web corporativo de **Appunto MX, S.A. de C.V.** — consultoría de negocio y tecnología en Querétaro, México. Implementan **Odoo** (ERP) y **Qlik** (integración y analítica de datos).
+Sitio web corporativo de **Appunto MX, S.A. de C.V.** — consultoría de negocio y tecnología en Querétaro, México. Su línea principal son las **implementaciones de IA** (desde nov 2026), sobre **Odoo** (ERP) y **Qlik** (integración y analítica de datos).
 
 - Producción: <https://appunto.mx> (también `appunto-web.vercel.app`)
 - CTA principal en todo el sitio: `https://appunto-mx.odoo.com/book/EU30` ("Agenda un diagnóstico gratuito")
-- Contacto: contacto@appunto.mx · WhatsApp `https://wa.me/524464066544`
+- Contacto: contacto@appunto.mx · WhatsApp `https://wa.me/524464066544` (Business simple). La landing `jornada/` usa el WhatsApp integrado con Meta y Odoo, `https://wa.me/524429253989`, para que los leads de campaña lleguen al CRM; así lo pidió Eduardo el 19 nov 2026.
 
 ## Stack
 
@@ -29,12 +29,13 @@ Sitio web corporativo de **Appunto MX, S.A. de C.V.** — consultoría de negoci
 
 ```
 index.html              Home
-soluciones.html         Soluciones (Odoo + Qlik)
+soluciones.html         Soluciones (IA + Qlik + Odoo)
 industrias.html         6 industrias atendidas
 nosotros.html           Quiénes somos
 contacto.html           Contacto (email, WhatsApp, booking). NO tiene formulario
 odoo/index.html         Landing de Odoo (+ carpetas con videos/imágenes por módulo)
 qlik/index.html         Landing de Qlik
+ia/index.html           Implementaciones de IA (línea principal desde nov 2026)
 jornada/index.html      Landing de campaña: registro electrónico de jornada (reforma LFT). Ver abajo
 avisodeprivacidad/      Aviso de Privacidad Integral (LFPDPPP)
 api/contact.js          Crea lead en Odoo CRM. Lo usa el formulario de jornada/
@@ -49,7 +50,7 @@ logos/ images/ img_industrias/   Assets
 ## Convenciones al editar
 
 1. **Todo cambio de layout/estilo se hace en el HTML con clases Tailwind**, no en CSS externo.
-2. **La consistencia entre páginas es manual.** Nav, footer, GA4, favicon y chatbot están duplicados en los 8 HTML. Si tocas uno de esos bloques, tócalos **todos** — verifica con `grep -l` antes de declarar terminado.
+2. **La consistencia entre páginas es manual.** Nav, footer, GA4, favicon y chatbot están duplicados en los 9 HTML (las 8 de siempre + `ia/`; `jornada/` va aparte). Si tocas uno de esos bloques, tócalos **todos** — verifica con `grep -l` antes de declarar terminado.
 3. Paleta (definida en el `tailwind.config` inline de cada página):
    - `primary` `#31728D` (Calypso) · `primary-container` `#215c75`
    - `tertiary` `#991199` (Violet Eggplant) — solo para acentos y overlines
@@ -99,7 +100,7 @@ Reconsiderar solo si se construye un servidor MCP real que exponga la informaci�
 
 ### Servicios: qué se puede afirmar públicamente
 
-Las líneas de servicio verificables hoy son **Odoo y Qlik**. La empresa está transicionando hacia soluciones de **IA**, pero eso aún no está formalizado: no lo declares como servicio en JSON-LD, FAQs ni copy estructurado hasta que el usuario confirme que ya es oferta firme. Los motores de respuesta citan lo que encuentran, y una afirmación prematura se propaga.
+Desde el 19 nov 2026 (Team Back, confirmado por Erik) la línea principal son las **implementaciones de IA**, con página propia en [ia/index.html](ia/index.html) y declaradas en el JSON-LD de la organización, las FAQ del home, `llms.txt` y el `SYSTEM_PROMPT`. La postura es "la IA acelera, el proceso es el que dirige": se parte de un sistema de código abierto con procesos probados (Odoo) y la IA lo adapta. **Odoo** (ERP) y **Qlik** (gestión de datos) siguen como líneas de servicio, más la solución de reforma laboral en `jornada/`. No afirmes casos de cliente, cifras ni capacidades de IA que no estén en esa página: los motores de respuesta citan lo que encuentran.
 
 ### `jornada/` — landing de campaña
 
@@ -114,7 +115,7 @@ Landing del registro electrónico de jornada (reforma a la LFT, obligatorio el 1
 - `jornada/infografias/`: 4 PDF "10 cosas que debes saber de la reforma de 40 horas", uno por tamaño de empresa. 7 puntos comunes + 3 por tamaño. Se generan con `herramientas/infografias-jornada.py` + `herramientas/infografias-jornada-pdf.js` (la carpeta no se publica); si cambia la ley o salen los lineamientos de la STPS, hay que rehacerlos.
 - El formulario manda un lead a `/api/contact` con `reto` = qué pidió + tamaño de empresa y, al terminar, muestra el botón de descarga del PDF que corresponde al tamaño elegido. Los PDF son públicos por URL: el formulario es para captar el lead, no una barrera real.
 - Las FAQ siguen la regla del punto 9: `<details>` visible y `FAQPage` deben decir lo mismo (`verificar-contenido.test.js` ya incluye esta página).
-- Menciona IA como parte de la implementación (recordatorios por WhatsApp y alertas) porque así venía el brief; no está declarada como servicio en el JSON-LD.
+- Menciona IA como parte de la implementación (recordatorios por WhatsApp y alertas). Desde el Team Back del 19 nov 2026 el hero abre con la obligación legal ("La reforma a la Ley Federal del Trabajo obliga..."), luego las multas y luego la introducción de Odoo con IA; el mensaje prellenado de WhatsApp dice "registro electrónico de asistencia".
 
 ## Backend y secretos
 
@@ -148,7 +149,7 @@ Flujo: rama → `git push -u origin <rama>` → `gh pr create --base master`. Ve
 - **Formularios:** el único es el de la infografía en `jornada/`, que llama a `api/contact.js` (publicado desde nov 2026; ya no está en `.vercelignore`). `contacto.html` sigue sin formulario: solo email, WhatsApp y el booking.
 - **`www.appunto.mx` no resuelve** (fallo de conexión, no redirección). Quien lo teclee ve un error.
 - `AGENTS.md` (contexto para otros agentes) y este `CLAUDE.md` se solapan a propósito: `AGENTS.md` es la versión corta con las zonas prohibidas; este archivo es la referencia completa.
-- **Menú móvil:** existe desde nov 2026 en las 8 páginas. Bajo 1024px el nav muestra el logo y un botón (`#menu-movil-boton`, SVG en línea, no Material Symbols porque tres páginas no cargan esa fuente) que abre `#menu-movil` con los 7 enlaces y el CTA. El JS es un `<script>` corto dentro del `<nav>`; cierra con Escape y al pasar a escritorio. El nav es idéntico en las 8 páginas salvo el prefijo `../` y el enlace activo (`aria-current="page"`).
+- **Menú:** desde el 19 nov 2026 el nav es Inicio · Soluciones ▾ · Industrias · Nosotros · Contacto. Qlik y Odoo ya no van arriba: Soluciones es un desplegable (hover y foco, solo CSS con `group-hover`/`group-focus-within`) con Implementaciones de IA (`ia/`), ERP (`odoo/`), Gestión de datos (`qlik/`) y Reforma laboral (`jornada/`); el texto "Soluciones" sigue enlazando a `soluciones.html`. En odoo/, qlik/ e ia/ se marca Soluciones como activo y la subopción lleva `aria-current`. La columna "Soluciones" del footer lista las mismas cuatro. Bajo 1024px el nav muestra el logo y un botón (`#menu-movil-boton`, SVG en línea, no Material Symbols porque tres páginas no cargan esa fuente) que abre `#menu-movil` con los enlaces (las cuatro soluciones sangradas bajo Soluciones) y el CTA. El JS es un `<script>` corto dentro del `<nav>`; cierra con Escape y al pasar a escritorio. El nav es idéntico en las 9 páginas salvo el prefijo `../` y el enlace activo.
 - Assets pesados versionados en git: `OdooAppuntoDemoComercial.mp4` (~10 MB) y `qlik_espanol.mp4` (~11 MB).
 
 ## Git

@@ -16,7 +16,7 @@
 const fs = require('fs');
 
 const PAGINAS = ['index.html', 'soluciones.html', 'industrias.html', 'nosotros.html',
-                 'contacto.html', 'odoo/index.html', 'qlik/index.html',
+                 'contacto.html', 'odoo/index.html', 'qlik/index.html', 'ia/index.html',
                  'avisodeprivacidad/index.html', 'jornada/index.html'];
 
 let fallos = 0;
