@@ -10,6 +10,8 @@
         gtag('js', new Date());
         gtag('config', 'G-GDXKBMMKZ9');
     </script>
+    <!-- Meta Pixel: el ID y los eventos viven en /meta-pixel.js -->
+    <script async src="/meta-pixel.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Registro electrónico de jornada laboral en Odoo | Appunto</title>
     <meta name="description" content="Desde el 1 de enero de 2027 las empresas deben registrar de forma electrónica la entrada y salida de cada trabajador. En Appunto lo dejamos listo en Odoo, conectado a tu nómina.">
@@ -1408,6 +1410,7 @@
                 listo.hidden = false;
                 listo.focus();
                 if (window.gtag) gtag('event', 'generate_lead', { form: 'infografia_jornada', company_size: tam.getAttribute('data-corto') });
+                if (window.fbq) fbq('track', 'Lead', { content_name: 'infografia_jornada', content_category: tam.getAttribute('data-corto') });
             }).catch(function (err) {
                 falla(err.message || 'No pudimos registrar tus datos. Escríbenos por WhatsApp al 446 406 6544 y te la mandamos.');
             }).then(function () {
