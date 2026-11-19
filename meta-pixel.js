@@ -13,7 +13,7 @@
  *             infografia se registra bien (ver "generate_lead" ahi).
  */
 (function () {
-    var PIXEL_ID = '';
+    var PIXEL_ID = '756476556494919';
 
     if (!PIXEL_ID || window.fbq) return;
 
