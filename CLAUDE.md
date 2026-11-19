@@ -21,6 +21,8 @@ Sitio web corporativo de **Appunto MX, S.A. de C.V.** — consultoría de negoci
 - Backend: dos funciones serverless de Vercel en `api/` (CommonJS, `module.exports = async function handler(req, res)`).
 - Deploy: Vercel, **auto-deploy en cada `git push` a `master`**. `vercel.json` sirve la raíz tal cual (`outputDirectory: "."`, sin build command).
 
+- Medición: GA4 (`G-GDXKBMMKZ9`) inline en cada página + **Meta Pixel en [meta-pixel.js](meta-pixel.js)**, cargado con `<script async src="/meta-pixel.js">` justo debajo de GA4 en las 9 páginas (jornada incluida). El ID vive solo en ese archivo; con `PIXEL_ID` vacío no carga nada. Manda `PageView`, `Schedule` (clic a la agenda), `Contact` (WhatsApp/mailto) y `Lead` (formulario de jornada, en su `<script>`). El aviso de privacidad (§6) lo menciona; si se agrega otra herramienta de rastreo, agrégala ahí también.
+
 ⚠️ `css/styles.css` y `js/main.js` son **legacy y no están enlazados por ninguna página**. No los edites esperando que afecten el sitio.
 
 ## Estructura
